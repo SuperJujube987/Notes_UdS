@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.6)  11 SEP 2025 13:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.6)  11 SEP 2025 14:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,7 +888,7 @@ Package rerunfilecheck Info: File `notes_MAT141.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  22480 strings out of 474486
- 415085 string characters out of 5743755
+ 415055 string characters out of 5743755
  1948542 words of memory out of 5000000
  44332 multiletter control sequences out of 15000+600000
  571514 words of font info for 93 fonts, out of 8000000 for 9000
