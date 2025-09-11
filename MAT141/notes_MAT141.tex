@@ -1,0 +1,865 @@
+\documentclass{report}
+\usepackage[letterpaper,portrait,margin=2cm]{geometry}
+\usepackage{titlesec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{wasysym}
+
+\hypersetup{
+	colorlinks=false
+}
+
+\title{Notes MAT141}
+\author{Julien Houle}
+\date{Automne 2025}
+
+\newcounter{cours}
+\setcounter{cours}{1}
+\newcommand*{\cours}{\section*{Cours \thecours}\stepcounter{cours}}
+
+\newcommand*{\abs}[1]{\left| #1 \right|}
+\newcommand*{\card}[1]{\left| #1 \right|}
+
+\titleformat{\chapter}[hang]{\bfseries\huge\centering}{Chapitre \arabic{chapter}}{1em}{}[]
+\titleformat{\section}[hang]{\bfseries\large}{Section \arabic{chapter}.\arabic{section}}{1em}{}[]
+\titleformat{\subsection}[hang]{\bfseries\normalsize}{}{0pt}{}[]
+\titleformat{\subsubsection}[hang]{\slshape\normalsize}{}{0pt}{}[]
+
+\newtheorem*{thm}{Th\'eor\`eme}
+\newtheorem*{lem}{Lemme}
+\newtheorem*{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem*{defin}{D\'efinition}
+\theoremstyle{remark}
+\newtheorem*{exem}{Exemple}
+\newtheorem*{exer}{Exercice}
+\newtheorem*{nota}{Notation}
+\newtheorem*{rema}{Remarque}
+\newtheorem*{rappel}{Rappel}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+
+	\chapter{Ensembles}
+	\cours
+	Id\'ee: ensemble=patate
+
+	\begin{tikzpicture}
+		\path[smooth cycle,very thick,draw=black] plot coordinates {(0,-.3) (-1,-1) (-1.5,-3) (-.8,-3.9) (0,-4) (.8,-3.8) (1.4,-3) (.8,-1.5)};
+		\node[font=\Large] () at (0,-1) {$a$};
+		\node[font=\Large] () at (-.5,-2) {$b$};
+		\node[font=\Large] () at (.5,-3) {$c$};
+		\node[anchor=east] () at (-1,-.3) {$E=$};
+		\node[anchor=west] () at (1,-1) {$=\{a,b,c\}$};
+	\end{tikzpicture}
+
+	\begin{nota}
+		$E \subseteq F \Leftarrow \forall x \in E, x \in F$.
+		\begin{rema}
+			$E \subseteq E$.
+		\end{rema}
+	\end{nota}
+
+	\begin{nota}
+		La cardinalit\'e d'un ensemble, $\card{E}$, est le nombre d'\'el\'ements d'un ensemble.
+	\end{nota}
+
+	\begin{defin}
+		D\'efinition d'un ensemble par \emph{compr\'ehension}: $E=\left\lbrace n \in \mathbb{Z} \middle| 1 \leq n \leq 20 \right\rbrace$.
+	\end{defin}
+
+	\begin{nota}
+		$E=F \Leftrightarrow E \subseteq F$ et $F \subseteq E$.
+	\end{nota}
+
+	\begin{defin}
+		Produit cart\'esien: $E \times F=\left\lbrace (x,y) \middle| x \in E, y \in F \right\rbrace$.
+	\end{defin}
+
+	\begin{defin}
+		Fonction/Application
+
+		$f: A \to B$, $A$ et $B$ des ensembles, associe \`a \emph{chaque} $x \in A$ un \emph{unique} \'el\'ement $f(x) \in B$.
+	\end{defin}
+
+	\cours
+	\begin{rappel}
+		~
+
+		\begin{tabularx}{.9\textwidth}{cl>{\raggedright\arraybackslash}X}
+			\textbullet&Ensemble&collection d'objets\\
+			\textbullet&$\in$&``\'el\'ement'' d'un ensemble\\
+			\textbullet&\emph{sous-ensemble} $(\subseteq)$&$E \subseteq F$ si $x \in E$ \emph{implique} $x \in F$\\
+			\textbullet&$E=F$&ssi $E \subseteq F$ et $F \subseteq E$\\
+			\textbullet&$\cup$&union\\
+			&$\cap$&intersection\\
+			\textbullet&$E \times F$&produit cart\'esien (paires $(x,y)$)\\
+			\textbullet&$f:E \to F$&\emph{fonction} ou \emph{application}, associe \`a \underline{chaque $x \in E$} un unique $\underline{f(x)} \in F$, image de $x$ par $f$\\
+			\textbullet&$\mathds{1}$&$\mathds{1}_E:E \to E$ est d\'efinie comme $\mathds{1}_E(x)=x$
+		\end{tabularx}
+	\end{rappel}
+
+
+	\subsection{Mani\`eres de d\'efinir une fonction}
+	\begin{itemize}[noitemsep]
+		\item \'enum\'erer $f(x)$ pour chaque $x \in E$
+		\item donner une formule
+
+		une formule ne d\'efinit pas tjrs une fonction, elle doit \^etre valide pour chaque $x$ de l'ensemble de d\'epart.
+		\item en mots (d\'ecrire la valeur pour chaque $x \in E$)
+		\item m\'elange de formule et mots
+	\end{itemize}
+
+	\begin{defin}
+		Une fonction $f:E \to F$ est \emph{inversible} s'il existe une fonction $\underbrace{g:F \to E}_{*}$ telle que $\underbrace{g(f(x))=x}_{**}$ pour tout $x \in E$ et $\underbrace{f(g(y))=y}_{***}$ pour tout $y \in F$.
+	\end{defin}
+
+	\begin{exem}
+		$f:\mathbb{Z} \to \mathbb{Z}$, $f(x)=x+1$ est inversible d'inverse $g(y)=y-1$
+
+		\begin{proof}[d\'emo.]
+			~
+
+			On v\'erifie que
+			\begin{align*}
+				g(f(x))&= x& g(f(x))&= g(x+1)\\
+				&&&= (x+1)-1\\
+				&&&= x\\
+				f(g(y))&= y& f(g(y))&= f(y-1)\\
+				&&&= (y-1)+1\\
+				&&&= y
+			\end{align*}
+		\end{proof}
+	\end{exem}
+
+	\begin{prop}
+		Si $f$ admet un inverse, celui-ci est unique.
+
+		\begin{proof}[d\'emo.]
+			~
+
+			Supposons que $g_1$ et $g_2$ sont tous deux inverses de $f$ et montrons qu'elles sont \'gales.
+
+			(Pour d\'emontrer que deux fonctions sont \'egales, il suffit de montrer que $g_1(y)=g_2(y)$ pour tout $y \in F$)
+
+			Soit $y \in F$.
+
+			On a
+			\begin{align*}
+				g_1(y)&\overbrace{=}^{***} g_1(\underbrace{f(g_2(y))}_{*})\\
+				&\overbrace{=}^{**} g_2(y)
+			\end{align*}
+		\end{proof}
+	\end{prop}
+
+	\begin{defin}
+		Si $f:E \to F$ et $g:F \to G$, alors la compos\'ee de $f$ et $g$ est la fonction $g \circ f:E \to G$ d\'efinie par la formule $g \circ f(x)=g(f(x))$.
+	\end{defin}
+
+	\begin{defin}[Red\'efinition de l'inverse]
+		$g \circ f=\mathds{1}_E$
+
+		$f \circ g=\mathds{1}_F$
+	\end{defin}
+
+	\begin{exem}
+		$A=\{a,b,c\}$
+
+		$B=\{d,e,f\}$
+
+		$f:A \to B$, $a \mapsto d, b \mapsto e, c \mapsto f$
+
+		$g:B \to A$, $d \mapsto a, e \mapsto b, f \mapsto c$
+
+		$g \circ f:A \to A$, $g \circ f(x)=x$, $g \circ f=\mathds{1}_A$.
+
+		De la \^m mani\`ere, $f \circ g=\mathds{1}_B$.
+
+		~
+
+		Ainsi, $g$ est l'inverse de $f$.
+	\end{exem}
+
+	\begin{nota}
+		On note $g=f^{-1}$ l'inverse de $f$.
+	\end{nota}
+
+
+	\begin{rappel}
+		Pour trouver l'inverse d'une fonction $f:\mathbb{R} \to \mathbb{R}$ donn\'ee par une formule $f(x)=y$, on isole $x$ en fonction de $y$.
+	\end{rappel}
+
+
+	\begin{exem}
+		\begin{align*}
+			f(x)&= 3x-8\\
+			y&= 3x-8\\
+			y+8&= 3x\\
+			\dfrac{y+8}{3}&= x\\
+			g(y)&= \dfrac{y+8}{3}
+		\end{align*}
+
+		Dans un devoir, on commence par la formule de l'inverse et on v\'erifie $g(f(x))=x$ et $f(g(y))=y$.
+	\end{exem}
+
+	\begin{defin}
+		On dit que $f:E \to F$ est une fonction \emph{injective} si $f(x_1)=f(x_2)$ implique $x_1=x_2$.
+	\end{defin}
+
+	\begin{defin}
+		On dit que $f:E \to F$ est une fonction \emph{surjective} si pour tout $y \in F,~\exists~x \in E$ t.q. $f(x)=y$.
+	\end{defin}
+
+	\begin{defin}
+		On dit que $f:E \to F$ est une fonction \emph{bijective} si elle est injective \textbf{et} surjective.
+	\end{defin}
+
+	\begin{exem}
+		$f:\mathbb{R} \to \mathbb{R}^{\geq0}$, $f(x)=\abs{x}$
+
+		$f$ n'est pas injective, car $f(1)=\abs{1}=1$ et $f(-1)=\abs{-1}=1$, mais $1 \neq -1$.
+
+		$f$ est surjective, car soit $y \in \mathbb{R}^{\geq0}$, alors pour $x=y$, on a $f(x)=f(y)=\abs{y}=y$.
+
+		~
+
+		\[
+		\begin{array}{rrcl}
+			f:&\mathbb{N}&\to&\mathbb{N}\\
+			&x&\mapsto&x+1
+		\end{array}
+		\]
+
+		$f$ est injective:
+
+		Soient $x_1,x_2 \in \mathbb{N}$.
+
+		On suppose $f(x_1)=f(x_2)$.
+
+		\begin{align*}
+			x_1+1&= x_2+1\\
+			x_1&= x_2
+		\end{align*}
+
+		$f$ n'est pas surjective
+
+		$y=0\in\mathbb{N}$ n'est pas \'egal \`a $f(x)$ pour $x\in\mathbb{N}$. Si il existait $x$ avec $f(x)=0$, $x+1=0$, $x=-1$, $x \not\in \mathbb{N}$.
+
+		~
+
+		$f:\mathbb{R}\to\mathbb{R}$, $x \mapsto 2x+3$.
+
+		$f$ est injective:
+
+		Soient $x_1,x_2 \in \mathbb{R}$.
+
+		supposons $f(x_1)=f(x_2)$, $2x_1+3=2x_2+3$, $2x_1=2x_2$, $x_1=x_2$.
+
+		$f$ est surjective:
+
+		Soit $y \in \mathbb{R}$.
+
+		On cherche $x$ t.q. $f(x)=y$.
+
+		Posons $x=\dfrac{y-3}{2} \in \mathbb{R}$.
+
+		Alors, $f(x) = f\left( \dfrac{y-3}{2} \right) = 2 \cdot  \dfrac{y-3}{2} + 3 = y-3+3 = y$.
+
+		Ainsi, $f$ est bijective.
+
+		~
+
+		$f:A \to B$, avec $A=\{1,48,57\}$ et $B=\{a,b,c\}$.
+
+		$1 \mapsto a$, $48 \mapsto a$, $57 \mapsto b$.
+
+		$f$ n'est pas injective, car $1 \mapsto a$ et $48 \mapsto a$  avec $1 \neq 48$.
+
+		$f$ n'est pas surjective, car aucun \'el\'ement de $x \in A \mapsto c$.
+	\end{exem}
+
+	\begin{rema}
+		La fonction $f':A \to B'$ avec $B'=\{a,b\}$ est surjective.
+	\end{rema}
+
+
+	\cours
+	\begin{rappel}
+		$A, B$ deux ensembles
+
+		\begin{itemize}[noitemsep]
+			\item $f:A \to B$ une fonction, associe \`a chaque $x \in A$ un unique $f(x) \in B$. $x \mapsto f(x)$.
+			\item $f$ est \emph{inversible} s'il existe $g:B \to A$ t.q. $g(f(a))=a$ pour tout $a \in A$ et $f(g(b))=b$ pour tout $b \in B$.
+			\item l'inverse est \emph{unique}.
+			\item La composition de $f:A \to B$ avec $g:B \to C$ est $g \circ f:A \to C$ avec $(g \circ f)(a)=g(f(a))$.
+			\item $f$ est injective si $f(x_1)=f(x_2) \Rightarrow x_1=x_2$.
+			\item $f$ est surjective si pour tout $b \in B$ il existe $a \in A$ t.q. $f(a)=b$.
+			\item $f$ est bijective si elle est injective et surjective.
+		\end{itemize}
+	\end{rappel}
+
+
+	\begin{prop}
+		$f:A \to B$ est bijective \emph{ssi} elle est inversible.
+
+		\begin{proof}[d\'emo]
+			~
+
+			$\Leftarrow$:
+
+			Supposons que $f$ est inversible.
+
+			Alors, il existe un inverse $g:B \to A$.
+
+			(inj): Soient $x_1,x_2 \in A$.
+
+			On suppose que $f(x_1)=f(x_2)$.
+
+			Alors, $g(f(x_1)) = g(f(x_2))$
+
+			Donc, $x_1 = x_2$
+
+			(surj): Soit $y \in B$.
+
+			Posons $x=g(y) \in A$.
+
+			Alors, $f(x)=f(g(y))=y$.
+
+			$\Rightarrow$:
+
+			Supposons $f$ est injective et surjective.
+
+			\begin{lem}
+				Pour \emph{chaque} $y \in B$, il existe un \emph{unique} $x \in A$ t.q. $f(x)=y$.
+
+				\renewcommand{\qedsymbol}{$\blacksquare$}
+				\begin{proof}[d\'emo]
+					~
+
+					\underline{Existance}:
+					Comme $f$ est surjective, $x$ existe.
+
+					\underline{Unicit\'e}:
+					Supposons $x_1,x_2 \in A$ t.q. $f(x_1)=f(x_2)$, alors $x_1=x_2$.
+				\end{proof}
+				\renewcommand{\qedsymbol}{$\square$}
+			\end{lem}
+
+			On d\'efinit $g:B \to A$ par $g(y)=x$ o\`u $x$ est l'unique \'el\'ement du lemme.
+
+			On v\'erifie:
+
+			Soit $x \in A$, alors $g(\underbrace{f(x)}_y)=x$, par d\'efinition de $g$.
+
+			Soit $y \in B$, alors $f(\underbrace{g(y)}_{\text{l'unique $x$ t.q. $f(x)=y$}})=y$.
+		\end{proof}
+	\end{prop}
+
+	\begin{defin}
+		Une \emph{op\'eration} (interne, binaire) sur un ensemble $E$ est un fonction $m:E \times E \to E$.
+	\end{defin}
+
+	\begin{exem}
+		$E=\mathbb{Z}$,
+
+		$\begin{array}{rrcl}
+			m:&\mathbb{Z} \times \mathbb{Z} &\longrightarrow& \mathbb{Z}\\
+			&(n,m)&\longmapsto&n + m
+		\end{array}$
+
+		$\begin{array}{rrcl}
+			m:&\mathbb{Z} \times \mathbb{Z} &\longrightarrow& \mathbb{Z}\\
+			&(n,m)&\longmapsto&n \cdot m
+		\end{array}$
+
+		~
+
+		$\begin{array}{rrcl}
+			d:&\mathbb{Q} \times \mathbb{Q}&\longrightarrow&\mathbb{Q}\\
+			&(x,y)&\longmapsto&\frac{x}{y}
+		\end{array}$
+
+		n'est pas une op\'eration, car $(1,0) \mapsto \frac{1}{0}$ qui n'est pas d\'efini. ($d$ n'est pas une fonction.)
+
+		Cependant,
+
+		$\begin{array}{rrcl}
+			d:&\mathbb{Q}^* \times \mathbb{Q}^*&\longrightarrow&\mathbb{Q}^*\\
+			&(x,y)&\longmapsto&\frac{x}{y}
+		\end{array}$
+
+		est une op\'eration.
+
+		~
+
+		$A$ un ensemble
+
+		$E=\{f:A \to A\}$, o\`u $f$ est une fonction.
+
+		$\begin{array}{rrcl}
+			c:&E \times E&\longrightarrow&E\\
+			&(f,g)&\longmapsto&f \circ g
+		\end{array}$
+
+		La composition est une op\'eration.
+	\end{exem}
+
+	\begin{nota}
+		On note la plupart du temps une op\'eration par un symbole entre les entr\'ees.
+	\end{nota}
+
+	\begin{exem}
+		$m(x,y) \coloneq x*y$, ou $x+y$, ou $x \circ y$, ou $xy$
+	\end{exem}
+
+	\begin{defin}~
+
+		Un \emph{\'el\'ement neutre} pour une op\'eration $*$ est un \'el\'ement $e \in E$ t.q. pour tout $x \in E$, $e*x=x$ et $x*e=x$.
+	\end{defin}
+
+	\cours
+	\begin{rappel}
+		~
+
+		\begin{itemize}[noitemsep]
+			\item $f:E \to F$ est bijective $\Leftrightarrow$ $f$ est inversible.
+			\item L'inverse est unique $(g=f^{-1})$
+			\item Op\'eration: $m:E \times E \to E$, ou
+			$\begin{array}{rrcl}
+				*:&E \times E&\to&E\\
+				&(x,y)&\mapsto&z
+			\end{array}$
+			\item \'El\'ement neutre: $e \in E$ t.q. $e*x=x$ et $x*e=x$.
+			\item $f$ est injective si tout $y \in F$ a au plus un ant\'ec\'edent
+			\item $f$ est surjective si tout $y \in F$ a au moins un ant\'ec\'edent
+			\item $f$ est bijective si tout $y \in F$ a exactement un ant\'ec\'edent
+			\item $x$ est ant\'ec\'edent de $y$ si $f(x)=y$
+		\end{itemize}
+	\end{rappel}
+
+	\begin{exem}
+		Sur $\mathbb{N}$,
+
+		\begin{itemize}
+			\item $0$ est neutre pour $+$.
+			\begin{align*}
+				0+n&=n\\
+				n+0&=n
+			\end{align*}
+			\item $1$ est neutre pour $\times$.
+			\begin{align*}
+				1 \times n&=n\\
+				n \times 1&=n
+			\end{align*}
+		\end{itemize}
+
+		Sur $\mathbb{Z}$, $-$ est une op\'eration mais elle n'a pas d\'el\'ement neutre.
+		\renewcommand{\qedsymbol}{\lightning}
+		\begin{proof}[En effet,]~
+
+			Supposons que $e \in \mathbb{Z}$ est neutre, alors $e-n=n$ pour tout $n$.
+
+			Pour $n=0$, $e-0=0$, donc $e=0$.
+
+			Pour $n=1$, $e-1=1$, donc $-1=1$.
+		\end{proof}
+		\renewcommand{\qedsymbol}{$\square$}
+		\begin{itemize}
+			\item Sur l'ensemble $E=\left\lbrace \left( \begin{array}{cc}
+				a&b\\c&d
+			\end{array}\right) \middle| a,b,c,d \in \mathbb{R}\right\rbrace$, la multiplication matricielle $\times$ est une op\'eration.
+
+			La matrice $I=\left( \begin{array}{cc}
+				1&0\\0&1
+			\end{array}\right)$ est neutre pour $\times$.
+			\item Sur $E=\{f:A \to A\}$, la fonction $\mathds{1}_A$ est neutre pour la composition de fonctions.
+			\begin{proof}[d\'emonstration]~
+
+				On doit montrer $\mathds{1}_A \circ f=f$ et $f \circ \mathds{1}_A=f$ pour tout $f \in E$.
+				\begin{enumerate}[label=(\arabic*)]
+					\item Soit $x \in A$, alors
+					\begin{align*}
+						(\mathds{1}_A \circ f)(x)&= \mathds{1}_A(f(x))\\
+						&= f(x)
+					\end{align*}
+
+					Donc, $\mathds{1}_A \circ f=f$.
+					\item Soit $x \in A$, alors
+					\begin{align*}
+						(f \circ \mathds{1}_A)(x)&= f(\mathds{1}_A(x))\\
+						&=f(x)
+					\end{align*}
+
+					Donc,$f \circ \mathds{1}_A=f$.
+				\end{enumerate}
+			\end{proof}
+		\end{itemize}
+	\end{exem}
+
+	On peut d\'ecrire une op\'eration sur un ensemble fini avec sa table ``de multiplication''.
+	\begin{exem}
+		$A=\{0,1\}$
+
+		$f_1:\begin{array}{rcl}
+			0&\mapsto&0\\
+			1&\mapsto&0
+		\end{array},f_2:\begin{array}{rcl}
+			0&\mapsto&0\\
+			1&\mapsto&1
+		\end{array},f_3:\begin{array}{rcl}
+			0&\mapsto&1\\
+			1&\mapsto&0
+		\end{array},f_4:\begin{array}{rcl}
+			0&\mapsto&1\\
+			1&\mapsto&1
+		\end{array}$
+		On a $f_2=\mathds{1}_A$.
+
+		\[
+		\begin{array}{c||c|c|c|c}
+			\circ&f_1&f_2&f_3&f_4\\
+			\hline\hline
+			f_1&f_1&f_1&f_1&f_1\\
+			\hline
+			f_2&f_1&f_2&f_3&f_4\\
+			\hline
+			f_3&f_4&f_3&f_2&f_1\\
+			\hline
+			f_4&f_4&f_4&f_4&f_4
+		\end{array}
+		\]
+	\end{exem}
+	\begin{defin}
+		~
+
+		Une op\'eration $*$ sur $E$ est \emph{associative} si pour tout $x,y,z \in E$, on a $(x*y)*z=x*(y*z)$.
+	\end{defin}
+	\begin{prop}
+		~
+
+		Si $*$ admet un \'el\'ement neutre, alors celui-ci est \emph{unique}.
+		\begin{proof}[d\'emonstration]~
+
+			Supposons que $e$ et $e'$ sont neutres pour $*$.
+
+			On a
+			\begin{align*}
+				e*e'&=e'&&\text{car $e$ est neutre}\\
+				e*e'&=e&&\text{car $e'$ est neutre}
+			\end{align*}
+
+			Donc, $e=e'$.
+		\end{proof}
+	\end{prop}
+	\begin{defin}
+		~
+
+		Soit $E$ un ensemble, $*$ une op\'eration sur $E$ et $e \in E$ un neutre pour $*$. On dit que $a,b \in E$ sont \emph{inverses} si $a*b=e$ et $b*a=e$.
+
+		Dans ce cas, on dit que $a$ et $b$ sont inversibles.
+	\end{defin}
+	\begin{exem}
+		~
+
+		Dans $\mathbb{Z}$ avec $+$, $3$ et $-3$ sont inverses. En effet, on a $3+(-3)=0$ et $(-3)=3=0$ avec $0$ l'\'el\'ement neutre de $+$.
+	\end{exem}
+	\begin{exem}
+		~
+
+		Dans $\mathbb{Z}$ avec $\times$, le neutre est 1, mais seuls $1$ et $-1$ sont inversibles. En effet, on a $1 \times 1=1$ et $(-1) \times (-1)=1$.
+	\end{exem}
+	\begin{rema}
+		~
+
+		L'\'el\'ement neutre est son propre inverse. En effet, $e*e=e$, pour tout $*$ qui admet $e$ comme \'el\'ement neutre.
+	\end{rema}
+	\begin{prop}
+		~
+
+		Si $*$ est associative et admet un \'el\'ement neutre $e$, alors les inverses sont uniques s'ils existent.
+		\begin{proof}[d\'emonstration]~
+
+			Soit $a \in E$.
+
+			Supposons $b,b'$ sont inverses de $a$.
+
+			Alors,
+			\begin{align*}
+				b&=b*e\\
+				&=b*(a*b')&&\text{car $b'$ est inverse de $a$}\\
+				&=(b*a)*b'&&\text{associativit\'e}\\
+				&=e*b'&&\text{car $b$ est inverse de $a$}\\
+				&=b'
+			\end{align*}
+		\end{proof}
+		\begin{nota}
+			~
+
+			Comme l'inverse de $a$ est unique, on le note $a^{-1}$.
+		\end{nota}
+	\end{prop}
+	\begin{exem}
+		~
+
+		Dans $E=\{f:A \to A\}$, avec l'op\'eration $\circ$, les fonctions bijectives sont exactement celles qui sont inversibles pour $\circ$.
+	\end{exem}
+	\begin{prop}
+		~
+
+		La composition de fonctions est associative.
+		\begin{proof}[d\'emonstration]~
+
+			Soient $f:A \to B$, $g:B \to C$ et $h:C \to D$.
+
+			Soit $a \in A$.
+			\begin{align*}
+				((h \circ g) \circ f)(a)&= (h \circ g)(f(a))\\
+				&= h(g(f(a)))\\
+				&= h((g \circ f)(a))\\
+				&= (h \circ (g \circ f))(a)\\
+				(h \circ g) \circ f&= h \circ (g \circ f)
+			\end{align*}
+		\end{proof}
+	\end{prop}
+	\setcounter{chapter}{5}
+	\chapter{Groupes}
+	\begin{defin}
+		~
+
+		Un \emph{groupe} est un ensemble $G$ muni d'une op\'eration $*$ t.q.
+		\begin{enumerate}
+			\item[(A)] $*$ est associative
+			\item[(N)] $*$ admet un neutre
+			\item[(I)] tout $g \in G$ admet un inverse
+		\end{enumerate}
+	\end{defin}
+	\begin{exem}
+		~
+
+		\begin{enumerate}[label=(\arabic*)]
+			\item $(\mathbb{Z},+)$ est un groupe.
+
+			Neutre: $0$
+
+			Inverse de $n$: $-n$
+			\item $(\mathbb{Q},+)$ et $(\mathbb{R},+)$ sont des groupes.
+			\item $(\mathbb{Z},\times)$ n'est pas un groupe, car, par exemple, $2$ n'est pas inversible.
+			\item $(\mathbb{Q},\times)$ n'est pas un groupe, car $0$ n'est pas inversible.
+			\item $(\mathbb{Q}^*,\times)$ et $(\mathbb{R},\times)$ sont des groupes.
+
+			Neutre: $1$
+
+			Inverse de $x$: $\frac{1}{x}$
+		\end{enumerate}
+		\begin{rema}
+			~
+
+			$(1)$, $(2)$ et $(5)$ sont \emph{commutatifs}.
+		\end{rema}
+		\begin{rema}
+			~
+
+			$(\mathbb{N},+)$ n'est pas un groupe.
+		\end{rema}
+	\end{exem}
+	\begin{defin}
+		~
+
+		Si l'op\'eration d'un groupe est commutative, on note le groupe comme \emph{ab\'elien} (ou commutatif).
+	\end{defin}
+	\begin{enumerate}[resume]
+		\item $GL(n,\mathbb{R})$ est un groupe pour la multiplication matricielle.
+
+		$GL(n,\mathbb{R})=\{M|M \text{ est une matrice $n\times n$ r\'eelle inversible}\}$.
+
+		$GL$: g\'en\'eral lin\'eaire
+
+		Neutre: $\left( \begin{array}{ccc}
+			1&\dotsb&0\\
+			\vdots&\ddots&\vdots\\
+			0&\dotsb&1
+		\end{array} \right)$.
+
+		$M^{-1}$ la matrice inverse est l'inverse.
+
+		Pour $n \geq 2$, $GL(n,\mathbb{R})$  n'est pas ab\'elien.
+		\item $A$ un ensemble quelconque
+
+		$S(A)=\{f:A \to A|f \text{ est bijective}\}$ est un groupe pour $\circ$.
+
+		Neutre: $\mathds{1}_A$
+
+		Inverse de $f$: $f^{-1}$
+	\end{enumerate}
+	\begin{rema}
+		~
+
+		Pour $A=\{0,1\}$
+
+		$f_1:\begin{array}{rcl}
+			0&\mapsto&0\\
+			1&\mapsto&0
+		\end{array},f_2:\begin{array}{rcl}
+			0&\mapsto&0\\
+			1&\mapsto&1
+		\end{array},f_3:\begin{array}{rcl}
+			0&\mapsto&1\\
+			1&\mapsto&0
+		\end{array},f_4:\begin{array}{rcl}
+			0&\mapsto&1\\
+			1&\mapsto&1
+		\end{array}$, $S(A)=\{f_2,f_3\}$.
+	\end{rema}
+
+	\cours
+	\begin{rappel}
+		~
+
+		\begin{itemize}[noitemsep]
+			\item Groupe: $(G,*)$
+			\begin{itemize}
+				\item[$G$] ensemble
+				\item[$*$] op\'eration sur $G$
+				\item[$(A)$] $*$ est associative
+
+				$\forall a,b,c \in G, (a*b)*c=a*(b*c)$
+				\item[$(N)$] $*$ admet un \'el\'ement neutre dans $G$
+
+				$\exists e \in G$ t.q. $\forall a \in G, e*a=a=a*e$
+				\item[$(I)$] tout \'el\'ement de $G$ est inversible
+
+				$\forall a \in G, \exists b \in G$ t.q. $a*b=e=b*a$
+			\end{itemize}
+			\item Le neutre et l'inverse sont uniques
+		\end{itemize}
+	\end{rappel}
+
+	\begin{rema}
+		~
+
+		``Le groupe $\mathbb{R}$'' implique l'op\'eration $+$ et ``le groupe $\mathbb{R}^*$'' implique l'op\'eration $\times$.
+	\end{rema}
+
+	\subsection{Propri\'et\'es \'el\'ementaires des groupes}
+	\begin{enumerate}[label=(\alph*)]
+		\item $\forall a,b \in G$, $(a*b)^{-1} = b^{-1}*a^{-1}$.
+		\item $\forall a \in G$, $(a^{-1})^{-1}=a$
+		\item Si $a*b=a*c$, alors $b=c$
+		\item Si $b*a=c*a$, alors $b=c$
+	\end{enumerate}
+	\begin{proof}[d\'emonstration]~
+
+		\begin{enumerate}[label=(\alph*)]
+			\item On calcule
+			\begin{align*}
+				\begin{split}
+					(a*b)*(b^{-1}*a^{-1})&= a*(b*(b^{-1}*a^{-1}))\\
+					&= a*((b*b^{-1})*a^{-1})\\
+					&= a*(e*a^{-1})\\
+					&= a*a^{-1}\\
+					&= e
+				\end{split}
+				&
+				\begin{split}
+					(b^{-1}*a^{-1})*(a*b)&= b^{-1}*(a^{-1}*(a*b))\\
+					&= b^{-1}*((a^{-1}*a)*b)\\
+					&= b^{-1}*(e*b)\\
+					&= b^{-1}*b\\
+					&= e
+				\end{split}
+			\end{align*}
+
+			Donc, $(a*b)^{-1} = b^{-1}*a^{-1}$.
+			\item Comme $a^{-1}*a=e=a*a^{-1}$, $a$ est l'inverse de $a^{-1}$, donc $\left( a^{-1} \right)^{-1}=a$.
+			\item Supposons $a*b=a*c$. Alors
+			\begin{align*}
+				a^{-1}*(a*b)&= a^{-1}*(a*c)\\
+				(a^{-1}*a)*b&= (a^{-1}*a)*c\\
+				e*b&= e*c\\
+				b&= c
+			\end{align*}
+			\item Supposons $b*a=c*a$. Alors
+			\begin{align*}
+				(b*a)*a^{-1}&= (c*a)*a^{-1}\\
+				b*(a*a^{-1})&= c*(a*a^{-1})\\
+				b*e&= c*e\\
+				b&= c
+			\end{align*}
+		\end{enumerate}
+	\end{proof}
+	\begin{exem}
+		~
+
+		$\left( \mathbb{Z}_3,+ \right)$.
+
+		$\mathbb{Z}_3=\left\lbrace \overline{0}, \overline{1}, \overline{2} \right\rbrace$
+
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c}
+			+&\overline0&\overline1&\overline2\\
+			\hline\hline
+			\overline0&\overline0&\overline1&\overline2\\
+			\hline
+			\overline1&\overline1&\overline2&\overline3\\
+			\hline
+			\overline2&\overline2&\overline0&\overline1
+		\end{array}
+		\]
+		\renewcommand{\arraystretch}{1}
+
+		$+$ est associative.
+
+		$\overline{0}$ est l'\'el\'ement neutre.
+
+		$(\overline{1})^{-1}=\overline{2}$.
+
+		$(\overline{2})^{-1}=\overline{1}$.
+
+		$\left( \mathbb{Z}_3,+ \right)$ est un groupe ab\'elien.
+		\begin{rema}
+			La sym\'etrie de la table par rapport \`a la diagonale implique la commutativit\'e.
+		\end{rema}
+	\end{exem}
+	\begin{exem}
+		~
+
+		$\left( \mathbb{D}_3, \circ \right)$ - groupe dih\'edral d'ordre 3.
+
+		Groupe des sym\'etries d'un triangle \'equilat\'eral.
+
+		$\mathbb{D}_3=\left\lbrace \underset{\text{identit\'e}}{\varepsilon}, \underset{\text{r\'eflexion par rapport \`a la verticale}}{\alpha}, \underset{\text{r\'eflexion par rapport \`a /}}{\beta}, \underset{\text{r\'eflexion par rapport \`a \textbackslash}}{\gamma}, \underset{\text{rotation de 120\textdegree}}{\rho}, \underset{\text{rotation de -120\textdegree}}{\sigma} \right\rbrace$.
+
+		La table table suivante est pr\'esent\'ee \`a la page 116 du livre ``Cours d'alg\`ebre'' de Assem-Leduc.
+
+		\[
+		\begin{array}{c||c|c|c|c|c|c}
+			\circ&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+			\hline\hline
+			\varepsilon&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+			\hline
+			\alpha&\alpha&\varepsilon&\rho&\sigma&\beta&\gamma\\
+			\hline
+			\beta&\beta&\sigma&\varepsilon&\rho&\gamma&\alpha\\
+			\hline
+			\gamma&\gamma&\rho&\sigma&\varepsilon&\alpha&\beta\\
+			\hline
+			\rho&\rho&\gamma&\alpha&\beta&\sigma&\varepsilon\\
+			\hline
+			\sigma&\sigma&\beta&\gamma&\alpha&\varepsilon&\rho
+		\end{array}
+		\]
+
+		$\left( \mathbb{D}_3, \circ \right)$ n'est pas un groupe ab\'elien.
+	\end{exem}
+\end{document}
