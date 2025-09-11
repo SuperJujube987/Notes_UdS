@@ -17,6 +17,8 @@
 	colorlinks=false
 }
 
+\renewcommand{\contentsname}{Table des mati\`eres}
+
 \title{Notes MAT141}
 \author{Julien Houle}
 \date{Automne 2025}
@@ -28,8 +30,12 @@
 \newcommand*{\abs}[1]{\left| #1 \right|}
 \newcommand*{\card}[1]{\left| #1 \right|}
 
+\renewcommand{\thesection}{Section \arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+
 \titleformat{\chapter}[hang]{\bfseries\huge\centering}{Chapitre \arabic{chapter}}{1em}{}[]
-\titleformat{\section}[hang]{\bfseries\large}{Section \arabic{chapter}.\arabic{section}}{1em}{}[]
+\titleformat{\section}[hang]{\bfseries\large}{}{1em}{}[]
 \titleformat{\subsection}[hang]{\bfseries\normalsize}{}{0pt}{}[]
 \titleformat{\subsubsection}[hang]{\slshape\normalsize}{}{0pt}{}[]
 
