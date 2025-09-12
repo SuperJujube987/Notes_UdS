@@ -28,8 +28,8 @@ Donn\'e par Mario Lambert}
 \NewDocumentCommand{\continue}{O{a,b}}{\mathcal{C}\left[ #1 \right]}
 \NewDocumentCommand{\riemann}{O{a,b}}{\mathcal{R}\left[ #1 \right]}
 \NewDocumentCommand{\partitions}{O{a,b}}{\Omega\left[ #1 \right]}
-\NewDocumentCommand{\msup}{mO{[a,b]}}{\overline{M}(#1,#2)}
-\NewDocumentCommand{\minf}{mO{[a,b]}}{\underline{M}(#1,#2)}
+\NewDocumentCommand{\msup}{mO{a,b}}{\overline{M}\left( #1,\left[ #2 \right] \right)}
+\NewDocumentCommand{\minf}{mO{a,b}}{\underline{M}\left( #1,\left[ #2 \right] \right)}
 \NewDocumentCommand{\ssup}{mO{\Delta}}{\overline{S}(#1,#2)}
 \NewDocumentCommand{\sinf}{mO{\Delta}}{\underline{S}(#1,#2)}
 
@@ -47,9 +47,12 @@ Donn\'e par Mario Lambert}
 \newcommand*{\rationels}{\mathbb{Q}}
 \newcommand*{\naturels}{\mathbb{N}}
 
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
 
 \titleformat{\chapter}[hang]{\bfseries\huge\centering}{Chapitre \arabic{chapter}}{1em}{}[]
-\titleformat{\section}[hang]{\bfseries\large}{Section \arabic{chapter}.\arabic{section}}{1em}{}[]
+\titleformat{\section}[hang]{\bfseries\large}{Section \arabic{chapter}.\thesection}{1em}{}[]
 \titleformat{\subsection}[hang]{\bfseries\normalsize}{}{0pt}{}[]
 \titleformat{\subsubsection}[hang]{\slshape\normalsize}{}{0pt}{}[]
 
@@ -97,8 +100,8 @@ Donn\'e par Mario Lambert}
 			\item La \emph{norme} de $\Delta$, not\'ee $\norme{\Delta}$, est $\norme{\Delta}=\displaystyle\max\limits_{i=1}^{n}\abs{x_i-x_{i-1}}$.
 			\item
 			\begin{align*}
-				\msup{f}[\left[ x_{i-1},x_1 \right]]&= \displaystyle\sup\limits_{x \in \left[ x_{i-1},x_1 \right]}f(x)\\
-				\minf{f}[\left[ x_{i-1},x_1 \right]]&= \displaystyle\inf\limits_{x \in \left[ x_{i-1},x_1 \right]}f(x)
+				\msup{f}[x_{i-1},x_1]&= \displaystyle\sup\limits_{x \in \left[ x_{i-1},x_1 \right]}f(x)\\
+				\minf{f}[x_{i-1},x_1]&= \displaystyle\inf\limits_{x \in \left[ x_{i-1},x_1 \right]}f(x)
 			\end{align*}
 		\end{enumerate}
 		\begin{rema}
@@ -116,7 +119,7 @@ Donn\'e par Mario Lambert}
 		\begin{enumerate}[label=\alph*)]
 			\item La \emph{somme de Riemann par exc\`es} (ou sup\'erieure) de $f$ pour la partition $\Delta$ est
 			\[
-			\ssup{f}= \displaystyle\sum_{i=1}^{n}\msup{f}[\left[ x_{i-1},x_i \right]] \cdot (x_i-x_{i-1})
+			\ssup{f}= \displaystyle\sum_{i=1}^{n}\msup{f}[x_{i-1},x_i] \cdot (x_i-x_{i-1})
 			\]
 			\item La \emph{somme de Riemann par d\'efaut} (ou inf\'erieure) de $f$ pour la partition $\Delta$ est
 			\[
@@ -159,10 +162,10 @@ Donn\'e par Mario Lambert}
 
 			On a
 			\begin{align*}
-				\ssup{f}-\ssup{f}[\Delta']&= \left[ \msup{f}[\left[ x_{i-1},x_i \right]] \cdot (x_1-x_{i-1}) \right]\\
-				&- \left[ \msup{f}[\left[ x_{i-1},\bar{x} \right]] \cdot (\bar{x}-x_{i-1}) + \msup{f}[\left[ \bar{x},x_i \right]] \cdot (x_i-\bar{x}) \right]\\
-				&= (x_i-\bar{x}) \left[ \msup{f}[\left[ x_{i-1},x_i \right]] - \msup{f}[\left[ \bar{x},x_i \right]] \right]\\
-				&+ (\bar{x}-x_{i-1}) \left[ \msup{f}[\left[ x_{i-1},x_i \right]] - \msup{f}[\left[ x_{i-1},\bar{x} \right]] \right]\\
+				\ssup{f}-\ssup{f}[\Delta']&= \left[ \msup{f}[x_{i-1},x_i] \cdot (x_1-x_{i-1}) \right]\\
+				&- \left[ \msup{f}[x_{i-1},\bar{x}] \cdot (\bar{x}-x_{i-1}) + \msup{f}[\bar{x},x_i] \cdot (x_i-\bar{x}) \right]\\
+				&= (x_i-\bar{x}) \left[ \msup{f}[x_{i-1},x_i] - \msup{f}[\bar{x},x_i] \right]\\
+				&+ (\bar{x}-x_{i-1}) \left[ \msup{f}[x_{i-1},x_i] - \msup{f}[x_{i-1},\bar{x}] \right]\\
 				&\geq 0
 			\end{align*}
 		\end{proof}
@@ -246,7 +249,7 @@ Donn\'e par Mario Lambert}
 		Soit $f \in \bornee$. On dit que $f$ est \emph{int\'egrable au sens de Riemann sur $[a,b]$} si $\Sinf{f}=\Ssup{f}$ et on note $f \in \riemann$. La valeur commune de $\Sinf{f}$ et $\Ssup{f}$ est not\'ee $\int_{a}^{b}f(x)\ dx$
 	\end{defin}
 
-	\addcontentsline{toc}{subsection}{Crit\`ere d'int\'egrabilit\'e}
+	\subsection{Crit\`ere d'int\'egrabilit\'e}
 	\begin{thm}[Crit\`ere d'int\'egrabilit\'e]
 		~
 
@@ -321,14 +324,14 @@ Donn\'e par Mario Lambert}
 
 			Soit donc $\Delta \in \partitions: a=x_0<x_1,\dotsc<x_n=b$ avec $\norme{\Delta}<\delta$.
 
-			Alors, $\msup{f}[\left[ x_{i-1},x_i \right]] - \minf{f}[\left[ x_{i-1},x_i \right]]<\frac{1}{n}$.
+			Alors, $\msup{f}[x_{i-1},x_i] - \minf{f}[x_{i-1},x_i]<\frac{1}{n}$.
 			\begin{rema}
-				$\msup{f}[\left[ x_{i-1},x_i \right]] - \minf{f}[\left[ x_{i-1},x_i \right]]$ peut \^etre not\'e $\mathrm{osc}_f(\left[ x_{i-1},x_i \right])$.
+				$\msup{f}[x_{i-1},x_i] - \minf{f}[x_{i-1},x_i]$ peut \^etre not\'e $\mathrm{osc}_f(\left[ x_{i-1},x_i \right])$.
 			\end{rema}
 
 			On obtient
 			\begin{align*}
-				\ssup{f}-\sinf{f}&= \sum_{i=1}^{n}\left[ \msup{f}[\left[ x_{i-1},x_i \right]] - \minf{f}[\left[ x_{i-1},x_i \right]] \right] \left( x_i-x_{i-1} \right)\\
+				\ssup{f}-\sinf{f}&= \sum_{i=1}^{n}\left[ \msup{f}[x_{i-1},x_i] - \minf{f}[x_{i-1},x_i] \right] \left( x_i-x_{i-1} \right)\\
 				&< \dfrac{1}{n} \sum_{i=1}^{n}\left( x_i-x_{i-1} \right)\\
 				&=\dfrac{b-a}{n}\\
 				&< \eps
@@ -353,7 +356,7 @@ Donn\'e par Mario Lambert}
 
 				On a
 				\begin{align*}
-					\ssup{f}-\sinf{f}&= \sum_{i=1}^{n}\left[ \msup{f}[\left[ x_{i-1},x_i \right]] - \minf{f}[\left[ x_{i-1},x_i \right]] \right] (x_i-x_{i-1})\\
+					\ssup{f}-\sinf{f}&= \sum_{i=1}^{n}\left[ \msup{f}[x_{i-1},x_i] - \minf{f}[x_{i-1},x_i] \right] (x_i-x_{i-1})\\
 					&= \sum_{i=1}^{n}\left[ f(x_i) - f(x_{i-1}) \right] \left( \frac{b-a}{n} \right)\\
 					&= \frac{b-a}{n} \left[ f(b)-f(a) \right]\\
 					&< \eps
@@ -437,7 +440,7 @@ Donn\'e par Mario Lambert}
 		\end{coro}
 	\end{thm}
 
-	\addcontentsline{toc}{subsection}{In\'egalit\'e du triangle}
+	\subsection{In\'egalit\'e du triangle}
 	\begin{thm}[In\'egalit\'e du triangle]
 		~
 
@@ -450,8 +453,8 @@ Donn\'e par Mario Lambert}
 
 			On a
 			\begin{align*}
-				\ssup{\abs{f}}-\sinf{\abs{f}}&= \sum_{i=1}^{n}\left[ \msup{\abs{f}}[\left[ x_{i-1},x_i \right]] - \minf{\abs{f}}[\left[ x_{i-1},x_i \right]] \right] \left( x_i-x_{i-1} \right)\\
-				&\leq \sum_{i=1}^{n}\left[ \msup{f}[\left[ x_{i-1},x_i \right]] - \minf{f}[\left[ x_{i-1},x_i \right]] \right] \left( x_i-x_{i-1} \right)\\
+				\ssup{\abs{f}}-\sinf{\abs{f}}&= \sum_{i=1}^{n}\left[ \msup{\abs{f}}[x_{i-1},x_i] - \minf{\abs{f}}[x_{i-1},x_i] \right] \left( x_i-x_{i-1} \right)\\
+				&\leq \sum_{i=1}^{n}\left[ \msup{f}[x_{i-1},x_i] - \minf{f}[x_{i-1},x_i] \right] \left( x_i-x_{i-1} \right)\\
 				&= \ssup{f}-\sinf{f}\\
 				&< \eps
 			\end{align*}
@@ -509,14 +512,12 @@ Donn\'e par Mario Lambert}
 		\end{proof}
 	\end{thm}
 	\begin{thm}
-		~
-
 		Soit $f \in \bornee$. Soit $n \in \naturels$.
 
 		Si $f$ poss\`ede $n$ discontinuit\'es dans $[a,b]$, alors $f \in \riemann$.
 		\begin{proof}[d\'emonstration]~
 
-			Pour $n=0$, $f \in \continue$, donc $f \in \riemann$ est un r\'esultat connnu.
+			Pour $n=0$, $f \in \continue$, donc $f \in \riemann$ est un r\'esultat connu.
 
 			Supposons l'\'enonc\'e vrai pour $n$.
 
@@ -545,12 +546,164 @@ Donn\'e par Mario Lambert}
 
 				On a donc
 				\begin{align*}
-					\ssup{f}[\Delta_\eps] - \sinf{f}[\Delta_\eps]&= \left( \ssup{f} - \sinf{f} \right) + \left( \msup{f}[[a,a+\eta]] - \minf{f}[[a,a+\eta]] \right) \eta\\
+					\ssup{f}[\Delta_\eps] - \sinf{f}[\Delta_\eps]&= \left( \ssup{f} - \sinf{f} \right) + \left( \msup{f}[a,a+\eta] - \minf{f}[a,a+\eta] \right) \eta\\
 					&< \frac{\eps}{2} + 2M\eta\\
-					&<\eps
+					&< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
+					&= \eps
 				\end{align*}
-				\item
+				\item ni $a$ ni $b$ ne sont des discontinuit\'es
+
+				Soit $c \in ]a,b[$ qui est une discontinuit\'e de $f$.
+
+				Soit $\eta \in \reels^+$ t.q. $c$ est l'unique discontinuit\'e de $[c-\eta,c+\eta] \subset [a,b]$ et $\eta < \dfrac{\eps}{8M}$.
+
+				Alors, $[a,c-\eta]$ et $[c+\eta,b]$ contiennent au plus $n$ discontinuit\'es, par l'hypoth\`ese de r\'ecurrence
+
+				$\exists\Delta_1\in \partitions[a,c-\eta]$ t.q.  $\ssup{f}[\Delta_1] - \sinf{f}[\Delta_1] < \frac{\eps}{4}$.
+
+				$\exists\Delta_2\in \partitions[c+\eta,b]$ t.q.  $\ssup{f}[\Delta_2] - \sinf{f}[\Delta_2] < \frac{\eps}{4}$.
+
+				Posons $\Delta_\eps = \raffinement{\Delta_1}{\Delta_2}$.
+
+				On a donc
+				\begin{align*}
+					\ssup{f}[\Delta_\eps] - \sinf{f}[\Delta_\eps] &= \left[ \ssup{f}[\Delta_1] - \sinf{f}[\Delta_1] \right] + \left[ \ssup{f}[\Delta_2] - \sinf{f}[\Delta_2] \right]\\
+					&+ \left[ \msup{f}[c-\eta,c+\eta] - \minf{f}[c-\eta,c+\eta] \right] \left( 2\eta \right)\\
+					&< \dfrac{\eps}{4} + \dfrac{\eps}{4} + 4M\eta\\
+					&< \dfrac{\eps}{4} + \dfrac{\eps}{4} + \dfrac{\eps}{2}\\
+					&= \eps
+				\end{align*}
 			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
+	\begin{thm}
+		Soient $f:[a,b] \to [c,d] \in \riemann$ et $g:[c,d] \to \reels \in \continue[c,d]$.
+
+		Alors $g \circ f \in \riemann$.
+
+		\begin{rema}
+			L'hypoth\`ese que $g \in \continue[c,d]$ est n\'ecessaire.
+
+			\begin{exem}
+				~
+
+				$
+				\begin{array}{rcl}
+					f:[0,1]&\to&\reels\\
+					x&\mapsto&\left\lbrace \begin{array}{lcl}
+						\frac{1}{n}&\text{si}&x=\frac{m}{n} \text{ et } \mathtt{pgcd}(m,n)=1\\
+						0&\text{sinon}
+					\end{array}\right.
+				\end{array}$
+
+				Fonction de Dirichlet modifi\'ee.
+
+				$
+				\begin{array}{rcl}
+					g:[0,1]&\to&\reels\\
+					x&\mapsto&\left\lbrace \begin{array}{lcl}
+						1&\text{si}&x>0\\
+						0&\text{sinon}
+					\end{array}\right.
+				\end{array}$
+
+				$f,g \in \riemann$.
+
+				$g \circ f(x)=\left\lbrace \begin{array}{lcl}
+					1&\text{si}&x \in \rationels\\
+					0&\text{sinon}
+				\end{array}\right.$
+
+				$g \circ f \not\in \riemann$.
+
+				Fonction de Dirichlet.
+			\end{exem}
+		\end{rema}
+	\end{thm}
+
+	\begin{lem}
+		Si $f \in \bornee$, $\Delta,\Delta' \in \partitions$ et $\Delta'$ s'obtient de $\Delta$ en ajoutant un unique point, alors $\ssup{f} - \ssup{f}[\Delta'] \leq 2\msup{\abs{f}}[a,b] \cdot \norme{\Delta}$.
+
+		\begin{proof}[d\'emonstration]~
+
+			Soient $\Delta:a=x_0 < x_1 < \dotsc < x_{i-1} < x_i < \dotsc < x_n=b$.
+
+			$\Delta':a=x_0 < x_1 < \dotsc < x_{i-1} < \bar{x} < x_i < \dotsc < x_n=b$.
+
+			\begin{align*}
+				\ssup{f} - \ssup{f}[\Delta'] &= \msup{f}[x_{i-1},x_i] \cdot \left( x_i-x_{i-1} \right) - \msup{f}[x_{i-1},\bar{x}] \cdot \left( \bar{x}-x_{i-1} \right) - \msup{f}[\bar{x},x_i] \cdot \left( x_i-\bar{x} \right)\\
+				&= \left( \bar{x}-x_{i-1} \right) \left( \msup{f}[x_{i-1},x_i] - \msup{f}[x_{i-1},\bar{x}] \right) + \left( x_i-\bar{x} \right) \left( \msup{f}[x_{i-1},x_-i] - \msup{f}[\bar{x},x_i] \right)\\
+				&\leq 2\msup{\abs{f}}[x_{i-1}x_i] \left( \left( \bar{x}-x_{i-1} \right) - \left( x_i-\bar{x} \right) \right)\\
+				&\leq 2\msup{\abs{f}} \norme{\Delta}
+			\end{align*}
+		\end{proof}
+
+		\begin{coro}
+			Si $f \in \bornee$, $\Delta,\Delta' \in \partitions$ et $\Delta'$ s'obtient de $\Delta$ en ajoutant $p$ points, au plus un point par sous-intervalle de $\Delta$, alors $\ssup{f} - \ssup{f}[\Delta'] \leq 2p\msup{\abs{f}}[a,b] \cdot \norme{\Delta}$.
+		\end{coro}
+	\end{lem}
+
+	\subsection{Th\'eor\`eme de Darboux}
+	\begin{thm}[Darboux, 1875]
+		~
+
+		Si $f \in \bornee$, alors
+		\begin{align*}
+			\begin{split}
+				\Ssup{f}&= \lim\limits_{\norme{\Delta} \to 0} \ssup{f}
+			\end{split}
+			&
+			\begin{split}
+				\Sinf{f}&= \lim\limits_{\norme{\Delta} \to 0} \sinf{f}
+			\end{split}
+		\end{align*}
+
+		\begin{proof}[d\'emonstration]~
+
+			Soit $\eps>0$.
+
+			Puisque $\Ssup{f} = \inf \ssup{f}$, on a que $\Ssup{f} + \dfrac{\eps}{2}$ n'est pas un minorant des $\ssup{f}$.
+
+			Ainsi, $\exists\Delta_0 : a=x_0 < \dotsc < x_n=b$ t.q. $\ssup{f}[\Delta_0] < \Ssup{f} + \dfrac{\eps}{2}$.
+
+			Soit $\delta>0$ t.q. $\delta < \norme{\Delta_0}$ et $\delta < \dfrac{\eps}{4 (n-1) \msup{\abs{f}}}$.
+
+			Soit $\Delta \in \partitions$ t.q.. $\norme{\Delta < \delta}$.
+
+			Alors, $\norme{\Delta} \xrightarrow[n \to \infty]{} 0$.
+
+			Consid\'erons $\Delta' = \raffinement{\Delta}{\Delta_0}$.
+
+			Comme $\norme{\Delta'} \leq \norme{\Delta} < \norme{\Delta_0}$, aucun sous-intervalle ouvert de $\Delta$ ne contient plus d'un point de $\Delta_0$.
+
+			Comme $\Delta'$ s'obtient de $\Delta$ en ajoutant au plus $n-1$ points $\left( x_1, x_2, \dotsc, x_{n-1} \right)$,
+			\begin{align*}
+				\ssup{f} - \ssup{f}[\Delta'] &\leq 2(n-1) \msup{\abs{f}} \norme{\Delta}\\
+				&< 2(n-1) \msup{f} \delta\\
+				&< \dfrac{\eps}{2}
+			\end{align*}
+
+			On a donc
+			\begin{align*}
+				\ssup{f} &\leq \ssup{f}[\Delta'] + \dfrac{\eps}{2}\\
+				&< \ssup{f}[\Delta_0] + \dfrac{\eps}{2}\\
+				&< \Ssup{f} + \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
+				&= \Ssup{f} + \eps
+			\end{align*}
+
+			Comme $\eps>0$ est arbitraire, on a donc
+			\begin{align*}
+				\lim\limits_{\norme{\Delta} \to 0}\ssup{f}&= \Ssup{f}
+			\end{align*}
+
+			Enfin,
+			\begin{align*}
+				\lim\limits_{\norme{\Delta} \to 0} \sinf{f}&= \lim\limits_{\norme{\Delta} \to 0} -\ssup{-f}\\
+				&= -\lim\limits_{\norme{\Delta} \to 0} \ssup{-f}\\
+				&= -\Ssup{-f}\\
+				&= \Sinf{f}
+			\end{align*}
 		\end{proof}
 	\end{thm}
 \end{document}

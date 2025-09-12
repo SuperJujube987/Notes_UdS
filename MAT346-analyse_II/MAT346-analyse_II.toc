@@ -1,4 +1,5 @@
 \contentsline {chapter}{\numberline {1}Int\'egration}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Int\'egrales de Riemann}{2}{section.1.1}%
-\contentsline {subsection}{Crit\`ere d'int\'egrabilit\'e}{4}{Item.13}%
-\contentsline {subsection}{In\'egalit\'e du triangle}{7}{Item.16}%
+\contentsline {section}{\numberline {1}Int\'egrales de Riemann}{2}{section.1.1}%
+\contentsline {subsection}{\numberline {}Crit\`ere d'int\'egrabilit\'e}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {}In\'egalit\'e du triangle}{7}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {}Th\'eor\`eme de Darboux}{9}{subsection.1.1.3}%
