@@ -17,3 +17,9 @@ Julien Houle
 [Courriel @USherbrooke](mailto:Julien.Houle@USherbrooke.ca)
 
 [Courriel personnel](mailto:jujube987@hotmail.com)
+
+## Références
+
+### MAT346
+
+MORALES, Pedro : MAT228. Notes de cours, Université de Sherbrooke, 2002.
