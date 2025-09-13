@@ -14,9 +14,7 @@ Pour avoir une version du document avec des liens cliquables, il faut téléchar
 
 Julien Houle
 
-[Courriel @USherbrooke](mailto:Julien.Houle@USherbrooke.ca)
-
-[Courriel personnel](mailto:jujube987@hotmail.com)
+[Courriel](mailto:Julien.Houle@USherbrooke.ca)
 
 ## Références
 
