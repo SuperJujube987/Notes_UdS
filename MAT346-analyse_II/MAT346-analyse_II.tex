@@ -667,9 +667,9 @@ Donn\'e par Mario Lambert}
 
 			Ainsi, $\exists\Delta_0 : a=x_0 < \dotsc < x_n=b$ t.q. $\ssup{f}[\Delta_0] < \Ssup{f} + \dfrac{\eps}{2}$.
 
-			Soit $\delta>0$ t.q. $\delta < \norme{\Delta_0}$ et $\delta < \dfrac{\eps}{4 (n-1) \msup{\abs{f}}}$.
+			Soit $\delta>0$ t.q. $\delta < \min\limits_{i \in [1..n]}\abs{x_i-x_{i-1}}$ et $\delta < \dfrac{\eps}{4 (n-1) \msup{\abs{f}}}$.
 
-			Soit $\Delta \in \partitions$ t.q.. $\norme{\Delta < \delta}$.
+			Soit $\Delta \in \partitions$ t.q. $\norme{\Delta} < \delta$.
 
 			Alors, $\norme{\Delta} \xrightarrow[n \to \infty]{} 0$.
 
@@ -706,4 +706,139 @@ Donn\'e par Mario Lambert}
 			\end{align*}
 		\end{proof}
 	\end{thm}
+
+	\begin{defin}
+
+
+		Soit $f \in \bornee$.
+
+		Soit $\Delta : a=x_0 < x_1 < \dotsc < x_n=b \in \partitions$.
+
+		Soient $\bar{x}_i \in [x_{i-1},x_i]$, pour $i \in [1..n]$.
+
+		Le nombre r\'eel
+		\begin{align*}
+			S(f,\Delta,\{\bar{x}_i\})&= \sum_{i=1}^{n}f(\bar{x}_i) \cdot (x_i-x_{i-1})
+		\end{align*}
+
+		est appel\'e \emph{somme de Riemann} de la fonction $f$ correspondant \`a la partition $\Delta$ et aux points $\{\bar{x}_i\}_{i \in [1..n]}$.
+	\end{defin}
+
+	\begin{thm}
+		~
+
+		Soit $f \in \riemann$.
+
+		Alors, $(\forall\eps>0)$, $(\exists\delta=\delta(\eps))$ t.q. pour toute partition $\Delta$ de $[a,b]$ avec $\norme{\Delta}<\delta$ et pour tout choix de points $\{\bar{x}_i\}$, on a
+		\[
+		\abs{\int_{a}^{b}f - S(f, \Delta, \{\bar{x}_i\})} < \eps
+		\]
+
+		c'est-\`a-dire.
+		\[
+		\lim_{\norme{\Delta} \to 0}S(f, \Delta, \{\bar{x}_i\}) = \int_{a}^{b}f
+		\]
+		\begin{proof}[d\'emonstration]~
+
+			On a $\sinf{f} \leq S(f, \Delta, \{\bar{x}_i\}) \leq \ssup{f}$.
+
+			Donc,
+			\[
+			\Sinf{f} = \lim_{\norme{\Delta} \to 0}\sinf{f} \leq \lim_{\norme{\Delta} \to 0}S(f, \Delta, \{\bar{x}_i\}) \leq \lim_{\norme{\Delta} \to 0}\ssup{f} = \Ssup{f}
+			\]
+
+			Comme $f \in \riemann$, on a $\Sinf{f} = \Ssup{f} = \displaystyle\int_{a}^{b}f$.
+
+			Par le th\'eor\`eme du sandwich, $S(f, \Delta, \{\bar{x}_i\}) = \displaystyle\int_a^bf$.
+		\end{proof}
+	\end{thm}
+
+	\subsection{Loi de la moyenne}
+	\begin{thm}[Loi de la moyenne]~
+
+		Soit $f \in \riemann$.
+
+		Alors, $\exists\mu \in \left[ \minf{f}[a,b], \msup{f}[a,b] \right]$ t.q. $\displaystyle\int_{a}^{b}f = (b-a) \cdot \mu$.
+		\begin{proof}[d\'emonstration]~
+
+			Soit $\phi$ la fonction donn\'ee par $\phi(x)=(b-a)x$.
+
+			On a $\minf{f} \leq f \leq \msup{f}$.
+
+			Donc
+			\[
+			\phi(\minf{f}) = (b-a)\minf{f} = \int_{a}^{b}\minf{f} \leq \int_{a}^{b}f \leq \msup{f} = (b-a)\msup{f} = \phi(\msup{f})
+			\]
+			\begin{rapp}
+				\begin{thm}[Th\'eor\`eme de valeur interm\'ediaire]~
+
+					$f$ continue sur $[a,b]$, $f(a)<c<f(b)$ implique $\exists x_0 \in [a,b]$ t.q. $f(x_0)=c$.
+				\end{thm}
+			\end{rapp}
+
+			Comme $\phi$ est continue sur $[\minf{f},\msup{f}]$, du TVI, $\exists\mu\in[\minf{f},\msup{f}]$ t.q. $\phi(\mu)=c$ pour tout $c \in [\phi(\minf{f}),\phi(\msup{f})]$.
+
+			En particulier, si $c=\displaystyle\int_{a}^{b}f$, $\exists\mu$ t.q. $\phi(\mu)=\displaystyle\int_{a}^{b}c$, c'est-\`a-dire t.q. $(b-a)\mu=\displaystyle\int_{a}^{b}f$.
+		\end{proof}
+	\end{thm}
+
+	\begin{thm}
+		~
+
+		Soit $f \in \riemann$.
+
+		Soit
+		$\begin{array}{rcl}
+			F:[a,b]&\to&\reels\\
+			x&\mapsto&F(x) = \displaystyle\int_{a}^{x}f(f) dt
+		\end{array}$
+
+		Alors,
+		\begin{enumerate}[label=\alph*)]
+			\item $\abs{F(x_1)-F(x_2)} \leq \msup{\abs{f}}(b-a) \cdot \abs{x_1-x_2}$ pour tous $x_1,x_2 \in [a,b]$;
+			\item $F$ est uniform\'ement continue sur $[a,b]$;
+			\item Si $f$ est continue, alors $F$ est diff\'erentiable et $F'=f$.
+		\end{enumerate}
+		\begin{proof}[d\'emonstration]~
+
+			\begin{enumerate}[label=\alph*)]
+				\item Supp $x_1>x_2$
+
+				On a
+				\begin{align*}
+					\abs{F(x_1)-F(x_2)}&= \abs{\int_{a}^{x_1}f - \int_{a}^{x_2}f}\\
+					&= \abs{\int_{x_2}^{x_1}f}\\
+					&\leq \int_{x_2}^{x_1}\abs{f}\\
+					&\leq \int_{x_2}^{x_1}\msup{\abs{f}}\\
+					&= \msup{\abs{f}} \cdot \abs{x_1-x_2}
+				\end{align*}
+				\item Soit $\eps>0$.
+
+				Prenons $\delta = \dfrac{\eps}{\msup{\abs{f}}}$.
+
+				Soient $x,y \in [a,b]$ avec $\abs{x-y}<\delta$.
+
+				Alors,
+				\begin{align*}
+					\abs{F(x)-F(y)}&\leq \msup{\abs{f}} \cdot \abs{x-y}\\
+					&< \msup{\abs{f}} \cdot \delta\\
+					&= \eps
+				\end{align*}
+				\item Soit $x_0 \in [a,b]$.
+
+				On a
+				\begin{align*}
+					F'(x_0)&= \lim_{x \to x_0}\dfrac{F(x)-F(x_0)}{x-x_0}\\
+					&= \lim_{x \to x_0}\dfrac{\int_{a}^{x}f - \int_{a}^{x_0}}{x-x_0}\\
+					&= \lim_{x \to x_0}\dfrac{\int_{x_0}^{x}f}{x-x_0}\\
+					&\overset{\text{Loi de la moyenne}}{=} \lim_{x \to x_0}\dfrac{(x-x_0)f(x_0+\theta(x-x_0))}{x-x_0}&&\theta \in [0,1]\\
+					&= \lim_{x \to x_0}f(x_0+\theta(x-x_0))\\
+					&= f(x_0)
+				\end{align*}
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
+	\subsection{Th\'eor\`eme fondamental du calcul diff\'erentiel et int\'egral}
+
 \end{document}
