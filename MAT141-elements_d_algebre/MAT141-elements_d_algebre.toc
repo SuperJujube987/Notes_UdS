@@ -2,3 +2,6 @@
 \contentsline {subsection}{\numberline {}Mani\`eres de d\'efinir une fonction}{2}{subsection.1.0.1}%
 \contentsline {chapter}{\numberline {6}Groupes}{9}{chapter.6}%
 \contentsline {subsection}{\numberline {}Propri\'et\'es \'el\'ementaires des groupes}{10}{subsection.6.0.1}%
+\contentsline {subsection}{\numberline {}Produit cart\'esien de groupes}{12}{subsection.6.0.2}%
+\contentsline {subsection}{\numberline {}Isomorphismes de groupes}{12}{subsection.6.0.3}%
+\contentsline {subsection}{\numberline {}Puissances d'\'el\'ements de groupes}{14}{subsection.6.0.4}%

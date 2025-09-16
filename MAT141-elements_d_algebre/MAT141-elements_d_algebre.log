@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.6)  12 SEP 2025 14:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.6)  16 SEP 2025 19:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -878,30 +878,23 @@ Overfull \hbox (15.32901pt too wide) in paragraph at lines 849--850
 []$\U/msb/m/n/10 D[] \OT1/cmr/m/n/10 = []$. 
  []
 
-[11] (MAT141-elements_d_algebre.aux)
+[11] [12] [13] [14] [15] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-Package rerunfilecheck Warning: File `MAT141-elements_d_algebre.out' has change
-d.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `MAT141-elements_d_algebre.out':
-(rerunfilecheck)             Before: 3A1BFFD16D0BE63F1994BE40752084C1;662
-(rerunfilecheck)             After:  44266DF76533029E39A7D46A3BD8D4AF;658.
+Package rerunfilecheck Info: File `MAT141-elements_d_algebre.out' has not chang
+ed.
+(rerunfilecheck)             Checksum: 19D351B4F02502C85212EBF3AB54A2E2;1309.
  ) 
 Here is how much of TeX's memory you used:
- 22480 strings out of 474486
- 415513 string characters out of 5743755
- 1948542 words of memory out of 5000000
- 44332 multiletter control sequences out of 15000+600000
+ 22502 strings out of 474486
+ 415727 string characters out of 5743755
+ 1960542 words of memory out of 5000000
+ 44335 multiletter control sequences out of 15000+600000
  571514 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,15n,107p,564b,656s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,15n,107p,564b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 0700.pk> <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/dpi60
 0\wasy10.pk> <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
@@ -924,9 +917,9 @@ Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/jujub/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/U
 sers/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
 bm10.pfb>
-Output written on MAT141-elements_d_algebre.pdf (12 pages, 235733 bytes).
+Output written on MAT141-elements_d_algebre.pdf (16 pages, 255907 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 248 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

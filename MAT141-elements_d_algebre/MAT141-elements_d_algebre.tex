@@ -848,8 +848,6 @@ Donn\'e par Jean-Philippe Burelle}
 
 		$\mathbb{D}_3=\left\lbrace \underset{\text{identit\'e}}{\varepsilon}, \underset{\text{r\'eflexion par rapport \`a la verticale}}{\alpha}, \underset{\text{r\'eflexion par rapport \`a /}}{\beta}, \underset{\text{r\'eflexion par rapport \`a \textbackslash}}{\gamma}, \underset{\text{rotation de 120\textdegree}}{\rho}, \underset{\text{rotation de -120\textdegree}}{\sigma} \right\rbrace$.
 
-		La table table suivante est pr\'esent\'ee \`a la page 116 du livre ``Cours d'alg\`ebre'' de Assem-Leduc.
-
 		\[
 		\begin{array}{c||c|c|c|c|c|c}
 			\circ&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
@@ -870,4 +868,349 @@ Donn\'e par Jean-Philippe Burelle}
 
 		$\left( \mathbb{D}_3, \circ \right)$ n'est pas un groupe ab\'elien.
 	\end{exem}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{itemize}
+			\item Groupe: $(G, *)$ avec $A, N, I$.
+
+			Ab\'elien: $C$.
+			\item
+			\begin{align*}
+				a*b&=a*c&\Rightarrow b&=c\\
+				b*a&=c*a&\Rightarrow b&=c\\
+				(a^{-1})^{-1}&= a\\
+				(a*b)^{-1}&= b^{-1}*a^{-1}
+			\end{align*}
+			\item
+			\begin{exem}~
+
+				$(\mathbb{Z}, +), (\mathbb{Q}, +), (\mathbb{R}, +), (\mathbb{Q}^*, \times), (\mathbb{R}^*, \times)$ ab\'eliens, $\mathbb{Z}_3, \mathbb{D}_3, GL(n, \mathbb{R})$.
+
+				$S(E)=\{f:E \to E \mid f\text{ est bijective}\}$.
+				\begin{rema}
+					$E$ n'est pas l'ensemble utilis\'e dans la d\'efinition du groupe.
+				\end{rema}
+			\end{exem}
+		\end{itemize}
+	\end{rappel}
+	\subsection{Produit cart\'esien de groupes}
+	$(G, *)$ et $(H, \diamond)$ deux groupes.
+
+	\begin{prop}
+		~
+
+		$G \times H$ est un groupe lorsque muni de l'op\'eration $(a,b) \bullet (a',b') = (a*a',b \diamond b')$, avec $a,a' \in G$ et $b,b' \in H$.
+		\begin{proof}[d\'emonstration]~
+
+			\begin{itemize}
+				\item[$(N)$] $e \in G$ le neutre et $e' \in H$ le neutre, alors $(e,e') \in G \times H$
+
+				\begin{align*}
+					(a,b) \bullet (e,e')&= (a*e, b \diamond e')\\
+					&= (a,b)\\
+					(e,e') \bullet (a,b)&= (e*a, e' \diamond b)\\
+					&= (a,b)
+				\end{align*}
+
+				$(e,e')$ est bien neutre.
+				\item[$(I)$] $(a,b) \in G \times H$, alors $(a^{-1},b^{-1})$ est inverse de $(a,b)$.
+
+				exercice
+				\item[$(A)$] exercice
+			\end{itemize}
+		\end{proof}
+	\end{prop}
+	\begin{exem}
+		\begin{itemize}
+			\item $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+
+			$(x,y)+(x',y')=(x+x',y+y')$.
+			\item $(\mathbb{Z}_2,+)$
+			\[
+			\begin{array}{c||c|c}
+				+&0&1\\
+				\hline\hline
+				0&0&1\\
+				\hline
+				1&1&0
+			\end{array}
+			\]
+
+			$\mathbb{Z}_2 \times \mathbb{Z}_2$
+			\[
+			\begin{array}{c||c|c|c|c}
+				+&(0,0)&(0,1)&(1,0)&(1,1)\\
+				\hline\hline
+				(0,0)&(0,0)&(0,1)&(1,0)&(1,1)\\
+				\hline
+				(0,1)&(0,1)&(0,0)&(1,1)&(1,0)\\
+				\hline
+				(1,0)&(1,0)&(1,1)&(0,0)&(0,1)\\
+				\hline
+				(1,1)&(1,1)&(1,0)&(0,1)&(0,0)
+			\end{array}
+			\]
+		\end{itemize}
+	\end{exem}
+	\subsection{Isomorphismes de groupes}
+	\begin{defin}
+		$(G,*)$ et $(H,\diamond)$ deux groupes.
+
+		Un \emph{isomorphisme} de $G$ vers $H$ est une application $f:G \to H$ t.q.
+		\begin{enumerate}[noitemsep]
+			\item $\forall a,b \in G$, $f(a*b)=f(a)\diamond f(b)$.
+
+			Pr\'eservation des op\'erations
+			\item $f$ est bijective.
+		\end{enumerate}
+	\end{defin}
+	\begin{exem}~
+
+		\begin{itemize}
+			\item $(\mathbb{R},+)$ et $(\mathbb{R}_+^*,\times)$
+
+			$\begin{array}{rcl}
+				f:\mathbb{R}&\to&\mathbb{R}_+^*\\
+				x&\mapsto&e^x
+			\end{array}$ est un isomorphisme de groupes.
+			\begin{enumerate}[label=(\arabic*)]
+				\item Soient $x,y \in \mathbb{R}$.
+				\begin{align*}
+					f(x+y)&= e^{x+y}\\
+					&= e^x \times e^y\\
+					&= f(x) \times f(y)
+				\end{align*}
+				\item $\ln:\mathbb{R}_+^* \to \mathbb{R}$ est inverse de $f$: $\ln e^x=x \forall x \in \mathbb{R}$ et $e^{\ln x}=x \forall x \in \mathbb{R}_+^*$.
+			\end{enumerate}
+		\end{itemize}
+	\end{exem}
+	\begin{prop}
+		Si $f:G \to H$ est un isomorphisme de groupes, alors $f(e_G)=e_H$, o\`u $e_G$ est l'\'el\'ement neutre de $G$ et $e_H$ est l'\'el\'ement neutre de $H$.
+		\begin{proof}[d\'emonstration]
+			Strat\'egie: montrer que $f(e_G)$ est neutre pour $H$ et utiliser l'unicit\'e.
+
+			Soit $b \in H$.
+
+			Comme $f$ est bijective, $\exists a \in G$ t.q. $f(a)=b$
+			\begin{align*}
+				\begin{split}
+					f(e_G) \diamond b&= f(e_G) \diamond f(a)\\
+					&= f(e_G*a)\\
+					&= f(a)\\
+					&=b
+				\end{split}
+				&
+				\begin{split}
+					b \diamond f(e_G)&= f(a) \diamond f(e_G)\\
+					&= f(a*e_G)\\
+					&= f(a)\\
+					&= b
+				\end{split}
+			\end{align*}
+
+			On a donc que $f(e_G) \in H$ est neutre pour $\diamond$, mais comme l'\'el\'ement neutre est unique, $f(e_G)=e_H$.
+		\end{proof}
+	\end{prop}
+	\begin{exem}
+		Pour $\begin{array}{rcl}
+			f:\mathbb{R}&\to&\mathbb{R}_+^*\\
+			x&\mapsto&e^x
+		\end{array}$, $f(0)=e^0=1$.
+	\end{exem}
+	\begin{prop}
+		Si $f:G \to H$ est un isomorphisme de groupes, alors $f(a^{-1})=f(a)^{-1}$, pour tout $a \in G$.
+		\begin{proof}[d\'emonstration]
+			Strat\'egie: montrer que $f(a^{-1})$ est inverse de $f(a)$ et utiliser l'unicit\'e.
+
+			\begin{align*}
+				\begin{split}
+					f(a^{-1}) \diamond f(a)&= f(a^{-1}*a)\\
+					&= f(e_G)\\
+					&= e_H
+				\end{split}
+				&
+				\begin{split}
+					f(a) \diamond f(a^{-1})&= f(a*a^{-1})\\
+					&= f(e_G)\\
+					&= e_H
+				\end{split}
+			\end{align*}
+
+			On a donc que $f(a^{-1})$ est inverse de $f(a)$, mais comme l'inverse est unique, $f(a^{-1})=f(a)^{-1}$.
+		\end{proof}
+	\end{prop}
+	\begin{exem}
+		Pour $\begin{array}{rcl}
+			f:\mathbb{R}&\to&\mathbb{R}_+^*\\
+			x&\mapsto&e^x
+		\end{array}$, $f(-x)=e^{-x}=(e^x)^{-1}=f(x)^{-1}=\frac{1}{f(x)}$, o\`u $-x$ est l'inverse de $x$ pour $+$ et $\frac{1}{f(x)}$ est l'inverse de $f(x)$ pour $\times$.
+	\end{exem}
+	\begin{rema}
+		Si $G,H$ sont des groupes finis et $f$ est un isomorphisme, alors $f$ ``envoie la table de $G$ \`a celle de $H$''.
+
+		\[
+		G:
+		\begin{array}{c||c|c|c|c}
+			*&e_G&a_1&a_2&\dotsb\\
+			\hline\hline
+			e_G&&&&\\
+			\hline
+			a_1&&&a_1*a_2&\\
+			\hline
+			a_2&&&&\\
+			\hline
+			\vdots&&&&
+		\end{array}
+		\xrightarrow{~~~f~~~}
+		\begin{array}{c||c|c|c|c}
+			*&e_H&f(a_1)&f(a_2)&\dotsb\\
+			\hline\hline
+			f(e_G)&&&&\\
+			\hline
+			f(a_1)&&&f(a_1) \diamond f(a_2)&\\
+			\hline
+			f(a_2)&&&&\\
+			\hline
+			\vdots&&&&
+		\end{array}
+		:H
+		\]
+		Avec $f(a_1*a_2)=f(a_1) \diamond f(a_2)$.
+		\begin{exem}
+			\[
+			\mathbb{Z}_2:
+			\begin{array}{c||c|c}
+				+&0&1\\
+				\hline\hline
+				0&0&1\\
+				\hline
+				1&1&0
+			\end{array}
+			\qquad
+			H:
+			\begin{array}{c||c|c}
+				\circ&\varepsilon&\alpha\\
+				\hline\hline
+				\varepsilon&\varepsilon&\alpha\\
+				\hline
+				\alpha&\alpha&\varepsilon
+			\end{array}
+			\qquad
+			C_2:
+			\begin{array}{c||c|c}
+				\times&1&-1\\
+				\hline\hline
+				1&1&-1\\
+				\hline
+				-1&-1&1
+			\end{array}
+			\]
+			$\mathbb{Z}_2$, $H$ et $C_2$ sont isomorphes.
+
+			Il existe un isomorphisme entre chaque paire.
+		\end{exem}
+	\end{rema}
+	\begin{prop}
+		Si $f:G \to H$ est un isomorphisme, alors $f^{-1}:H \to G$ est un isomorphisme.
+		\begin{proof}[d\'emonstration]~
+
+			\begin{enumerate}[label=(\arabic*)]
+				\item Soient $b_1,b_2 \in H$.
+				\begin{align*}
+					f^{-1}(b_1 \diamond b_2)&= f^{-1}(f(f^{-1}(b_1)) \diamond f(f^{-1}(b_2)))\\
+					&= f^{-1}(f(f^{-1}(b_1) * f^{-1}(b_2)))\\
+					&= f^{-1}(b_1) * f^{-1}(b_2)
+				\end{align*}
+				\item $f^{-1}$ est bijective, car elle est inversible d'inverse $f$.
+				\begin{align*}
+					f \circ f^{-1}&= \mathds{1}_H\\
+					f^{-1} \circ f&= \mathds{1}_G
+				\end{align*}
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+	\begin{prop}[Transitivit\'e]~
+
+		Si $f:G \to H$ et $g:H \to K$ sont des isomorphismes, alors $g \circ f:G \to K$ est un isomorphisme.
+		\begin{proof}[d\'emonstration]~
+
+			\begin{enumerate}[label=(\arabic*)]
+				\item Soient $a,b \in G$
+				\begin{align*}
+					(g \circ f)(a*b)&= g(f(a*b))\\
+					&= g(f(a) \diamond f(b))\\
+					&= g(f(a)) \oplus g(f(b))\\
+					&= (g \circ f)(a) \oplus (g \circ f)(b)
+				\end{align*}
+				\item $g \circ f$ est inversible d'inverse $f^{-1} \circ g^{-1}$.
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+
+	\subsection{Puissances d'\'el\'ements de groupes}
+	\begin{defin}[par r\'ecurrence]~
+
+		$a \in G$, $n \in \mathbb{N}$
+		\begin{enumerate}
+			\item $a^0 \coloneq e_G$
+			\item $a^n=a*a^{n-1}$, $\forall n \geq 1$
+		\end{enumerate}
+	\end{defin}
+	\begin{exem}~
+
+		\begin{itemize}
+			\item \begin{align*}
+				a^4&= a*a^3\\
+				&= a*a*a*2\\
+				&= a*a*a*a^1\\
+				&= a*a*a*a*a^0\\
+				&= a*a*a*a*e\\
+				&= a*a*a*a
+			\end{align*}
+			\item Dans $(\mathbb{Z},+)$, $2^3=3 \cdot 2=2+2+2$.
+		\end{itemize}
+	\end{exem}
+	\begin{prop}
+		$a^{n+m}=a^n*a^m$, $\forall n,m \in \mathbb{N}$.
+		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]~
+
+			\begin{enumerate}
+				\item $n=0$:
+				\begin{align*}
+					a^{0+m}&= a^m\\
+					&= e*a^m\\
+					&= a^0*a^m
+				\end{align*}
+				\item supposons que $a^{n+m}=a^n*a^m$ pour un $n \geq 0$.
+				\begin{align*}
+					a^{(n+1)+m}&= a^{n+m+1}\\
+					&= a*a^{n+m}\\
+					&= a*(a^n*a^m)\\
+					&= (a*a^n)*a^m\\
+					&= a^{n+1}*a^m
+				\end{align*}
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+	\begin{defin}
+		Pour $n \in \mathbb{Z}$.
+
+		Si $n \geq 0$, on a d\'ej\`a d\'efini $a^n$.
+
+		Si $n<0$, on d\'efinit $a^n=(a^{-1})^{-n}$.
+	\end{defin}
+	\begin{exem}
+		$a^{-3}=a^{-1}*a^{-1}*a^{-1}$.
+	\end{exem}
+	\begin{prop}
+		$a^{n+m}=a^n*a^m$, $\forall n,m \in \mathbb{Z}$.
+	\end{prop}
+	\begin{prop}
+		$(a^m)^n=a^{mn}$, $\forall m,n \in \mathbb{N}$. Vraie aussi pour $m,n \in \mathbb{Z}$.
+		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]
+
+		\end{proof}
+	\end{prop}
 \end{document}
