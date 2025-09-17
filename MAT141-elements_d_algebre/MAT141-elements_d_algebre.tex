@@ -402,7 +402,7 @@ Donn\'e par Jean-Philippe Burelle}
 		Cependant,
 
 		$\begin{array}{rrcl}
-			d:&\mathbb{Q}^* \times \mathbb{Q}^*&\longrightarrow&\mathbb{Q}^*\\
+			d:&\mathbb{Q}_* \times \mathbb{Q}_*&\longrightarrow&\mathbb{Q}_*\\
 			&(x,y)&\longmapsto&\frac{x}{y}
 		\end{array}$
 
@@ -663,7 +663,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item $(\mathbb{Q},+)$ et $(\mathbb{R},+)$ sont des groupes.
 			\item $(\mathbb{Z},\times)$ n'est pas un groupe, car, par exemple, $2$ n'est pas inversible.
 			\item $(\mathbb{Q},\times)$ n'est pas un groupe, car $0$ n'est pas inversible.
-			\item $(\mathbb{Q}^*,\times)$ et $(\mathbb{R},\times)$ sont des groupes.
+			\item $(\mathbb{Q}_*,\times)$ et $(\mathbb{R},\times)$ sont des groupes.
 
 			Neutre: $1$
 
@@ -755,7 +755,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rema}
 		~
 
-		``Le groupe $\mathbb{R}$'' implique l'op\'eration $+$ et ``le groupe $\mathbb{R}^*$'' implique l'op\'eration $\times$.
+		``Le groupe $\mathbb{R}$'' implique l'op\'eration $+$ et ``le groupe $\mathbb{R}_*$'' implique l'op\'eration $\times$.
 	\end{rema}
 
 	\subsection{Propri\'et\'es \'el\'ementaires des groupes}
@@ -886,7 +886,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item
 			\begin{exem}~
 
-				$(\mathbb{Z}, +), (\mathbb{Q}, +), (\mathbb{R}, +), (\mathbb{Q}^*, \times), (\mathbb{R}^*, \times)$ ab\'eliens, $\mathbb{Z}_3, \mathbb{D}_3, GL(n, \mathbb{R})$.
+				$(\mathbb{Z}, +), (\mathbb{Q}, +), (\mathbb{R}, +), (\mathbb{Q}_*, \times), (\mathbb{R}_*, \times)$ ab\'eliens, $\mathbb{Z}_3, \mathbb{D}_3, GL(n, \mathbb{R})$.
 
 				$S(E)=\{f:E \to E \mid f\text{ est bijective}\}$.
 				\begin{rema}
@@ -969,10 +969,10 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{exem}~
 
 		\begin{itemize}
-			\item $(\mathbb{R},+)$ et $(\mathbb{R}_+^*,\times)$
+			\item $(\mathbb{R},+)$ et $(\mathbb{R}^+_*,\times)$
 
 			$\begin{array}{rcl}
-				f:\mathbb{R}&\to&\mathbb{R}_+^*\\
+				f:\mathbb{R}&\to&\mathbb{R}^+_*\\
 				x&\mapsto&e^x
 			\end{array}$ est un isomorphisme de groupes.
 			\begin{enumerate}[label=(\arabic*)]
@@ -982,7 +982,7 @@ Donn\'e par Jean-Philippe Burelle}
 					&= e^x \times e^y\\
 					&= f(x) \times f(y)
 				\end{align*}
-				\item $\ln:\mathbb{R}_+^* \to \mathbb{R}$ est inverse de $f$: $\ln e^x=x \forall x \in \mathbb{R}$ et $e^{\ln x}=x \forall x \in \mathbb{R}_+^*$.
+				\item $\ln:\mathbb{R}^+_* \to \mathbb{R}$ est inverse de $f$: $\ln e^x=x \forall x \in \mathbb{R}$ et $e^{\ln x}=x \forall x \in \mathbb{R}^+_*$.
 			\end{enumerate}
 		\end{itemize}
 	\end{exem}
@@ -1015,7 +1015,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{prop}
 	\begin{exem}
 		Pour $\begin{array}{rcl}
-			f:\mathbb{R}&\to&\mathbb{R}_+^*\\
+			f:\mathbb{R}&\to&\mathbb{R}^+_*\\
 			x&\mapsto&e^x
 		\end{array}$, $f(0)=e^0=1$.
 	\end{exem}
@@ -1043,7 +1043,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{prop}
 	\begin{exem}
 		Pour $\begin{array}{rcl}
-			f:\mathbb{R}&\to&\mathbb{R}_+^*\\
+			f:\mathbb{R}&\to&\mathbb{R}^+_*\\
 			x&\mapsto&e^x
 		\end{array}$, $f(-x)=e^{-x}=(e^x)^{-1}=f(x)^{-1}=\frac{1}{f(x)}$, o\`u $-x$ est l'inverse de $x$ pour $+$ et $\frac{1}{f(x)}$ est l'inverse de $f(x)$ pour $\times$.
 	\end{exem}
