@@ -928,30 +928,32 @@ Donn\'e par Jean-Philippe Burelle}
 
 			$(x,y)+(x',y')=(x+x',y+y')$.
 			\item $(\mathbb{Z}_2,+)$
+			\renewcommand{\arraystretch}{1.5}
 			\[
 			\begin{array}{c||c|c}
-				+&0&1\\
+				+&\overline0&\overline1\\
 				\hline\hline
-				0&0&1\\
+				\overline0&\overline0&\overline1\\
 				\hline
-				1&1&0
+				\overline1&\overline1&\overline0
 			\end{array}
 			\]
 
 			$\mathbb{Z}_2 \times \mathbb{Z}_2$
 			\[
 			\begin{array}{c||c|c|c|c}
-				+&(0,0)&(0,1)&(1,0)&(1,1)\\
+				+&(\overline0,\overline0)& (\overline0,\overline1)& (\overline1,\overline0)& (\overline1,\overline1)\\
 				\hline\hline
-				(0,0)&(0,0)&(0,1)&(1,0)&(1,1)\\
+				(\overline0,\overline0)& (\overline0,\overline0)& (\overline0,\overline1)& (\overline1,\overline0)& (\overline1,\overline1)\\
 				\hline
-				(0,1)&(0,1)&(0,0)&(1,1)&(1,0)\\
+				(\overline0,\overline1)& (\overline0,\overline1)& (\overline0,\overline0)& (\overline1,\overline1)& (\overline1,\overline0)\\
 				\hline
-				(1,0)&(1,0)&(1,1)&(0,0)&(0,1)\\
+				(\overline1,\overline0)& (\overline1,\overline0)& (\overline1,\overline1)& (\overline0,\overline0)& (\overline0,\overline1)\\
 				\hline
-				(1,1)&(1,1)&(1,0)&(0,1)&(0,0)
+				(\overline1,\overline1)& (\overline1,\overline1)& (\overline1,\overline0)& (\overline0,\overline1)& (\overline0,\overline0)
 			\end{array}
 			\]
+			\renewcommand{\arraystretch}{1}
 		\end{itemize}
 	\end{exem}
 	\subsection{Isomorphismes de groupes}
@@ -1081,13 +1083,15 @@ Donn\'e par Jean-Philippe Burelle}
 		\begin{exem}
 			\[
 			\mathbb{Z}_2:
+			\renewcommand{\arraystretch}{1.5}
 			\begin{array}{c||c|c}
-				+&0&1\\
+				+&\overline0&\overline1\\
 				\hline\hline
-				0&0&1\\
+				\overline0&\overline0&\overline1\\
 				\hline
-				1&1&0
+				\overline1&\overline1&\overline0
 			\end{array}
+			\renewcommand{\arraystretch}{1}
 			\qquad
 			H:
 			\begin{array}{c||c|c}
@@ -1187,7 +1191,7 @@ Donn\'e par Jean-Philippe Burelle}
 				\begin{align*}
 					a^{(n+1)+m}&= a^{n+m+1}\\
 					&= a*a^{n+m}\\
-					&= a*(a^n*a^m)\\
+					\text{hyp rec}&= a*(a^n*a^m)\\
 					&= (a*a^n)*a^m\\
 					&= a^{n+1}*a^m
 				\end{align*}
@@ -1209,8 +1213,200 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{prop}
 	\begin{prop}
 		$(a^m)^n=a^{mn}$, $\forall m,n \in \mathbb{N}$. Vraie aussi pour $m,n \in \mathbb{Z}$.
-		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]
+		\begin{proof}[d\'emonstration par r\'ecurrence sur $m$]~
 
+		\begin{enumerate}
+			\item $m=0$:
+			\begin{align*}
+				(a^n)^0&= e\\
+				a^{n \cdot 0}&= a^0=e
+			\end{align*}
+			\item supposons que $(a^n)^m=a^{nm}$ pour un certain $m \in \mathbb{N}$.
+			\begin{align*}
+				(a^n)^{m+1}&= (a^n)(a^n)^m\\
+				\text{hyp rec}&= (a^n)a^{nm}\\
+				&= a^{n+nm}\\
+				&= a^{n(m+1)}
+			\end{align*}
+		\end{enumerate}
 		\end{proof}
 	\end{prop}
+
+	\cours
+	\begin{rappel}
+		~
+
+		\begin{itemize}
+			\item Isomorphisme: $f:G \to H$ t.q.
+			\begin{enumerate}[label=(\arabic*)]
+				\item $f(ab)=f(a)f(b)$
+
+				avec $a *b$ et $f(a) \diamond f(b)$ implicitement.
+				\item $f$ est bijective
+			\end{enumerate}
+			``m\^eme table''
+			\item $f,g$ isomorphismes $\Rightarrow$ $f^{-1}, g \circ f$ isomorphismes.
+
+			$\mathds{1}_G:G \to G$ est trivialement un isomorphisme.
+			\item $G$ est isomorphe \`a $H$ s'il existe un isomorphisme $f:G \to H$.
+			\item Puissances:
+
+			Soit $a \in G$ avec $G$ un groupe.
+			\begin{itemize}
+				\item $a^0=e$
+				\item $a^{n+1}=aa^n$
+				\item $a^{-n}=(a^{-1})^n$
+				\item $a^{n+m}=a^na^m$
+				\item $(a^n)^m=a^{n \cdot m}$
+			\end{itemize}
+			\item $f$ isomorphisme
+			\begin{itemize}
+				\item $f(e_G)=e_H$
+				\item $f(a^{-1})=f(a)^{-1}$
+			\end{itemize}
+		\end{itemize}
+	\end{rappel}
+	\begin{prop}
+		$f$ isomorphisme $f:G \to H$.
+
+		$a \in G$. Alors, $f(a^n)=f(a)^n$, $\forall n \in \mathbb{Z}$.
+		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]~
+
+			\begin{itemize}
+				\item[$n\geq 0$]
+				\begin{enumerate}
+					\item $n=0$
+					\begin{align*}
+						f(a^0)&= f(e_G)\\
+						&= e_H\\
+						&= f(a)^0
+					\end{align*}
+					\item supposons que $f(a^n)=f(a)^n$ pour un certain $n \in \mathbb{Z}$.
+					\begin{align*}
+						f(a^{n+1})&= f(a \cdot a^n)\\
+						&= f(a)f(a^n)\\
+						\text{hyp rec}&= f(a)f(a)^n\\
+						&= f(a)^{n+1}
+					\end{align*}
+				\end{enumerate}
+				\item[$n<0$] alors, $-n>0$ et
+				\begin{align*}
+					f(a^n)&= f((a^{-1})^{-n})\\
+					&= f(a^{-1})^{-n}\\
+					&= (f(a)^{-1})^{-n}\\
+					&= f(a)^n
+				\end{align*}
+			\end{itemize}
+		\end{proof}
+	\end{prop}
+	\begin{exem}
+		\(
+		H= \left\lbrace \begin{pmatrix}
+			1&x\\0&1
+		\end{pmatrix} \in GL(2, \mathbb{R}) \middle| x \in \mathbb{R} \right\rbrace
+		\)
+		, avec la multiplication de matrices.
+
+		Soient $\begin{pmatrix}
+			1&x\\0&1
+		\end{pmatrix} \begin{pmatrix}
+			1&y\\0&1
+		\end{pmatrix} = \begin{pmatrix}
+			1&x+y\\0&1
+		\end{pmatrix} \in H$
+		\begin{itemize}
+			\item[$(A)$:] associatif, car la multiplication de matrices est associative.
+			\item[$(N)$:] $\begin{pmatrix}
+				1&0\\0&1
+			\end{pmatrix} \in H$ est neutre
+			\item[$(I)$:] l'inverse de $\begin{pmatrix}
+				1&x\\0&1
+			\end{pmatrix}$ est $\begin{pmatrix}
+				1&-x\\0&1
+			\end{pmatrix}$
+		\end{itemize}
+		Ainsi, $H$ est un groupe pour la multiplication matricielle.
+
+		On d\'efinit
+		$\begin{array}{rcl}
+			f:\mathbb{R} &\to& H\\
+			x&\mapsto&\begin{pmatrix}
+				1&x\\0&1
+			\end{pmatrix}
+		\end{array}$
+
+		Soient $x,y \in \mathbb{R}$.
+		\begin{enumerate}[label=(\arabic*)]
+			\item $f(x+y) = \begin{pmatrix}
+				1&x+y\\0&1
+			\end{pmatrix} = \begin{pmatrix}
+			1&x\\0&1
+			\end{pmatrix} \begin{pmatrix}
+			1&y\\0&1
+			\end{pmatrix} = f(x) \cdot f(y)$
+			\item
+			\begin{proof}[montrons que]
+				$f$ est bijective.
+
+				\begin{itemize}
+					\item $f$ est injective
+
+					Soient $x,y \in \mathbb{R}$.
+
+					Supposons $f(x)=f(y)$
+					\begin{align*}
+						\begin{pmatrix}
+							1&x\\0&1
+						\end{pmatrix}&= \begin{pmatrix}
+							1&y\\0&1
+						\end{pmatrix}\\
+						x&= y
+					\end{align*}
+					\item $f$ est surjective
+
+					Soit $Y = \begin{pmatrix}
+						1&y\\0&1
+					\end{pmatrix} \in H$, avec $y \in \mathbb{R}$.
+
+					$Y = f(y)$.
+				\end{itemize}
+			\end{proof}
+		\end{enumerate}
+	\end{exem}
+
+	\subsection{Sous-groupes}
+	\begin{defin}
+		$H \subseteq (G,*)$ est un \emph{sous-groupe} de $G$ si $H$ est un groupe pour la m\^eme op\'eration que $G$.
+	\end{defin}
+	\begin{exem}
+		~
+
+		\begin{itemize}
+			\item $\{e\} \subseteq G$ est un sous-groupe.
+			\item $G \subseteq G$ est un sous-groupe.
+			\item $\left\lbrace \dotsc, -4, -2, 0, 2, 4, \dotsc \right\rbrace = 2\mathbb{Z} \subseteq (\mathbb{Z},+)$
+			\item Dans $\mathbb{Z}_4 = \{\overline0, \overline1, \overline2, \overline3\}$, $\{\overline0, \overline2\}$ est un sous-groupe.
+			\renewcommand{\arraystretch}{1.5}
+			\[
+			\begin{array}{c||c|c}
+				+&\overline0&\overline2\\
+				\hline\hline
+				\overline0&\overline0&\overline2\\
+				\hline
+				\overline2&\overline2&\overline0
+			\end{array}
+			\]
+			\renewcommand{\arraystretch}{1}
+
+			Ce groupe est isomorphe \`a $\mathbb{Z}_2$ et \`a $C_2=(\{-1,1\}, \times)$.
+			\item $(\mathbb{Z},+) \subseteq (\mathbb{Q},+) \subseteq (\mathbb{R},+)$.
+			\item $C_2 \subseteq \mathbb{Q}_* \subseteq \mathbb{R}_*$.
+			\item $\mathbb{D}_3 = \{\varepsilon, \alpha, \beta, \gamma, \rho, \sigma\}$.
+
+			$\{\varepsilon, \alpha\}$ et $\{\varepsilon, \rho, \sigma\}$ sont des sous-groupes de $\mathbb{D}_3$.
+		\end{itemize}
+		\begin{nota}
+			On note l'ensemble $m\mathbb{Z} = \{m \cdot n \mid n \in \mathbb{Z}\}$.
+		\end{nota}
+	\end{exem}
 \end{document}
