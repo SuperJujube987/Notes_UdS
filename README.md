@@ -4,11 +4,9 @@ Ce dépôt a été créé pour permettre aux étudiants du baccalauréat en math
 
 ## Cours
 
-Pour avoir une version du document avec des liens cliquables, il faut télécharger le fichier, mais il est tout de même possible d'avoir un aperçu du fichier directement. Le fichier téléchargé sera automatiquement ouvert dans un nouvel onglet du navigateur avec son lecteur PDF natif.
+[MAT141 - Éléments d'algèbre](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT141-elements_d_algebre/MAT141-elements_d_algebre.pdf)
 
-[MAT141 - Éléments d'algèbre](MAT141-elements_d_algebre/MAT141-elements_d_algebre.pdf)
-
-[MAT346 - Analyse II](MAT346-analyse_II/MAT346-analyse_II.pdf)
+[MAT346 - Analyse II](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT346-analyse_II/MAT346-analyse_II.pdf)
 
 ## Auteur
 
