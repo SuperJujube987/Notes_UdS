@@ -11,6 +11,7 @@
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
+\usepackage{xfrac}
 
 \hypersetup{
 	colorlinks=false
@@ -30,8 +31,9 @@ Donn\'e par Mario Lambert}
 \NewDocumentCommand{\partitions}{O{a,b}}{\Omega\left[ #1 \right]}
 \NewDocumentCommand{\msup}{mO{a,b}}{\overline{M}\left( #1,\left[ #2 \right] \right)}
 \NewDocumentCommand{\minf}{mO{a,b}}{\underline{M}\left( #1,\left[ #2 \right] \right)}
-\NewDocumentCommand{\ssup}{mO{\Delta}}{\overline{S}(#1,#2)}
-\NewDocumentCommand{\sinf}{mO{\Delta}}{\underline{S}(#1,#2)}
+\NewDocumentCommand{\ssup}{mO{\Delta}}{\overline{S}\left( #1,#2 \right)}
+\NewDocumentCommand{\sinf}{mO{\Delta}}{\underline{S}\left( #1,#2 \right)}
+\NewDocumentCommand{\srie}{mO{\Delta}O{\{\bar{x}_i\}}}{S\left( #1,#2,#3 \right)}
 
 \newcommand*{\Ssup}[1]{\overline{S}(#1)}
 \newcommand*{\Sinf}[1]{\underline{S}(#1)}
@@ -72,7 +74,9 @@ Donn\'e par Mario Lambert}
 \begin{document}
 	\maketitle
 	\tableofcontents
+	\pagenumbering{roman}
 	\newpage
+	\pagenumbering{arabic}
 
 	\chapter{Int\'egration}
 	\section{Int\'egrales de Riemann}
@@ -718,7 +722,7 @@ Donn\'e par Mario Lambert}
 
 		Le nombre r\'eel
 		\begin{align*}
-			S(f,\Delta,\{\bar{x}_i\})&= \sum_{i=1}^{n}f(\bar{x}_i) \cdot (x_i-x_{i-1})
+			\srie{f}&= \sum_{i=1}^{n}f(\bar{x}_i) \cdot (x_i-x_{i-1})
 		\end{align*}
 
 		est appel\'e \emph{somme de Riemann} de la fonction $f$ correspondant \`a la partition $\Delta$ et aux points $\{\bar{x}_i\}_{i \in [1..n]}$.
@@ -736,7 +740,7 @@ Donn\'e par Mario Lambert}
 
 		c'est-\`a-dire.
 		\[
-		\lim_{\norme{\Delta} \to 0}S(f, \Delta, \{\bar{x}_i\}) = \int_{a}^{b}f
+		\lim_{\norme{\Delta} \to 0}\srie{f} = \int_{a}^{b}f
 		\]
 		\begin{proof}[d\'emonstration]~
 
@@ -744,12 +748,12 @@ Donn\'e par Mario Lambert}
 
 			Donc,
 			\[
-			\Sinf{f} = \lim_{\norme{\Delta} \to 0}\sinf{f} \leq \lim_{\norme{\Delta} \to 0}S(f, \Delta, \{\bar{x}_i\}) \leq \lim_{\norme{\Delta} \to 0}\ssup{f} = \Ssup{f}
+			\Sinf{f} = \lim_{\norme{\Delta} \to 0}\sinf{f} \leq \lim_{\norme{\Delta} \to 0}\srie{f} \leq \lim_{\norme{\Delta} \to 0}\ssup{f} = \Ssup{f}
 			\]
 
 			Comme $f \in \riemann$, on a $\Sinf{f} = \Ssup{f} = \displaystyle\int_{a}^{b}f$.
 
-			Par le th\'eor\`eme du sandwich, $S(f, \Delta, \{\bar{x}_i\}) = \displaystyle\int_a^bf$.
+			Par le th\'eor\`eme du sandwich, $\srie{f} = \displaystyle\int_a^bf$.
 		\end{proof}
 	\end{thm}
 
@@ -840,5 +844,205 @@ Donn\'e par Mario Lambert}
 	\end{thm}
 
 	\subsection{Th\'eor\`eme fondamental du calcul diff\'erentiel et int\'egral}
+	\begin{nota}
+		$F$ est une primitive de $f$.
+	\end{nota}
+	\begin{coro}
+		Si $f$ est continue, alors $f$ admet au moins une primitive.
+	\end{coro}
+	\begin{coro}
+		Si $F_1$ et $F_2$ sont deux primitives de $f$, alors $F_1-F_2=C$ pour une constante $C$.
+	\end{coro}
+	\begin{thm}[Th\'eor\`eme fondamental du calcul int\'egral]~
 
+		Si $f \in \riemann$ et $F$ est une primitive de $f$, alors $\int_{a}^{b}f=F(b)-F(a)$.
+		\begin{proof}[d\'emonstration]~
+
+			Soit $\Delta:a=x_0<x_1<\dotsc<x_n=b \in \partitions$.
+
+			Comme $F$ est continue et diff\'erentiable sur $[a,b]$ et a fortiori sur $[x_{i-1},x_i]$, le th\'eor\`eme de la moyenne donne $t_i \in [x_{i-1},x_i]$ t.q. $\dfrac{F(x_i) - f(x_{i-1})}{x_i-x_{i-1}} = F'(t_i) = f(t_i)$.
+
+			On a
+			\begin{align*}
+				F(b)-F(a)&= \sum_{i=1}^{n}\left[ F(x_i)-F(x_{i-1}) \right]\\
+				&= \sum_{i=1}^{n}(x_i-x_{i-1}) \cdot f(t_i)
+			\end{align*}
+
+			De plus,
+			\[
+			\begin{array}{rrcccl}
+				&\minf{f}[x_{i-1},x_i] &\leq& f(t_i) &\leq& \msup{f}[x_{i-1},x_i]\\
+				\Rightarrow&\displaystyle\sum_{i=1}^{n}(x_i-x_{i-1})\minf{f}[x_{i-1},x_i] &\leq& \displaystyle\sum_{i=1}^{n}(x_i-x_{i-1})f(t_i) &\leq& \displaystyle\sum_{i=1}^{n}(x_i-x_{i-1})\msup{f}[x_{i-1},x_i]\\
+				\Rightarrow&\sinf{f} &\leq& F(b)-F(a) &\leq& \ssup{f}\\
+				\Rightarrow&\displaystyle\int_{a}^{b}f=\Sinf{f}=\lim\limits_{\norme{\Delta}\to0}\sinf{f} &\leq& F(b)-F(a) &\leq& \lim\limits_{\norme{\Delta}\to0}\ssup{f}=\Ssup{f}=\displaystyle\int_{a}^{b}f
+			\end{array}
+			\]
+
+			Donc, $\int_{a}^{b}f=F(b)-F(a)$.
+		\end{proof}
+	\end{thm}
+	\begin{prop}
+		Soit $f:[a,b] \to \reels$ t.q. $f(x)=0$ sauf peut-\^etre en un nombre fini de points. Alors,
+		\begin{enumerate}[label=\alph*)]
+			\item $f \in \riemann$;
+			\item $\int_{a}^{b}f=0$.
+		\end{enumerate}
+		\begin{proof}[d\'emonstration]~
+
+			\begin{enumerate}[label=\alph*)]
+				\item d\'ej\`a fait
+				\item Soit $p$ le nombre de points o\`u $f \neq 0$.
+
+				Pour $p=0$, c'est trivial.
+
+				Supposons que la propri\'et\'e est vraie pour $p$.
+
+				Supposons que $f \neq 0$ en $p+1$ points.
+
+				Il y a deux cas \`a consid\'erer
+				\begin{enumerate}[label=\arabic*)]
+					\item $\exists c \in [a,b]$ avec $f(c) \neq 0$.
+
+					Soit $\eps>0$.
+
+					Soit $\eta>0$ t.q.
+					\begin{enumerate}[label=\roman*)]
+						\item $a<c-\eta<c+\eta<b$;
+						\item $c$ est le seul point de $[c-\eta,c+\eta]$ o\`u $f\neq0$;
+						\item $\eta<\min\left\lbrace \dfrac{\eps}{4\msup{f}}, \dfrac{-\eps}{4\minf{f}} \right\rbrace$.
+					\end{enumerate}
+
+					Par l'hypoth\`ese de r\'ecurrence,
+					\[
+					\begin{array}{rcccl}
+						\displaystyle\int_{a}^{c-\eta}f&=&0&\displaystyle\int_{c+\eta}^{b}f
+					\end{array}
+					\]
+
+					Du crit\`ere d'int\'egrabilit\'e, $\exists \Delta_1:a<x_0<x_1,\dotsc<x_n=c-\eta$, $\exists \Delta_2:c+\eta=y_0<y_1<\dotsc<y_n=b$ t.q. $\ssup{f}[\Delta_i] \leq \ssup{f}[\Delta_i]-\sinf{f}[\Delta_i]<\frac{\eps}{4}$, pour $i\in\{1,2\}$.
+
+					Prenons $\Delta=\raffinement{\Delta_1}{\Delta_2}$.
+
+					On a
+					\begin{align*}
+						\begin{split}
+							\ssup{f}&= \ssup{f}[\Delta_1] + 2\eta \msup{f}[c-\eta,c+\eta] + \ssup{f}[\Delta_2]\\
+							&\leq \ssup{f}[\Delta_1] + 2\eta \msup{f} + \ssup{f}[\Delta_2]\\
+							&< \frac{\eps}{4} + \frac{\eps}{2} + \frac{\eps}{4}\\
+							&= \eps
+						\end{split}
+					\end{align*}
+
+					De m\^eme, $\sinf{f}[\Delta_i] > \ssup{f}[\Delta_i] < \frac{\eps}{4}$, pour $i\in\{1,2\}$.
+
+					et
+					\begin{align*}
+						\sinf{f}&= \sinf{f}[\Delta_1] + 2\eta \minf{f}[c-\eta,c+\eta] + \sinf{f}[\Delta_2]\\
+						&\leq \sinf{f}[\Delta_1] + 2\eta \minf{f} + \sinf{f}[\Delta_2]\\
+						&< -\frac{\eps}{4} - \frac{\eps}{2} - \frac{\eps}{4}\\
+						&= -\eps
+					\end{align*}
+
+					Donc, $\eps < \sinf{f} \leq \ssup{f} < \eps$.
+
+					Comme $\eps>0$ est arbirtaire, on en d\'eduit que $\int_{a}^{b}f=0$.
+					\item $f(c)\neq0$ en $a$ ou en $b$.
+
+					On proc\`ede de la m\^eme mani\`ere avec un sous-intervalle de largeur $\eta$ autour de $a$ et de $b$ t.q. $a$ et $b$ sont les seules discontinuit\'es dans ces intervalles.
+				\end{enumerate}
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+	\begin{coro}
+		Si $f \in \riemann$ et $g:[a,b] \to \reels$ t.q. $f=g$ sauf peut-\^etre en nu nombre fini de points, alors $\int_{a}^{b}f = \int_{a}^{b}g$.
+	\end{coro}
+
+	\section{Techniques d'int\'egration}
+	\begin{thm}[Int\'egration par parties]~
+
+		Soient $f,g:[a,b] \to \reels$ deux fonctions diff\'erentiables t.q. $f',g' \in \riemann$. Alors,
+		\[
+		\int_{a}^{b}fg'=fg\mid_a^b-\int_{a}^{b}gf'
+		\]
+		\begin{proof}[d\'emonstration]~
+
+			Posons $h=fg$.
+
+			Alors,
+			\begin{align*}
+				h'&= f'g + fg'\\
+				\int_{a}^{b} h'&= \int_{a}^{b} f'g + \int_{a}^{b} fg'\\
+				\int_{a}^{b} fg'&= \int_{a}^{b} h - \int_{a}^{b} f'g\\
+				&= h\mid_a^b - \int_{a}^{b} f'g\\
+				&= fg\mid_a^b - \int_{a}^{b} f'g
+			\end{align*}
+		\end{proof}
+	\end{thm}
+	\begin{thm}[Changement de variable/Substitution]~
+
+		Soient $f:[a,b] \to \reels$ continue et $\phi:[\alpha,\beta] \to [a,b]$ de classe $C^1$, c'est-\`a-dire $\phi$ est d\'erivable et $\phi'$ est continue.
+
+		Si $\phi(\alpha)=a$ et $\phi(\beta)=b$, alors
+		\begin{align*}
+			\int_{a}^{b}f(x) dx&= \int_{\alpha}^{\beta}f(\phi(t))\phi'(t) dt
+		\end{align*}
+		\begin{proof}[d\'emonstration]~
+
+			Posons $h(x)=\int_{a}^{x}f(t) dt$.
+
+			Du th\'eor\`eme fondamental, $h$ est uniform\'ement continue, diff\'erentiable et $h'=f$.
+
+			Soit $g(t)=(h \circ \phi)(t) = h(\phi(t)) = \int_{a}^{\phi(t)}f(t) dt$.
+
+			On a $h,\phi$ diff\'erentiables, donc $g$ l'est aussi et
+			\begin{align*}
+				g'(t)&= h'(\phi(t)) \cdot \phi'(t)\\
+				&= f(\phi(t)) \cdot \phi'(t)
+			\end{align*}
+
+			Enfin,
+			\begin{align*}
+				\int_{\alpha}^{\beta}f(\phi(t)) \cdot \phi'(t) dt&= \int_{\alpha}^{\beta}g'(t) dt\\
+				&= g(\beta)-g(\alpha)\\
+				&= h(\phi(\beta)) - h(\phi(\alpha))\\
+				&= h(b)-h(a)\\
+				&= \int_{a}^{b}f(t) dt - \int_{a}^{a}f(t) dt\\
+				&= \int_{a}^{b}f(t) dt
+			\end{align*}
+		\end{proof}
+	\end{thm}
+
+	\subsection{Fractions partielles}
+	\begin{multline*}
+		\dfrac{P(x)}{(x-a)^n(x^2+bx+c)^m} = \dfrac{A_1}{x-a} + \dfrac{A_2}{(x-a)^2} + \dotsb + \dfrac{A_n}{(x-a)^n}+\\
+		\dfrac{B_1x+C_1}{x^2+bx+c} + \dfrac{B_2x+C_2}{(x^2+bx+c)^2} + \dotsb + \dfrac{B_mx+C_m}{(x^2+bx+c)^m}
+	\end{multline*}
+
+	Avec $b^2-4ac<0$.
+
+	On ram\`ene sur d\'enominateurs communs.
+
+	On ram\`ene en une fraction.
+
+	On r\'esoud le syst\`eme d'\'equations avec $P(x)$.
+
+	On int\`egre chaque fraction.
+
+	\subsubsection{Quelques substitutions}
+	\begin{enumerate}
+		\item $f\left( x,\left( \frac{ax+b}{cx+d} \right)^\frac{m_1}{n_1}, \left( \frac{ax+b}{cx+d} \right)^\frac{m_2}{n_2}, \dotsb \right)$, ou $f$ est une fonction rationnelle $f=\frac{P(x)}{Q(x)}$.
+
+		On pose $t^n=\frac{ax+b}{cx+d}$ o\`u $n$ est un multiple commun de $n_1,n_2,\dotsb$.
+		\begin{exem}
+			~
+
+			$\int\dfrac{x^2}{\sqrt{x-1}} = \int x^2(x-1)^{\sfrac{-1}{2}}$.
+
+			Posons $x-1=t^2$.
+
+			Alors, $dx=2t dt$.
+
+			On obtient $\int x^2(x-1)^{\sfrac{-1}{2}} = \int (t^2-1)^2(t^2)^{\sfrac{-1}{2}}2tdt = 2 \int (t^2+1)^2 dt$.
+		\end{exem}
+	\end{enumerate}
 \end{document}
