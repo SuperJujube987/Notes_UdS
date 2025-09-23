@@ -4,7 +4,7 @@ Ce dépôt a été créé pour permettre aux étudiants du baccalauréat en math
 
 ## Cours
 
-Les liens aux fichiers PDF ci-dessous ouvrent les fichiers dans le même onglet, en utilisant le lecteur de PDF du navigateur. Pour ouvrir le fichier dans un nouvel onglet, accédez à l'option avec un clic droit, utilisez CTRL+clic ou cliquez avec la roulette de votre souris.
+Les liens aux fichiers PDF ci-dessous ouvrent les fichiers dans le même onglet, en utilisant le lecteur de PDF natif du navigateur. Pour ouvrir le fichier dans un nouvel onglet, accédez à l'option avec un clic droit, utilisez CTRL+clic ou cliquez avec la roulette de votre souris.
 
 [MAT141 - Éléments d'algèbre](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT141-elements_d_algebre/MAT141-elements_d_algebre.pdf)
 
