@@ -12,10 +12,19 @@
 \usepackage{mathrsfs}
 \usepackage{enumitem}
 \usepackage{wasysym}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
 
 \hypersetup{
 	colorlinks=false
 }
+
+\fancyfoot{}
+\fancyhead{}
+\fancyfoot[c]{\thepage}
+\fancyhead[l]{\leftmark}
+
+\pagestyle{fancy}
 
 \renewcommand{\contentsname}{Table des mati\`eres}
 
@@ -32,12 +41,17 @@ Donn\'e par Jean-Philippe Burelle}
 \newcommand*{\abs}[1]{\left| #1 \right|}
 \newcommand*{\card}[1]{\left| #1 \right|}
 
-\renewcommand{\thesection}{Section \arabic{chapter}.\arabic{section}}
+\newcommand*{\reels}{\mathbb{R}}
+\newcommand*{\entiers}{\mathbb{Z}}
+\newcommand*{\rationels}{\mathbb{Q}}
+\newcommand*{\naturels}{\mathbb{N}}
+
+\renewcommand{\thesection}{ \arabic{chapter}.\arabic{section}}
 \renewcommand{\thesubsection}{}
 \renewcommand{\thesubsubsection}{}
 
 \titleformat{\chapter}[hang]{\bfseries\huge\centering}{Chapitre \arabic{chapter}}{1em}{}[]
-\titleformat{\section}[hang]{\bfseries\large}{}{1em}{}[]
+\titleformat{\section}[hang]{\bfseries\large}{Section\thesection}{1em}{}[]
 \titleformat{\subsection}[hang]{\bfseries\normalsize}{}{0pt}{}[]
 \titleformat{\subsubsection}[hang]{\slshape\normalsize}{}{0pt}{}[]
 
@@ -56,7 +70,9 @@ Donn\'e par Jean-Philippe Burelle}
 \begin{document}
 	\maketitle
 	\tableofcontents
+	\pagenumbering{roman}
 	\newpage
+	\pagenumbering{arabic}
 
 	\chapter{Ensembles}
 	\cours
@@ -83,7 +99,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{nota}
 
 	\begin{defin}
-		D\'efinition d'un ensemble par \emph{compr\'ehension}: $E=\left\lbrace n \in \mathbb{Z} \middle| 1 \leq n \leq 20 \right\rbrace$.
+		D\'efinition d'un ensemble par \emph{compr\'ehension}: $E=\left\lbrace n \in \entiers \middle| 1 \leq n \leq 20 \right\rbrace$.
 	\end{defin}
 
 	\begin{nota}
@@ -133,7 +149,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{defin}
 
 	\begin{exem}
-		$f:\mathbb{Z} \to \mathbb{Z}$, $f(x)=x+1$ est inversible d'inverse $g(y)=y-1$
+		$f:\entiers \to \entiers$, $f(x)=x+1$ est inversible d'inverse $g(y)=y-1$
 
 		\begin{proof}[d\'emo.]
 			~
@@ -204,7 +220,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 
 	\begin{rappel}
-		Pour trouver l'inverse d'une fonction $f:\mathbb{R} \to \mathbb{R}$ donn\'ee par une formule $f(x)=y$, on isole $x$ en fonction de $y$.
+		Pour trouver l'inverse d'une fonction $f:\reels \to \reels$ donn\'ee par une formule $f(x)=y$, on isole $x$ en fonction de $y$.
 	\end{rappel}
 
 
@@ -233,24 +249,24 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{defin}
 
 	\begin{exem}
-		$f:\mathbb{R} \to \mathbb{R}^{\geq0}$, $f(x)=\abs{x}$
+		$f:\reels \to \reels^{\geq0}$, $f(x)=\abs{x}$
 
 		$f$ n'est pas injective, car $f(1)=\abs{1}=1$ et $f(-1)=\abs{-1}=1$, mais $1 \neq -1$.
 
-		$f$ est surjective, car soit $y \in \mathbb{R}^{\geq0}$, alors pour $x=y$, on a $f(x)=f(y)=\abs{y}=y$.
+		$f$ est surjective, car soit $y \in \reels^{\geq0}$, alors pour $x=y$, on a $f(x)=f(y)=\abs{y}=y$.
 
 		~
 
 		\[
 		\begin{array}{rrcl}
-			f:&\mathbb{N}&\to&\mathbb{N}\\
+			f:&\naturels&\to&\naturels\\
 			&x&\mapsto&x+1
 		\end{array}
 		\]
 
 		$f$ est injective:
 
-		Soient $x_1,x_2 \in \mathbb{N}$.
+		Soient $x_1,x_2 \in \naturels$.
 
 		On suppose $f(x_1)=f(x_2)$.
 
@@ -261,25 +277,25 @@ Donn\'e par Jean-Philippe Burelle}
 
 		$f$ n'est pas surjective
 
-		$y=0\in\mathbb{N}$ n'est pas \'egal \`a $f(x)$ pour $x\in\mathbb{N}$. Si il existait $x$ avec $f(x)=0$, $x+1=0$, $x=-1$, $x \not\in \mathbb{N}$.
+		$y=0\in\naturels$ n'est pas \'egal \`a $f(x)$ pour $x\in\naturels$. Si il existait $x$ avec $f(x)=0$, $x+1=0$, $x=-1$, $x \not\in \naturels$.
 
 		~
 
-		$f:\mathbb{R}\to\mathbb{R}$, $x \mapsto 2x+3$.
+		$f:\reels\to\reels$, $x \mapsto 2x+3$.
 
 		$f$ est injective:
 
-		Soient $x_1,x_2 \in \mathbb{R}$.
+		Soient $x_1,x_2 \in \reels$.
 
 		supposons $f(x_1)=f(x_2)$, $2x_1+3=2x_2+3$, $2x_1=2x_2$, $x_1=x_2$.
 
 		$f$ est surjective:
 
-		Soit $y \in \mathbb{R}$.
+		Soit $y \in \reels$.
 
 		On cherche $x$ t.q. $f(x)=y$.
 
-		Posons $x=\dfrac{y-3}{2} \in \mathbb{R}$.
+		Posons $x=\dfrac{y-3}{2} \in \reels$.
 
 		Alors, $f(x) = f\left( \dfrac{y-3}{2} \right) = 2 \cdot  \dfrac{y-3}{2} + 3 = y-3+3 = y$.
 
@@ -378,22 +394,22 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{defin}
 
 	\begin{exem}
-		$E=\mathbb{Z}$,
+		$E=\entiers$,
 
 		$\begin{array}{rrcl}
-			m:&\mathbb{Z} \times \mathbb{Z} &\longrightarrow& \mathbb{Z}\\
+			m:&\entiers \times \entiers &\longrightarrow& \entiers\\
 			&(n,m)&\longmapsto&n + m
 		\end{array}$
 
 		$\begin{array}{rrcl}
-			m:&\mathbb{Z} \times \mathbb{Z} &\longrightarrow& \mathbb{Z}\\
+			m:&\entiers \times \entiers &\longrightarrow& \entiers\\
 			&(n,m)&\longmapsto&n \cdot m
 		\end{array}$
 
 		~
 
 		$\begin{array}{rrcl}
-			d:&\mathbb{Q} \times \mathbb{Q}&\longrightarrow&\mathbb{Q}\\
+			d:&\rationels \times \rationels&\longrightarrow&\rationels\\
 			&(x,y)&\longmapsto&\frac{x}{y}
 		\end{array}$
 
@@ -402,7 +418,7 @@ Donn\'e par Jean-Philippe Burelle}
 		Cependant,
 
 		$\begin{array}{rrcl}
-			d:&\mathbb{Q}_* \times \mathbb{Q}_*&\longrightarrow&\mathbb{Q}_*\\
+			d:&\rationels_* \times \rationels_*&\longrightarrow&\rationels_*\\
 			&(x,y)&\longmapsto&\frac{x}{y}
 		\end{array}$
 
@@ -456,7 +472,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{rappel}
 
 	\begin{exem}
-		Sur $\mathbb{N}$,
+		Sur $\naturels$,
 
 		\begin{itemize}
 			\item $0$ est neutre pour $+$.
@@ -471,11 +487,11 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{align*}
 		\end{itemize}
 
-		Sur $\mathbb{Z}$, $-$ est une op\'eration mais elle n'a pas d\'el\'ement neutre.
+		Sur $\entiers$, $-$ est une op\'eration mais elle n'a pas d\'el\'ement neutre.
 		\renewcommand{\qedsymbol}{\lightning}
 		\begin{proof}[En effet,]~
 
-			Supposons que $e \in \mathbb{Z}$ est neutre, alors $e-n=n$ pour tout $n$.
+			Supposons que $e \in \entiers$ est neutre, alors $e-n=n$ pour tout $n$.
 
 			Pour $n=0$, $e-0=0$, donc $e=0$.
 
@@ -485,7 +501,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\begin{itemize}
 			\item Sur l'ensemble $E=\left\lbrace \left( \begin{array}{cc}
 				a&b\\c&d
-			\end{array}\right) \middle| a,b,c,d \in \mathbb{R}\right\rbrace$, la multiplication matricielle $\times$ est une op\'eration.
+			\end{array}\right) \middle| a,b,c,d \in \reels\right\rbrace$, la multiplication matricielle $\times$ est une op\'eration.
 
 			La matrice $I=\left( \begin{array}{cc}
 				1&0\\0&1
@@ -579,12 +595,12 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{exem}
 		~
 
-		Dans $\mathbb{Z}$ avec $+$, $3$ et $-3$ sont inverses. En effet, on a $3+(-3)=0$ et $(-3)=3=0$ avec $0$ l'\'el\'ement neutre de $+$.
+		Dans $\entiers$ avec $+$, $3$ et $-3$ sont inverses. En effet, on a $3+(-3)=0$ et $(-3)=3=0$ avec $0$ l'\'el\'ement neutre de $+$.
 	\end{exem}
 	\begin{exem}
 		~
 
-		Dans $\mathbb{Z}$ avec $\times$, le neutre est 1, mais seuls $1$ et $-1$ sont inversibles. En effet, on a $1 \times 1=1$ et $(-1) \times (-1)=1$.
+		Dans $\entiers$ avec $\times$, le neutre est 1, mais seuls $1$ et $-1$ sont inversibles. En effet, on a $1 \times 1=1$ et $(-1) \times (-1)=1$.
 	\end{exem}
 	\begin{rema}
 		~
@@ -655,15 +671,15 @@ Donn\'e par Jean-Philippe Burelle}
 		~
 
 		\begin{enumerate}[label=(\arabic*)]
-			\item $(\mathbb{Z},+)$ est un groupe.
+			\item $(\entiers,+)$ est un groupe.
 
 			Neutre: $0$
 
 			Inverse de $n$: $-n$
-			\item $(\mathbb{Q},+)$ et $(\mathbb{R},+)$ sont des groupes.
-			\item $(\mathbb{Z},\times)$ n'est pas un groupe, car, par exemple, $2$ n'est pas inversible.
-			\item $(\mathbb{Q},\times)$ n'est pas un groupe, car $0$ n'est pas inversible.
-			\item $(\mathbb{Q}_*,\times)$ et $(\mathbb{R},\times)$ sont des groupes.
+			\item $(\rationels,+)$ et $(\reels,+)$ sont des groupes.
+			\item $(\entiers,\times)$ n'est pas un groupe, car, par exemple, $2$ n'est pas inversible.
+			\item $(\rationels,\times)$ n'est pas un groupe, car $0$ n'est pas inversible.
+			\item $(\rationels_*,\times)$ et $(\reels,\times)$ sont des groupes.
 
 			Neutre: $1$
 
@@ -677,7 +693,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\begin{rema}
 			~
 
-			$(\mathbb{N},+)$ n'est pas un groupe.
+			$(\naturels,+)$ n'est pas un groupe.
 		\end{rema}
 	\end{exem}
 	\begin{defin}
@@ -686,9 +702,9 @@ Donn\'e par Jean-Philippe Burelle}
 		Si l'op\'eration d'un groupe est commutative, on note le groupe comme \emph{ab\'elien} (ou commutatif).
 	\end{defin}
 	\begin{enumerate}[resume]
-		\item $GL(n,\mathbb{R})$ est un groupe pour la multiplication matricielle.
+		\item $GL(n,\reels)$ est un groupe pour la multiplication matricielle.
 
-		$GL(n,\mathbb{R})=\{M|M \text{ est une matrice $n\times n$ r\'eelle inversible}\}$.
+		$GL(n,\reels)=\{M|M \text{ est une matrice $n\times n$ r\'eelle inversible}\}$.
 
 		$GL$: g\'en\'eral lin\'eaire
 
@@ -700,7 +716,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 		$M^{-1}$ la matrice inverse est l'inverse.
 
-		Pour $n \geq 2$, $GL(n,\mathbb{R})$  n'est pas ab\'elien.
+		Pour $n \geq 2$, $GL(n,\reels)$  n'est pas ab\'elien.
 		\item $A$ un ensemble quelconque
 
 		$S(A)=\{f:A \to A|f \text{ est bijective}\}$ est un groupe pour $\circ$.
@@ -755,7 +771,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rema}
 		~
 
-		``Le groupe $\mathbb{R}$'' implique l'op\'eration $+$ et ``le groupe $\mathbb{R}_*$'' implique l'op\'eration $\times$.
+		``Le groupe $\reels$'' implique l'op\'eration $+$ et ``le groupe $\reels_*$'' implique l'op\'eration $\times$.
 	\end{rema}
 
 	\subsection{Propri\'et\'es \'el\'ementaires des groupes}
@@ -808,9 +824,9 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{exem}
 		~
 
-		$\left( \mathbb{Z}_3,+ \right)$.
+		$\left( \entiers_3,+ \right)$.
 
-		$\mathbb{Z}_3=\left\lbrace \overline{0}, \overline{1}, \overline{2} \right\rbrace$
+		$\entiers_3=\left\lbrace \overline{0}, \overline{1}, \overline{2} \right\rbrace$
 
 		\renewcommand{\arraystretch}{1.5}
 		\[
@@ -834,7 +850,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 		$(\overline{2})^{-1}=\overline{1}$.
 
-		$\left( \mathbb{Z}_3,+ \right)$ est un groupe ab\'elien.
+		$\left( \entiers_3,+ \right)$ est un groupe ab\'elien.
 		\begin{rema}
 			La sym\'etrie de la table par rapport \`a la diagonale implique la commutativit\'e.
 		\end{rema}
@@ -886,7 +902,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item
 			\begin{exem}~
 
-				$(\mathbb{Z}, +), (\mathbb{Q}, +), (\mathbb{R}, +), (\mathbb{Q}_*, \times), (\mathbb{R}_*, \times)$ ab\'eliens, $\mathbb{Z}_3, \mathbb{D}_3, GL(n, \mathbb{R})$.
+				$(\entiers, +), (\rationels, +), (\reels, +), (\rationels_*, \times), (\reels_*, \times)$ ab\'eliens, $\entiers_3, \mathbb{D}_3, GL(n, \reels)$.
 
 				$S(E)=\{f:E \to E \mid f\text{ est bijective}\}$.
 				\begin{rema}
@@ -924,10 +940,10 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{prop}
 	\begin{exem}
 		\begin{itemize}
-			\item $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+			\item $\reels \times \reels = \reels^2$
 
 			$(x,y)+(x',y')=(x+x',y+y')$.
-			\item $(\mathbb{Z}_2,+)$
+			\item $(\entiers_2,+)$
 			\renewcommand{\arraystretch}{1.5}
 			\[
 			\begin{array}{c||c|c}
@@ -939,7 +955,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{array}
 			\]
 
-			$\mathbb{Z}_2 \times \mathbb{Z}_2$
+			$\entiers_2 \times \entiers_2$
 			\[
 			\begin{array}{c||c|c|c|c}
 				+&(\overline0,\overline0)& (\overline0,\overline1)& (\overline1,\overline0)& (\overline1,\overline1)\\
@@ -971,20 +987,20 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{exem}~
 
 		\begin{itemize}
-			\item $(\mathbb{R},+)$ et $(\mathbb{R}^+_*,\times)$
+			\item $(\reels,+)$ et $(\reels^+_*,\times)$
 
 			$\begin{array}{rcl}
-				f:\mathbb{R}&\to&\mathbb{R}^+_*\\
+				f:\reels&\to&\reels^+_*\\
 				x&\mapsto&e^x
 			\end{array}$ est un isomorphisme de groupes.
 			\begin{enumerate}[label=(\arabic*)]
-				\item Soient $x,y \in \mathbb{R}$.
+				\item Soient $x,y \in \reels$.
 				\begin{align*}
 					f(x+y)&= e^{x+y}\\
 					&= e^x \times e^y\\
 					&= f(x) \times f(y)
 				\end{align*}
-				\item $\ln:\mathbb{R}^+_* \to \mathbb{R}$ est inverse de $f$: $\ln e^x=x \forall x \in \mathbb{R}$ et $e^{\ln x}=x \forall x \in \mathbb{R}^+_*$.
+				\item $\ln:\reels^+_* \to \reels$ est inverse de $f$: $\ln e^x=x \forall x \in \reels$ et $e^{\ln x}=x \forall x \in \reels^+_*$.
 			\end{enumerate}
 		\end{itemize}
 	\end{exem}
@@ -1017,7 +1033,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{prop}
 	\begin{exem}
 		Pour $\begin{array}{rcl}
-			f:\mathbb{R}&\to&\mathbb{R}^+_*\\
+			f:\reels&\to&\reels^+_*\\
 			x&\mapsto&e^x
 		\end{array}$, $f(0)=e^0=1$.
 	\end{exem}
@@ -1045,7 +1061,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{prop}
 	\begin{exem}
 		Pour $\begin{array}{rcl}
-			f:\mathbb{R}&\to&\mathbb{R}^+_*\\
+			f:\reels&\to&\reels^+_*\\
 			x&\mapsto&e^x
 		\end{array}$, $f(-x)=e^{-x}=(e^x)^{-1}=f(x)^{-1}=\frac{1}{f(x)}$, o\`u $-x$ est l'inverse de $x$ pour $+$ et $\frac{1}{f(x)}$ est l'inverse de $f(x)$ pour $\times$.
 	\end{exem}
@@ -1082,7 +1098,7 @@ Donn\'e par Jean-Philippe Burelle}
 		Avec $f(a_1*a_2)=f(a_1) \diamond f(a_2)$.
 		\begin{exem}
 			\[
-			\mathbb{Z}_2:
+			\entiers_2:
 			\renewcommand{\arraystretch}{1.5}
 			\begin{array}{c||c|c}
 				+&\overline0&\overline1\\
@@ -1111,7 +1127,7 @@ Donn\'e par Jean-Philippe Burelle}
 				-1&-1&1
 			\end{array}
 			\]
-			$\mathbb{Z}_2$, $H$ et $C_2$ sont isomorphes.
+			$\entiers_2$, $H$ et $C_2$ sont isomorphes.
 
 			Il existe un isomorphisme entre chaque paire.
 		\end{exem}
@@ -1156,7 +1172,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\subsection{Puissances d'\'el\'ements de groupes}
 	\begin{defin}[par r\'ecurrence]~
 
-		$a \in G$, $n \in \mathbb{N}$
+		$a \in G$, $n \in \naturels$
 		\begin{enumerate}
 			\item $a^0 \coloneq e_G$
 			\item $a^n=a*a^{n-1}$, $\forall n \geq 1$
@@ -1173,11 +1189,11 @@ Donn\'e par Jean-Philippe Burelle}
 				&= a*a*a*a*e\\
 				&= a*a*a*a
 			\end{align*}
-			\item Dans $(\mathbb{Z},+)$, $2^3=3 \cdot 2=2+2+2$.
+			\item Dans $(\entiers,+)$, $2^3=3 \cdot 2=2+2+2$.
 		\end{itemize}
 	\end{exem}
 	\begin{prop}
-		$a^{n+m}=a^n*a^m$, $\forall n,m \in \mathbb{N}$.
+		$a^{n+m}=a^n*a^m$, $\forall n,m \in \naturels$.
 		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]~
 
 			\begin{enumerate}
@@ -1199,7 +1215,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{proof}
 	\end{prop}
 	\begin{defin}
-		Pour $n \in \mathbb{Z}$.
+		Pour $n \in \entiers$.
 
 		Si $n \geq 0$, on a d\'ej\`a d\'efini $a^n$.
 
@@ -1209,10 +1225,10 @@ Donn\'e par Jean-Philippe Burelle}
 		$a^{-3}=a^{-1}*a^{-1}*a^{-1}$.
 	\end{exem}
 	\begin{prop}
-		$a^{n+m}=a^n*a^m$, $\forall n,m \in \mathbb{Z}$.
+		$a^{n+m}=a^n*a^m$, $\forall n,m \in \entiers$.
 	\end{prop}
 	\begin{prop}
-		$(a^m)^n=a^{mn}$, $\forall m,n \in \mathbb{N}$. Vraie aussi pour $m,n \in \mathbb{Z}$.
+		$(a^m)^n=a^{mn}$, $\forall m,n \in \naturels$. Vraie aussi pour $m,n \in \entiers$.
 		\begin{proof}[d\'emonstration par r\'ecurrence sur $m$]~
 
 		\begin{enumerate}
@@ -1221,7 +1237,7 @@ Donn\'e par Jean-Philippe Burelle}
 				(a^n)^0&= e\\
 				a^{n \cdot 0}&= a^0=e
 			\end{align*}
-			\item supposons que $(a^n)^m=a^{nm}$ pour un certain $m \in \mathbb{N}$.
+			\item supposons que $(a^n)^m=a^{nm}$ pour un certain $m \in \naturels$.
 			\begin{align*}
 				(a^n)^{m+1}&= (a^n)(a^n)^m\\
 				\text{hyp rec}&= (a^n)a^{nm}\\
@@ -1269,7 +1285,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{prop}
 		$f$ isomorphisme $f:G \to H$.
 
-		$a \in G$. Alors, $f(a^n)=f(a)^n$, $\forall n \in \mathbb{Z}$.
+		$a \in G$. Alors, $f(a^n)=f(a)^n$, $\forall n \in \entiers$.
 		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]~
 
 			\begin{itemize}
@@ -1281,7 +1297,7 @@ Donn\'e par Jean-Philippe Burelle}
 						&= e_H\\
 						&= f(a)^0
 					\end{align*}
-					\item supposons que $f(a^n)=f(a)^n$ pour un certain $n \in \mathbb{Z}$.
+					\item supposons que $f(a^n)=f(a)^n$ pour un certain $n \in \entiers$.
 					\begin{align*}
 						f(a^{n+1})&= f(a \cdot a^n)\\
 						&= f(a)f(a^n)\\
@@ -1303,7 +1319,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\(
 		H= \left\lbrace \begin{pmatrix}
 			1&x\\0&1
-		\end{pmatrix} \in GL(2, \mathbb{R}) \middle| x \in \mathbb{R} \right\rbrace
+		\end{pmatrix} \in GL(2, \reels) \middle| x \in \reels \right\rbrace
 		\)
 		, avec la multiplication de matrices.
 
@@ -1329,13 +1345,13 @@ Donn\'e par Jean-Philippe Burelle}
 
 		On d\'efinit
 		$\begin{array}{rcl}
-			f:\mathbb{R} &\to& H\\
+			f:\reels &\to& H\\
 			x&\mapsto&\begin{pmatrix}
 				1&x\\0&1
 			\end{pmatrix}
 		\end{array}$
 
-		Soient $x,y \in \mathbb{R}$.
+		Soient $x,y \in \reels$.
 		\begin{enumerate}[label=(\arabic*)]
 			\item $f(x+y) = \begin{pmatrix}
 				1&x+y\\0&1
@@ -1351,7 +1367,7 @@ Donn\'e par Jean-Philippe Burelle}
 				\begin{itemize}
 					\item $f$ est injective
 
-					Soient $x,y \in \mathbb{R}$.
+					Soient $x,y \in \reels$.
 
 					Supposons $f(x)=f(y)$
 					\begin{align*}
@@ -1366,7 +1382,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 					Soit $Y = \begin{pmatrix}
 						1&y\\0&1
-					\end{pmatrix} \in H$, avec $y \in \mathbb{R}$.
+					\end{pmatrix} \in H$, avec $y \in \reels$.
 
 					$Y = f(y)$.
 				\end{itemize}
@@ -1384,8 +1400,8 @@ Donn\'e par Jean-Philippe Burelle}
 		\begin{itemize}
 			\item $\{e\} \subseteq G$ est un sous-groupe.
 			\item $G \subseteq G$ est un sous-groupe.
-			\item $\left\lbrace \dotsc, -4, -2, 0, 2, 4, \dotsc \right\rbrace = 2\mathbb{Z} \subseteq (\mathbb{Z},+)$
-			\item Dans $\mathbb{Z}_4 = \{\overline0, \overline1, \overline2, \overline3\}$, $\{\overline0, \overline2\}$ est un sous-groupe.
+			\item $\left\lbrace \dotsc, -4, -2, 0, 2, 4, \dotsc \right\rbrace = 2\entiers \subseteq (\entiers,+)$
+			\item Dans $\entiers_4 = \{\overline0, \overline1, \overline2, \overline3\}$, $\{\overline0, \overline2\}$ est un sous-groupe.
 			\renewcommand{\arraystretch}{1.5}
 			\[
 			\begin{array}{c||c|c}
@@ -1398,15 +1414,265 @@ Donn\'e par Jean-Philippe Burelle}
 			\]
 			\renewcommand{\arraystretch}{1}
 
-			Ce groupe est isomorphe \`a $\mathbb{Z}_2$ et \`a $C_2=(\{-1,1\}, \times)$.
-			\item $(\mathbb{Z},+) \subseteq (\mathbb{Q},+) \subseteq (\mathbb{R},+)$.
-			\item $C_2 \subseteq \mathbb{Q}_* \subseteq \mathbb{R}_*$.
+			Ce groupe est isomorphe \`a $\entiers_2$ et \`a $C_2=\left( \{-1,1\}, \times \right)$.
+			\item $(\entiers,+) \subseteq (\rationels,+) \subseteq (\reels,+)$.
+			\item $C_2 \subseteq \rationels_* \subseteq \reels_*$.
 			\item $\mathbb{D}_3 = \{\varepsilon, \alpha, \beta, \gamma, \rho, \sigma\}$.
 
 			$\{\varepsilon, \alpha\}$ et $\{\varepsilon, \rho, \sigma\}$ sont des sous-groupes de $\mathbb{D}_3$.
 		\end{itemize}
 		\begin{nota}
-			On note l'ensemble $m\mathbb{Z} = \{m \cdot n \mid n \in \mathbb{Z}\}$.
+			On note l'ensemble $m\entiers = \{m \cdot n \mid n \in \entiers\}$.
 		\end{nota}
 	\end{exem}
+
+	\cours
+	\begin{rappel}
+		~
+
+		\begin{itemize}
+			\item $a \in G$.
+			\begin{itemize}
+				\item $a^n=\underbrace{a*a*\dotsb*a}_{\text{$n$ fois}}$
+				\item $a^n=a*a^{n-1}$
+				\item $a^0=e$
+				\item $a^{-n}=(a^{-1})^n$
+			\end{itemize}
+			\item Sous-groupe de $(G,*):H \subseteq G$ qui est un groupe pour $*$.
+			\begin{exem}
+				$\entiers \subseteq \rationels \subseteq \reels$ pour $+$.
+			\end{exem}
+			\begin{exem}
+				\[
+				\left\lbrace \begin{pmatrix}
+					1&0\\0&1
+				\end{pmatrix}, \begin{pmatrix}
+					0&1\\1&0
+				\end{pmatrix} \right\rbrace
+				\]
+				est un sous-groupe de $GL(2,\reels)$.
+			\end{exem}
+		\end{itemize}
+	\end{rappel}
+	\begin{prop}
+		$H \subseteq G$ un sous-groupe.
+		\begin{enumerate}[label=(\alph*),itemsep=1pt]
+			\item Si $G$ est ab\'elien, alors $H$ est ab\'elien;
+			\item Le neutre de $H$ est le neutre de $G$;
+			\item Si $a \in H$, son inverse $a^{-1}\in H$ est l'inverse de $a$ dans $G$.
+		\end{enumerate}
+		\begin{proof}[d\'emonstration]~
+
+			\begin{enumerate}[label=(\alph*),itemsep=1pt]
+				\item $G$ est ab\'elien, alors $\forall a,b \in G$, $ab=ba$.
+
+				En particulier, $\forall a,b \in H$, $ab=ba$.
+				\item Le neutre de $G$ $e_G$ a la propri\'et\'e que $\forall a \in G$, $e_Ga=a=ae_G$.
+
+				Comme $H \subseteq G$, cette propri\'et\'e est vraie pour $H$ aussi.
+
+				Donc, $ae_G=a=e_Ga$.
+
+				Ainsi, $e_G$ est le neutre de $H$, par l'unicit\'e de l'\'el\'ement neutre.
+				\item $a \in H$, il existe un inverse $b \in G$ pour $a$ t.q. $ab=ba=e$.
+
+				Comme $H$ est un groupe, $\exists! a^{-1} \in H$.
+
+				De $ab=e$, on a $a^{-1}ab=a^{-1}e$, donc $b=a^{-1}$.
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+	\begin{thm}~
+
+		Un sous-ensemble non-vide $H \subseteq G$ est un sous-groupe ssi pour tous $a,b \in H$, $ab^{-1} \in H$.
+		\begin{proof}[d\'emonstration]~
+
+			\begin{itemize}
+				\item[$(\Rightarrow)$] Supposons que $H$ est un sous-groupe, donc $a,b \in H$, alors $b^{-1} \in H$.
+
+				De plus, $H$ est ferm\'e pour la multiplication, donc $ab^{-1} \in H$.
+				\item[$(\Leftarrow)$]
+				\begin{itemize}
+					\item[$(N)$] $H$ est non-vide, donc $\exists a \in H$.
+
+					Par hypoth\`ese, $aa^{-1}=e \in H$.
+					\item[$(I)$] On vient de montrer que $e \in H$.
+
+					Soit $b \in H$ quelconque. Par hypoth\`ese, $eb^{-1}=b^{-1} \in H$.
+					\item[$(A)$] On sait que $\forall a,b,c \in G$, $(ab)c=a(bc)$.
+
+					En particulier, $\forall a,b,c \in H$, $(ab)c=a(bc)$.
+				\end{itemize}
+
+				Finalement, $H$ est ferm\'e pour l'op\'eration de $G$, car $\forall a,b \in H$, $b^{-1} \in H$.
+
+				Donc, par hypoth\`ese, $a(b^{-1})^{-1}=ab \in H$.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+	\begin{exem}~
+
+		Soit $m \in \entiers$.
+
+		Posons $H = m\entiers = \{mn \mid n \in \entiers\} = \{\dotsb,-2m,-m,0,m,2m,\dotsb\}$, muni de l'addition.
+		\begin{proof}[m.q.]
+			$H$ est un sous-groupe de $(\entiers,+)$.
+
+			$H$ est non-vide, car $m0=0 \in H$.
+
+			Soient $a,b \in H$.
+
+			Par d\'efinition de $H$, $\exists a',b' \in \entiers$ t.q. $a=ma'$ et $b=mb'$.
+
+			Dans $\entiers$, $b^{-1} = -mb'$.
+
+			On a $a+(-b) = ma' + (-mb') = m(a'-b') \in H$.
+
+			Donc, $H$ est un sous-groupe de $(\entiers,+)$.
+		\end{proof}
+
+		R\'eciproquement, soit $H \subseteq H$ un sous-groupe de $\entiers$ quelconque. Alors $\exists m \in \entiers$ t.q. $H=m\entiers$.
+		\begin{proof}[d\'emonstration]~
+
+			On sait que $0\ in H$.
+
+			Si $H=\{0\}$, alors $H=0\entiers$ et l'\'enonc\'e est vrai.
+
+			Sinon, $H$ contient un autre \'el\'ement $a \in H$, donc $-a \in H$.
+
+			En particulier, $H$ contient au moins un entier positif.
+
+			Soit $m$ le \emph{plus petit} \'el\'ement positif de $H$.
+
+			Soit $h \in H$ quelconque. On divise $h$ par $m$, donc $h=qm+r$, o\`u $q,r \in \entiers$ et $0 \leq r < m$.
+
+			Si $r=o$, $h=qm \in m\entiers$.
+
+			Sinon, comme $h \in H$ et $m \in H$, $h-qm \in H$, mais $h-qm=r$, donc $r \in H$.
+
+			Comme $0<r<m$, il y a une contradiction \`a la d\'efinition de $m$.
+			\begin{flushright}
+				\lightning
+			\end{flushright}
+
+			Ainsi, $H \subseteq m\entiers$. Mais clairement, $m\entiers \subseteq H$, car $m \in H$ et $mn \in H$, donc $H=m\entiers$.
+		\end{proof}
+	\end{exem}
+	\begin{prop}~
+
+		Soit $f:G \to H$ un isomorphisme. Alors, $K \subseteq G$ est un sous-groupe de $G$ ssi $f(K)$ est un sous-groupe de $H$.
+		\begin{nota}
+			$f(K) = \{f(k) \mid k \in K\}$.
+		\end{nota}
+
+		\begin{itemize}
+			\item[$(\Rightarrow)$] Supposons que $K$ est un sous-groupe de $G$.
+
+			On sait que $e \in K$, alors $f(e)=e \in f(K)$, donc $f(K)$ est non-vide.
+
+			Soient $a,b \in f(K)$. On veut montrer que $ab^{-1} \in f(K)$.
+
+			Alors, $a=f(k)$ et $b=f(k')$, avec $k,k' \in K$.
+
+			Donc, $ab^{-1} = f(k)f(k')^{-1} = f(k)f(k'^{-1}) = f(kk'^{-1})$.
+
+			Comme $kk'^{-1} \in K$, $ab^{-1} \in f(K)$.
+			\item[$(\Leftarrow)$] On effectue la m\^eme preuve avec $f^{-1}$ qui est un isomorphisme en remarquant que $f^{-1}(f(k))=k$.
+		\end{itemize}
+	\end{prop}
+	\begin{nota}
+		~
+
+		$G\xrightarrow{f}H$ avec $f$ un isomorphisme est \'equivalent \`a $G\xrightarrow{\sim}H$.
+	\end{nota}
+	\begin{nota}
+		~
+
+		$H \subseteq G$ un sous-groupe est \'equivalent \`a $H \leq G$.
+	\end{nota}
+	\begin{prop}
+		~
+
+		Soit $\left\lbrace H_i \right\rbrace_{i \in I}$ une collection de sous-groupes de $G$. Alors $\bigcap\limits_{i \in I}H_i \leq G$.
+		\begin{proof}[d\'emonstration]~
+
+			$H_i \leq G, \forall i \in I$.
+
+			Alors, $e \in H_i, \forall i$. Donc, $e \in \bigcap\limits_{i \in I}H_i$. En particulier, $\bigcap\limits_{i \in I}H_i \neq \emptyset$.
+
+			Soient $a,b\in \bigcap\limits_{i \in I}H_i$. Alors, $a,b \in H_i, \forall i$.
+
+			Comme $H_i \leq G$, $ab^{-1} \in H_i, \forall i$, donc $ab^{-1} \in \bigcap\limits_{i \in I}H_i$.
+		\end{proof}
+	\end{prop}
+	\begin{rema}
+		Si $H_1,H_2 \leq G$, $H_1 \cup H_2$ n'est pas n\'ecessairement un sous-groupe de $G$.
+		\begin{exem}
+			$2\entiers \leq \entiers$ et $3\entiers \leq \entiers$. $2\entiers \cup 3\entiers$ n'est pas un sous-groupe de $\entiers$.
+
+			Plus pr\'ecis\'ement, $2,3 \in 2\entiers \cup 3\entiers$, mais $2+3=5 \not\in 2\entiers \cup 3\entiers$.
+		\end{exem}
+	\end{rema}
+	\begin{exem}
+		$2\entiers \cap 3\entiers = 6\entiers \leq \entiers$.
+	\end{exem}
+
+	\setcounter{chapter}{1}
+	\chapter{}
+	\setcounter{section}{3}
+	\section{Relations d'\'equivalence}
+	\begin{defin}
+		Une \emph{relation d\'equivalence} sur un ensemble $E$ est nu sous-ensemble $R \subseteq E \times E$ satisfaisant
+		\begin{enumerate}
+			\item r\'eflexivit\'e
+
+			$x \sim x, \forall x \in E$.
+			\item sym\'etrie
+
+			$x \sim y \Rightarrow y \sim x$.
+			\item transitivit\'e
+
+			$x \sim y$ et $y \sim z$, alors $x \sim z$.
+		\end{enumerate}
+		\begin{nota}
+			On note $x \sim y$ ssi $(x,y) \in R$.
+		\end{nota}
+	\end{defin}
+	\begin{exem}~
+
+		\begin{enumerate}[label=(\alph*)]
+			\item $E = \reels$
+
+			$x \sim y$ ssi $\abs{x} = \abs{y}$
+			\begin{itemize}
+				\item[(refl)] $\abs{x} = \abs{x}$, donc $x \sim x$.
+				\item[(sym)] Supposons $x \sim y$. Alors, $\abs{x} = \abs{y}$. Donc, $y \sim x$.
+				\item[(trans)] Supposons $x \sim y$ et $y \sim z$. Alors, $\abs{x} = \abs{y}$ et $\abs{y} = \abs{z}$. Donc $\abs{x} = \abs{z}$. Ainsi, $x \sim z$.
+			\end{itemize}
+			\item $C$ est l'ensemble des \'el\`eves dans la classe.
+
+			$x \sim y$ ssi $x$ et $y$ ont le m\^eme \^age est une relation d'\'equivalence.
+		\end{enumerate}
+	\end{exem}
+	\begin{defin}
+		Si $E$ est un ensemble et $\sim$ est une relation d'\'equivalence sur $E$, la \emph{classe d'\'euivalence} de $x \in E$ est $\overline{x} = \{y \in E \mid y \sim x\} \subseteq E$.
+	\end{defin}
+	\begin{lem}
+		$\overline{x} = \overline{y}$ ssi $x \sim y$.
+		\begin{proof}[d\'emonstration]~
+
+			\begin{itemize}
+				\item[$(\Rightarrow)$] Supposons $\overline{x} = \overline{y}$.
+
+				Par (refl), $x \sim x$, donc $x \in \overline{x}$. Alors, $x \in \overline{y}$. Ainsi, $x \sim y$.
+				\item[$(\Leftarrow)$] Supposons $x \sim y$.
+				\begin{itemize}
+					\item[$(\subseteq)$] Soit $z \in \overline{x}$. Alors $z \sim x$. Comme $x \sim y$, par (trans), $z \sim y$. Donc, $z \in \overline{y}$.
+					\item[$(\supseteq)$] idem
+				\end{itemize}
+
+				Ainsi, $\overline{x} = \overline{y}$.
+			\end{itemize}
+		\end{proof}
+	\end{lem}
 \end{document}
