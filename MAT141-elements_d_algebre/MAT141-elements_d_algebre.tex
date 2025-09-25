@@ -1622,7 +1622,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\setcounter{section}{3}
 	\section{Relations d'\'equivalence}
 	\begin{defin}
-		Une \emph{relation d\'equivalence} sur un ensemble $E$ est nu sous-ensemble $R \subseteq E \times E$ satisfaisant
+		Une \emph{relation d\'equivalence} sur un ensemble $E$ est un sous-ensemble $R \subseteq E \times E$ satisfaisant
 		\begin{enumerate}
 			\item r\'eflexivit\'e
 
@@ -1675,4 +1675,148 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{itemize}
 		\end{proof}
 	\end{lem}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{itemize}[label=\textbullet]
+			\item $H \leq G$, $H$ un sous-groupe de $G$, ssi
+			\begin{itemize}
+				\item $H \neq \emptyset$;
+				\item $\forall a,b \in H, ab^{-1} \in H$.
+			\end{itemize}
+			\item Si $H \leq G$, $H$ a le m\^eme neutre que $G$, m\^emes inverses.
+			\item $G$ ab\'elien $\Rightarrow H \leq G$ ab\'elien.
+			\item Si $f:G \to H$ isomorphisme, alors $K \leq G \Leftrightarrow f(K) \leq H$.
+			\item Relations d'\'equivalence $\sim$ sur $E$:
+			\begin{itemize}
+				\item[(Refl)] $a \sim a, \forall a \in E$;
+				\item[(Sym)] $a \sim b \Rightarrow b \sim a$;
+				\item[(Trans)] $a \sim b, b \sim c \Rightarrow a \sim c$.
+			\end{itemize}
+			\item Classe d'\'equivalence: $\overline{a} = \{b \in E \mid b \sim a\}$.
+			\item $a \sim b \Longleftrightarrow \overline{a} = \overline{b}$.
+		\end{itemize}
+	\end{rappel}
+	\begin{exem}
+		$E=\entiers$.
+
+		\'Equivalence modulo $m$:
+
+		$a \sim b$ ssi $a-b=km$, avec $k \in \entiers$.
+		\begin{nota}
+			$m \mid a-b$, $m$ divise $a-b$: $\exists k \in \entiers$ t.q. $a-b=km$.
+		\end{nota}
+
+		$a \sim b \Longleftrightarrow m \mid a-b$.
+		\begin{proof}[d\'emonstration]
+			que c'est bel et bien une \'equivalence
+			\begin{itemize}
+				\item[(Refl)] Soit $a \in \entiers$.
+
+				$a-a=0m \Rightarrow a \sim a$.
+				\item[(Sym)] Supposons que $a \sim b$, avec $a,b \in \entiers$.
+
+				Alors, $a-b=km$, avec $k \in \entiers$.
+
+				Or, $-(a-b)=-km \Rightarrow b-a=(-k)m$, donc $b \sim a$.
+				\item[(Trans)] Supposons que $a \sim b$ et $b \sim c$, avec $a,b,c \in \entiers$.
+
+				Alors, $a-b=k_1m$ et $b-c=k_2m$, avec $k_1,k_2 \in \entiers$.
+
+				En additionant les deux \'equations, on obtient
+				\begin{align*}
+					a-c&= k_1m+k_2m\\
+					&= (k_1+k_2)m
+				\end{align*}
+
+				Donc, $a \sim c$.
+			\end{itemize}
+		\end{proof}
+
+		Si $m=2$, les classes d'\'equivalence sont
+		\begin{align*}
+			\begin{split}
+				\overline{0}&= \{a \in \entiers \mid a \sim 0\}\\
+				&= \{a \in \entiers \mid a-0=2k\}\\
+				&= \{a \in \entiers \mid a=2k\}\\
+				&= 2\entiers
+			\end{split}
+			&
+			\begin{split}
+				\overline{1}&= \{a \in \entiers \mid a \sim 1\}\\
+				&= \{a \in \entiers \mid a-1=2k\}\\
+				&= \{a \in \entiers \mid a=2k+1\}\\
+				&= \entiers\setminus2\entiers
+			\end{split}
+		\end{align*}
+		\begin{rema}
+			\begin{align*}
+				\begin{split}
+					\overline{0} = \overline{2} = \overline{4} = \overline{-2} = \dotsb
+				\end{split}
+				&
+				\begin{split}
+					\overline{1} = \overline{3} = \overline{5} = \overline{-1} = \dotsb
+				\end{split}
+			\end{align*}
+		\end{rema}
+
+		Plus g\'en\'eralement, pour $m$, on a $m$ classes d'\'equivalence.
+		\[
+		\overline{0}, \overline1, \overline2, \dotsb, \overline{m-1}
+		\]
+		\begin{nota}
+			L'ensemble des classes d'\'equivalence est not\'e $\entiers_m = \{\overline{0}, \overline1, \overline2, \dotsb, \overline{m-1}\}$ pour la relation de congruence modulo $m$.
+		\end{nota}
+	\end{exem}
+	\begin{defin}
+		Une \emph{partition} d'un ensemble $E$ est une collection $\mathcal{P} = \{E_i\}$, avec $i \in I$ de sous-ensembles de $E$ t.q.
+		\begin{enumerate}[label=(\arabic*)]
+			\item $\bigcup\limits_{i \in I} E_i = E$;
+			\item $E_i \cap E_j = \emptyset$, si $i \neq j$.
+		\end{enumerate}
+		\begin{rema}
+			Chaque $x \in E$ est \'el\'ement d'exactement un $E_i$.
+		\end{rema}
+	\end{defin}
+	\begin{prop}
+		Si $\sim$ est une relation d'\'equivalence sur $E$, alors $\mathcal{P} = \{\overline{a} \mid a \in E\}$ est une partition de $E$.
+		\begin{exem}
+			$E = \entiers$, $\sim$ equivalence modulo 3.
+
+			$\mathcal{P} = \{\overline{0}, \overline{1}, \overline{2}\}$ est une partition de $\entiers$.
+		\end{exem}
+		\begin{proof}[d\'emonstration]~
+
+			\begin{enumerate}[label=(\arabic*)]
+				\item Clairement, $\bigcup\limits_{a \in E}\overline{a} \subseteq E$.
+
+				On veut montrer que $E \subseteq \bigcup\limits_{a \in E}\overline{a}$.
+
+				Soit $x \in E$, alors $x \sim x$ par r\'eflexivit\'e, donc$x \in \overline{x}$ et $x \in \bigcup\limits_{a \in E}\overline{a}$.
+				\item Supposons que $x \in \overline{a}$ et $x \in \overline{b}$, avec $\overline{a} \neq \overline{b}$.
+
+				Alors, $x \sim a$ et $x \sim b$. Donc, par sym\'etrie, $a \sim x$ et $x \sim b$. Donc, par transitivit\'e, $a \sim b$. Donc $\overline{a} = \overline{b}$. Ceci est une contradiction, donc $\overline{a} \cap \overline{b} = \emptyset, \forall \overline{a}, \overline{b} \in \mathcal{P}$.
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+
+	On d\'efinit une op\'eration sur $\entiers_m$ pour la congruence modulo $m$.
+
+	\[
+	\begin{array}{rcl}
+		+:\entiers_m \times \entiers_m& \to& \entiers_m\\
+		(\overline{a}, \overline{b})& \mapsto& \overline{a+b}
+	\end{array}
+	\]
+
+	Autrement dit, $\overline{a} + \overline{b} = \overline{a+b}$.
+	\begin{rema}
+		L'\'ecriture d'un \'el\'ement $\overline{a}$ n'est pas unique ($\overline{a} = \overline{a'}$ si $a \sim a'$).
+	\end{rema}
+
+	Il faut v\'erifier que l'op\'eration $+$ est correctement d\'efinie (d\'efinie sans abigu\"\i t\'e).
+
+	Autrement dit, si $\overline{a} = \overline{a'}$ et $\overline{b} = \overline{b'}$, on veut montrer que $\overline{a+b} = \overline{a'+b'}$.
 \end{document}

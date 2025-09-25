@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.6)  23 SEP 2025 10:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.6)  25 SEP 2025 11:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -966,7 +966,7 @@ Overfull \hbox (15.32901pt too wide) in paragraph at lines 865--866
 Chapitre 2.
 [19
 
-] (MAT141-elements_d_algebre.aux)
+] [20] [21] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -976,8 +976,8 @@ ed.
 (rerunfilecheck)             Checksum: 1DF8E8F027CD55E202C88209207FC9AC;1646.
  ) 
 Here is how much of TeX's memory you used:
- 24693 strings out of 474486
- 457298 string characters out of 5743755
+ 24699 strings out of 474486
+ 457340 string characters out of 5743755
  1960542 words of memory out of 5000000
  46468 multiletter control sequences out of 15000+600000
  571514 words of font info for 93 fonts, out of 8000000 for 9000
@@ -1005,9 +1005,9 @@ Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/jujub/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/U
 sers/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
 bm10.pfb>
-Output written on MAT141-elements_d_algebre.pdf (21 pages, 287341 bytes).
+Output written on MAT141-elements_d_algebre.pdf (23 pages, 296435 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 80 named destinations out of 1000 (max. 500000)
+ 322 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
