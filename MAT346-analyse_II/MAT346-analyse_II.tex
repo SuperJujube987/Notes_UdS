@@ -24,6 +24,8 @@
 \fancyfoot[c]{\thepage}
 \fancyhead[l]{\leftmark}
 
+\setcounter{tocdepth}{3}
+
 \pagestyle{fancy}
 
 \title{MAT346 - Analyse II
@@ -55,6 +57,9 @@ Donn\'e par Mario Lambert}
 \newcommand*{\entiers}{\mathbb{Z}}
 \newcommand*{\rationels}{\mathbb{Q}}
 \newcommand*{\naturels}{\mathbb{N}}
+\newcommand*{\complexes}{\mathbb{C}}
+
+\newcommand*{\sech}{\mathrm{sech}}
 
 \renewcommand{\thesection}{ \arabic{chapter}.\arabic{section}}
 \renewcommand{\thesubsection}{}
@@ -1123,8 +1128,8 @@ Donn\'e par Mario Lambert}
 				&= \dfrac{a^4}{8} \left[ t - \dfrac{\sin 4t}{4} \right]
 			\end{align*}
 		\end{exem}
-		\item $f\left( x,\sqrt{x^2-a^2} \right)$.
-
+		\newpage
+		\item
 		\begin{rapp}
 			\begin{align*}
 				\begin{split}
@@ -1147,19 +1152,198 @@ Donn\'e par Mario Lambert}
 				\end{split}
 				&
 				\begin{split}
-					(\cosh x)&= \dfrac{e^x-e^{-x}}{2}\\
+					(\cosh x)'&= \dfrac{e^x-e^{-x}}{2}\\
 					&= \sinh x
 				\end{split}
 			\end{align*}
 			\begin{align*}
-					-\cosh^x+\sinh^2x&= \left( \dfrac{e^x+e^{-x}}{2} \right)^2 + \left( \dfrac{e^x-e^{-x}}{2} \right)^2\\
+					-\cosh^2x+\sinh^2x&= -\left( \dfrac{e^x+e^{-x}}{2} \right)^2 + \left( \dfrac{e^x-e^{-x}}{2} \right)^2\\
 					&= -\dfrac{e^{2x}+2e^xe^{-x}+2^{-2x}}{4} + \dfrac{e^{2x}-2e^xe^{-x}+2^{-2x}}{4}\\
-					&= 1
+					&= -1
 			\end{align*}
 
-			Donc, $\sinh^2x-\cosh^2=1$.
+			Donc, $\cosh^2x-\sinh^2=1$.
 
-			Alors, $1-\tanh^2x = \mathrm{sech}^2x \Rightarrow \mathrm{sech}^2x+\tanh^2x = 1$.
+			Alors, $1-\tanh^2x = \sech^2x \Rightarrow \sech^2x+\tanh^2x = 1$.
+
+			Formellement,
+			\begin{align*}
+				\begin{split}
+					\sinh x&= \dfrac{e^z-e^{-z}}{2}
+				\end{split}
+				&
+				\begin{split}
+					\cosh x&= \dfrac{e^z+e^{-z}}{2}
+				\end{split}
+			\end{align*}
+			avec $z \in \complexes$.
 		\end{rapp}
+
+		$f\left( x,\sqrt{x^2-a^2} \right)$.
+
+		On pose $x = a \cosh t$. On a $dx = a \sinh t dt$.
+		\begin{exem}
+			\begin{align*}
+				\int \dfrac{x^2}{\sqrt{x^2-a^2}} dx &= \int \dfrac{a^2\cosh^2t}{\sqrt{a^2\cosh^2t-a^2}}a\sinh tdt\\
+				&= \int \dfrac{a^2\cosh^2t}{a\sinh t}a\sinh tdt\\
+				&= \int a^2\cosh^2tdt\\
+				&= \int a^2 \dfrac{a+\cosh 2t}{2}dt\\
+				&= \dfrac{a^2t}{2} + \dfrac{a^2}{2}\dfrac{\sinh2t}{2}
+			\end{align*}
+		\end{exem}
+		\begin{rema}
+			$\mathrm{arccosh}t = \ln\left( t+\sqrt{t^2-1} \right)$, $\mathrm{arcsinh}t = \ln\left( t+\sqrt{1+t^2} \right)$.
+		\end{rema}
+		\item $f\left( x, \sqrt{x^2+a^2} \right)$.
+
+		On pose $x = a\sinh t$. On a $dx = a\cosh t dt$.
+		\begin{exem}
+			\begin{align*}
+				\int \dfrac{x^3}{(x^2+a^2)^{\sfrac{3}{2}}} dx &= \int \dfrac{a^3\sinh^3t}{(a^2\sinh^2t+a^2)^{\sfrac{3}{2}}} a\cosh t dt\\
+				&= \int \dfrac{a^3\sinh^3t}{a^3\cosh^3t} a\cosh t dt\\
+				&= a\int \dfrac{\sinh^3t}{\cosh^2t} dt\\
+				&= a\int \dfrac{\sinh t \sinh^2t}{\cosh^2t} dt\\
+				&= a\int \dfrac{\sinh t (\cosh^2t-1)}{\cosh^2t} dt\\
+				&= a\int \left( \sinh t - \dfrac{\sinh t}{\cosh^2t} \right) dt\\
+				&\text{posons }u=\cosh t, du=\sinh t dt\\
+				&= a\cosh t + \dfrac{a}{\cosh t}\\
+				&= a\sqrt{\cosh^2t} + \dfrac{a}{\sqrt{\cosh^2t}}\\
+				&= a\sqrt{1+\sinh^2t} + \dfrac{a}{\sqrt{1+\sinh^2t}}\\
+				&= a\sqrt{1+ \left( \frac{x}{a} \right) ^2} + \dfrac{a}{\sqrt{1+ \left( \frac{x}{a} \right) ^2}}
+			\end{align*}
+		\end{exem}
+		\item $f\left( \sqrt{x^2+2bx+c} \right)$, avec $x^2+2bx+c$ irr\'eductible dans $\reels$.
+
+		On a $x^2+2bx+c = (x+b)^2+(c-b^2)$.
+
+		On pose $t = x+b$. On a $dt = dx$.
+		\begin{exem}
+			\begin{align*}
+				\int \dfrac{x}{\sqrt{x^2+4x+5}} dx &= \int \dfrac{x}{\sqrt{(x+2)^2}+1} dx\\
+				&\text{posons }t=x+2, dt=dx\\
+				&= \int \dfrac{t-2}{\sqrt{t^2+1}} dt\\
+				&= \int \dfrac{t}{\sqrt{t^2+1}} dt - 2\int \dfrac{dt}{\sqrt{t^2+1}}\\
+				&\text{posons }u=t^2+1, du=2tdt\\
+				&\text{posons }t=\sinh v, dt = \cosh v dv\\
+				&= \dfrac{1}{2}\int \dfrac{du}{\sqrt{u}} - 2\int \dfrac{\cosh v dv}{\sqrt{\sinh^2v+1}}\\
+				&= \sqrt{u} - 2\int dv\\
+				&= \sqrt{u} - 2v\\
+				&= \sqrt{t^2+1} - 2 \mathrm{arcsinh}t\\
+				&= \sqrt{t^2+1} - 2\ln(t+\sqrt{1+t^2})\\
+				&= \sqrt{(x+2)^2+1} - 2\ln\left( x+2+\sqrt{1+(x+2)^2} \right)
+			\end{align*}
+		\end{exem}
 	\end{enumerate}
+
+	\section{Int\'egrales impropres}
+	\begin{defin}
+		$f:[a,\infty[$ continue par morceaux.
+
+		L'int\'egrale impropre (de 1\textsuperscript{\`ere} esp\`ece) de $f$ est $\displaystyle\int_{a}^{\infty}f(x)dx = \lim\limits_{y \to \infty}\displaystyle\int_{a}^{y}f(x)dx$.
+
+		Si la limite existe, on dit que l'int\'egrale converge.
+		\begin{exem}~
+
+			\begin{enumerate}
+				\item \begin{align*}
+					\int_{1}^{\infty}\dfrac{dx}{x}&= \lim_{y \to \infty}\int_{1}^{y}\dfrac{dx}{x}\\
+					&= \lim_{y \to \infty}(\ln y - \ln1)\\
+					&= \infty
+				\end{align*}
+				diverge
+				\item \begin{align*}
+					\int_{1}^{\infty}\dfrac{dx}{x^p}&= \lim_{y \to \infty}\int_{1}^{y}x^{-p}dx\\
+					&= \left. \lim_{y \to \infty}\dfrac{x^{-p+1}}{-p+1}\right| ^y_1\\
+					&= \lim_{y \to \infty}\left( \dfrac{y^{1-p}}{1-p} - \dfrac{1}{1-p} \right)
+				\end{align*}
+
+				Si $p>1$, alors $1-p<0$ et $y^{1-p} \xrightarrow[y \to \infty]{} 0$.
+
+				On a alors $\displaystyle\int_{1}^{\infty}\dfrac{dx}{x^p} = \dfrac{1}{1-p}$.
+
+				Si $p<1$, alors $1-p>0$ et $y^{1-p} \xrightarrow[y \to \infty]{} \infty$.
+
+				On a alors que $\displaystyle\int_{1}^{\infty}\dfrac{dx}{x^p}$ diverge.
+
+				Si $p=1$, c'est le cas 1, qui diverge.
+				\item \begin{align*}
+					\int_{0}^{\infty}e^{-sx}dx&= \lim_{y \to \infty}\int_{0}^{y}e^{-sx}\\
+					&= \left. \lim_{y \to \infty}\dfrac{e^{-sx}}{-s}\right|^y_0\\
+					&= \lim_{y \to \infty}\left( \dfrac{e^{-sy}}{-s} + \dfrac{1}{s} \right)
+				\end{align*}
+
+				Si $s<0$, alors $-sy>0$ et l'int\'egrale diverge.
+
+				Si $s>0$, alors $-sy<0$ et l'int\'egrale converge vers $\frac{1}{s}$.
+
+				Si $s=0$, alors $\displaystyle\int_{0}^{\infty}e^{-sx}dx = \displaystyle\int_{0}^{\infty}dx$ diverge.
+				\item \begin{align*}
+					\int_{0}^{\infty}\dfrac{dx}{x^2+1}&= \lim_{y \to \infty}\int_{0}^{\infty}\dfrac{dx}{x^2+1}\\
+					&= \lim_{y \to \infty}(\arctan y - \arctan0)\\
+					&= \frac{\pi}{2}
+				\end{align*}
+			\end{enumerate}
+		\end{exem}
+	\end{defin}
+	\begin{defin}
+		$f:]a,b]$ continue, mais t.q. $\lim_{x \to a^+}f(x)$ n'existe pas.
+
+		L'int\'egrale impropre (de 2\textsuperscript{\`eme} esp\`ece) de $f$ est $\displaystyle\int_{a}^{b}f(x)dx = \lim\limits_{y \to a^+}\displaystyle\int_{y}^{b}f(x)dx$.
+
+		Si le limite existe, on dit que l'int\'egrale converge.
+		\begin{exem}~
+
+			\begin{enumerate}
+				\item \begin{align*}
+					\int_{0}^{1}\dfrac{dx}{x}&= \lim_{y \to 0^+}\int_{y}^{b}\dfrac{dx}{x}\\
+					&= \lim_{y \to 0^+}(\ln1-\ln y)\\
+					&= \infty
+				\end{align*}
+				diverge
+				\item \begin{align*}
+					\int_{0}^{1}\dfrac{dx}{x^p}&= \lim_{y \to 0^+}\int_{y}^{1}\dfrac{dx}{x^p}\\
+					&= \lim_{y \to 0^+}\left. \dfrac{x^{-p+1}}{-p+1} \right|^1_y\\
+					&= \dfrac{1}{1-p} - \lim_{y \to 0^+}\dfrac{y^{1-p}}{1-p}
+				\end{align*}
+
+				Si $p>1$, alors $1-p<0$ et l'int\'egrale diverge.
+
+				Si $p<1$, alors $1-p>0$ et l'int\'egrale converge vers $\frac{1}{1-p}$.
+
+				Si $p=1$, alors c'est le cas 1, qui diverge.
+				\item \begin{align*}
+					\int_{0}^{1}\dfrac{dx}{\sqrt{1-x^2}}&= \lim_{y \to 1^-}\int_{0}^{y}\dfrac{dx}{\sqrt{1-x^2}}\\
+					&= \lim_{y \to 1^-}(\arcsin y - \arcsin0)\\
+					&= \dfrac{\pi}{2}
+				\end{align*}
+			\end{enumerate}
+		\end{exem}
+	\end{defin}
+	\begin{rema}~
+
+		\begin{enumerate}
+			\item \begin{align*}
+				\int_{0}^{\infty}\dfrac{dx}{x}&= \overbrace{\int_{0}^{b}\dfrac{dx}{x}}^{\text{2\textsuperscript{\`eme} esp}} + \overbrace{\int_{b}^{\infty}\dfrac{dx}{x}}^{\text{1\textsuperscript{\`ere} esp}}\\
+				&= \lim_{y \to 0^+}\int_{y}^{b}\dfrac{dx}{x} + \lim_{y \to \infty}\int_{b}^{y}\dfrac{dx}{x}
+			\end{align*}
+
+			$\displaystyle\int_{0}^{\infty}\dfrac{dx}{x}$ converge ssi les deux limites existent.
+			\item \begin{align*}
+				\int_{-\infty}^{\infty}\sin xdx&= \lim_{y \to \infty}\int_{-y}^{y}\sin xdx\\
+				&= \left. \lim_{y \to \infty} \cos x\right|^y_{-y}\\
+				&= \lim_{y \to \infty}(\cos y - \cos (-y)) = \lim_{y \to \infty}0\\
+				&= 0
+			\end{align*}
+
+			Cependant,
+			\begin{align*}
+				\int_{-\infty}^{\infty}\sin xdx&= \int_{-\infty}^{0}\sin xdx + \int_{0}^{\infty}\sin xdx\\
+				&= \lim_{y \to \infty}\int_{-y}^{0}\sin xdx + \lim_{y \to \infty}\int_{0}^{y}\sin xdx\\
+				&= \lim_{y \to \infty}(\cos(-y)-\cos y) + \lim_{y \to \infty}(\cos0-\cos y)
+			\end{align*}
+			diverge
+
+			Ainsi, l'int\'egrale diverge.
+		\end{enumerate}
+	\end{rema}
 \end{document}
