@@ -1346,4 +1346,120 @@ Donn\'e par Mario Lambert}
 			Ainsi, l'int\'egrale diverge.
 		\end{enumerate}
 	\end{rema}
+	\begin{thm}[Crit\`ere de Cauchy]~
+
+		$\displaystyle\int_{a}^{\infty}f(x)dx$ converge ssi $(\forall\eps>0) (\exists M \geq a)$ t.q. $M \leq y_1 \leq y_2 \Rightarrow \abs{\displaystyle\int_{y_1}^{y_2}}<\eps$.
+		\begin{proof}[d\'emonstration]~
+
+			Posons $F(y) = \displaystyle\int_{a}^{y}f(x)dx$.
+			\begin{itemize}
+				\item[$(\Rightarrow)$] Supposons que $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+
+				Soit $L = \lim\limits_{y \to \infty}\displaystyle\int_{a}^{y}f(x)dx$.
+
+				Alors, $(\forall\eps>0) (\exists M \geq a)$ t.q. $y \leq M \Rightarrow \abs{F(y)-L}<\dfrac{\eps}{2}$.
+
+				Soient $y_1,y_2$ avec $M \leq y_1 \leq y_2$.
+
+				On a
+				\begin{align*}
+					\abs{\int_{y_1}^{y_2}f(x)dx}&= \abs{F(y_2)-F(y_1)}\\
+					&= \abs{F(y_2)-L+L-F(y_1)}\\
+					&\leq \abs{F(y_2)-L} + \abs{F(y_1)-L}\\
+					&< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
+					&= \eps
+				\end{align*}
+				\item[$(\Leftarrow)$] Supposons que $(\forall\eps>0)(\exists M \geq a)$, $M \leq y_1 \leq y_2 \Rightarrow \abs{\int_{y_1}^{y_2}f(x)dx} < \eps$.
+
+				Soit $n \in \naturels$.
+
+				En particulier, on a $(\forall\eps>0) (\exists M \geq a)$, $M \leq n \leq y \Rightarrow \abs{F(y)-F(n)}<\dfrac{\eps}{2}$.
+
+				Consid\'erons la suite $\{F(n)\}_{n \in \naturels}$.
+				\begin{rapp}
+					$\{a_n\}_{n \in \naturels}$ est une \emph{suite de Cauchy} si $(\forall\eps>0) (\exists N>0)$, $m>n>N \Rightarrow \abs{a_m-a_n}<\eps$.
+				\end{rapp}
+
+				La suite $\{F(n)\}_{n \in \naturels}$ est de Cauchy et elle est convergente. Soit $L = \lim\limits_{n \to \infty} F(n)$.
+
+				Alors, $(\forall\eps>0) (\exists N>0)$, $n>N \Rightarrow \abs{F(n)-L}<\dfrac{\eps}{2}$.
+
+				Il reste \`a montrer que $\{F(y)\}_{y \in \reels}$ converge aussi vers $L$.
+
+				\`A partir d'un certain rang appropri\'e, on a
+				\begin{align*}
+					\abs{F(y)-L}&= \abs{F(y) - F(n) + F(n) - L}\\
+					&\leq \abs{F(y)-F(n)} + \abs{F(n)-L}\\
+					&< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
+					&= \eps
+				\end{align*}
+			\end{itemize}
+		\end{proof}
+		\begin{rema}
+		Si $f \geq 0$, alors $F$ est croissante, donc $\lim F(y)$ converge ou tend vers $\infty$.
+
+		Ainsi, $\displaystyle\int_{a}^{\infty}f(x)dx$ converge ssi $\displaystyle\int_{a}^{\infty}f(x)dx < \infty$.
+		\end{rema}
+	\end{thm}
+	\begin{prop}[Test de comparaison]~
+
+		Supposons que $0 \leq f(x) \leq g(x)$, $(\forall x \geq a)$.
+
+		Alors, $\displaystyle\int_{a}^{\infty}g(x)dx$ converge implique $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+		\begin{proof}[d\'emonstration]~
+
+			$\displaystyle\int_{a}^{\infty}g(x)dx$ converge, alors $(\forall\eps>0) (\exists M \geq a)$, $M \leq y_1 \leq y_2 \Rightarrow \abs{\displaystyle\int_{y_1}^{y_2}g(x)dx}<\eps$.
+
+			On a
+			\begin{align*}
+				0 \leq \int_{y_1}^{y_2}f(x)dx \leq \int_{y_1}^{y_2}g(x)dx = \abs{\int_{y_1}^{y_2}g(x)dx} < \eps
+			\end{align*}
+
+			Donc, $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+		\end{proof}
+	\end{prop}
+	\begin{exem}
+		~
+
+		D\'eterminer si $\displaystyle\int_{1}^{\infty}e^{-x^2}$ converge.
+
+		Pour $x \geq 1$, on a $x^2 \geq x$, donc $-x^2 \leq -x$ et $e^{-x^2} \leq e^{-x}$.
+
+		Or, $\displaystyle\int_{1}^{\infty}e^{-x}dx = \lim_{y \to \infty}\displaystyle\int_{1}^{y}e^{-x}dx = \left. \lim_{y \to \infty}-e^{-x}\right|^y_1 = \lim_{y \to \infty}(e^{-1} - e^{-y}) = e^{-1}$.
+
+		Comme $e^{-x^2} \geq 0$, on a que $\displaystyle\int_{1}^{\infty}e^{-x^2}dx$ converge.
+	\end{exem}
+	\begin{prop}[Test de comparaison limite]~
+
+		Supposons $a \leq b \leq x$ et $f(x),g(x) \geq 0$, $(\forall x \geq b)$.
+
+		Si $C = \lim\limits_{x \to \infty}\dfrac{f(x)}{g(x)}$ existe, alors $\displaystyle\int_{a}^{\infty}g(x)dx$ converge implique $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+
+		De plus, si $C \neq 0$, $\displaystyle\int_{a}^{\infty}g(x)dx$ converge ssi $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+	\end{prop}
+	\begin{prop}[Convergence absolue]~
+
+		\begin{enumerate}[label=\alph*)]
+			\item $\displaystyle\int_{a}^{\infty}\abs{f(x)}dx < \infty$, alors $\displaystyle\int_{a}^{\infty}f(x)dx < \infty$.
+			\item $\abs{\displaystyle\int_{a}^{\infty}{ f(x)dx}} \leq \displaystyle\int_{a}^{\infty}\abs{f(x)}dx$.
+		\end{enumerate}
+		\begin{proof}[d\'emonstration]~
+
+			\begin{enumerate}[label=\alph*)]
+				\item Si $\displaystyle\int_{a}^{\infty}\abs{f(x)}dx < \infty$, alors $(\forall\eps>0) (\exists M \geq a)$ t.q. $M \leq y_1 \leq y_2 \Rightarrow \abs{\displaystyle\int_{y_1}^{y_2}\abs{f(x)}dx}<\eps$.
+
+				Or, $\abs{\displaystyle\int_{y_1}^{y_2}f(x)dx} \leq \displaystyle\int_{y_1}^{y_2}\abs{f(x)}dx = \abs{\displaystyle\int_{y_1}^{y_2}\abs{f(x)}dx} < \eps$.
+
+				Du crit\`ere de Cauchy, $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+				\newpage
+				\item
+				\begin{align*}
+					\abs{\int_{a}^{\infty}f(x)dx}&= \abs{\lim_{y \to \infty}\int_{a}^{y}f(x)dx}\\
+					&= \lim_{y \to \infty}\abs{\int_{a}^{y}f(x)dx}\\
+					&\leq \lim_{y \to \infty}\int_{a}^{y}\abs{f(x)}dx\\
+					&= \int_{a}^{\infty}\abs{f(x)}dx
+				\end{align*}
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
 \end{document}
