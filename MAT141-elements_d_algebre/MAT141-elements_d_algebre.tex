@@ -1819,4 +1819,169 @@ Donn\'e par Jean-Philippe Burelle}
 	Il faut v\'erifier que l'op\'eration $+$ est correctement d\'efinie (d\'efinie sans abigu\"\i t\'e).
 
 	Autrement dit, si $\overline{a} = \overline{a'}$ et $\overline{b} = \overline{b'}$, on veut montrer que $\overline{a+b} = \overline{a'+b'}$.
+
+	\cours
+	\begin{rappel}
+		~
+
+		\begin{itemize}[label=\textbullet]
+			\item Relation d'\'equivalence ($\sim$) $\rightarrow$ partition en classes d'\'equivalence ($\overline{a}\{b \mid b \sim a\}$).
+			\item \'Equivalence (congruence) $\mod m$ (sur $\entiers$):
+			\begin{align*}
+				a \sim b&\Leftrightarrow m \mid a-b\\
+				&\Leftrightarrow \exists k \in \entiers \text{ t.q. } a-b=km
+			\end{align*}
+
+			On note l'ensemble des classes d'\'equivalence $\mod m$ par $\entiers_m = \{\overline{a} \mid a \in \entiers\} = \{\overline{0}, \overline{1}, \dotsb, \overline{m-1}\}$.
+
+			On veut d\'efinir une op\'eration $+$ sur $\entiers_m$ par $\overline{a} + \overline{b} = \overline{a+b}$.
+
+			On doit v\'erifier que cette d\'efinition n'est pas ambigu\"e (ne d\'epend pas des repr\'esentants).
+
+			Supposons $\overline{a_1} = \overline{a_2}$ et $\overline{b_1} = \overline{b_2}$. On doit v\'erifier que $\overline{a_1+b_1} = \overline{a_2+b_2}$, c'est-\`a-dire que $a_1+b_1 \sim a_2+b_2$.
+
+			Les hypoth\`eses donnent: $a_1-a_2=k_am$ et $b_1-b_2=k_bm$. En additionnant ces deux \'equations, on obtient $(a_1-a_2)+(b_1-b_2) = k_am+k_bm$. Alors, $(a_1+b_1) - (a_2+b_2) = (k_a+k_b)m$. Donc, $a_1+b_1 \sim a_2+b_2$.
+			\begin{flushright}
+				$\square$
+			\end{flushright}
+			\begin{rema}
+				On doit faire ce genre de preuve pour chaque d\'efinition de fonction/op\'eration qui ont comme domaine des classes d'\'equivalence.
+			\end{rema}
+		\end{itemize}
+	\end{rappel}
+	\begin{exem}
+		$m=5$.
+
+		\begin{center}
+			\begin{tikzpicture}
+				\node at (0,0) {0};
+				\node at (-.5,-.5) {-5};
+				\node at (.5,-.5) {5};
+				\node at (-.5,-1) {-10};
+				\node at (.5,-1) {10};
+				\node at (0,-1.5) {$\vdots$};
+				\draw (0,-.75) ellipse (1 and 1.5);
+				\node at (1,.5) {$\overline{0}$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\node at (0,0) {1};
+				\node at (-.5,-.5) {-4};
+				\node at (.5,-.5) {6};
+				\node at (-.5,-1) {-9};
+				\node at (.5,-1) {11};
+				\node at (0,-1.5) {$\vdots$};
+				\draw (0,-.75) ellipse (1 and 1.5);
+				\node at (1,.5) {$\overline{1}$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\node at (0,0) {2};
+				\node at (-.5,-.5) {-3};
+				\node at (.5,-.5) {7};
+				\node at (-.5,-1) {-8};
+				\node at (.5,-1) {12};
+				\node at (0,-1.5) {$\vdots$};
+				\draw (0,-.75) ellipse (1 and 1.5);
+				\node at (1,.5) {$\overline{2}$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\node at (0,0) {3};
+				\node at (-.5,-.5) {-2};
+				\node at (.5,-.5) {8};
+				\node at (-.5,-1) {-7};
+				\node at (.5,-1) {13};
+				\node at (0,-1.5) {$\vdots$};
+				\draw (0,-.75) ellipse (1 and 1.5);
+				\node at (1,.5) {$\overline{3}$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\node at (0,0) {4};
+				\node at (-.5,-.5) {-1};
+				\node at (.5,-.5) {9};
+				\node at (-.5,-1) {-6};
+				\node at (.5,-1) {14};
+				\node at (0,-1.5) {$\vdots$};
+				\draw (0,-.75) ellipse (1 and 1.5	);
+				\node at (1,.5) {$\overline{4}$};
+			\end{tikzpicture}
+		\end{center}
+
+		Pour faire $\overline{2}+\overline{1}$, on peut prendre $\overline{2+1} = \overline{2}$, ou bien $\overline{17+(-4)} = \overline{13}$.
+	\end{exem}
+
+	\begin{prop}
+		$(\entiers_m,+)$ est un groupe ab\'elien.
+		\begin{proof}[d\'emonstration]~
+
+			\begin{itemize}
+				\item[(A)] Soient $a,b,c \in \entiers_m$.
+				\begin{align*}
+					\left( \overline{a} + \overline{b} \right) + \overline{c}&= \overline{a+b} + \overline{c}\\
+					&= \overline{(a+b)+c}\\
+					&= \overline{a+(b+c)}\\
+					&= \overline{a} + \overline{b+c}\\
+					&= \overline{a} + \left( \overline{b} + \overline{c} \right)
+				\end{align*}
+				\item[(C)] $\overline{a} + \overline{b} = \overline{a+b} = \overline{b+a} = \overline{b} + \overline{a}$.
+				\item[(N)] $\overline{0} + \overline{a} = \overline{0+a} = \overline{a}$, donc $\overline{0}$ est neutre. Par commutativit\'e, la propri\'et\'e est satisfaite.
+				\item[(I)] $\overline{a} + \overline{-a} = \overline{a-a} = \overline{0}$, donc $\overline{-a}$ est l'inverse de $\overline{a}$. Par commutativit\'e, la propri\'et\'e est satisfaite.
+
+				On peut donc \'ecrire $-\overline{a} = \overline{-a}$.
+			\end{itemize}
+		\end{proof}
+	\end{prop}
+
+	\subsection{Ordre et groupes cycliques}
+	\begin{defin}
+		Soient $G$ un groupe et $a \in G$.
+
+		L'\emph{ordre} de $a$, not\'e $o(a)$ est la plus petite positive $k$ t.q. $a^k=e$, si elle existe. Sinon, on note $o(a) = \infty$.
+	\end{defin}
+	\begin{exem}~
+
+		\begin{itemize}
+			\item $o(e)=1$
+			\item Dans $\mathbb{D}_3$
+			\begin{itemize}
+				\item $o(\alpha) = 2$
+				\item $o(\rho) = 3$
+			\end{itemize}
+			\item Dans $\entiers$
+			\begin{itemize}
+				\item $o(0) = 1$
+				\item $o(n) = \infty$, $\forall n\neq0$
+			\end{itemize}
+			\item Dans $\entiers_6$
+			\begin{itemize}
+				\item $o(\overline2) = 3$
+			\end{itemize}
+		\end{itemize}
+	\end{exem}
+	\begin{prop}
+		Soit $m \in \entiers$. $a^m = e$, ssi $o(a) \mid m$.
+		\begin{proof}[d\'emonstration]~
+
+			\begin{itemize}
+				\item[$(\Rightarrow)$] Supposons $a^m=e$.
+
+				On divise $m$ par $o(a)$: $m = q \cdot o(a) + r$, avec $0 \leq r < o(a)$.
+
+				Si $r=0$, $o(a) \mid m$ et on a termin\'e.
+
+				Supposons que $0<r<o(a)$, alors
+				\begin{align*}
+					r&= m-q \cdot o(a)\\
+					a^r&= a^{m-q \cdot o(a)}\\
+					&= a^m \cdot a^{-q \cdot o(a)}\\
+					&= e \cdot (a^{o(a)})^{-q}\\
+					&= e \cdot e^{-q}\\
+					&= e
+				\end{align*}
+				mais $0<r<o(a)$ contredit la minimalit\'e de $o(a)$.
+			\end{itemize}
+		\end{proof}
+	\end{prop}
 \end{document}
