@@ -26,7 +26,14 @@
 
 \pagestyle{fancy}
 
-\renewcommand{\contentsname}{Table des mati\`eres}
+\newlist{nlist}{enumerate}{3}
+\setlist[nlist, 1]{label=(\arabic*)}
+\setlist[nlist, 2]{label=(\alph*)}
+\setlist[nlist, 3]{label=(\roman*)}
+\newlist{ulist}{itemize}{3}
+\setlist[ulist, 1]{label=\textbullet}
+\setlist[ulist, 2]{label=|}
+\setlist[ulist, 3]{\textperiodcentered}
 
 \title{MAT141 - \'El\'ements d'alg\`ebre
 
@@ -135,14 +142,14 @@ Donn\'e par Jean-Philippe Burelle}
 
 
 	\subsection{Mani\`eres de d\'efinir une fonction}
-	\begin{itemize}[noitemsep]
+	\begin{ulist}[noitemsep]
 		\item \'enum\'erer $f(x)$ pour chaque $x \in E$
 		\item donner une formule
 
-		une formule ne d\'efinit pas tjrs une fonction, elle doit \^etre valide pour chaque $x$ de l'ensemble de d\'epart.
+		une formule ne d\'efinit pas toujours une fonction, elle doit \^etre valide pour chaque $x$ de l'ensemble de d\'epart.
 		\item en mots (d\'ecrire la valeur pour chaque $x \in E$)
 		\item m\'elange de formule et mots
-	\end{itemize}
+	\end{ulist}
 
 	\begin{defin}
 		Une fonction $f:E \to F$ est \emph{inversible} s'il existe une fonction $\underbrace{g:F \to E}_{*}$ telle que $\underbrace{g(f(x))=x}_{**}$ pour tout $x \in E$ et $\underbrace{f(g(y))=y}_{***}$ pour tout $y \in F$.
@@ -321,7 +328,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rappel}
 		$A, B$ deux ensembles
 
-		\begin{itemize}[noitemsep]
+		\begin{ulist}[noitemsep]
 			\item $f:A \to B$ une fonction, associe \`a chaque $x \in A$ un unique $f(x) \in B$. $x \mapsto f(x)$.
 			\item $f$ est \emph{inversible} s'il existe $g:B \to A$ t.q. $g(f(a))=a$ pour tout $a \in A$ et $f(g(b))=b$ pour tout $b \in B$.
 			\item l'inverse est \emph{unique}.
@@ -329,7 +336,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item $f$ est injective si $f(x_1)=f(x_2) \Rightarrow x_1=x_2$.
 			\item $f$ est surjective si pour tout $b \in B$ il existe $a \in A$ t.q. $f(a)=b$.
 			\item $f$ est bijective si elle est injective et surjective.
-		\end{itemize}
+		\end{ulist}
 	\end{rappel}
 
 
@@ -455,7 +462,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rappel}
 		~
 
-		\begin{itemize}[noitemsep]
+		\begin{ulist}[noitemsep]
 			\item $f:E \to F$ est bijective $\Leftrightarrow$ $f$ est inversible.
 			\item L'inverse est unique $(g=f^{-1})$
 			\item Op\'eration: $m:E \times E \to E$, ou
@@ -468,13 +475,13 @@ Donn\'e par Jean-Philippe Burelle}
 			\item $f$ est surjective si tout $y \in F$ a au moins un ant\'ec\'edent
 			\item $f$ est bijective si tout $y \in F$ a exactement un ant\'ec\'edent
 			\item $x$ est ant\'ec\'edent de $y$ si $f(x)=y$
-		\end{itemize}
+		\end{ulist}
 	\end{rappel}
 
 	\begin{exem}
 		Sur $\naturels$,
 
-		\begin{itemize}
+		\begin{ulist}
 			\item $0$ est neutre pour $+$.
 			\begin{align*}
 				0+n&=n\\
@@ -485,7 +492,7 @@ Donn\'e par Jean-Philippe Burelle}
 				1 \times n&=n\\
 				n \times 1&=n
 			\end{align*}
-		\end{itemize}
+		\end{ulist}
 
 		Sur $\entiers$, $-$ est une op\'eration mais elle n'a pas d\'el\'ement neutre.
 		\renewcommand{\qedsymbol}{\lightning}
@@ -498,7 +505,7 @@ Donn\'e par Jean-Philippe Burelle}
 			Pour $n=1$, $e-1=1$, donc $-1=1$.
 		\end{proof}
 		\renewcommand{\qedsymbol}{$\square$}
-		\begin{itemize}
+		\begin{ulist}
 			\item Sur l'ensemble $E=\left\lbrace \left( \begin{array}{cc}
 				a&b\\c&d
 			\end{array}\right) \middle| a,b,c,d \in \reels\right\rbrace$, la multiplication matricielle $\times$ est une op\'eration.
@@ -510,7 +517,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\begin{proof}[d\'emonstration]~
 
 				On doit montrer $\mathds{1}_A \circ f=f$ et $f \circ \mathds{1}_A=f$ pour tout $f \in E$.
-				\begin{enumerate}[label=(\arabic*)]
+				\begin{nlist}
 					\item Soit $x \in A$, alors
 					\begin{align*}
 						(\mathds{1}_A \circ f)(x)&= \mathds{1}_A(f(x))\\
@@ -525,9 +532,9 @@ Donn\'e par Jean-Philippe Burelle}
 					\end{align*}
 
 					Donc,$f \circ \mathds{1}_A=f$.
-				\end{enumerate}
+				\end{nlist}
 			\end{proof}
-		\end{itemize}
+		\end{ulist}
 	\end{exem}
 
 	On peut d\'ecrire une op\'eration sur un ensemble fini avec sa table ``de multiplication''.
@@ -661,16 +668,16 @@ Donn\'e par Jean-Philippe Burelle}
 		~
 
 		Un \emph{groupe} est un ensemble $G$ muni d'une op\'eration $*$ t.q.
-		\begin{enumerate}
+		\begin{itemize}
 			\item[(A)] $*$ est associative
 			\item[(N)] $*$ admet un neutre
 			\item[(I)] tout $g \in G$ admet un inverse
-		\end{enumerate}
+		\end{itemize}
 	\end{defin}
 	\begin{exem}
 		~
 
-		\begin{enumerate}[label=(\arabic*)]
+		\begin{nlist}
 			\item $(\entiers,+)$ est un groupe.
 
 			Neutre: $0$
@@ -684,7 +691,7 @@ Donn\'e par Jean-Philippe Burelle}
 			Neutre: $1$
 
 			Inverse de $x$: $\frac{1}{x}$
-		\end{enumerate}
+		\end{nlist}
 		\begin{rema}
 			~
 
@@ -695,36 +702,36 @@ Donn\'e par Jean-Philippe Burelle}
 
 			$(\naturels,+)$ n'est pas un groupe.
 		\end{rema}
+		\begin{defin}
+			~
+
+			Si l'op\'eration d'un groupe est commutative, on note le groupe comme \emph{ab\'elien} (ou commutatif).
+		\end{defin}
+		\begin{nlist}[resume]
+			\item $GL(n,\reels)$ est un groupe pour la multiplication matricielle.
+
+			$GL(n,\reels)=\{M|M \text{ est une matrice $n\times n$ r\'eelle inversible}\}$.
+
+			$GL$: g\'en\'eral lin\'eaire
+
+			Neutre: $\left( \begin{array}{ccc}
+				1&\dotsb&0\\
+				\vdots&\ddots&\vdots\\
+				0&\dotsb&1
+			\end{array} \right)$.
+
+			$M^{-1}$ la matrice inverse est l'inverse.
+
+			Pour $n \geq 2$, $GL(n,\reels)$  n'est pas ab\'elien.
+			\item $A$ un ensemble quelconque
+
+			$S(A)=\{f:A \to A|f \text{ est bijective}\}$ est un groupe pour $\circ$.
+
+			Neutre: $\mathds{1}_A$
+
+			Inverse de $f$: $f^{-1}$
+		\end{nlist}
 	\end{exem}
-	\begin{defin}
-		~
-
-		Si l'op\'eration d'un groupe est commutative, on note le groupe comme \emph{ab\'elien} (ou commutatif).
-	\end{defin}
-	\begin{enumerate}[resume]
-		\item $GL(n,\reels)$ est un groupe pour la multiplication matricielle.
-
-		$GL(n,\reels)=\{M|M \text{ est une matrice $n\times n$ r\'eelle inversible}\}$.
-
-		$GL$: g\'en\'eral lin\'eaire
-
-		Neutre: $\left( \begin{array}{ccc}
-			1&\dotsb&0\\
-			\vdots&\ddots&\vdots\\
-			0&\dotsb&1
-		\end{array} \right)$.
-
-		$M^{-1}$ la matrice inverse est l'inverse.
-
-		Pour $n \geq 2$, $GL(n,\reels)$  n'est pas ab\'elien.
-		\item $A$ un ensemble quelconque
-
-		$S(A)=\{f:A \to A|f \text{ est bijective}\}$ est un groupe pour $\circ$.
-
-		Neutre: $\mathds{1}_A$
-
-		Inverse de $f$: $f^{-1}$
-	\end{enumerate}
 	\begin{rema}
 		~
 
@@ -749,7 +756,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rappel}
 		~
 
-		\begin{itemize}[noitemsep]
+		\begin{ulist}[noitemsep]
 			\item Groupe: $(G,*)$
 			\begin{itemize}
 				\item[$G$] ensemble
@@ -765,7 +772,7 @@ Donn\'e par Jean-Philippe Burelle}
 				$\forall a \in G, \exists b \in G$ t.q. $a*b=e=b*a$
 			\end{itemize}
 			\item Le neutre et l'inverse sont uniques
-		\end{itemize}
+		\end{ulist}
 	\end{rappel}
 
 	\begin{rema}
@@ -775,15 +782,15 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{rema}
 
 	\subsection{Propri\'et\'es \'el\'ementaires des groupes}
-	\begin{enumerate}[label=(\alph*)]
+	\begin{nlist}
 		\item $\forall a,b \in G$, $(a*b)^{-1} = b^{-1}*a^{-1}$.
 		\item $\forall a \in G$, $(a^{-1})^{-1}=a$
 		\item Si $a*b=a*c$, alors $b=c$
 		\item Si $b*a=c*a$, alors $b=c$
-	\end{enumerate}
+	\end{nlist}
 	\begin{proof}[d\'emonstration]~
 
-		\begin{enumerate}[label=(\alph*)]
+		\begin{nlist}
 			\item On calcule
 			\begin{align*}
 				\begin{split}
@@ -819,7 +826,7 @@ Donn\'e par Jean-Philippe Burelle}
 				b*e&= c*e\\
 				b&= c
 			\end{align*}
-		\end{enumerate}
+		\end{nlist}
 	\end{proof}
 	\begin{exem}
 		~
@@ -888,7 +895,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\cours
 	\begin{rappel}~
 
-		\begin{itemize}
+		\begin{ulist}[noitemsep]
 			\item Groupe: $(G, *)$ avec $A, N, I$.
 
 			Ab\'elien: $C$.
@@ -909,7 +916,7 @@ Donn\'e par Jean-Philippe Burelle}
 					$E$ n'est pas l'ensemble utilis\'e dans la d\'efinition du groupe.
 				\end{rema}
 			\end{exem}
-		\end{itemize}
+		\end{ulist}
 	\end{rappel}
 	\subsection{Produit cart\'esien de groupes}
 	$(G, *)$ et $(H, \diamond)$ deux groupes.
@@ -921,7 +928,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\begin{proof}[d\'emonstration]~
 
 			\begin{itemize}
-				\item[$(N)$] $e \in G$ le neutre et $e' \in H$ le neutre, alors $(e,e') \in G \times H$
+				\item[(N)] $e \in G$ le neutre et $e' \in H$ le neutre, alors $(e,e') \in G \times H$
 
 				\begin{align*}
 					(a,b) \bullet (e,e')&= (a*e, b \diamond e')\\
@@ -931,15 +938,15 @@ Donn\'e par Jean-Philippe Burelle}
 				\end{align*}
 
 				$(e,e')$ est bien neutre.
-				\item[$(I)$] $(a,b) \in G \times H$, alors $(a^{-1},b^{-1})$ est inverse de $(a,b)$.
+				\item[(I)] $(a,b) \in G \times H$, alors $(a^{-1},b^{-1})$ est inverse de $(a,b)$.
 
 				exercice
-				\item[$(A)$] exercice
+				\item[(A)] exercice
 			\end{itemize}
 		\end{proof}
 	\end{prop}
 	\begin{exem}
-		\begin{itemize}
+		\begin{ulist}
 			\item $\reels \times \reels = \reels^2$
 
 			$(x,y)+(x',y')=(x+x',y+y')$.
@@ -970,30 +977,30 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{array}
 			\]
 			\renewcommand{\arraystretch}{1}
-		\end{itemize}
+		\end{ulist}
 	\end{exem}
 	\subsection{Isomorphismes de groupes}
 	\begin{defin}
 		$(G,*)$ et $(H,\diamond)$ deux groupes.
 
 		Un \emph{isomorphisme} de $G$ vers $H$ est une application $f:G \to H$ t.q.
-		\begin{enumerate}[noitemsep]
+		\begin{nlist}[noitemsep]
 			\item $\forall a,b \in G$, $f(a*b)=f(a)\diamond f(b)$.
 
 			Pr\'eservation des op\'erations
 			\item $f$ est bijective.
-		\end{enumerate}
+		\end{nlist}
 	\end{defin}
 	\begin{exem}~
 
-		\begin{itemize}
+		\begin{ulist}
 			\item $(\reels,+)$ et $(\reels^+_*,\times)$
 
 			$\begin{array}{rcl}
 				f:\reels&\to&\reels^+_*\\
 				x&\mapsto&e^x
 			\end{array}$ est un isomorphisme de groupes.
-			\begin{enumerate}[label=(\arabic*)]
+			\begin{nlist}
 				\item Soient $x,y \in \reels$.
 				\begin{align*}
 					f(x+y)&= e^{x+y}\\
@@ -1001,8 +1008,8 @@ Donn\'e par Jean-Philippe Burelle}
 					&= f(x) \times f(y)
 				\end{align*}
 				\item $\ln:\reels^+_* \to \reels$ est inverse de $f$: $\ln e^x=x \forall x \in \reels$ et $e^{\ln x}=x \forall x \in \reels^+_*$.
-			\end{enumerate}
-		\end{itemize}
+			\end{nlist}
+		\end{ulist}
 	\end{exem}
 	\begin{prop}
 		Si $f:G \to H$ est un isomorphisme de groupes, alors $f(e_G)=e_H$, o\`u $e_G$ est l'\'el\'ement neutre de $G$ et $e_H$ est l'\'el\'ement neutre de $H$.
@@ -1136,7 +1143,7 @@ Donn\'e par Jean-Philippe Burelle}
 		Si $f:G \to H$ est un isomorphisme, alors $f^{-1}:H \to G$ est un isomorphisme.
 		\begin{proof}[d\'emonstration]~
 
-			\begin{enumerate}[label=(\arabic*)]
+			\begin{nlist}
 				\item Soient $b_1,b_2 \in H$.
 				\begin{align*}
 					f^{-1}(b_1 \diamond b_2)&= f^{-1}(f(f^{-1}(b_1)) \diamond f(f^{-1}(b_2)))\\
@@ -1148,7 +1155,7 @@ Donn\'e par Jean-Philippe Burelle}
 					f \circ f^{-1}&= \mathds{1}_H\\
 					f^{-1} \circ f&= \mathds{1}_G
 				\end{align*}
-			\end{enumerate}
+			\end{nlist}
 		\end{proof}
 	\end{prop}
 	\begin{prop}[Transitivit\'e]~
@@ -1156,7 +1163,7 @@ Donn\'e par Jean-Philippe Burelle}
 		Si $f:G \to H$ et $g:H \to K$ sont des isomorphismes, alors $g \circ f:G \to K$ est un isomorphisme.
 		\begin{proof}[d\'emonstration]~
 
-			\begin{enumerate}[label=(\arabic*)]
+			\begin{nlist}
 				\item Soient $a,b \in G$
 				\begin{align*}
 					(g \circ f)(a*b)&= g(f(a*b))\\
@@ -1165,7 +1172,7 @@ Donn\'e par Jean-Philippe Burelle}
 					&= (g \circ f)(a) \oplus (g \circ f)(b)
 				\end{align*}
 				\item $g \circ f$ est inversible d'inverse $f^{-1} \circ g^{-1}$.
-			\end{enumerate}
+			\end{nlist}
 		\end{proof}
 	\end{prop}
 
@@ -1173,14 +1180,14 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{defin}[par r\'ecurrence]~
 
 		$a \in G$, $n \in \naturels$
-		\begin{enumerate}
+		\begin{nlist}
 			\item $a^0 \coloneq e_G$
 			\item $a^n=a*a^{n-1}$, $\forall n \geq 1$
-		\end{enumerate}
+		\end{nlist}
 	\end{defin}
 	\begin{exem}~
 
-		\begin{itemize}
+		\begin{ulist}
 			\item \begin{align*}
 				a^4&= a*a^3\\
 				&= a*a*a*2\\
@@ -1190,13 +1197,13 @@ Donn\'e par Jean-Philippe Burelle}
 				&= a*a*a*a
 			\end{align*}
 			\item Dans $(\entiers,+)$, $2^3=3 \cdot 2=2+2+2$.
-		\end{itemize}
+		\end{ulist}
 	\end{exem}
 	\begin{prop}
 		$a^{n+m}=a^n*a^m$, $\forall n,m \in \naturels$.
 		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]~
 
-			\begin{enumerate}
+			\begin{nlist}
 				\item $n=0$:
 				\begin{align*}
 					a^{0+m}&= a^m\\
@@ -1211,7 +1218,7 @@ Donn\'e par Jean-Philippe Burelle}
 					&= (a*a^n)*a^m\\
 					&= a^{n+1}*a^m
 				\end{align*}
-			\end{enumerate}
+			\end{nlist}
 		\end{proof}
 	\end{prop}
 	\begin{defin}
@@ -1231,7 +1238,7 @@ Donn\'e par Jean-Philippe Burelle}
 		$(a^m)^n=a^{mn}$, $\forall m,n \in \naturels$. Vraie aussi pour $m,n \in \entiers$.
 		\begin{proof}[d\'emonstration par r\'ecurrence sur $m$]~
 
-		\begin{enumerate}
+		\begin{nlist}
 			\item $m=0$:
 			\begin{align*}
 				(a^n)^0&= e\\
@@ -1244,7 +1251,7 @@ Donn\'e par Jean-Philippe Burelle}
 				&= a^{n+nm}\\
 				&= a^{n(m+1)}
 			\end{align*}
-		\end{enumerate}
+		\end{nlist}
 		\end{proof}
 	\end{prop}
 
@@ -1252,14 +1259,14 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rappel}
 		~
 
-		\begin{itemize}
+		\begin{ulist}[noitemsep]
 			\item Isomorphisme: $f:G \to H$ t.q.
-			\begin{enumerate}[label=(\arabic*)]
+			\begin{nlist}
 				\item $f(ab)=f(a)f(b)$
 
 				avec $a *b$ et $f(a) \diamond f(b)$ implicitement.
 				\item $f$ est bijective
-			\end{enumerate}
+			\end{nlist}
 			``m\^eme table''
 			\item $f,g$ isomorphismes $\Rightarrow$ $f^{-1}, g \circ f$ isomorphismes.
 
@@ -1268,19 +1275,19 @@ Donn\'e par Jean-Philippe Burelle}
 			\item Puissances:
 
 			Soit $a \in G$ avec $G$ un groupe.
-			\begin{itemize}
+			\begin{ulist}
 				\item $a^0=e$
 				\item $a^{n+1}=aa^n$
 				\item $a^{-n}=(a^{-1})^n$
 				\item $a^{n+m}=a^na^m$
 				\item $(a^n)^m=a^{n \cdot m}$
-			\end{itemize}
+			\end{ulist}
 			\item $f$ isomorphisme
-			\begin{itemize}
+			\begin{ulist}
 				\item $f(e_G)=e_H$
 				\item $f(a^{-1})=f(a)^{-1}$
-			\end{itemize}
-		\end{itemize}
+			\end{ulist}
+		\end{ulist}
 	\end{rappel}
 	\begin{prop}
 		$f$ isomorphisme $f:G \to H$.
@@ -1288,9 +1295,9 @@ Donn\'e par Jean-Philippe Burelle}
 		$a \in G$. Alors, $f(a^n)=f(a)^n$, $\forall n \in \entiers$.
 		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]~
 
-			\begin{itemize}
+			\begin{ulist}
 				\item[$n\geq 0$]
-				\begin{enumerate}
+				\begin{nlist}
 					\item $n=0$
 					\begin{align*}
 						f(a^0)&= f(e_G)\\
@@ -1304,7 +1311,7 @@ Donn\'e par Jean-Philippe Burelle}
 						\text{hyp rec}&= f(a)f(a)^n\\
 						&= f(a)^{n+1}
 					\end{align*}
-				\end{enumerate}
+				\end{nlist}
 				\item[$n<0$] alors, $-n>0$ et
 				\begin{align*}
 					f(a^n)&= f((a^{-1})^{-n})\\
@@ -1312,7 +1319,7 @@ Donn\'e par Jean-Philippe Burelle}
 					&= (f(a)^{-1})^{-n}\\
 					&= f(a)^n
 				\end{align*}
-			\end{itemize}
+			\end{ulist}
 		\end{proof}
 	\end{prop}
 	\begin{exem}
@@ -1352,7 +1359,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{array}$
 
 		Soient $x,y \in \reels$.
-		\begin{enumerate}[label=(\arabic*)]
+		\begin{nlist}
 			\item $f(x+y) = \begin{pmatrix}
 				1&x+y\\0&1
 			\end{pmatrix} = \begin{pmatrix}
@@ -1364,7 +1371,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\begin{proof}[montrons que]
 				$f$ est bijective.
 
-				\begin{itemize}
+				\begin{ulist}
 					\item $f$ est injective
 
 					Soient $x,y \in \reels$.
@@ -1385,9 +1392,9 @@ Donn\'e par Jean-Philippe Burelle}
 					\end{pmatrix} \in H$, avec $y \in \reels$.
 
 					$Y = f(y)$.
-				\end{itemize}
+				\end{ulist}
 			\end{proof}
-		\end{enumerate}
+		\end{nlist}
 	\end{exem}
 
 	\subsection{Sous-groupes}
@@ -1397,7 +1404,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{exem}
 		~
 
-		\begin{itemize}
+		\begin{ulist}
 			\item $\{e\} \subseteq G$ est un sous-groupe.
 			\item $G \subseteq G$ est un sous-groupe.
 			\item $\left\lbrace \dotsc, -4, -2, 0, 2, 4, \dotsc \right\rbrace = 2\entiers \subseteq (\entiers,+)$
@@ -1420,7 +1427,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item $\mathbb{D}_3 = \{\varepsilon, \alpha, \beta, \gamma, \rho, \sigma\}$.
 
 			$\{\varepsilon, \alpha\}$ et $\{\varepsilon, \rho, \sigma\}$ sont des sous-groupes de $\mathbb{D}_3$.
-		\end{itemize}
+		\end{ulist}
 		\begin{nota}
 			On note l'ensemble $m\entiers = \{m \cdot n \mid n \in \entiers\}$.
 		\end{nota}
@@ -1430,14 +1437,14 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rappel}
 		~
 
-		\begin{itemize}
+		\begin{ulist}[noitemsep]
 			\item $a \in G$.
-			\begin{itemize}
+			\begin{ulist}
 				\item $a^n=\underbrace{a*a*\dotsb*a}_{\text{$n$ fois}}$
 				\item $a^n=a*a^{n-1}$
 				\item $a^0=e$
 				\item $a^{-n}=(a^{-1})^n$
-			\end{itemize}
+			\end{ulist}
 			\item Sous-groupe de $(G,*):H \subseteq G$ qui est un groupe pour $*$.
 			\begin{exem}
 				$\entiers \subseteq \rationels \subseteq \reels$ pour $+$.
@@ -1452,18 +1459,18 @@ Donn\'e par Jean-Philippe Burelle}
 				\]
 				est un sous-groupe de $GL(2,\reels)$.
 			\end{exem}
-		\end{itemize}
+		\end{ulist}
 	\end{rappel}
 	\begin{prop}
 		$H \subseteq G$ un sous-groupe.
-		\begin{enumerate}[label=(\alph*),itemsep=1pt]
+		\begin{nlist}[itemsep=1pt]
 			\item Si $G$ est ab\'elien, alors $H$ est ab\'elien;
 			\item Le neutre de $H$ est le neutre de $G$;
 			\item Si $a \in H$, son inverse $a^{-1}\in H$ est l'inverse de $a$ dans $G$.
-		\end{enumerate}
+		\end{nlist}
 		\begin{proof}[d\'emonstration]~
 
-			\begin{enumerate}[label=(\alph*),itemsep=1pt]
+			\begin{nlist}[itemsep=1pt]
 				\item $G$ est ab\'elien, alors $\forall a,b \in G$, $ab=ba$.
 
 				En particulier, $\forall a,b \in H$, $ab=ba$.
@@ -1479,7 +1486,7 @@ Donn\'e par Jean-Philippe Burelle}
 				Comme $H$ est un groupe, $\exists! a^{-1} \in H$.
 
 				De $ab=e$, on a $a^{-1}ab=a^{-1}e$, donc $b=a^{-1}$.
-			\end{enumerate}
+			\end{nlist}
 		\end{proof}
 	\end{prop}
 	\begin{thm}~
@@ -1618,12 +1625,12 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{exem}
 
 	\setcounter{chapter}{1}
-	\chapter{}
+	\chapter{Applications et \'equivalences}
 	\setcounter{section}{3}
 	\section{Relations d'\'equivalence}
 	\begin{defin}
 		Une \emph{relation d\'equivalence} sur un ensemble $E$ est un sous-ensemble $R \subseteq E \times E$ satisfaisant
-		\begin{enumerate}
+		\begin{nlist}
 			\item r\'eflexivit\'e
 
 			$x \sim x, \forall x \in E$.
@@ -1633,14 +1640,14 @@ Donn\'e par Jean-Philippe Burelle}
 			\item transitivit\'e
 
 			$x \sim y$ et $y \sim z$, alors $x \sim z$.
-		\end{enumerate}
+		\end{nlist}
 		\begin{nota}
 			On note $x \sim y$ ssi $(x,y) \in R$.
 		\end{nota}
 	\end{defin}
 	\begin{exem}~
 
-		\begin{enumerate}[label=(\alph*)]
+		\begin{nlist}
 			\item $E = \reels$
 
 			$x \sim y$ ssi $\abs{x} = \abs{y}$
@@ -1652,7 +1659,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item $C$ est l'ensemble des \'el\`eves dans la classe.
 
 			$x \sim y$ ssi $x$ et $y$ ont le m\^eme \^age est une relation d'\'equivalence.
-		\end{enumerate}
+		\end{nlist}
 	\end{exem}
 	\begin{defin}
 		Si $E$ est un ensemble et $\sim$ est une relation d'\'equivalence sur $E$, la \emph{classe d'\'euivalence} de $x \in E$ est $\overline{x} = \{y \in E \mid y \sim x\} \subseteq E$.
@@ -1679,12 +1686,12 @@ Donn\'e par Jean-Philippe Burelle}
 	\cours
 	\begin{rappel}~
 
-		\begin{itemize}[label=\textbullet]
+		\begin{ulist}[noitemsep]
 			\item $H \leq G$, $H$ un sous-groupe de $G$, ssi
-			\begin{itemize}
+			\begin{ulist}
 				\item $H \neq \emptyset$;
 				\item $\forall a,b \in H, ab^{-1} \in H$.
-			\end{itemize}
+			\end{ulist}
 			\item Si $H \leq G$, $H$ a le m\^eme neutre que $G$, m\^emes inverses.
 			\item $G$ ab\'elien $\Rightarrow H \leq G$ ab\'elien.
 			\item Si $f:G \to H$ isomorphisme, alors $K \leq G \Leftrightarrow f(K) \leq H$.
@@ -1696,7 +1703,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{itemize}
 			\item Classe d'\'equivalence: $\overline{a} = \{b \in E \mid b \sim a\}$.
 			\item $a \sim b \Longleftrightarrow \overline{a} = \overline{b}$.
-		\end{itemize}
+		\end{ulist}
 	\end{rappel}
 	\begin{exem}
 		$E=\entiers$.
@@ -1772,10 +1779,10 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{exem}
 	\begin{defin}
 		Une \emph{partition} d'un ensemble $E$ est une collection $\mathcal{P} = \{E_i\}$, avec $i \in I$ de sous-ensembles de $E$ t.q.
-		\begin{enumerate}[label=(\arabic*)]
+		\begin{nlist}
 			\item $\bigcup\limits_{i \in I} E_i = E$;
 			\item $E_i \cap E_j = \emptyset$, si $i \neq j$.
-		\end{enumerate}
+		\end{nlist}
 		\begin{rema}
 			Chaque $x \in E$ est \'el\'ement d'exactement un $E_i$.
 		\end{rema}
@@ -1789,7 +1796,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{exem}
 		\begin{proof}[d\'emonstration]~
 
-			\begin{enumerate}[label=(\arabic*)]
+			\begin{nlist}
 				\item Clairement, $\bigcup\limits_{a \in E}\overline{a} \subseteq E$.
 
 				On veut montrer que $E \subseteq \bigcup\limits_{a \in E}\overline{a}$.
@@ -1798,7 +1805,7 @@ Donn\'e par Jean-Philippe Burelle}
 				\item Supposons que $x \in \overline{a}$ et $x \in \overline{b}$, avec $\overline{a} \neq \overline{b}$.
 
 				Alors, $x \sim a$ et $x \sim b$. Donc, par sym\'etrie, $a \sim x$ et $x \sim b$. Donc, par transitivit\'e, $a \sim b$. Donc $\overline{a} = \overline{b}$. Ceci est une contradiction, donc $\overline{a} \cap \overline{b} = \emptyset, \forall \overline{a}, \overline{b} \in \mathcal{P}$.
-			\end{enumerate}
+			\end{nlist}
 		\end{proof}
 	\end{prop}
 
@@ -1824,7 +1831,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rappel}
 		~
 
-		\begin{itemize}[label=\textbullet]
+		\begin{ulist}[noitemsep]
 			\item Relation d'\'equivalence ($\sim$) $\rightarrow$ partition en classes d'\'equivalence ($\overline{a}\{b \mid b \sim a\}$).
 			\item \'Equivalence (congruence) $\mod m$ (sur $\entiers$):
 			\begin{align*}
@@ -1847,7 +1854,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\begin{rema}
 				On doit faire ce genre de preuve pour chaque d\'efinition de fonction/op\'eration qui ont comme domaine des classes d'\'equivalence.
 			\end{rema}
-		\end{itemize}
+		\end{ulist}
 	\end{rappel}
 	\begin{exem}
 		$m=5$.
@@ -1942,23 +1949,23 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{defin}
 	\begin{exem}~
 
-		\begin{itemize}
+		\begin{ulist}
 			\item $o(e)=1$
 			\item Dans $\mathbb{D}_3$
-			\begin{itemize}
+			\begin{ulist}
 				\item $o(\alpha) = 2$
 				\item $o(\rho) = 3$
-			\end{itemize}
+			\end{ulist}
 			\item Dans $\entiers$
-			\begin{itemize}
+			\begin{ulist}
 				\item $o(0) = 1$
 				\item $o(n) = \infty$, $\forall n\neq0$
-			\end{itemize}
+			\end{ulist}
 			\item Dans $\entiers_6$
-			\begin{itemize}
+			\begin{ulist}
 				\item $o(\overline2) = 3$
-			\end{itemize}
-		\end{itemize}
+			\end{ulist}
+		\end{ulist}
 	\end{exem}
 	\begin{prop}
 		Soit $m \in \entiers$. $a^m = e$, ssi $o(a) \mid m$.
