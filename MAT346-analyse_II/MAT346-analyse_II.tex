@@ -47,6 +47,10 @@ Donn\'e par Mario Lambert}
 \newcommand*{\Ssup}[1]{\overline{S}(#1)}
 \newcommand*{\Sinf}[1]{\underline{S}(#1)}
 
+\newcommand*{\dsum}[4]{\displaystyle\sum_{#1=#2}^{#3}#4}
+\newcommand*{\dlim}[3]{\displaystyle\lim_{#1 \to #2}#3}
+\newcommand*{\dint}[3]{\displaystyle\int_{#1}^{#2}#3}
+
 \newcommand*{\raffinement}[2]{#1 \vee #2}
 \newcommand*{\norme}[1]{\left\| #1 \right\|}
 \newcommand*{\abs}[1]{\left| #1 \right|}
@@ -1462,4 +1466,148 @@ Donn\'e par Mario Lambert}
 			\end{enumerate}
 		\end{proof}
 	\end{prop}
+	\begin{rema}
+		$\displaystyle\int_{a}^{\infty} f < \infty \not\Rightarrow \displaystyle\int_{a}^{\infty}\abs{f} < \infty$.
+		\begin{exem}[En effet]
+			\begin{align*}
+				\int_{a}^{\infty}\dfrac{\sin x}{x} dx&= \lim_{y \to \infty}\int_{a}^{y}\dfrac{\sin x}{x} dx\\
+				u=\frac{1}{x}&\Rightarrow du=\frac{-dx}{x^2}\\
+				dv=\sin x&\Rightarrow v=-\cos x\\
+				&= \lim_{y \to \infty}\left( \left. \dfrac{-\cos x}{x} \right|^y_{\sfrac{\pi}{2}} - \int_{\sfrac{\pi}{2}}^{y}\dfrac{\cos x}{x^2} dx \right)\\
+				&= \lim_{y \to \infty}\left( \dfrac{\cos\sfrac{\pi}{2}}{\sfrac{\pi}{2}} - \int_{\sfrac{\pi}{2}}^y\dfrac{\cos x}{x^2} dx \right)\\
+				&= \lim_{y \to \infty}-\int_{\sfrac{\pi}{2}}^{y} \dfrac{\cos x}{x^2} dx
+			\end{align*}
+
+			Or, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \abs{\dfrac{\cos x}{x^2}} dx < \displaystyle\int_{\sfrac{\pi}{2}}^\infty \dfrac{dx}{x^2} = \lim_{y \to \infty} \displaystyle\int_{\sfrac{\pi}{2}}^y \dfrac{dx}{x^2} dx = \lim_{y \to \infty}\left. \dfrac{-1}{x}\right|^y_{\sfrac{\pi}{2}} = \lim_{y \to \infty}\left( \dfrac{2}{\pi} - \dfrac{1}{y} \right) = \dfrac{2}{\pi}$.
+
+			Donc, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \dfrac{\cos x}{x^2} dx < \infty$. Alors, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \dfrac{\sin x}{x^2} dx < \infty$.
+			\begin{proof}[Montrons que]
+				$\displaystyle\int_{\sfrac{\pi}{2}}^\infty \abs{\dfrac{\sin x}{x}} dx$ diverge.
+
+				Consid\'erons les intervalles $I_k = \left[ 2k\pi, 2k\pi+\dfrac{\pi}{2} \right]$, avec $k \in \naturels$.
+
+				Sur $I_k$, $\sin x$ cro\^it de $0$ \`a $1$.
+
+				En particulier, $\exists x_k \in I_k$ t.q. $\sin x_k \geq \dfrac{\sqrt{2}}{2}$.
+
+				Ainsi, $\abs{\dfrac{\sin x_k}{x_k}} \geq \dfrac{\sqrt{2}}{2x_k}$.
+
+				En vertu de la propri\'et\'e archim\'edienne, $\exists N>0$ t.q. $Nk>x_k$. Alors, $\frac{1}{x_k} > \frac{1}{Nk}$ et $\abs{\dfrac{\sin x_k}{x_k}} > \dfrac{\sqrt{2}}{2Nk}$.
+
+				En posant $c=\dfrac{\sqrt{2}}{2N}$, on a $\abs{\dfrac{\sin x_k}{x_k}} > \dfrac{c}{k}$.
+
+				Ainsi, $\displaystyle\int_{I_k} \dfrac{\abs{\sin x_k}{x_k}} dx >  \displaystyle\int_{I_k} \dfrac{c}{k} dx = \dfrac{c}{k} \cdot \dfrac{\pi}{2}$.
+
+				Enfin, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \abs{\dfrac{\sin x}{x}} dx \geq \displaystyle\sum_{k=1}^{\infty} \displaystyle\int_{I_k} \abs{\dfrac{\sin x_k}{x_k}} dx > \displaystyle\sum_{k=1}^\infty \dfrac{c}{k} \cdot \dfrac{\pi}{2} = \dfrac{c\pi}{2} \displaystyle\sum_{k=1}^\infty \dfrac{1}{k}$, la s\'erie harmonique qui diverge.
+			\end{proof}
+		\end{exem}
+	\end{rema}
+	\begin{thm}[Test de l'int\'egrale]~
+
+		Soit $f: [1,\infty[ \to [0,\infty[$ monotone d\'ecroissante.
+
+		Alors, $\displaystyle\int_{1}^{\infty}f(x)dx < \infty$ ssi $\displaystyle\sum_{k=1}^{\infty} f(k) < \infty$.
+		\begin{proof}[d\'emonstration]~
+
+			Soit $\Delta: 1 = x_0 < x_1 < x_2 < \dotsb$, avec $x_i=i+1$, pour $i \in \naturels$.
+
+			On a
+			\begin{align*}
+				\srie{f}[\Delta][\{x_i\}]&= \sum_{i=1}^{\infty} f(x_i) \cdot (x_i-x_{i-1})\\
+				&= \sum_{i=1}^{\infty} f(i+1)\\
+				&= \sum_{j=2}^{\infty} f(j)
+			\end{align*}
+
+			De m\^eme, $\srie{f}[\Delta][\{x_{i-1}\}] = \dsum{i}{1}{\infty}{f(x_{i-1})} (x_i-x_{i-1}) = \dsum{i}{1}{\infty}{f(i)}$.
+
+			On a donc
+			\begin{align*}
+			\sum_{j=2}^\infty f(j) \leq \int_{1}^{\infty} f(x)dx \leq \sum_{i=1}^\infty f(i)
+			\end{align*}
+			\begin{itemize}
+			\item[$(\Rightarrow)$] Si $\dint{1}{\infty}{f(x)dx}$ converge, alors $\dsum{j}{2}{\infty}{f(j)}$ converge. Donc, $\dsum{i}{1}{\infty}{f(i)}$ converge.
+			\item[$(\Leftarrow)$] Si $\dsum{i}{1}{\infty}{f(i)}$ converge, alors $\dint{1}{\infty}{f(x)dx}$ converge.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+	\begin{exem}~
+
+		\begin{proof}[m.q.]
+			$\dsum{n}{1}{\infty}{\dfrac{1}{n^p}}$ converge $\forall p > 1$.
+
+			\underline{D'Alembert}:
+			\[
+			\dlim{n}{\infty}{\dfrac{a_n}{a_{n+1}}} = \dlim{n}{\infty}{\dfrac{\sfrac{1}{(n+1)^p}}{\sfrac{1}{n^p}}} = \dlim{n}{\infty}{\left( \dfrac{n}{n+1} \right)^p} = 1
+			\]
+
+			\underline{Cauchy}:
+			\[
+			\dlim{n}{\infty}{\sqrt[n]{a_n}} = \dlim{n}{\infty}{\sqrt[n]{n^{-p}}} = \dlim{n}{\infty}{n^{\sfrac{-p}{n}}} = \dlim{n}{\infty}{e^{\ln n^{\sfrac{-p}{n}}}} = \dlim{n}{\infty}{e^{-p\frac{\ln n}{n}}} = e^{-p \dlim{n}{\infty}{\sfrac{\ln n}{n}}} = e^{-p \dlim{n}{\infty}{\sfrac{1}{n}}} = 1
+			\]
+
+			\underline{Test de l'int\'egrale}:
+
+			Posons $f(x) = \dfrac{1}{x^p}$.
+
+			On a $f'(x) = -px^{-p-1}<0$, donc $f$ est monotone d\'ecroissante.
+
+			De plus, $\dsum{n}{1}{\infty}{f(n)} = \dsum{n}{1}{\infty}{\dfrac{1}{n^p}}$ converge ssi $\dint{1}{\infty}{f(x)dx}$ converge.
+
+			Or, $\dint{1}{\infty}{f(x)dx} = \dint{1}{\infty}{\dfrac{dx}{x^p}}$ converge si $p>1$.
+
+			Donc, $\dsum{n}{1}{\infty}{\dfrac{1}{n^p}}$ converge si $p>1$.
+		\end{proof}
+	\end{exem}
+
+	\chapter{Suites de fonctions}
+	\begin{align*}
+		\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} &\overset{?}{=} \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}\\
+		\dlim{n}{\infty}{\dint{}{}{f_n(x)dx}} &\overset{?}{=} \dint{}{}{\dlim{n}{\infty}{f_n(x)}dx}\\
+		\dlim{n}{\infty}{\dfrac{d}{dx}f_n(x)} &\overset{?}{=} \dfrac{d}{dx}\dlim{n}{\infty}{f_n(x)}
+	\end{align*}
+	\begin{exem}
+		~
+
+		\begin{enumerate}
+			\item Posons $f_n(x) = x^n$ sur $[0,1]$.
+
+			On a $\dlim{n}{\infty}{\dlim{x}{1}{f_n(x)}} = \dlim{n}{\infty}{\left( \dlim{x}{1}{x^n} \right)} = \dlim{n}{\infty}{1^n} = 1$.
+
+			Cependant, $\dlim{x}{1}{\dlim{n}{\infty}{f_n(x)}} = \dlim{x}{1}{\left( \dlim{n}{\infty}{x^n} \right)} = \dlim{x}{1}{f(x)} = 0$ o\`u $f:[0,1] \to \reels$, avec $x \mapsto \left\lbrace \begin{array}{lll}
+				0&\text{si}&0 \leq x<1\\
+				1&\text{si}&x=1
+			\end{array} \right.$.
+			\item Sur $[0,1]$, posons $f_n(x) = \left\lbrace \begin{array}{lll}
+				n^2x&\text{si}&x<\frac{1}{n}\\
+				-n^x+2n&\text{si}&\frac{1}{n}<x<\frac{2}{n}\\
+				0&\text{si}&x \geq \frac{2}{n}
+			\end{array} \right.$.
+
+			Posons $f(x)= 0$. On a $\dlim{n}{\infty}{f_n(x)} = f(x)$.
+
+			Ainsi, $\dint{0}{1}{\dlim{n}{\infty}{f_n(x)}dx} = \dint{0}{1}{f(x)dx} = 0$.
+
+			Cependant, $\dlim{n}{\infty}{\dint{0}{1}{f_n(x)dx}} = \dlim{n}{\infty}{\frac{bh}{2}} = \dlim{n}{\infty}{1} = 1$.%TODO ajouter dessin f_n(x)
+			\item Sur $\reels$, posons $f_n(x) = \left\lbrace \begin{array}{lll}
+				nx^2+\frac{1}{4n}&\text{si}&\frac{-1}{2n} \leq x \leq \frac{1}{2n}\\
+				\abs{x}&\text{sinon}
+			\end{array} \right.$. On a $f_n'(x) = \left\{ \begin{array}{lll}
+				-1&\text{si}&x \leq \frac{-1}{2n}\\
+				2nx&\text{si}&\frac{-1}{2n} \leq x \leq \frac{1}{2n}\\
+				1&\text{si}&x \geq \frac{1}{2n}
+			\end{array} \right.$.%TODO ajouter dessin f_n(x)
+
+			Ainsi, $\dlim{n}{\infty}{\dfrac{d}{dx}f_n(x)} = \dlim{n}{\infty}{\left\{ \begin{array}{lll}
+					-1&\text{si}&x \leq \frac{-1}{2n}\\
+					2nx&\text{si}&\frac{-1}{2n} \leq x \leq \frac{1}{2n}\\
+					1&\text{si}&x \geq \frac{1}{2n}
+				\end{array} \right.} = \left\{ \begin{array}{lll}
+				-1&\text{si}&x<0\\
+				0&\text{si}&x=0\\
+				1&\text{si}&x>0
+			\end{array} \right.$.
+
+			Cependant, $\dfrac{d}{dx}\dlim{n}{\infty}{f_n(x)} = \dfrac{d}{dx}\abs{x}$, qui n'existe pas en $x=0$.
+		\end{enumerate}
+	\end{exem}
 \end{document}

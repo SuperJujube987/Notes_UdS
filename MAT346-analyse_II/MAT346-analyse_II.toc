@@ -10,3 +10,4 @@
 \contentsline {subsection}{\numberline {}Fractions partielles}{14}{subsection.1.2.1}%
 \contentsline {subsubsection}{Quelques substitutions}{14}{subsubsection*.2}%
 \contentsline {section}{\numberline { 1.3}Int\'egrales impropres}{17}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Suites de fonctions}{24}{chapter.2}%
