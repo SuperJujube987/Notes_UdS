@@ -7,6 +7,7 @@
 \usepackage{indentfirst}
 \usepackage{dsfont}
 \usepackage{tikz}
+\usetikzlibrary{positioning}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
@@ -14,6 +15,7 @@
 \usepackage{xfrac}
 \usepackage{fancyhdr}
 \usepackage[french]{babel}
+\usepackage[dvipsnames]{xcolor}
 
 \hypersetup{
 	colorlinks=false
@@ -1578,8 +1580,8 @@ Donn\'e par Mario Lambert}
 				1&\text{si}&x=1
 			\end{array} \right.$.
 			\item Sur $[0,1]$, posons $f_n(x) = \left\lbrace \begin{array}{lll}
-				n^2x&\text{si}&x<\frac{1}{n}\\
-				-n^x+2n&\text{si}&\frac{1}{n}<x<\frac{2}{n}\\
+				n^2x&\text{si}&x \leq \frac{1}{n}\\
+				-n^2x+2n&\text{si}&\frac{1}{n}<x<\frac{2}{n}\\
 				0&\text{si}&x \geq \frac{2}{n}
 			\end{array} \right.$.
 
@@ -1587,15 +1589,15 @@ Donn\'e par Mario Lambert}
 
 			Ainsi, $\dint{0}{1}{\dlim{n}{\infty}{f_n(x)}dx} = \dint{0}{1}{f(x)dx} = 0$.
 
-			Cependant, $\dlim{n}{\infty}{\dint{0}{1}{f_n(x)dx}} = \dlim{n}{\infty}{\frac{bh}{2}} = \dlim{n}{\infty}{1} = 1$.%TODO ajouter dessin f_n(x)
+			Cependant, $\dlim{n}{\infty}{\dint{0}{1}{f_n(x)dx}} = \dlim{n}{\infty}{\frac{bh}{2}} = \dlim{n}{\infty}{1} = 1$.
 			\item Sur $\reels$, posons $f_n(x) = \left\lbrace \begin{array}{lll}
 				nx^2+\frac{1}{4n}&\text{si}&\frac{-1}{2n} \leq x \leq \frac{1}{2n}\\
-				\abs{x}&\text{sinon}
+				\abs{x}&\multicolumn{2}{l}{\text{sinon}}
 			\end{array} \right.$. On a $f_n'(x) = \left\{ \begin{array}{lll}
 				-1&\text{si}&x \leq \frac{-1}{2n}\\
 				2nx&\text{si}&\frac{-1}{2n} \leq x \leq \frac{1}{2n}\\
 				1&\text{si}&x \geq \frac{1}{2n}
-			\end{array} \right.$.%TODO ajouter dessin f_n(x)
+			\end{array} \right.$.
 
 			Ainsi, $\dlim{n}{\infty}{\dfrac{d}{dx}f_n(x)} = \dlim{n}{\infty}{\left\{ \begin{array}{lll}
 					-1&\text{si}&x \leq \frac{-1}{2n}\\
@@ -1609,5 +1611,68 @@ Donn\'e par Mario Lambert}
 
 			Cependant, $\dfrac{d}{dx}\dlim{n}{\infty}{f_n(x)} = \dfrac{d}{dx}\abs{x}$, qui n'existe pas en $x=0$.
 		\end{enumerate}
+		\begin{center}
+			\begin{tikzpicture}[x=.2\textwidth,y=.2\textwidth,smooth]
+				\begin{scope}
+					\draw[help lines] (0,0) grid (1.1,1.1);
+					
+					\draw[->] (-.1,0) -- (1.1,0) node[below] {$x$};
+					\draw[->] (0,-.1) -- (0,1.1) node[left] {$y$};
+					
+					\node[anchor=north east] (00) at (0,0) {0};
+					\draw (1,0) -- ++(0,-.05) node[below] {1};
+					\draw (0,1) -- ++(-.05,0) node[left] {1};
+					
+					\fill (1,1) circle (2pt) node[above] {(1,1)};
+					
+					\draw[thick,red] plot[domain=0:1] (\x,\x);
+					\draw[thick,Blue] plot[domain=0:1] (\x,{\x^5});
+					\draw[thick,ForestGreen] plot[domain=0:1] (\x,{\x^20});
+					
+					\node[red,anchor=west] () at (0,1) {$n=1$};
+					\node[Blue,anchor=west] () at (0,.9) {$n=5$};
+					\node[ForestGreen,anchor=west] () at (0,.8) {$n=20$};
+				\end{scope}
+				\begin{scope}[xshift=.3\textwidth]
+					\draw[help lines] (0,0) grid (1.1,1.1);
+					
+					\draw[->] (-.1,0) -- (1.1,0) node[below] {$x$};
+					\draw[->] (0,-.1) -- (0,1.1) node[left] {$y$};
+					
+					\node[anchor=north east] (00) at (0,0) {0};
+					\draw (1,0) -- ++(0,-.05) node[below] {1};
+					\draw (0,1) -- ++(-.05,0) node[left] {1};
+					
+					\begin{scope}
+						\clip (0,0) rectangle (1,1);
+						\draw[thick,red] (0,0) -- (1,1);
+						\draw[thick,Blue] plot[domain=0:.25] (\x,16*\x) plot[domain=.25:.5] (\x,8-16*\x) plot[domain=.5:1] (\x,0);
+						\draw[thick,ForestGreen] plot[domain=0:.1] (\x,100*\x) plot[domain=.1:.2] (\x,20-100*\x) plot[domain=.2:1] (\x,0);
+					\end{scope}
+					\node[red,anchor=west] () at (.75,.6) {$n=1$};
+					\node[Blue,anchor=west] () at (.75,.5) {$n=4$};
+					\node[ForestGreen,anchor=west] () at (.75,.4) {$n=10$};
+				\end{scope}
+				\begin{scope}[xshift=.8\textwidth]
+					\draw[help lines] (-1.1,0) grid (1.1,1.1);
+					
+					\draw[->] (-1.1,0) -- (1.1,0) node[below] {$x$};
+					\draw[->] (0,0) -- (0,1.1) node[left] {$y$};
+					
+					\draw (0,0) -- ++(0,-.05) node[below] {0};
+					\draw (1,0) -- ++(0,-.05) node[below] {1};
+					\draw (-1,0) -- ++(0,-.05) node[below] {-1};
+					\draw (-.05,1) -- ++(.1,0) node[above right=-1pt and -4pt] {1};
+					
+					\draw[ultra thick,red] plot[domain=-1:-.5] (\x,-\x) plot[domain=-.5:.5] (\x,\x*\x+.25) plot[domain=.5:1] (\x,\x);
+					\draw[very thick,Blue] plot[domain=-1:-.25] (\x,-\x) plot[domain=-.25:.25] (\x,2*\x*\x+.125) plot[domain=.25:1] (\x,\x);
+					\draw[thick,ForestGreen] plot[domain=-1:-.05] (\x,-\x) plot[domain=-.05:.05] (\x,10*\x*\x+.025) plot[domain=.05:1] (\x,\x);
+					
+					\node[red,anchor=west] () at (-.1,.8) {$n=1$};
+					\node[Blue,anchor=west] () at (-.1,.7) {$n=2$};
+					\node[ForestGreen,anchor=west] () at (-.1,.6) {$n=10$};
+				\end{scope}
+			\end{tikzpicture}
+		\end{center}
 	\end{exem}
 \end{document}
