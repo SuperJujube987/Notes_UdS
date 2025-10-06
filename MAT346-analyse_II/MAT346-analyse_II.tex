@@ -57,6 +57,8 @@ Donn\'e par Mario Lambert}
 \newcommand*{\norme}[1]{\left\| #1 \right\|}
 \newcommand*{\abs}[1]{\left| #1 \right|}
 
+\newcommand*{\convabs}{\rightrightarrows}
+
 \newcommand*{\eps}{\varepsilon}
 
 \newcommand*{\reels}{\mathbb{R}}
@@ -1494,11 +1496,11 @@ Donn\'e par Mario Lambert}
 
 				Ainsi, $\abs{\dfrac{\sin x_k}{x_k}} \geq \dfrac{\sqrt{2}}{2x_k}$.
 
-				En vertu de la propri\'et\'e archim\'edienne, $\exists N>0$ t.q. $Nk>x_k$. Alors, $\frac{1}{x_k} > \frac{1}{Nk}$ et $\abs{\dfrac{\sin x_k}{x_k}} > \dfrac{\sqrt{2}}{2Nk}$.
+				Or, $x_k \leq 2k\pi+\dfrac{\pi}{2} \leq 8k+\dfrac{\pi}{2} \leq 8k+2k = 10k$.
 
-				En posant $c=\dfrac{\sqrt{2}}{2N}$, on a $\abs{\dfrac{\sin x_k}{x_k}} > \dfrac{c}{k}$.
+				Alors, $\dfrac{1}{x_k} \geq \dfrac{1}{10} \cdot \dfrac{1}{k} = c \cdot \dfrac{1}{k}$.
 
-				Ainsi, $\displaystyle\int_{I_k} \dfrac{\abs{\sin x_k}{x_k}} dx >  \displaystyle\int_{I_k} \dfrac{c}{k} dx = \dfrac{c}{k} \cdot \dfrac{\pi}{2}$.
+				Ainsi, $\displaystyle\int_{I_k} \abs{\dfrac{\sin x_k}{x_k}} dx >  \displaystyle\int_{I_k} \dfrac{c}{k} dx = \dfrac{c}{k} \cdot \dfrac{\pi}{2}$.
 
 				Enfin, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \abs{\dfrac{\sin x}{x}} dx \geq \displaystyle\sum_{k=1}^{\infty} \displaystyle\int_{I_k} \abs{\dfrac{\sin x_k}{x_k}} dx > \displaystyle\sum_{k=1}^\infty \dfrac{c}{k} \cdot \dfrac{\pi}{2} = \dfrac{c\pi}{2} \displaystyle\sum_{k=1}^\infty \dfrac{1}{k}$, la s\'erie harmonique qui diverge.
 			\end{proof}
@@ -1615,34 +1617,34 @@ Donn\'e par Mario Lambert}
 			\begin{tikzpicture}[x=.2\textwidth,y=.2\textwidth,smooth]
 				\begin{scope}
 					\draw[help lines] (0,0) grid (1.1,1.1);
-					
+
 					\draw[->] (-.1,0) -- (1.1,0) node[below] {$x$};
 					\draw[->] (0,-.1) -- (0,1.1) node[left] {$y$};
-					
+
 					\node[anchor=north east] (00) at (0,0) {0};
 					\draw (1,0) -- ++(0,-.05) node[below] {1};
 					\draw (0,1) -- ++(-.05,0) node[left] {1};
-					
+
 					\fill (1,1) circle (2pt) node[above] {(1,1)};
-					
+
 					\draw[thick,red] plot[domain=0:1] (\x,\x);
 					\draw[thick,Blue] plot[domain=0:1] (\x,{\x^5});
 					\draw[thick,ForestGreen] plot[domain=0:1] (\x,{\x^20});
-					
+
 					\node[red,anchor=west] () at (0,1) {$n=1$};
 					\node[Blue,anchor=west] () at (0,.9) {$n=5$};
 					\node[ForestGreen,anchor=west] () at (0,.8) {$n=20$};
 				\end{scope}
 				\begin{scope}[xshift=.3\textwidth]
 					\draw[help lines] (0,0) grid (1.1,1.1);
-					
+
 					\draw[->] (-.1,0) -- (1.1,0) node[below] {$x$};
 					\draw[->] (0,-.1) -- (0,1.1) node[left] {$y$};
-					
+
 					\node[anchor=north east] (00) at (0,0) {0};
 					\draw (1,0) -- ++(0,-.05) node[below] {1};
 					\draw (0,1) -- ++(-.05,0) node[left] {1};
-					
+
 					\begin{scope}
 						\clip (0,0) rectangle (1,1);
 						\draw[thick,red] (0,0) -- (1,1);
@@ -1655,19 +1657,19 @@ Donn\'e par Mario Lambert}
 				\end{scope}
 				\begin{scope}[xshift=.8\textwidth]
 					\draw[help lines] (-1.1,0) grid (1.1,1.1);
-					
+
 					\draw[->] (-1.1,0) -- (1.1,0) node[below] {$x$};
 					\draw[->] (0,0) -- (0,1.1) node[left] {$y$};
-					
+
 					\draw (0,0) -- ++(0,-.05) node[below] {0};
 					\draw (1,0) -- ++(0,-.05) node[below] {1};
 					\draw (-1,0) -- ++(0,-.05) node[below] {-1};
 					\draw (-.05,1) -- ++(.1,0) node[above right=-1pt and -4pt] {1};
-					
+
 					\draw[ultra thick,red] plot[domain=-1:-.5] (\x,-\x) plot[domain=-.5:.5] (\x,\x*\x+.25) plot[domain=.5:1] (\x,\x);
 					\draw[very thick,Blue] plot[domain=-1:-.25] (\x,-\x) plot[domain=-.25:.25] (\x,2*\x*\x+.125) plot[domain=.25:1] (\x,\x);
 					\draw[thick,ForestGreen] plot[domain=-1:-.05] (\x,-\x) plot[domain=-.05:.05] (\x,10*\x*\x+.025) plot[domain=.05:1] (\x,\x);
-					
+
 					\node[red,anchor=west] () at (-.1,.8) {$n=1$};
 					\node[Blue,anchor=west] () at (-.1,.7) {$n=2$};
 					\node[ForestGreen,anchor=west] () at (-.1,.6) {$n=10$};
@@ -1675,4 +1677,110 @@ Donn\'e par Mario Lambert}
 			\end{tikzpicture}
 		\end{center}
 	\end{exem}
+
+	\begin{rapp}~
+
+		$(f_n) \to f$ (convergence ponctuelle)
+
+		$(\forall  x \in \mathcal{D}), (f_n(x)) \to f(x)$ ou encore, $\dlim{n}{\infty}{f_n(x)} = f(x)$, c'est-\`a-dire $(\forall\eps>0), (\exists N>0)$ t.q. $n>N \Rightarrow \abs{f_n(x) - f(x)} < \eps$.
+	\end{rapp}
+	\begin{defin}
+		~
+
+		\begin{enumerate}
+			\item La \emph{norme supremum} de $f$, not\'ee $\norme{f}$, est $\norme{f} = \sup\limits_{x \in \mathcal{D}}\abs{f(x)}$, o\`u $f:\mathcal{D}\to\reels$.
+			\item La \emph{distance} entre $f,g:\mathcal{D}\to\reels$ est $\mathrm{dist}(f,g) = \norme{f-g}$.
+			\item On dit que $(f_n)_{n \in \naturels}$ \emph{converge uniform\'ement} vers $f$ si $\dlim{n}{\infty}{\mathrm{dist}(f_n,f)}=0$.
+		\end{enumerate}
+	\end{defin}
+	\begin{exem}
+		~
+
+		\begin{enumerate}
+			\item Sur $[0,\frac{1}{2}]$, prenons $f_n(x)=x^n$ et $f(x) = 0$. On a
+			\begin{align*}
+				\dlim{n}{\infty}{\mathrm{dist}(f_n,f)}&= \dlim{n}{\infty}{\norme{f_n-0}}\\
+				&= \dlim{n}{\infty}{\sup\limits_{x \in [0,\sfrac{1}{2}]}\abs{f_n(x)}}\\
+				&= \dlim{n}{\infty}{\left(\dfrac{1}{2}\right)^n}\\
+				&= 0
+			\end{align*}
+			\item Sur $[0,1]$, prenons $f_n(x)=x^n$ et $f(x) = \left\lbrace \begin{array}{lll}
+				0&\text{si}&0\leq x<1\\
+				1&\text{si}&x=1
+			\end{array}\right.$. On a
+			\begin{align*}
+				\dlim{n}{\infty}{\mathrm{dist}(f_n,f)}&= \dlim{n}{\infty}{\sup\limits_{x \in [0,1]}\abs{f_n(x)-f(x)}}\\
+				&= \dlim{n}{\infty}{\sup\limits_{x \in [0,1[}\abs{f_n(x)-f(x)}}&\text{car }f_n(1)-f(1)&=0\\
+				&= \dlim{n}{\infty}{\sup\limits_{x \in [0,1[}\abs{x^n}}\\
+				&= \dlim{n}{\infty}{1}\\
+				&= 1
+			\end{align*}
+
+			Donc, $f_n \not\convabs f$ sur $[0,1]$.
+		\end{enumerate}
+	\end{exem}
+	\begin{prop}
+		$f_n \convabs f \Rightarrow f_n \to f$.
+		\begin{proof}[d\'emonstration]~
+
+			$f_n \convabs f \Rightarrow \dlim{n}{\infty}{\sup\limits_{x \in \mathcal{D}}\abs{f_n(x)-f(x)}}=0$.
+
+			Alors, $\dlim{n}{\infty}{\abs{f_n(x)-f(x)}}$, $\forall x \in \mathcal{D}$.
+
+			Ainsi, $f_n \to f$.
+		\end{proof}
+	\end{prop}
+	\begin{prop}
+		Si $f_n \to f$ et $f_n \convabs g$, alors $f=g$.
+		\begin{proof}[d\'emonstration]~
+
+			$f_n \to f \Rightarrow f_n(x) \to f(x)$, $\forall x \in \mathcal{D}$.
+
+			$f_n \convabs g \Rightarrow f_n \to g \Rightarrow f_n(x) \to g(x)$, $\forall x \in \mathcal{D}$.
+
+			Ainsi, $f(x)=g(x)$, $\forall x \in \mathcal{D}$.
+		\end{proof}
+	\end{prop}
+	\begin{thm}
+		~
+
+		Supposons que $(f_n)$ sont continues sur $\mathcal{D}$.
+
+		Si $(f_n) \convabs f$, alors $f$ est continue sur $\mathcal{D}$.
+		\begin{proof}[d\'emonstration]~
+
+			Soit $\eps>0$.
+
+			Soit $x_0 \in \mathcal{D}$.
+
+			On veut montrer que $f$ est continue en $x_0$, c'est-\`a-dire $\exists\delta>0$ t.q. $\abs{x-x_0}<\delta \Rightarrow \abs{f(x)-f(x_0)}<\eps$.
+
+			Comme $(f_n) \convabs f$, on a $\dlim{n}{\infty}{\mathrm{dist}(f_n,f)}=0$.
+
+			Ainsi, $\exists M>0$ t.q. $n \geq M \Rightarrow \mathrm{dist}(f_n,f) < \dfrac{\eps}{3}$.
+
+			En particulier, $\mathrm{dist}(f_M,f) < \dfrac{\eps}{3}$, c'est-\`a-dire $\sup\limits_{x \in \mathcal{D}}\abs{f_M(x)-f(x)} < \dfrac{\eps}{3}$ et donc, $\abs{f_M(x_0)-f(x_0)} < \dfrac{\eps}{3}$.
+
+			De plus, $f_n$ continue sur $\mathcal{D} \Rightarrow f_M$ continue en $x_0$.
+
+			Ainsi, $(\exists>0)$ t.q. $\abs{x-x_0} < \delta \Rightarrow \abs{f_M(x)-f_M(x_0)} < \dfrac{\eps}{3}$.
+
+			Supposons donc que $\abs{x-x_0} < \delta$. On a
+			\begin{align*}
+				\abs{f(x)-f(x_0)}&= \abs{f(x) - f_M(x) + f_M(x) - f_M(x_0) + f_M(x_0) - f(x_0)}\\
+				&\leq \abs{f(x)-f_M(x)} + \abs{f_M(x)-f_M(x_0)} + \abs{f_M(x_0)-f(x_0)}\\
+				&< \dfrac{\eps}{3} + \dfrac{\eps}{3} + \dfrac{\eps}{3}\\
+				&= \eps
+			\end{align*}
+		\end{proof}
+		\begin{coro}
+			~
+
+			Si $f_n$ continues et $f_n \convabs f$, alors $\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} = \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}$.
+
+			Comme $f_n$ continue en $x_0$, $\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} = \dlim{n}{\infty}{f_n(x_0)} = f(x_0)$.
+
+			Comme $f$ continue en $x_0$, $f(x_0) = \dlim{x}{x_0}{f(x)} = \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}$.
+		\end{coro}
+	\end{thm}
 \end{document}
