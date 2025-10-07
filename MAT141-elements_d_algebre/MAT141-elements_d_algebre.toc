@@ -10,3 +10,5 @@
 \contentsline {chapter}{\numberline {2}Applications et \'equivalences}{19}{chapter.2}%
 \contentsline {section}{\numberline { 2.4}Relations d'\'equivalence}{19}{section.2.4}%
 \contentsline {subsection}{\numberline {}Ordre et groupes cycliques}{22}{subsection.2.4.1}%
+\contentsline {chapter}{\numberline {6}Groupes (suite)}{24}{chapter.6}%
+\contentsline {section}{\numberline { 6.13}Groupes Sym\'etriques $S_n$}{24}{section.6.13}%

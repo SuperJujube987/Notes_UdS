@@ -7,6 +7,7 @@
 \usepackage{indentfirst}
 \usepackage{dsfont}
 \usepackage{tikz}
+\usetikzlibrary{tikzmark}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
@@ -1989,6 +1990,412 @@ Donn\'e par Jean-Philippe Burelle}
 				\end{align*}
 				mais $0<r<o(a)$ contredit la minimalit\'e de $o(a)$.
 			\end{itemize}
+		\end{proof}
+	\end{prop}
+
+	\cours
+	\begin{rappel}
+		~
+
+		\begin{ulist}
+			\item $a \sim b \Leftrightarrow m \mid a-b$ est une relation d'\'euivalence sur $\entiers$.
+			\item $\entiers_m = \{\overline0, \overline1, \dotsb, \overline{m-1}\}$ sont les classes d'\'equivalence.
+			\item $(\entiers_m, +)$ est un groupe, o\`u $\overline{a} + \overline{b} = \overline{a+b}$.
+			\item $o(a) = \min\{k \in \naturels_* \mid a^k = e\}$ ordre de $a$. Si $a^k \neq e$, $\forall k>0$, $o(a)=\infty$.
+			\item Si $a^k=e$, $o(a) \mid k$.
+		\end{ulist}
+	\end{rappel}
+	\begin{exem}
+		~
+
+		$M=\begin{pmatrix}
+			1&-1\\1&0
+		\end{pmatrix} \in GL(2, \reels)$.
+
+		\begin{align*}
+			\begin{split}
+				M^2&= \begin{pmatrix}
+					0&-1\\1&-1
+				\end{pmatrix}\\
+				M^3&= \begin{pmatrix}
+					-1&0\\0&-1
+				\end{pmatrix}\\
+				&= -\begin{pmatrix}
+					1&0\\0&1
+				\end{pmatrix}
+			\end{split}
+			&
+			\begin{split}
+				M^4&= -M\\
+				M^5&= -\begin{pmatrix}
+					0&-1\\1&-1
+				\end{pmatrix}\\
+				M^6&= (-\mathds{1})(-\mathds{1})\\
+				&= \mathds{1}
+			\end{split}
+		\end{align*}
+
+		Ainsi, $o(M) = 6$, puisque $M^6=\mathds{1}$.
+	\end{exem}
+
+	\setcounter{chapter}{5}
+	\chapter{Groupes (suite)}
+	\setcounter{section}{12}
+	\section{Groupes Sym\'etriques $S_n$}
+	\begin{rappel}
+		$S(E) = \{f:E \to E \mid f \text{ est bijective}\}$.
+
+		$S(E)$ est un groupe lorsque muni de l'op\'eration $\circ$.
+
+		$\mathds{1}_E$ est l'\'el\'ement neutre.
+
+		$f^{-1}$ est l'\'el\'ement inverse de $f$.
+
+		$S(E)$ s'appelle le \emph{groupe sym\'etrique} de l'ensemble $E$.
+	\end{rappel}
+	\begin{rema}
+		~
+
+		$E = \{$rouge, orange, jaune, vert, bleu, indigo, violet$\}$.
+
+		$S(E) \ni f:\left\lbrace \begin{array}{rcl}
+			\text{rouge}&\mapsto&\text{jaune}\\
+			\text{jaune}&\mapsto&\text{rouge}\\
+			\text{autres}&\mapsto&\text{elles-\^m}
+		\end{array} \right.$.
+
+		Le groupe $S(E)$ est isomorphe au groupe $S(\{1,2,3,4,5,6,7\})$, en num\'erotant les \'el\'ements.
+	\end{rema}
+	\begin{defin}
+		$S_n = S(\{1,2,\dotsb,n\})$ le groupe sym\'etrique de $n$ \'el\'ements.
+
+		Les \'el\'ements de $S_n$ sont des bijections, aussi appel\'ees permutations.
+	\end{defin}
+	\begin{nota}
+		On note une permutation $\sigma$ de la mani\`ere suivante:
+		\[
+		\sigma=\begin{pmatrix}
+			1&2&3&\dotsb&n\\
+			\sigma(1)&\sigma(2)&\sigma(3)&\dotsb&\sigma(n)
+		\end{pmatrix}
+		\]
+	\end{nota}
+	\begin{exem}
+		\[
+		\sigma=\begin{pmatrix}
+			1&2&3&4\\
+			2&1&4&3
+		\end{pmatrix}
+		\Longleftrightarrow
+		\begin{array}{rcl}
+			1&\mapsto&2\\
+			2&\mapsto&1\\
+			3&\mapsto&4\\
+			4&\mapsto&3
+		\end{array}
+		\]
+		\[
+		\sigma_1=\begin{pmatrix}
+			1&2&3&4\\
+			2&1&3&4
+		\end{pmatrix}
+		,\quad
+		\sigma_2=\begin{pmatrix}
+			1&2&3&4\\
+			1&2&4&3
+		\end{pmatrix}
+		\Longrightarrow
+		\sigma_1 \circ \sigma_2=\begin{pmatrix}
+			1&2&3&4\\
+			2&1&4&3
+		\end{pmatrix}=\sigma
+		\]
+		\[
+		\sigma^{-1}=\begin{pmatrix}
+			1&2&3&4\\
+			2&1&4&3
+		\end{pmatrix}=\sigma
+		\]
+		\[
+		\eta=\begin{pmatrix}
+			1&2&3&4\\
+			2&3&4&1
+		\end{pmatrix}
+		,\quad \eta^{-1}=\begin{pmatrix}
+			1&2&3&4\\
+			4&1&2&3
+		\end{pmatrix}
+		\]
+
+		L'\'el\'ement neutre est $e=\begin{pmatrix}
+			1&2&3&\dotsb&n\\
+			1&2&3&\dotsb&n
+		\end{pmatrix}$.
+
+		$S_2 = \left\lbrace \begin{pmatrix}
+			1&2\\1&2
+		\end{pmatrix}, \begin{pmatrix}
+			1&2\\2&1
+		\end{pmatrix} \right\rbrace \cong \entiers_2$.
+
+		$S_3 = \left\lbrace \begin{pmatrix}
+			1&2&3\\1&2&3
+		\end{pmatrix}, \begin{pmatrix}
+			1&2&3\\2&1&3
+		\end{pmatrix}, \begin{pmatrix}
+			1&2&3\\1&3&2
+		\end{pmatrix}, \begin{pmatrix}
+			1&2&3\\3&2&1
+		\end{pmatrix}, \begin{pmatrix}
+			1&2&3\\2&3&1
+		\end{pmatrix}, \begin{pmatrix}
+			1&2&3\\3&1&2
+		\end{pmatrix} \right\rbrace \cong \mathbb{D}_3$.
+	\end{exem}
+	\begin{rema}
+		Tous les \'el\'ement de $S_3$ donnent des isom\'etries du triangle, mais pas tous les \'el\'ements de $S_4$ donnent des isom\'etries du carr\'e.
+	\end{rema}
+	\begin{prop}
+		$S_n$ contient $n!$ \'el\'ements.
+		\begin{proof}[id\'ee]~
+
+			\[
+			\begin{matrix}
+				1&2&3&\dotsb&n\\
+				\downarrow&\downarrow&\downarrow&\dotsb&\downarrow\\
+				n\text{ choix}&n-1\text{ choix}&n-2\text{ choix}&\dotsb&1\text{ choix}
+			\end{matrix}
+			\]
+
+			Ainsi, $n(n-1)(n-2)\dotsb1 = n!$.
+			\renewcommand{\qedsymbol}{\#}
+		\end{proof}
+		\renewcommand{\qedsymbol}{$\square$}
+	\end{prop}
+	\begin{defin}
+		Un \emph{cycle} est une permutation de la forme $a_1 \to a_2 \to \dotsb \to a_l \to a_1$, o\`u $a_i \neq a_j$ quand $i \neq j$.
+		\begin{center}
+			\begin{tikzpicture}
+			\node (1) at (0,0) {$a_1$};
+			\node (2) [below right of=1] {$a_2$};
+			\node (r) [below left of=2] {$\dotsb$};
+			\node (l) [above left of=r] {$a_l$};
+
+			\path[->,bend left]	(1) edge (2)
+								(2) edge (r)
+								(r) edge (l)
+								(l) edge (1);
+		\end{tikzpicture}
+		\end{center}
+	\end{defin}
+	\begin{exem}
+		$\begin{pmatrix}
+			1&2&3\\2&3&1
+		\end{pmatrix}$ est un cycle de longueur $l=3$.
+		\begin{tikzpicture}
+			\node (1) at (0,0) {1};
+			\node (2) [below right of=1] {2};
+			\node (3) [below left of=1] {3};
+
+			\path[->,bend left]	(1) edge (2)
+								(2) edge (3)
+								(3) edge (1);
+		\end{tikzpicture}
+
+		$\begin{pmatrix}
+			1&2&3&4&5\\
+			1&4&3&5&2
+		\end{pmatrix}$ est un cycle de longueur $l=3$.
+		\begin{tikzpicture}
+			\node (1) at (0,0) {1};
+			\node (2) at (2.5,0) {2};
+			\node (3) at (1,0) {3};
+			\node (4) [below right of=2] {4};
+			\node (5) [below left of=2] {5};
+
+			\path[->,bend left]	(2) edge (4)
+								(4) edge (5)
+								(5) edge (2);
+			\path[->,loop below]	(1) edge (1)
+									(3) edge (3);
+		\end{tikzpicture}
+	\end{exem}
+	\begin{nota}
+		\'Ecriture raccourcie pour un cycle: $\begin{pmatrix}
+			1&2&3\\2&3&1
+		\end{pmatrix} = \begin{pmatrix}
+			1&2&3
+		\end{pmatrix}$, $\begin{pmatrix}
+			1&2&3&4&5\\
+			1&4&3&5&2
+		\end{pmatrix} = \begin{pmatrix}
+			2&4&5
+		\end{pmatrix} \in S_5$.
+	\end{nota}
+	\begin{prop}
+		L'ordre d'un cycle est \'egal \`a sa longueur.
+		\begin{proof}[d\'emonstration]~
+
+			Si le cycle $\sigma$ permute les \'el\'ements $a_i$ comme $\sigma = a_1 \xrightarrow{\sigma} a_2 \xrightarrow{\sigma} \dotsb \xrightarrow{\sigma} a_l \xrightarrow{\sigma} a_1$.
+
+			Alors, calculons $\sigma^l$
+			\[
+			\begin{pmatrix}
+				a_1&a_2&a_3&\dotsb&a_l\\
+				a_2&a_3&a_4&\dotsb&a_1\\
+				a_3&a_4&a_5&\dotsb&a_2\\
+				\vdots&\vdots&\vdots&\ddots&\vdots\\
+				a_l&a_1&a_2&\dotsb&a_{l-1}\\
+				a_1&a_2&a_3&\dotsb&a_l
+			\end{pmatrix}
+			\]
+
+			Ainsi, $\sigma^l=e$.
+		\end{proof}
+	\end{prop}
+	\begin{exem}
+		$\sigma=\begin{pmatrix}
+			1&2&3&4\\
+			2&1&4&3
+		\end{pmatrix}$ n'est pas un cycle.
+
+		Cependant, $\sigma$ se d\'ecompose en cycles $\sigma=\sigma_1 \circ \sigma_2$, o\`u $\sigma_1 = \begin{pmatrix}
+			1&2
+		\end{pmatrix}, \sigma_2 = \begin{pmatrix}
+			3&4
+		\end{pmatrix}$.
+	\end{exem}
+	\begin{prop}
+		Toute permutation $\sigma \in S_n$ s'\'ecrit de mani\`ere unique comme une composition de \emph{cycles disjoints}. (les cycles sont uniques, mais pas l'ordre de l'\'ecriture).
+		\begin{nota}
+			Des cycles disjoints sont des cycles de \emph{supports} disjoints, o\`u le support d'un cycle est $\{i \mid \sigma(i) \neq i\}$.
+		\end{nota}
+		\begin{lem}
+			Les cycles disjoints commutent entre eux.
+			\begin{exem}
+				\begin{align*}
+					\begin{split}
+						\begin{pmatrix}
+							1&4&5
+						\end{pmatrix} \circ \begin{pmatrix}
+							2&3
+						\end{pmatrix}&= \begin{pmatrix}
+							1&2&3&4&5\\
+							\tikzmark{start}1&3&2&4&5\tikzmark{end}\\
+							4&3&2&5&1
+						\end{pmatrix}
+						\tikz[remember picture] \draw[overlay] ([yshift=.35em]pic cs:start) -- ([yshift=.35em]pic cs:end);
+					\end{split}
+					&=&
+					\begin{split}
+						\begin{pmatrix}
+							2&3
+						\end{pmatrix} \circ \begin{pmatrix}
+						1&4&5
+						\end{pmatrix}&= \begin{pmatrix}
+							1&2&3&4&5\\
+							\tikzmark{start}4&2&3&5&1\tikzmark{end}\\
+							4&3&2&5&1
+						\end{pmatrix}
+						\tikz[remember picture] \draw[overlay] ([yshift=.35em]pic cs:start) -- ([yshift=.35em]pic cs:end);
+					\end{split}
+				\end{align*}
+			\end{exem}
+			\begin{proof}[d\'emonstration]~
+
+				Soient $\sigma=\begin{pmatrix}
+					a_1&a_2&\dotsb&a_l
+				\end{pmatrix}$ et $\eta=\begin{pmatrix}
+				b_1&b_2&\dotsb&b_k
+				\end{pmatrix}$ deux cycles disjoints.
+
+				Soit $i \in \{1,2,\dotsb,n\}$.
+
+				Il y a trois cas:
+				\begin{nlist}
+					\item $i \in \mathrm{supp}(\sigma)$, $i \notin \mathrm{supp}(\eta)$.
+					\begin{align*}
+						\sigma \circ \eta(i)&= \sigma(i)\\
+						\eta \circ \sigma(i)&= \sigma(i)
+					\end{align*}
+					\item $i \notin \mathrm{supp}(\sigma)$, $i \in \mathrm{supp}(\eta)$.
+
+					Idem \`a (1)
+					\item $i \notin \mathrm{supp}(\sigma)$, $i \notin \mathrm{supp}(\eta)$.
+					\begin{align*}
+						\sigma \circ \eta(i)&= i\\
+						\eta \circ \sigma(i)&=i
+					\end{align*}
+				\end{nlist}
+			\end{proof}
+		\end{lem}
+		\begin{proof}[id\'ee de la d\'emonstration]
+			Par r\'ecurrence.
+
+			$n=2$, $\begin{pmatrix}
+				1&2
+			\end{pmatrix}$.
+
+			Si vrai pour toutes les permutations de longueur $\leq n$.
+
+			$\sigma$ permutation de $n+1$ \'el\'ements.
+
+			On prend $i \mathrm{supp}(\sigma)$.
+			\[
+			\underbrace{i \to \sigma(i) \to \sigma^2(i) \to \sigma^3(i) \to \dotsb \to \sigma^n(i)}_{n+1\text{ \'el\'ements de }\{1,2,\dotsb,n\}}
+			\]
+			ces \'el\'ements ne peuvent pas tous \^etre distincts.
+
+			$\exists m_1>m_2$ t.q. $\sigma^{m_1}(i) = \sigma^{m_2}(i)$, donc $\sigma^{m_1-m_2}(i) = i$.
+
+			Alors, $i \to \sigma(i) \to \sigma^2(i) \to \dotsb \to \sigma^{m_1-m_2-1}(i) \to i$ est un cycle.
+
+			Les \'el\'ements restant $\{1,2,\dotsb,n\} \setminus \{i, \sigma(i), \sigma^2(i), \dotsb, \sigma^{m_1-m_2-1}(i)\}$ sont permut\'es entre eux par $\sigma$.
+
+			Utiliser l'hypoth\`ese de r\'ecurrence.
+			\renewcommand{\qedsymbol}{\#}
+		\end{proof}
+		\renewcommand{\qedsymbol}{$\square$}
+	\end{prop}
+	\begin{exem}
+		\begin{ulist}~
+
+			\item \[
+			\begin{pmatrix}
+				1&2&3&4&5&6&7\\
+				6&2&4&5&7&1&3
+			\end{pmatrix} = \begin{pmatrix}
+				1&6
+			\end{pmatrix} \begin{pmatrix}
+				3&4&5&7
+			\end{pmatrix}
+			\]
+			\item \[
+			\begin{pmatrix}
+				1&2&3&4&5&6&7&8\\
+				4&7&2&8&3&1&5&6
+			\end{pmatrix} = \begin{pmatrix}
+				1&4&8&6
+			\end{pmatrix} \begin{pmatrix}
+				2&7&5&3
+			\end{pmatrix}
+			\]
+		\end{ulist}
+	\end{exem}
+	\begin{prop}
+		L'ordre d'une permutation $\sigma$ est le \verb|ppcm| des longueurs des cycles dans sa d\'ecomposition.
+		\begin{proof}
+			$\sigma = \sigma_1 \circ \sigma_2 \circ \dotsb \circ \sigma_k$, o\`u $\sigma_i$ sont des cycles de longueur $l_i$.
+
+			Puisque les cycles disjoints commutent, $\sigma^m = (\sigma_1 \sigma_2 \dotsb \sigma_k)^m = \sigma_1^m \sigma_2^m \dotsb \sigma_k^m$.
+
+			$\sigma_1^m \sigma_2^m \dotsb \sigma_k^m = e$, ssi, $\sigma_1^m=e$, $\sigma_2^m=e$, $\dotsb$, $\sigma_k^m=e$.
+
+			Alors, $o(\sigma_1) \mid m$, $o(\sigma_2) \mid m$, $\dotsb$, $o(\sigma_k) \mid m$.
+
+			Donc, $l_i \mid m$, $\forall i$.
+
+			L'ordre de $\sigma$ $m$ est le plus petit multiple des $l_i$.
 		\end{proof}
 	\end{prop}
 \end{document}
