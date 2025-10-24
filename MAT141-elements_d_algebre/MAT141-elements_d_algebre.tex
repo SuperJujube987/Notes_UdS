@@ -7,7 +7,7 @@
 \usepackage{indentfirst}
 \usepackage{dsfont}
 \usepackage{tikz}
-\usetikzlibrary{tikzmark}
+\usetikzlibrary{tikzmark,calc,positioning}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
@@ -16,15 +16,33 @@
 \usepackage{fancyhdr}
 \usepackage[french]{babel}
 \usepackage[makeroom]{cancel}
+\usepackage{nicematrix}
+\usepackage[dvipsnames]{xcolor}
 
 \hypersetup{
 	colorlinks=false
 }
 
+\definecolor{Col1}{HTML}{117733}
+\definecolor{Col2}{HTML}{44AA99}
+\definecolor{Col3}{HTML}{88CCEE}
+\definecolor{Col4}{HTML}{DDCC77}
+\definecolor{Col5}{HTML}{CC6677}
+\definecolor{Col6}{HTML}{AA4499}
+\colorlet{col1}{Col1!50}
+\colorlet{col2}{Col2!50}
+\colorlet{col3}{Col3!50}
+\colorlet{col4}{Col4!50}
+\colorlet{col5}{Col5!50}
+\colorlet{col6}{Col6!50}
+
 \fancyfoot{}
 \fancyhead{}
-\fancyfoot[c]{\thepage}
+\fancyfoot[l]{MAT141 - \'El\'ements d'alg\`ebre}
+\fancyfoot[r]{\thepage}
 \fancyhead[l]{\leftmark}
+\renewcommand{\headrulewidth}{.4pt}
+\renewcommand{\footrulewidth}{.4pt}
 
 \pagestyle{fancy}
 
@@ -35,7 +53,7 @@
 \newlist{ulist}{itemize}{3}
 \setlist[ulist, 1]{label=\textbullet}
 \setlist[ulist, 2]{label=|}
-\setlist[ulist, 3]{\textperiodcentered}
+\setlist[ulist, 3]{label=\textperiodcentered}
 
 \title{MAT141 - \'El\'ements d'alg\`ebre
 
@@ -49,6 +67,9 @@ Donn\'e par Jean-Philippe Burelle}
 
 \newcommand*{\abs}[1]{\left| #1 \right|}
 \newcommand*{\card}[1]{\left| #1 \right|}
+
+\newcommand*{\lte}{\leqslant}
+\newcommand*{\gte}{\geqslant}
 
 \newcommand*{\reels}{\mathbb{R}}
 \newcommand*{\entiers}{\mathbb{Z}}
@@ -85,15 +106,15 @@ Donn\'e par Jean-Philippe Burelle}
 
 	\chapter{Ensembles}
 	\cours
-	Id\'ee: ensemble=patate
+	Id\'ee: ensemble = patate.
 
 	\begin{tikzpicture}
 		\path[smooth cycle,very thick,draw=black] plot coordinates {(0,-.3) (-1,-1) (-1.5,-3) (-.8,-3.9) (0,-4) (.8,-3.8) (1.4,-3) (.8,-1.5)};
 		\node[font=\Large] () at (0,-1) {$a$};
 		\node[font=\Large] () at (-.5,-2) {$b$};
 		\node[font=\Large] () at (.5,-3) {$c$};
-		\node[anchor=east] () at (-1,-.3) {$E=$};
-		\node[anchor=west] () at (1,-1) {$=\{a,b,c\}$};
+		\node[anchor=east] () at (-1.5,-2) {$E=$};
+		\node[anchor=west] () at (1.5,-2) {$=\{a,b,c\}$};
 	\end{tikzpicture}
 
 	\begin{nota}
@@ -108,7 +129,10 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{nota}
 
 	\begin{defin}
-		D\'efinition d'un ensemble par \emph{compr\'ehension}: $E=\left\lbrace n \in \entiers \middle| 1 \leq n \leq 20 \right\rbrace$.
+		D\'efinition d'un ensemble par \emph{compr\'ehension}
+		\begin{exem}
+			$E=\left\lbrace n \in \entiers \middle| 1 \lte n \lte 20 \right\rbrace$.
+		\end{exem}
 	\end{defin}
 
 	\begin{nota}
@@ -133,11 +157,11 @@ Donn\'e par Jean-Philippe Burelle}
 			\textbullet&Ensemble&collection d'objets\\
 			\textbullet&$\in$&``\'el\'ement'' d'un ensemble\\
 			\textbullet&\emph{sous-ensemble} $(\subseteq)$&$E \subseteq F$ si $x \in E$ \emph{implique} $x \in F$\\
-			\textbullet&$E=F$&ssi $E \subseteq F$ et $F \subseteq E$\\
+			\textbullet&$E=F$&si, et seulement si, $E \subseteq F$ et $F \subseteq E$\\
 			\textbullet&$\cup$&union\\
 			&$\cap$&intersection\\
 			\textbullet&$E \times F$&produit cart\'esien (paires $(x,y)$)\\
-			\textbullet&$f:E \to F$&\emph{fonction} ou \emph{application}, associe \`a \underline{chaque $x \in E$} un unique $\underline{f(x)} \in F$, image de $x$ par $f$\\
+			\textbullet&$f:E \to F$&\emph{fonction} ou \emph{application}, associe \`a \underline{chaque $x \in E$} un unique $\underline{f(x) \in F}$, image de $x$ par $f$\\
 			\textbullet&$\mathds{1}$&$\mathds{1}_E:E \to E$ est d\'efinie comme $\mathds{1}_E(x)=x$
 		\end{tabularx}
 	\end{rappel}
@@ -160,7 +184,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{exem}
 		$f:\entiers \to \entiers$, $f(x)=x+1$ est inversible d'inverse $g(y)=y-1$
 
-		\begin{proof}[d\'emo.]
+		\begin{proof}
 			~
 
 			On v\'erifie que
@@ -178,7 +202,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{prop}
 		Si $f$ admet un inverse, celui-ci est unique.
 
-		\begin{proof}[d\'emo.]
+		\begin{proof}
 			~
 
 			Supposons que $g_1$ et $g_2$ sont tous deux inverses de $f$ et montrons qu'elles sont \'gales.
@@ -189,23 +213,25 @@ Donn\'e par Jean-Philippe Burelle}
 
 			On a
 			\begin{align*}
-				g_1(y)&\overbrace{=}^{***} g_1(\underbrace{f(g_2(y))}_{*})\\
+				g_1(y)&\overbrace{=}^{***} g_1(f(\underbrace{g_2(y)}_{*}))\\
 				&\overbrace{=}^{**} g_2(y)
 			\end{align*}
 		\end{proof}
 	\end{prop}
 
 	\begin{defin}
-		Si $f:E \to F$ et $g:F \to G$, alors la compos\'ee de $f$ et $g$ est la fonction $g \circ f:E \to G$ d\'efinie par la formule $g \circ f(x)=g(f(x))$.
+		Si $f:E \to F$ et $g:F \to G$, alors la \emph{compos\'ee} de $f$ et $g$ est la fonction $g \circ f:E \to G$ d\'efinie par la formule $g \circ f(x)=g(f(x))$.
 	\end{defin}
 
-	\begin{defin}[Red\'efinition de l'inverse]
+	\begin{defin}[Red\'efinition de l'inverse]~
+		
 		$g \circ f=\mathds{1}_E$
 
 		$f \circ g=\mathds{1}_F$
 	\end{defin}
 
-	\begin{exem}
+	\begin{exem}~
+		
 		$A=\{a,b,c\}$
 
 		$B=\{d,e,f\}$
@@ -216,7 +242,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 		$g \circ f:A \to A$, $g \circ f(x)=x$, $g \circ f=\mathds{1}_A$.
 
-		De la \^m mani\`ere, $f \circ g=\mathds{1}_B$.
+		De la m\^eme mani\`ere, $f \circ g=\mathds{1}_B$.
 
 		~
 
@@ -257,68 +283,92 @@ Donn\'e par Jean-Philippe Burelle}
 		On dit que $f:E \to F$ est une fonction \emph{bijective} si elle est injective \textbf{et} surjective.
 	\end{defin}
 
-	\begin{exem}
-		$f:\reels \to \reels^{\geq0}$, $f(x)=\abs{x}$
-
-		$f$ n'est pas injective, car $f(1)=\abs{1}=1$ et $f(-1)=\abs{-1}=1$, mais $1 \neq -1$.
-
-		$f$ est surjective, car soit $y \in \reels^{\geq0}$, alors pour $x=y$, on a $f(x)=f(y)=\abs{y}=y$.
+	\begin{exem}~
+		
+		\begin{ulist}
+			\item 
+			\[
+			f:\reels \to \reels^{\gte0}, f(x)=\abs{x}
+			\]
+			$f$ n'est pas injective, car $f(1)=\abs{1}=1$ et $f(-1)=\abs{-1}=1$, mais $1 \neq -1$.
+			
+			$f$ est surjective, car soit $y \in \reels^{\gte0}$, alors pour $x=y$, on a $f(x)=f(y)=\abs{y}=y$.
+			
+			\item 
+			\[
+			\begin{array}{rrcl}
+				f:&\naturels&\to&\naturels\\
+				&x&\mapsto&x+1
+			\end{array}
+			\]
+			
+			$f$ est injective:
+			
+			Soient $x_1,x_2 \in \naturels$.
+			
+			On suppose $f(x_1)=f(x_2)$.
+			
+			\begin{align*}
+				x_1+1&= x_2+1\\
+				x_1&= x_2
+			\end{align*}
+			
+			$f$ n'est pas surjective
+			
+			$y=0\in\naturels$ n'est pas \'egal \`a $f(x)$ pour $x\in\naturels$. Si il existait $x$ avec $f(x)=0$, $x+1=0$, $x=-1$, $x \not\in \naturels$.
+			
+			\item 
+			\[
+			\begin{array}{rrcl}
+				f:&\reels&\to&\reels\\
+				&x&\mapsto&2x+3
+			\end{array}
+			\]
+			
+			$f$ est injective:
+			
+			Soient $x_1,x_2 \in \reels$.
+			
+			supposons $f(x_1)=f(x_2)$, $2x_1+3=2x_2+3$, $2x_1=2x_2$, $x_1=x_2$.
+			
+			$f$ est surjective:
+			
+			Soit $y \in \reels$.
+			
+			On cherche $x$ t.q. $f(x)=y$.
+			
+			Posons $x=\dfrac{y-3}{2} \in \reels$.
+			
+			Alors, $f(x) = f\left( \dfrac{y-3}{2} \right) = 2 \cdot  \dfrac{y-3}{2} + 3 = y-3+3 = y$.
+			
+			Ainsi, $f$ est bijective.
+			
+			\item 
+			\[
+			f:A \to B; A=\{1,48,57\}, B=\{a,b,c\}
+			\]
+			
+			\[
+			1 \mapsto a, 48 \mapsto a, 57 \mapsto b
+			\]
+			
+			$f$ n'est pas injective, car $1 \mapsto a$ et $48 \mapsto a$  avec $1 \neq 48$.
+			
+			$f$ n'est pas surjective, car aucun \'el\'ement de $x \in A \mapsto c$.
+		\end{ulist}
+		
 
 		~
 
-		\[
-		\begin{array}{rrcl}
-			f:&\naturels&\to&\naturels\\
-			&x&\mapsto&x+1
-		\end{array}
-		\]
-
-		$f$ est injective:
-
-		Soient $x_1,x_2 \in \naturels$.
-
-		On suppose $f(x_1)=f(x_2)$.
-
-		\begin{align*}
-			x_1+1&= x_2+1\\
-			x_1&= x_2
-		\end{align*}
-
-		$f$ n'est pas surjective
-
-		$y=0\in\naturels$ n'est pas \'egal \`a $f(x)$ pour $x\in\naturels$. Si il existait $x$ avec $f(x)=0$, $x+1=0$, $x=-1$, $x \not\in \naturels$.
+		
 
 		~
 
-		$f:\reels\to\reels$, $x \mapsto 2x+3$.
-
-		$f$ est injective:
-
-		Soient $x_1,x_2 \in \reels$.
-
-		supposons $f(x_1)=f(x_2)$, $2x_1+3=2x_2+3$, $2x_1=2x_2$, $x_1=x_2$.
-
-		$f$ est surjective:
-
-		Soit $y \in \reels$.
-
-		On cherche $x$ t.q. $f(x)=y$.
-
-		Posons $x=\dfrac{y-3}{2} \in \reels$.
-
-		Alors, $f(x) = f\left( \dfrac{y-3}{2} \right) = 2 \cdot  \dfrac{y-3}{2} + 3 = y-3+3 = y$.
-
-		Ainsi, $f$ est bijective.
+		
 
 		~
 
-		$f:A \to B$, avec $A=\{1,48,57\}$ et $B=\{a,b,c\}$.
-
-		$1 \mapsto a$, $48 \mapsto a$, $57 \mapsto b$.
-
-		$f$ n'est pas injective, car $1 \mapsto a$ et $48 \mapsto a$  avec $1 \neq 48$.
-
-		$f$ n'est pas surjective, car aucun \'el\'ement de $x \in A \mapsto c$.
+		
 	\end{exem}
 
 	\begin{rema}
@@ -343,58 +393,64 @@ Donn\'e par Jean-Philippe Burelle}
 
 
 	\begin{prop}
-		$f:A \to B$ est bijective \emph{ssi} elle est inversible.
+		$f:A \to B$ est bijective \emph{si, et seulement si,} elle est inversible.
 
-		\begin{proof}[d\'emo]
-			~
-
-			$\Leftarrow$:
-
-			Supposons que $f$ est inversible.
-
-			Alors, il existe un inverse $g:B \to A$.
-
-			(inj): Soient $x_1,x_2 \in A$.
-
-			On suppose que $f(x_1)=f(x_2)$.
-
-			Alors, $g(f(x_1)) = g(f(x_2))$
-
-			Donc, $x_1 = x_2$
-
-			(surj): Soit $y \in B$.
-
-			Posons $x=g(y) \in A$.
-
-			Alors, $f(x)=f(g(y))=y$.
-
-			$\Rightarrow$:
-
-			Supposons $f$ est injective et surjective.
-
-			\begin{lem}
-				Pour \emph{chaque} $y \in B$, il existe un \emph{unique} $x \in A$ t.q. $f(x)=y$.
-
-				\renewcommand{\qedsymbol}{$\blacksquare$}
-				\begin{proof}[d\'emo]
-					~
-
-					\underline{Existance}:
-					Comme $f$ est surjective, $x$ existe.
-
-					\underline{Unicit\'e}:
-					Supposons $x_1,x_2 \in A$ t.q. $f(x_1)=f(x_2)$, alors $x_1=x_2$.
-				\end{proof}
-				\renewcommand{\qedsymbol}{$\square$}
-			\end{lem}
-
-			On d\'efinit $g:B \to A$ par $g(y)=x$ o\`u $x$ est l'unique \'el\'ement du lemme.
-
-			On v\'erifie:
-
-			Soit $x \in A$, alors $g(\underbrace{f(x)}_y)=x$, par d\'efinition de $g$.
-
-			Soit $y \in B$, alors $f(\underbrace{g(y)}_{\text{l'unique $x$ t.q. $f(x)=y$}})=y$.
+		\begin{proof}~
+			
+			\begin{itemize}
+				\item[$\Leftarrow$:] ~
+				
+				Supposons que $f$ est inversible.
+				
+				Alors, il existe un inverse $g:B \to A$.
+				
+				\begin{itemize}
+					\item[(inj):] ~
+					
+					Soient $x_1,x_2 \in A$.
+					
+					On suppose que $f(x_1)=f(x_2)$.
+					
+					Alors, $g(f(x_1)) = g(f(x_2))$.
+					
+					Donc, $x_1 = x_2$.
+					\item[(surj):] ~
+					
+					Soit $y \in B$.
+					
+					Posons $x=g(y) \in A$.
+					
+					Alors, $f(x)=f(g(y))=y$.
+				\end{itemize}
+				
+				Ainsi, $f$ est bijective.
+				\item[$\Rightarrow$:] ~
+				
+				Supposons $f$ est injective et surjective.
+				
+				\begin{lem}
+					Pour \emph{chaque} $y \in B$, il existe un \emph{unique} $x \in A$ t.q. $f(x)=y$.
+					
+					\renewcommand{\qedsymbol}{$\blacksquare$}
+					\begin{proof}~
+						
+						\underline{Existance}:
+						Comme $f$ est surjective, $x$ existe.
+						
+						\underline{Unicit\'e}:
+						Supposons $x_1,x_2 \in A$ t.q. $f(x_1)=f(x_2)$, alors $x_1=x_2$ puisque $f$ est injective.
+					\end{proof}
+					\renewcommand{\qedsymbol}{$\square$}
+				\end{lem}
+				
+				On d\'efinit $g:B \to A$ par $g(y)=x$ o\`u $x$ est l'unique \'el\'ement du lemme.
+				
+				On v\'erifie:
+				
+				Soit $x \in A$, alors $g(\underbrace{f(x)}_y)=x$, par d\'efinition de $g$.
+				
+				Soit $y \in B$, alors $f(\underbrace{g(y)}_{\text{l'unique $x$ t.q. $f(x)=y$}})=y$.
+			\end{itemize}
 		\end{proof}
 	\end{prop}
 
@@ -406,12 +462,12 @@ Donn\'e par Jean-Philippe Burelle}
 		$E=\entiers$,
 
 		$\begin{array}{rrcl}
-			m:&\entiers \times \entiers &\longrightarrow& \entiers\\
+			+:&\entiers \times \entiers &\longrightarrow& \entiers\\
 			&(n,m)&\longmapsto&n + m
 		\end{array}$
 
 		$\begin{array}{rrcl}
-			m:&\entiers \times \entiers &\longrightarrow& \entiers\\
+			\cdot:&\entiers \times \entiers &\longrightarrow& \entiers\\
 			&(n,m)&\longmapsto&n \cdot m
 		\end{array}$
 
@@ -452,7 +508,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{nota}
 
 	\begin{exem}
-		$m(x,y) \coloneq x*y$, ou $x+y$, ou $x \circ y$, ou $xy$
+		$m(x,y) \coloneq x*y$, ou $x+y$, ou $x \circ y$, ou $xy$.
 	\end{exem}
 
 	\begin{defin}~
@@ -480,7 +536,8 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{ulist}
 	\end{rappel}
 
-	\begin{exem}
+	\begin{exem}~
+		
 		Sur $\naturels$,
 
 		\begin{ulist}
@@ -516,7 +573,7 @@ Donn\'e par Jean-Philippe Burelle}
 				1&0\\0&1
 			\end{array}\right)$ est neutre pour $\times$.
 			\item Sur $E=\{f:A \to A\}$, la fonction $\mathds{1}_A$ est neutre pour la composition de fonctions.
-			\begin{proof}[d\'emonstration]~
+			\begin{proof}~
 
 				On doit montrer $\mathds{1}_A \circ f=f$ et $f \circ \mathds{1}_A=f$ pour tout $f \in E$.
 				\begin{nlist}
@@ -581,7 +638,7 @@ Donn\'e par Jean-Philippe Burelle}
 		~
 
 		Si $*$ admet un \'el\'ement neutre, alors celui-ci est \emph{unique}.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			Supposons que $e$ et $e'$ sont neutres pour $*$.
 
@@ -604,7 +661,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{exem}
 		~
 
-		Dans $\entiers$ avec $+$, $3$ et $-3$ sont inverses. En effet, on a $3+(-3)=0$ et $(-3)=3=0$ avec $0$ l'\'el\'ement neutre de $+$.
+		Dans $\entiers$ avec $+$, $3$ et $-3$ sont inverses. En effet, on a $3+(-3)=0$ et $(-3)+3=0$ avec $0$ l'\'el\'ement neutre de $+$.
 	\end{exem}
 	\begin{exem}
 		~
@@ -620,7 +677,7 @@ Donn\'e par Jean-Philippe Burelle}
 		~
 
 		Si $*$ est associative et admet un \'el\'ement neutre $e$, alors les inverses sont uniques s'ils existent.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			Soit $a \in E$.
 
@@ -650,7 +707,7 @@ Donn\'e par Jean-Philippe Burelle}
 		~
 
 		La composition de fonctions est associative.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			Soient $f:A \to B$, $g:B \to C$ et $h:C \to D$.
 
@@ -660,7 +717,7 @@ Donn\'e par Jean-Philippe Burelle}
 				&= h(g(f(a)))\\
 				&= h((g \circ f)(a))\\
 				&= (h \circ (g \circ f))(a)\\
-				(h \circ g) \circ f&= h \circ (g \circ f)
+				\Rightarrow (h \circ g) \circ f&= h \circ (g \circ f)
 			\end{align*}
 		\end{proof}
 	\end{prop}
@@ -695,18 +752,12 @@ Donn\'e par Jean-Philippe Burelle}
 			Inverse de $x$: $\frac{1}{x}$
 		\end{nlist}
 		\begin{rema}
-			~
-
 			$(1)$, $(2)$ et $(5)$ sont \emph{commutatifs}.
 		\end{rema}
 		\begin{rema}
-			~
-
 			$(\naturels,+)$ n'est pas un groupe.
 		\end{rema}
 		\begin{defin}
-			~
-
 			Si l'op\'eration d'un groupe est commutative, on note le groupe comme \emph{ab\'elien} (ou commutatif).
 		\end{defin}
 		\begin{nlist}[resume]
@@ -724,7 +775,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 			$M^{-1}$ la matrice inverse est l'inverse.
 
-			Pour $n \geq 2$, $GL(n,\reels)$  n'est pas ab\'elien.
+			Pour $n \gte 2$, $GL(n,\reels)$  n'est pas ab\'elien.
 			\item $A$ un ensemble quelconque
 
 			$S(A)=\{f:A \to A|f \text{ est bijective}\}$ est un groupe pour $\circ$.
@@ -790,7 +841,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\item Si $a*b=a*c$, alors $b=c$
 		\item Si $b*a=c*a$, alors $b=c$
 	\end{nlist}
-	\begin{proof}[d\'emonstration]~
+	\begin{proof}~
 
 		\begin{nlist}
 			\item On calcule
@@ -844,7 +895,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\hline\hline
 			\overline0&\overline0&\overline1&\overline2\\
 			\hline
-			\overline1&\overline1&\overline2&\overline3\\
+			\overline1&\overline1&\overline2&\overline0\\
 			\hline
 			\overline2&\overline2&\overline0&\overline1
 		\end{array}
@@ -871,25 +922,54 @@ Donn\'e par Jean-Philippe Burelle}
 
 		Groupe des sym\'etries d'un triangle \'equilat\'eral.
 
-		$\mathbb{D}_3=\left\lbrace \underset{\text{identit\'e}}{\varepsilon}, \underset{\text{r\'eflexion par rapport \`a la verticale}}{\alpha}, \underset{\text{r\'eflexion par rapport \`a /}}{\beta}, \underset{\text{r\'eflexion par rapport \`a \textbackslash}}{\gamma}, \underset{\text{rotation de 120\textdegree}}{\rho}, \underset{\text{rotation de -120\textdegree}}{\sigma} \right\rbrace$.
-
-		\[
-		\begin{array}{c||c|c|c|c|c|c}
-			\circ&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
-			\hline\hline
-			\varepsilon&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
-			\hline
-			\alpha&\alpha&\varepsilon&\rho&\sigma&\beta&\gamma\\
-			\hline
-			\beta&\beta&\sigma&\varepsilon&\rho&\gamma&\alpha\\
-			\hline
-			\gamma&\gamma&\rho&\sigma&\varepsilon&\alpha&\beta\\
-			\hline
-			\rho&\rho&\gamma&\alpha&\beta&\sigma&\varepsilon\\
-			\hline
-			\sigma&\sigma&\beta&\gamma&\alpha&\varepsilon&\rho
-		\end{array}
-		\]
+		$\mathbb{D}_3=\left\lbrace \underset{\text{identit\'e}}{\varepsilon}, \underset{\text{r\'eflexion}}{\alpha, \beta, \gamma}, \underset{\text{rotation}}{\rho, \sigma} \right\rbrace$.
+		\begin{center}
+			\begin{tikzpicture}[>=to]
+				\coordinate (A) at (0,0);
+				\coordinate (B) at (0:2cm);
+				\coordinate (C) at (60:2cm);
+				\draw (A) -- (B) -- (C) -- cycle;
+				
+				\coordinate (a) at ($(A)!.5!(B)$);
+				\coordinate (b) at ($(B)!.5!(C)$);
+				\coordinate (c) at ($(A)!.5!(C)$);
+				\draw (A) -- (b);
+				\draw (C) -- (a);
+				\draw (B) -- (c);
+				\node (alpha) at (a) [below=2mm] {$\alpha$};
+				\node (beta) at (b) [above right=0mm and 1mm] {$\beta$};
+				\node (gamma) at (c) [above left=0mm and 1mm] {$\gamma$};
+				
+				\draw[<->] (a)+(215:7pt) -- +(325:7pt);
+				\draw[<->] (b)+(335:7pt) -- +(85:7pt);
+				\draw[<->] (c)+(95:7pt) -- +(205:7pt);
+				
+				\coordinate (r1) at (77.02:1.65cm);
+				\coordinate (r2) at (108.57:.64cm);
+				\coordinate (s1) at (44.55:2.29);
+				\coordinate (s2) at (15.45:2.29);
+				\path[->,bend angle=45] (r1) edge[bend right] (r2) (s1) edge[bend left] (s2);
+				
+				\node (sigma) at (30:2.6cm) {$\sigma$};
+				\node (rho) at (100.96:1.32cm) {$\rho$};
+			\end{tikzpicture}
+			\hspace{2cm}
+			$\begin{array}{c||c|c|c|c|c|c}
+				\circ&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+				\hline\hline
+				\varepsilon&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+				\hline
+				\alpha&\alpha&\varepsilon&\rho&\sigma&\beta&\gamma\\
+				\hline
+				\beta&\beta&\sigma&\varepsilon&\rho&\gamma&\alpha\\
+				\hline
+				\gamma&\gamma&\rho&\sigma&\varepsilon&\alpha&\beta\\
+				\hline
+				\rho&\rho&\gamma&\alpha&\beta&\sigma&\varepsilon\\
+				\hline
+				\sigma&\sigma&\beta&\gamma&\alpha&\varepsilon&\rho
+			\end{array}$
+		\end{center}
 
 		$\left( \mathbb{D}_3, \circ \right)$ n'est pas un groupe ab\'elien.
 	\end{exem}
@@ -902,16 +982,18 @@ Donn\'e par Jean-Philippe Burelle}
 
 			Ab\'elien: $C$.
 			\item
-			\begin{align*}
-				a*b&=a*c&\Rightarrow b&=c\\
-				b*a&=c*a&\Rightarrow b&=c\\
-				(a^{-1})^{-1}&= a\\
-				(a*b)^{-1}&= b^{-1}*a^{-1}
-			\end{align*}
+			\[
+			\begin{array}{rclcrcl}
+				a*b&=&a*c&\Rightarrow&b&=&c\\
+				b*a&=&c*a&\Rightarrow&b&=&c\\
+				(a^{-1})^{-1}&=&a\\
+				(a*b)^{-1}&=&b^{-1}*a^{-1}
+			\end{array}
+			\]
 			\item
 			\begin{exem}~
 
-				$(\entiers, +), (\rationels, +), (\reels, +), (\rationels_*, \times), (\reels_*, \times)$ ab\'eliens, $\entiers_3, \mathbb{D}_3, GL(n, \reels)$.
+				$(\entiers, +), (\rationels, +), (\reels, +), (\rationels_*, \times), (\reels_*, \times)$ sont des groupes ab\'eliens; $\entiers_3, \mathbb{D}_3, GL(n, \reels)$ sont des groupes non ab\'eliens.
 
 				$S(E)=\{f:E \to E \mid f\text{ est bijective}\}$.
 				\begin{rema}
@@ -927,7 +1009,7 @@ Donn\'e par Jean-Philippe Burelle}
 		~
 
 		$G \times H$ est un groupe lorsque muni de l'op\'eration $(a,b) \bullet (a',b') = (a*a',b \diamond b')$, avec $a,a' \in G$ et $b,b' \in H$.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{itemize}
 				\item[(N)] $e \in G$ le neutre et $e' \in H$ le neutre, alors $(e,e') \in G \times H$
@@ -942,13 +1024,27 @@ Donn\'e par Jean-Philippe Burelle}
 				$(e,e')$ est bien neutre.
 				\item[(I)] $(a,b) \in G \times H$, alors $(a^{-1},b^{-1})$ est inverse de $(a,b)$.
 
-				exercice
-				\item[(A)] exercice
+				En effet,
+				\begin{align*}
+					(a,b) \bullet (a^{-1},b^{-1})&= (a*a^{-1},b \diamond b^{-1})\\
+					&= (e,e')\\
+					(a^{-1},b^{-1}) \bullet (a,b)&= (a^{-1}*a,b^{-1} \diamond b)\\
+					&= (e,e')
+				\end{align*}
+				\item[(A)] Soient $(a,b), (c,d), (e,f) \in G \times H$. On a
+				\begin{align*}
+					((a,b) \bullet (c,d)) \bullet (e,f)&= (a*c,b \diamond d) \bullet (e,f)\\
+					&= ((a*c)*e,(b \diamond d) \diamond f)\\
+					&= (a*(c*e),b \diamond (d \diamond f))\\
+					&= (a,b) \bullet (c*e,d \diamond f)\\
+					&= (a,b) \bullet ((c,d) \bullet (e,f))
+				\end{align*}
 			\end{itemize}
 		\end{proof}
 	\end{prop}
 	\begin{exem}
-		\begin{ulist}
+		\begin{ulist}~
+			
 			\item $\reels \times \reels = \reels^2$
 
 			$(x,y)+(x',y')=(x+x',y+y')$.
@@ -1009,13 +1105,13 @@ Donn\'e par Jean-Philippe Burelle}
 					&= e^x \times e^y\\
 					&= f(x) \times f(y)
 				\end{align*}
-				\item $\ln:\reels^+_* \to \reels$ est inverse de $f$: $\ln e^x=x \forall x \in \reels$ et $e^{\ln x}=x \forall x \in \reels^+_*$.
+				\item $\ln:\reels^+_* \to \reels$ est inverse de $f$: $\ln e^x=x, \forall x \in \reels$ et $e^{\ln x}=x, \forall x \in \reels^+_*$.
 			\end{nlist}
 		\end{ulist}
 	\end{exem}
 	\begin{prop}
 		Si $f:G \to H$ est un isomorphisme de groupes, alors $f(e_G)=e_H$, o\`u $e_G$ est l'\'el\'ement neutre de $G$ et $e_H$ est l'\'el\'ement neutre de $H$.
-		\begin{proof}[d\'emonstration]
+		\begin{proof}
 			Strat\'egie: montrer que $f(e_G)$ est neutre pour $H$ et utiliser l'unicit\'e.
 
 			Soit $b \in H$.
@@ -1048,7 +1144,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{exem}
 	\begin{prop}
 		Si $f:G \to H$ est un isomorphisme de groupes, alors $f(a^{-1})=f(a)^{-1}$, pour tout $a \in G$.
-		\begin{proof}[d\'emonstration]
+		\begin{proof}
 			Strat\'egie: montrer que $f(a^{-1})$ est inverse de $f(a)$ et utiliser l'unicit\'e.
 
 			\begin{align*}
@@ -1092,7 +1188,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{array}
 		\xrightarrow{~~~f~~~}
 		\begin{array}{c||c|c|c|c}
-			*&e_H&f(a_1)&f(a_2)&\dotsb\\
+			\diamond&e_H&f(a_1)&f(a_2)&\dotsb\\
 			\hline\hline
 			f(e_G)&&&&\\
 			\hline
@@ -1143,13 +1239,13 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{rema}
 	\begin{prop}
 		Si $f:G \to H$ est un isomorphisme, alors $f^{-1}:H \to G$ est un isomorphisme.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{nlist}
 				\item Soient $b_1,b_2 \in H$.
 				\begin{align*}
-					f^{-1}(b_1 \diamond b_2)&= f^{-1}(f(f^{-1}(b_1)) \diamond f(f^{-1}(b_2)))\\
-					&= f^{-1}(f(f^{-1}(b_1) * f^{-1}(b_2)))\\
+					f^{-1}(b_1 \diamond b_2)&= f^{-1}\left( f\left[ f^{-1}\left( b_1 \right) \right] \diamond f\left[ f^{-1}\left( b_2 \right) \right] \right)\\
+					&= f^{-1}\left( f\left[ f^{-1}\left( b_1 \right) * f^{-1}\left( b_2 \right) \right] \right)\\
 					&= f^{-1}(b_1) * f^{-1}(b_2)
 				\end{align*}
 				\item $f^{-1}$ est bijective, car elle est inversible d'inverse $f$.
@@ -1163,7 +1259,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{prop}[Transitivit\'e]~
 
 		Si $f:G \to H$ et $g:H \to K$ sont des isomorphismes, alors $g \circ f:G \to K$ est un isomorphisme.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{nlist}
 				\item Soient $a,b \in G$
@@ -1184,7 +1280,7 @@ Donn\'e par Jean-Philippe Burelle}
 		$a \in G$, $n \in \naturels$
 		\begin{nlist}
 			\item $a^0 \coloneq e_G$
-			\item $a^n=a*a^{n-1}$, $\forall n \geq 1$
+			\item $a^n=a*a^{n-1}$, $\forall n \gte 1$
 		\end{nlist}
 	\end{defin}
 	\begin{exem}~
@@ -1192,7 +1288,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\begin{ulist}
 			\item \begin{align*}
 				a^4&= a*a^3\\
-				&= a*a*a*2\\
+				&= a*a*a^2\\
 				&= a*a*a*a^1\\
 				&= a*a*a*a*a^0\\
 				&= a*a*a*a*e\\
@@ -1203,7 +1299,8 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{exem}
 	\begin{prop}
 		$a^{n+m}=a^n*a^m$, $\forall n,m \in \naturels$.
-		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]~
+		\begin{proof}
+			par r\'ecurrence sur $n$.
 
 			\begin{nlist}
 				\item $n=0$:
@@ -1212,7 +1309,7 @@ Donn\'e par Jean-Philippe Burelle}
 					&= e*a^m\\
 					&= a^0*a^m
 				\end{align*}
-				\item supposons que $a^{n+m}=a^n*a^m$ pour un $n \geq 0$.
+				\item supposons que $a^{n+m}=a^n*a^m$ pour un $n \gte 0$.
 				\begin{align*}
 					a^{(n+1)+m}&= a^{n+m+1}\\
 					&= a*a^{n+m}\\
@@ -1226,19 +1323,20 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{defin}
 		Pour $n \in \entiers$.
 
-		Si $n \geq 0$, on a d\'ej\`a d\'efini $a^n$.
+		Si $n \gte 0$, on a d\'ej\`a d\'efini $a^n$.
 
 		Si $n<0$, on d\'efinit $a^n=(a^{-1})^{-n}$.
 	\end{defin}
 	\begin{exem}
-		$a^{-3}=a^{-1}*a^{-1}*a^{-1}$.
+		$a^{-3}=(a^{-1})^3=a^{-1}*a^{-1}*a^{-1}$.
 	\end{exem}
 	\begin{prop}
 		$a^{n+m}=a^n*a^m$, $\forall n,m \in \entiers$.
 	\end{prop}
 	\begin{prop}
-		$(a^m)^n=a^{mn}$, $\forall m,n \in \naturels$. Vraie aussi pour $m,n \in \entiers$.
-		\begin{proof}[d\'emonstration par r\'ecurrence sur $m$]~
+		$(a^n)^m=a^{nm}$, $\forall m,n \in \naturels$. Vraie aussi pour $m,n \in \entiers$.
+		\begin{proof}
+			par r\'ecurrence sur $m$.
 
 		\begin{nlist}
 			\item $m=0$:
@@ -1295,10 +1393,11 @@ Donn\'e par Jean-Philippe Burelle}
 		$f$ isomorphisme $f:G \to H$.
 
 		$a \in G$. Alors, $f(a^n)=f(a)^n$, $\forall n \in \entiers$.
-		\begin{proof}[d\'emonstration par r\'ecurrence sur $n$]~
+		\begin{proof}
+			par r\'ecurrence sur $n$.
 
 			\begin{ulist}
-				\item[$n\geq 0$]
+				\item[$n\gte 0$]
 				\begin{nlist}
 					\item $n=0$
 					\begin{align*}
@@ -1401,7 +1500,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 	\subsection{Sous-groupes}
 	\begin{defin}
-		$H \subseteq (G,*)$ est un \emph{sous-groupe} de $G$ si $H$ est un groupe pour la m\^eme op\'eration que $G$.
+		$H \subseteq G$ est un \emph{sous-groupe} de $G$ si $H$ est un groupe pour la m\^eme op\'eration que $G$.
 	\end{defin}
 	\begin{exem}
 		~
@@ -1470,7 +1569,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item Le neutre de $H$ est le neutre de $G$;
 			\item Si $a \in H$, son inverse $a^{-1}\in H$ est l'inverse de $a$ dans $G$.
 		\end{nlist}
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{nlist}[itemsep=1pt]
 				\item $G$ est ab\'elien, alors $\forall a,b \in G$, $ab=ba$.
@@ -1493,8 +1592,8 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{prop}
 	\begin{thm}~
 
-		Un sous-ensemble non-vide $H \subseteq G$ est un sous-groupe ssi pour tous $a,b \in H$, $ab^{-1} \in H$.
-		\begin{proof}[d\'emonstration]~
+		Un sous-ensemble non-vide $H \subseteq G$ est un sous-groupe si, et seulement si, pour tous $a,b \in H$, $ab^{-1} \in H$.
+		\begin{proof}~
 
 			\begin{itemize}
 				\item[$(\Rightarrow)$] Supposons que $H$ est un sous-groupe, donc $a,b \in H$, alors $b^{-1} \in H$.
@@ -1524,7 +1623,7 @@ Donn\'e par Jean-Philippe Burelle}
 		Soit $m \in \entiers$.
 
 		Posons $H = m\entiers = \{mn \mid n \in \entiers\} = \{\dotsb,-2m,-m,0,m,2m,\dotsb\}$, muni de l'addition.
-		\begin{proof}[m.q.]
+		\begin{proof}[montrons que]
 			$H$ est un sous-groupe de $(\entiers,+)$.
 
 			$H$ est non-vide, car $m0=0 \in H$.
@@ -1540,10 +1639,10 @@ Donn\'e par Jean-Philippe Burelle}
 			Donc, $H$ est un sous-groupe de $(\entiers,+)$.
 		\end{proof}
 
-		R\'eciproquement, soit $H \subseteq H$ un sous-groupe de $\entiers$ quelconque. Alors $\exists m \in \entiers$ t.q. $H=m\entiers$.
-		\begin{proof}[d\'emonstration]~
+		R\'eciproquement, soit $H \subseteq \entiers$ un sous-groupe de $\entiers$ quelconque. Alors $\exists m \in \entiers$ t.q. $H=m\entiers$.
+		\begin{proof}~
 
-			On sait que $0\ in H$.
+			On sait que $0 \in H$.
 
 			Si $H=\{0\}$, alors $H=0\entiers$ et l'\'enonc\'e est vrai.
 
@@ -1553,9 +1652,9 @@ Donn\'e par Jean-Philippe Burelle}
 
 			Soit $m$ le \emph{plus petit} \'el\'ement positif de $H$.
 
-			Soit $h \in H$ quelconque. On divise $h$ par $m$, donc $h=qm+r$, o\`u $q,r \in \entiers$ et $0 \leq r < m$.
+			Soit $h \in H$ quelconque. On divise $h$ par $m$, donc $h=qm+r$, o\`u $q,r \in \entiers$ et $0 \lte r < m$.
 
-			Si $r=o$, $h=qm \in m\entiers$.
+			Si $r=0$, $h=qm \in m\entiers$.
 
 			Sinon, comme $h \in H$ et $m \in H$, $h-qm \in H$, mais $h-qm=r$, donc $r \in H$.
 
@@ -1569,7 +1668,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{exem}
 	\begin{prop}~
 
-		Soit $f:G \to H$ un isomorphisme. Alors, $K \subseteq G$ est un sous-groupe de $G$ ssi $f(K)$ est un sous-groupe de $H$.
+		Soit $f:G \to H$ un isomorphisme. Alors, $K \subseteq G$ est un sous-groupe de $G$ si, et seulement si, $f(K)$ est un sous-groupe de $H$.
 		\begin{nota}
 			$f(K) = \{f(k) \mid k \in K\}$.
 		\end{nota}
@@ -1597,33 +1696,33 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{nota}
 		~
 
-		$H \subseteq G$ un sous-groupe est \'equivalent \`a $H \leq G$.
+		$H \subseteq G$ un sous-groupe est \'equivalent \`a $H \lte G$.
 	\end{nota}
 	\begin{prop}
 		~
 
-		Soit $\left\lbrace H_i \right\rbrace_{i \in I}$ une collection de sous-groupes de $G$. Alors $\bigcap\limits_{i \in I}H_i \leq G$.
-		\begin{proof}[d\'emonstration]~
+		Soit $\left\lbrace H_i \right\rbrace_{i \in I}$ une collection de sous-groupes de $G$. Alors $\bigcap\limits_{i \in I}H_i \lte G$.
+		\begin{proof}~
 
-			$H_i \leq G, \forall i \in I$.
+			$H_i \lte G, \forall i \in I$.
 
 			Alors, $e \in H_i, \forall i$. Donc, $e \in \bigcap\limits_{i \in I}H_i$. En particulier, $\bigcap\limits_{i \in I}H_i \neq \emptyset$.
 
 			Soient $a,b\in \bigcap\limits_{i \in I}H_i$. Alors, $a,b \in H_i, \forall i$.
 
-			Comme $H_i \leq G$, $ab^{-1} \in H_i, \forall i$, donc $ab^{-1} \in \bigcap\limits_{i \in I}H_i$.
+			Comme $H_i \lte G$, $ab^{-1} \in H_i, \forall i$, donc $ab^{-1} \in \bigcap\limits_{i \in I}H_i$.
 		\end{proof}
 	\end{prop}
 	\begin{rema}
-		Si $H_1,H_2 \leq G$, $H_1 \cup H_2$ n'est pas n\'ecessairement un sous-groupe de $G$.
+		Si $H_1,H_2 \lte G$, $H_1 \cup H_2$ n'est pas n\'ecessairement un sous-groupe de $G$.
 		\begin{exem}
-			$2\entiers \leq \entiers$ et $3\entiers \leq \entiers$. $2\entiers \cup 3\entiers$ n'est pas un sous-groupe de $\entiers$.
+			$2\entiers \lte \entiers$ et $3\entiers \lte \entiers$. $2\entiers \cup 3\entiers$ n'est pas un sous-groupe de $\entiers$.
 
 			Plus pr\'ecis\'ement, $2,3 \in 2\entiers \cup 3\entiers$, mais $2+3=5 \not\in 2\entiers \cup 3\entiers$.
 		\end{exem}
 	\end{rema}
 	\begin{exem}
-		$2\entiers \cap 3\entiers = 6\entiers \leq \entiers$.
+		$2\entiers \cap 3\entiers = 6\entiers \lte \entiers$.
 	\end{exem}
 
 	\setcounter{chapter}{1}
@@ -1644,7 +1743,7 @@ Donn\'e par Jean-Philippe Burelle}
 			$x \sim y$ et $y \sim z$, alors $x \sim z$.
 		\end{nlist}
 		\begin{nota}
-			On note $x \sim y$ ssi $(x,y) \in R$.
+			On note $x \sim y$ si, et seulement si, $(x,y) \in R$.
 		\end{nota}
 	\end{defin}
 	\begin{exem}~
@@ -1652,7 +1751,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\begin{nlist}
 			\item $E = \reels$
 
-			$x \sim y$ ssi $\abs{x} = \abs{y}$
+			$x \sim y$ si, et seulement si, $\abs{x} = \abs{y}$
 			\begin{itemize}
 				\item[(refl)] $\abs{x} = \abs{x}$, donc $x \sim x$.
 				\item[(sym)] Supposons $x \sim y$. Alors, $\abs{x} = \abs{y}$. Donc, $y \sim x$.
@@ -1660,15 +1759,15 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{itemize}
 			\item $C$ est l'ensemble des \'el\`eves dans la classe.
 
-			$x \sim y$ ssi $x$ et $y$ ont le m\^eme \^age est une relation d'\'equivalence.
+			$x \sim y$ si, et seulement si, $x$ et $y$ ont le m\^eme \^age est une relation d'\'equivalence.
 		\end{nlist}
 	\end{exem}
 	\begin{defin}
 		Si $E$ est un ensemble et $\sim$ est une relation d'\'equivalence sur $E$, la \emph{classe d'\'euivalence} de $x \in E$ est $\overline{x} = \{y \in E \mid y \sim x\} \subseteq E$.
 	\end{defin}
 	\begin{lem}
-		$\overline{x} = \overline{y}$ ssi $x \sim y$.
-		\begin{proof}[d\'emonstration]~
+		$\overline{x} = \overline{y}$ si, et seulement si, $x \sim y$.
+		\begin{proof}~
 
 			\begin{itemize}
 				\item[$(\Rightarrow)$] Supposons $\overline{x} = \overline{y}$.
@@ -1677,7 +1776,7 @@ Donn\'e par Jean-Philippe Burelle}
 				\item[$(\Leftarrow)$] Supposons $x \sim y$.
 				\begin{itemize}
 					\item[$(\subseteq)$] Soit $z \in \overline{x}$. Alors $z \sim x$. Comme $x \sim y$, par (trans), $z \sim y$. Donc, $z \in \overline{y}$.
-					\item[$(\supseteq)$] idem
+					\item[$(\supseteq)$] Soit $z \in \overline{y}$. Alors, $z \sim y$ et, par (sym), $y \sim z$. Comme $x \sim y$, par (trans), $x \sim z$ et, par (sym), $z \sim x$. Donc, $z \in \overline{x}$.
 				\end{itemize}
 
 				Ainsi, $\overline{x} = \overline{y}$.
@@ -1689,14 +1788,14 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{rappel}~
 
 		\begin{ulist}[noitemsep]
-			\item $H \leq G$, $H$ un sous-groupe de $G$, ssi
+			\item $H \lte G$, $H$ un sous-groupe de $G$, si, et seulement si,
 			\begin{ulist}
 				\item $H \neq \emptyset$;
 				\item $\forall a,b \in H, ab^{-1} \in H$.
 			\end{ulist}
-			\item Si $H \leq G$, $H$ a le m\^eme neutre que $G$, m\^emes inverses.
-			\item $G$ ab\'elien $\Rightarrow H \leq G$ ab\'elien.
-			\item Si $f:G \to H$ isomorphisme, alors $K \leq G \Leftrightarrow f(K) \leq H$.
+			\item Si $H \lte G$, $H$ a le m\^eme neutre que $G$, m\^emes inverses.
+			\item $G$ ab\'elien $\Rightarrow H \lte G$ ab\'elien.
+			\item Si $f:G \to H$ isomorphisme, alors $K \lte G \Leftrightarrow f(K) \lte H$.
 			\item Relations d'\'equivalence $\sim$ sur $E$:
 			\begin{itemize}
 				\item[(Refl)] $a \sim a, \forall a \in E$;
@@ -1712,13 +1811,13 @@ Donn\'e par Jean-Philippe Burelle}
 
 		\'Equivalence modulo $m$:
 
-		$a \sim b$ ssi $a-b=km$, avec $k \in \entiers$.
+		$a \sim b$ si, et seulement si, $a-b=km$, avec $k \in \entiers$.
 		\begin{nota}
 			$m \mid a-b$, $m$ divise $a-b$: $\exists k \in \entiers$ t.q. $a-b=km$.
 		\end{nota}
 
 		$a \sim b \Longleftrightarrow m \mid a-b$.
-		\begin{proof}[d\'emonstration]
+		\begin{proof}
 			que c'est bel et bien une \'equivalence
 			\begin{itemize}
 				\item[(Refl)] Soit $a \in \entiers$.
@@ -1771,7 +1870,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{align*}
 		\end{rema}
 
-		Plus g\'en\'eralement, pour $m$, on a $m$ classes d'\'equivalence.
+		Plus g\'en\'eralement, pour $m\entiers$, on a $m$ classes d'\'equivalence.
 		\[
 		\overline{0}, \overline1, \overline2, \dotsb, \overline{m-1}
 		\]
@@ -1792,21 +1891,21 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{prop}
 		Si $\sim$ est une relation d'\'equivalence sur $E$, alors $\mathcal{P} = \{\overline{a} \mid a \in E\}$ est une partition de $E$.
 		\begin{exem}
-			$E = \entiers$, $\sim$ equivalence modulo 3.
+			$E = \entiers$, $\sim$ \'equivalence modulo 3.
 
 			$\mathcal{P} = \{\overline{0}, \overline{1}, \overline{2}\}$ est une partition de $\entiers$.
 		\end{exem}
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{nlist}
 				\item Clairement, $\bigcup\limits_{a \in E}\overline{a} \subseteq E$.
 
 				On veut montrer que $E \subseteq \bigcup\limits_{a \in E}\overline{a}$.
 
-				Soit $x \in E$, alors $x \sim x$ par r\'eflexivit\'e, donc$x \in \overline{x}$ et $x \in \bigcup\limits_{a \in E}\overline{a}$.
+				Soit $x \in E$, alors $x \sim x$ par r\'eflexivit\'e, donc $x \in \overline{x}$ et $x \in \bigcup\limits_{a \in E}\overline{a}$.
 				\item Supposons que $x \in \overline{a}$ et $x \in \overline{b}$, avec $\overline{a} \neq \overline{b}$.
 
-				Alors, $x \sim a$ et $x \sim b$. Donc, par sym\'etrie, $a \sim x$ et $x \sim b$. Donc, par transitivit\'e, $a \sim b$. Donc $\overline{a} = \overline{b}$. Ceci est une contradiction, donc $\overline{a} \cap \overline{b} = \emptyset, \forall \overline{a}, \overline{b} \in \mathcal{P}$.
+				Alors, $x \sim a$ et $x \sim b$. Donc, par sym\'etrie, $a \sim x$ et $x \sim b$. Donc, par transitivit\'e, $a \sim b$. Donc $\overline{a} = \overline{b}$. Ceci est une contradiction, donc $\overline{a} \cap \overline{b} = \emptyset, \forall \overline{a} \neq \overline{b} \in \mathcal{P}$.
 			\end{nlist}
 		\end{proof}
 	\end{prop}
@@ -1834,14 +1933,14 @@ Donn\'e par Jean-Philippe Burelle}
 		~
 
 		\begin{ulist}[noitemsep]
-			\item Relation d'\'equivalence ($\sim$) $\rightarrow$ partition en classes d'\'equivalence ($\overline{a}\{b \mid b \sim a\}$).
-			\item \'Equivalence (congruence) $\mod m$ (sur $\entiers$):
+			\item Relation d'\'equivalence ($\sim$) $\rightarrow$ partition en classes d'\'equivalence ($\overline{a}=\{b \mid b \sim a\}$).
+			\item \'Equivalence (congruence)$\mod m$ (sur $\entiers$):
 			\begin{align*}
 				a \sim b&\Leftrightarrow m \mid a-b\\
 				&\Leftrightarrow \exists k \in \entiers \text{ t.q. } a-b=km
 			\end{align*}
 
-			On note l'ensemble des classes d'\'equivalence $\mod m$ par $\entiers_m = \{\overline{a} \mid a \in \entiers\} = \{\overline{0}, \overline{1}, \dotsb, \overline{m-1}\}$.
+			On note l'ensemble des classes d'\'equivalence$\mod m$ par $\entiers_m = \{\overline{a} \mid a \in \entiers\} = \{\overline{0}, \overline{1}, \dotsb, \overline{m-1}\}$.
 
 			On veut d\'efinir une op\'eration $+$ sur $\entiers_m$ par $\overline{a} + \overline{b} = \overline{a+b}$.
 
@@ -1923,7 +2022,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 	\begin{prop}
 		$(\entiers_m,+)$ est un groupe ab\'elien.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{itemize}
 				\item[(A)] Soient $a,b,c \in \entiers_m$.
@@ -1947,7 +2046,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{defin}
 		Soient $G$ un groupe et $a \in G$.
 
-		L'\emph{ordre} de $a$, not\'e $o(a)$ est la plus petite positive $k$ t.q. $a^k=e$, si elle existe. Sinon, on note $o(a) = \infty$.
+		L'\emph{ordre} de $a$, not\'e $o(a)$ est la plus petite quantit\'e positive $k \in \naturels_*$ t.q. $a^k=e$, si elle existe. Sinon, on note $o(a) = \infty$.
 	\end{defin}
 	\begin{exem}~
 
@@ -1970,13 +2069,13 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{ulist}
 	\end{exem}
 	\begin{prop}
-		Soit $m \in \entiers$. $a^m = e$, ssi $o(a) \mid m$.
-		\begin{proof}[d\'emonstration]~
+		Soit $m \in \entiers$. $a^m = e$, si, et seulement si, $o(a) \mid m$.
+		\begin{proof}~
 
 			\begin{itemize}
 				\item[$(\Rightarrow)$] Supposons $a^m=e$.
 
-				On divise $m$ par $o(a)$: $m = q \cdot o(a) + r$, avec $0 \leq r < o(a)$.
+				On divise $m$ par $o(a)$: $m = q \cdot o(a) + r$, avec $0 \lte r < o(a)$.
 
 				Si $r=0$, $o(a) \mid m$ et on a termin\'e.
 
@@ -1999,7 +2098,7 @@ Donn\'e par Jean-Philippe Burelle}
 		~
 
 		\begin{ulist}
-			\item $a \sim b \Leftrightarrow m \mid a-b$ est une relation d'\'euivalence sur $\entiers$.
+			\item $a \sim b \Leftrightarrow m \mid a-b$ est une relation d'\'equivalence sur $\entiers$.
 			\item $\entiers_m = \{\overline0, \overline1, \dotsb, \overline{m-1}\}$ sont les classes d'\'equivalence.
 			\item $(\entiers_m, +)$ est un groupe, o\`u $\overline{a} + \overline{b} = \overline{a+b}$.
 			\item $o(a) = \min\{k \in \naturels_* \mid a^k = e\}$ ordre de $a$. Si $a^k \neq e$, $\forall k>0$, $o(a)=\infty$.
@@ -2031,12 +2130,20 @@ Donn\'e par Jean-Philippe Burelle}
 				M^5&= -\begin{pmatrix}
 					0&-1\\1&-1
 				\end{pmatrix}\\
-				M^6&= (-\mathds{1})(-\mathds{1})\\
-				&= \mathds{1}
+				M^6&= \left( -\begin{pmatrix}
+					1&0\\0&1
+				\end{pmatrix} \right) \left( -\begin{pmatrix}
+					1&0\\0&1
+				\end{pmatrix} \right)\\
+				&= \begin{pmatrix}
+					1&0\\0&1
+				\end{pmatrix}
 			\end{split}
 		\end{align*}
 
-		Ainsi, $o(M) = 6$, puisque $M^6=\mathds{1}$.
+		Ainsi, $o(M) = 6$, puisque $M^6 = \begin{pmatrix}
+			1&0\\0&1
+		\end{pmatrix}$.
 	\end{exem}
 
 	\setcounter{chapter}{5}
@@ -2062,7 +2169,7 @@ Donn\'e par Jean-Philippe Burelle}
 		$S(E) \ni f:\left\lbrace \begin{array}{rcl}
 			\text{rouge}&\mapsto&\text{jaune}\\
 			\text{jaune}&\mapsto&\text{rouge}\\
-			\text{autres}&\mapsto&\text{elles-\^m}
+			\text{autres}&\mapsto&\text{elles-m\^emes}
 		\end{array} \right.$.
 
 		Le groupe $S(E)$ est isomorphe au groupe $S(\{1,2,3,4,5,6,7\})$, en num\'erotant les \'el\'ements.
@@ -2162,9 +2269,9 @@ Donn\'e par Jean-Philippe Burelle}
 
 			\[
 			\begin{matrix}
-				1&2&3&\dotsb&n\\
+				1&2&3&&n\\
 				\downarrow&\downarrow&\downarrow&\dotsb&\downarrow\\
-				n\text{ choix}&n-1\text{ choix}&n-2\text{ choix}&\dotsb&1\text{ choix}
+				n\text{ choix}&n-1\text{ choix}&n-2\text{ choix}&&1\text{ choix}
 			\end{matrix}
 			\]
 
@@ -2235,20 +2342,22 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{nota}
 	\begin{prop}
 		L'ordre d'un cycle est \'egal \`a sa longueur.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			Si le cycle $\sigma$ permute les \'el\'ements $a_i$ comme $\sigma = a_1 \xrightarrow{\sigma} a_2 \xrightarrow{\sigma} \dotsb \xrightarrow{\sigma} a_l \xrightarrow{\sigma} a_1$.
 
 			Alors, calculons $\sigma^l$
 			\[
-			\begin{pmatrix}
+			\begin{pNiceMatrix}
 				a_1&a_2&a_3&\dotsb&a_l\\
 				a_2&a_3&a_4&\dotsb&a_1\\
 				a_3&a_4&a_5&\dotsb&a_2\\
 				\vdots&\vdots&\vdots&\ddots&\vdots\\
 				a_l&a_1&a_2&\dotsb&a_{l-1}\\
 				a_1&a_2&a_3&\dotsb&a_l
-			\end{pmatrix}
+				\CodeAfter
+				\tikz \draw (2.5-|1) -- (2.5-|last) (3.5-|1) -- (3.5-|last) (5.5-|1) -- (5.5-|last);
+			\end{pNiceMatrix}
 			\]
 
 			Ainsi, $\sigma^l=e$.
@@ -2269,7 +2378,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{prop}
 		Toute permutation $\sigma \in S_n$ s'\'ecrit de mani\`ere unique comme une composition de \emph{cycles disjoints}. (les cycles sont uniques, mais pas l'ordre de l'\'ecriture).
 		\begin{nota}
-			Des cycles disjoints sont des cycles de \emph{supports} disjoints, o\`u le support d'un cycle est $\{i \mid \sigma(i) \neq i\}$.
+			Des cycles disjoints sont des cycles de \emph{supports} disjoints, o\`u le support d'un cycle est $\mathrm{supp}(\sigma)\{i \mid \sigma(i) \neq i\}$.
 		\end{nota}
 		\begin{lem}
 			Les cycles disjoints commutent entre eux.
@@ -2280,12 +2389,13 @@ Donn\'e par Jean-Philippe Burelle}
 							1&4&5
 						\end{pmatrix} \circ \begin{pmatrix}
 							2&3
-						\end{pmatrix}&= \begin{pmatrix}
+						\end{pmatrix}&= \begin{pNiceMatrix}
 							1&2&3&4&5\\
-							\tikzmark{start}1&3&2&4&5\tikzmark{end}\\
+							1&3&2&4&5\\
 							4&3&2&5&1
-						\end{pmatrix}
-						\tikz[remember picture] \draw[overlay] ([yshift=.35em]pic cs:start) -- ([yshift=.35em]pic cs:end);
+							\CodeAfter
+							\tikz \draw (2.4-|1) -- (2.4-|last);
+						\end{pNiceMatrix}
 					\end{split}
 					&=&
 					\begin{split}
@@ -2293,16 +2403,17 @@ Donn\'e par Jean-Philippe Burelle}
 							2&3
 						\end{pmatrix} \circ \begin{pmatrix}
 						1&4&5
-						\end{pmatrix}&= \begin{pmatrix}
+						\end{pmatrix}&= \begin{pNiceMatrix}
 							1&2&3&4&5\\
-							\tikzmark{start}4&2&3&5&1\tikzmark{end}\\
+							4&2&3&5&1\\
 							4&3&2&5&1
-						\end{pmatrix}
-						\tikz[remember picture] \draw[overlay] ([yshift=.35em]pic cs:start) -- ([yshift=.35em]pic cs:end);
+							\CodeAfter
+							\tikz \draw (2.4-|1) -- (2.4-|last);
+						\end{pNiceMatrix}
 					\end{split}
 				\end{align*}
 			\end{exem}
-			\begin{proof}[d\'emonstration]~
+			\begin{proof}~
 
 				Soient $\sigma=\begin{pmatrix}
 					a_1&a_2&\dotsb&a_l
@@ -2320,8 +2431,10 @@ Donn\'e par Jean-Philippe Burelle}
 						\eta \circ \sigma(i)&= \sigma(i)
 					\end{align*}
 					\item $i \notin \mathrm{supp}(\sigma)$, $i \in \mathrm{supp}(\eta)$.
-
-					Idem \`a (1)
+					\begin{align*}
+						\sigma \circ \eta(i)&= \eta(i)\\
+						\eta \circ \sigma(i)&= \eta(i)
+					\end{align*}
 					\item $i \notin \mathrm{supp}(\sigma)$, $i \notin \mathrm{supp}(\eta)$.
 					\begin{align*}
 						\sigma \circ \eta(i)&= i\\
@@ -2337,11 +2450,11 @@ Donn\'e par Jean-Philippe Burelle}
 				1&2
 			\end{pmatrix}$.
 
-			Si vrai pour toutes les permutations de longueur $\leq n$.
+			Si vrai pour toutes les permutations de longueur $\lte n$.
 
 			$\sigma$ permutation de $n+1$ \'el\'ements.
 
-			On prend $i \mathrm{supp}(\sigma)$.
+			On prend $i \in \mathrm{supp}(\sigma)$.
 			\[
 			\underbrace{i \to \sigma(i) \to \sigma^2(i) \to \sigma^3(i) \to \dotsb \to \sigma^n(i)}_{n+1\text{ \'el\'ements de }\{1,2,\dotsb,n\}}
 			\]
@@ -2351,7 +2464,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 			Alors, $i \to \sigma(i) \to \sigma^2(i) \to \dotsb \to \sigma^{m_1-m_2-1}(i) \to i$ est un cycle.
 
-			Les \'el\'ements restant $\{1,2,\dotsb,n\} \setminus \{i, \sigma(i), \sigma^2(i), \dotsb, \sigma^{m_1-m_2-1}(i)\}$ sont permut\'es entre eux par $\sigma$.
+			Les \'el\'ements restants $\{1,2,\dotsb,n\} \setminus \{i, \sigma(i), \sigma^2(i), \dotsb, \sigma^{m_1-m_2-1}(i)\}$ sont permut\'es entre eux par $\sigma$.
 
 			Utiliser l'hypoth\`ese de r\'ecurrence.
 			\renewcommand{\qedsymbol}{\#}
@@ -2390,7 +2503,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 			Puisque les cycles disjoints commutent, $\sigma^m = (\sigma_1 \sigma_2 \dotsb \sigma_k)^m = \sigma_1^m \sigma_2^m \dotsb \sigma_k^m$.
 
-			$\sigma_1^m \sigma_2^m \dotsb \sigma_k^m = e$, ssi, $\sigma_1^m=e$, $\sigma_2^m=e$, $\dotsb$, $\sigma_k^m=e$.
+			$\sigma_1^m \sigma_2^m \dotsb \sigma_k^m = e$, si, et seulement si, $\sigma_1^m=e$, $\sigma_2^m=e$, $\dotsb$, $\sigma_k^m=e$.
 
 			Alors, $o(\sigma_1) \mid m$, $o(\sigma_2) \mid m$, $\dotsb$, $o(\sigma_k) \mid m$.
 
@@ -2417,7 +2530,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item $o\begin{pmatrix}
 				a_1&a_2&\dotsb&a_l
 			\end{pmatrix} = l$
-			\item Toute permutation de $S_n$ s'\'ecrit comme un produit (cocmposition) de cycles disjoints uniques
+			\item Toute permutation de $S_n$ s'\'ecrit comme un produit (composition) de cycles disjoints uniques
 			\item Les cycles disjoints commutent
 			\item Si $\sigma = \sigma_1 \dotsb \sigma_k$ est la d\'ecomposition, $o(\sigma) = \verb|ppcm|(l_1, \dots, l_k)$, o\`u $l_k$ est la longueur de $\sigma_k$
 		\end{ulist}
@@ -2466,8 +2579,8 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{pmatrix}
 		\]
 		\begin{align*}
-			\mathrm{sgn}(\sigma)&= \left( \dfrac{\cancel{3-4}}{\cancel{1-2}} \right) \left( \dfrac{\cancelto{-1}{3-1}}{\cancel{1-3}} \right) \left( \dfrac{\cancelto{-1}{3-2}}{\cancel{1-4}} \right) \left( \dfrac{\cancelto{-1}{4-1}}{\cancel{2-3}} \right) \left( \dfrac{\cancelto{-1}{4-2}}{\cancel{2-4}} \right) \left( \dfrac{\cancel{1-2}}{\cancel{3-4}} \right)\\
-			&=  1
+			\mathrm{sgn}(\sigma)&= \left( \dfrac{\colorbox{col1}{$3-4$}}{\colorbox{col2}{$1-2$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col3}{$3-1$}}}{\colorbox{col3}{$1-3$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col4}{$3-2$}}}{\colorbox{col5}{$1-4$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col5}{$4-1$}}}{\colorbox{col4}{$2-3$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col6}{$4-2$}}}{\colorbox{col6}{$2-4$}} \right) \left( \dfrac{\colorbox{col2}{$1-2$}}{\colorbox{col1}{$3-4$}} \right)\\
+			&= (-1)^4 = 1
 		\end{align*}
 	\end{exem}
 	\begin{rema}
@@ -2475,7 +2588,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{rema}
 	\begin{prop}
 		Soient $\alpha, \beta \in S_n$, alors $\mathrm{sgn}(\alpha \circ \beta) = \mathrm{sgn}(\alpha) \cdot \mathrm{sgn}(\beta)$.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{align*}
 				\mathrm{sgn}(\alpha \circ \beta)&= \prod_{i < j}\dfrac{\alpha(\beta(i)) - \alpha(\beta(j))}{i-j}\\
@@ -2645,7 +2758,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{exem}
 	\begin{prop}
 		Le signe d'une transposition est $-1$.
-		\begin{proof}[d\'emonstration]
+		\begin{proof}
 			par exemple
 
 			$\begin{pmatrix}

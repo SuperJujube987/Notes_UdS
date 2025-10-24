@@ -3,11 +3,11 @@
 \contentsline {section}{\numberline { 1.1}Int\'egrales de Riemann}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {}Crit\`ere d'int\'egrabilit\'e}{3}{subsection.1.1.1}%
 \contentsline {subsection}{\numberline {}In\'egalit\'e du triangle}{6}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {}Th\'eor\`eme de Darboux}{8}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {}Th\'eor\`eme de Darboux}{9}{subsection.1.1.3}%
 \contentsline {subsection}{\numberline {}Loi de la moyenne}{10}{subsection.1.1.4}%
 \contentsline {subsection}{\numberline {}Th\'eor\`eme fondamental du calcul diff\'erentiel et int\'egral}{11}{subsection.1.1.5}%
-\contentsline {section}{\numberline { 1.2}Techniques d'int\'egration}{13}{section.1.2}%
-\contentsline {subsection}{\numberline {}Fractions partielles}{14}{subsection.1.2.1}%
-\contentsline {subsubsection}{Quelques substitutions}{14}{subsubsection*.2}%
-\contentsline {section}{\numberline { 1.3}Int\'egrales impropres}{17}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Suites de fonctions}{24}{chapter.2}%
+\contentsline {section}{\numberline { 1.2}Techniques d'int\'egration}{14}{section.1.2}%
+\contentsline {subsection}{\numberline {}Fractions partielles}{15}{subsection.1.2.1}%
+\contentsline {subsubsection}{Quelques substitutions}{15}{subsubsection*.2}%
+\contentsline {section}{\numberline { 1.3}Int\'egrales impropres}{19}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Suites de fonctions}{25}{chapter.2}%

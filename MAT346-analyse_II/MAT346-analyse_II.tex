@@ -23,8 +23,11 @@
 
 \fancyfoot{}
 \fancyhead{}
-\fancyfoot[c]{\thepage}
+\fancyfoot[l]{MAT346 - Analyse II}
+\fancyfoot[r]{\thepage}
 \fancyhead[l]{\leftmark}
+\renewcommand{\headrulewidth}{.4pt}
+\renewcommand{\footrulewidth}{.4pt}
 
 \setcounter{tocdepth}{3}
 
@@ -57,9 +60,12 @@ Donn\'e par Mario Lambert}
 \newcommand*{\norme}[1]{\left\| #1 \right\|}
 \newcommand*{\abs}[1]{\left| #1 \right|}
 
-\newcommand*{\convabs}{\rightrightarrows}
+\newcommand*{\convuni}{\rightrightarrows}
 
 \newcommand*{\eps}{\varepsilon}
+
+\newcommand*{\lte}{\leqslant}
+\newcommand*{\gte}{\geqslant}
 
 \newcommand*{\reels}{\mathbb{R}}
 \newcommand*{\entiers}{\mathbb{Z}}
@@ -119,18 +125,18 @@ Donn\'e par Mario Lambert}
 		\begin{enumerate}[label=\alph*)]
 			\item Une partition de $[a,b]$ est un ensemble fini de points $\Delta=\{x_0,x_1,\dotsc,x_n\} \subseteq [a,b]$ t.q. $a=x_0 < x_1 < x_2 < \dotsc < x_{n-1} < x_n=b$.
 			\item L'ensemble des partitions de $[a,b]$ est $\partitions$.
-			\item On dit $\Delta'$ est \emph{plus fine} que $\Delta$, not\'e $\Delta' \geq \Delta$, si $\Delta' \supseteq \Delta$.
+			\item On dit $\Delta'$ est \emph{plus fine} que $\Delta$, not\'e $\Delta' \gte \Delta$, si $\Delta' \supseteq \Delta$.
 			\item \emph{Raffinement commun} de $\Delta_1$ et $\Delta_2$, not\'e $\raffinement{\Delta_1}{\Delta_2}$, est la partition de $[a,b]$ form\'ee de $\Delta_1 \cup \Delta_2$ ordonn\'es.
-			\item La \emph{norme} de $\Delta$, not\'ee $\norme{\Delta}$, est $\norme{\Delta}=\displaystyle\max\limits_{i=1}^{n}\abs{x_i-x_{i-1}}$.
+			\item La \emph{norme} de $\Delta$, not\'ee $\norme{\Delta}$, est $\norme{\Delta}=\max\limits_{i=1}^{n}\abs{x_i-x_{i-1}}$.
 			\item
 			\begin{align*}
-				\msup{f}[x_{i-1},x_1]&= \displaystyle\sup\limits_{x \in \left[ x_{i-1},x_1 \right]}f(x)\\
-				\minf{f}[x_{i-1},x_1]&= \displaystyle\inf\limits_{x \in \left[ x_{i-1},x_1 \right]}f(x)
+				\msup{f}[x_{i-1},x_1]&= \sup\limits_{x \in \left[ x_{i-1},x_1 \right]}f(x)\\
+				\minf{f}[x_{i-1},x_1]&= \inf\limits_{x \in \left[ x_{i-1},x_1 \right]}f(x)
 			\end{align*}
 		\end{enumerate}
 		\begin{rema}
 			\begin{align*}
-				\norme{x}&\geq0\\
+				\norme{x}&\gte0\\
 				\norme{\lambda x}&=\abs{\lambda} \norme{x}\\
 				\norme{x+y}&= \norme{x} + \norme{y}
 			\end{align*}
@@ -159,22 +165,22 @@ Donn\'e par Mario Lambert}
 		\begin{enumerate}[label=\alph*)]
 			\item
 			\[
-			\minf{f} \cdot (b-a) \leq \sinf{f}, \forall\Delta\in\partitions
+			\minf{f} \cdot (b-a) \lte \sinf{f}, \forall\Delta\in\partitions
 			\]
 			\item
 			\[
-			\sinf{f} \leq \ssup{f}
+			\sinf{f} \lte \ssup{f}
 			\]
 			\item
 			\[
-			\ssup{f} \leq \msup{f} \cdot (b-a)
+			\ssup{f} \lte \msup{f} \cdot (b-a)
 			\]
 		\end{enumerate}
 	\end{prop}
 
 	\begin{prop}
-		Si $\Delta'\geq\Delta$, alors $\ssup{f}[\Delta']\leq\ssup{f}$.
-		\begin{proof}[d\'emonstration]~
+		Si $\Delta'\gte\Delta$, alors $\ssup{f}[\Delta']\lte\ssup{f}$.
+		\begin{proof}~
 
 			Sans perte de g\'en\'eralit\'e, supposons
 			\[
@@ -186,18 +192,18 @@ Donn\'e par Mario Lambert}
 
 			On a
 			\begin{align*}
-				\ssup{f}-\ssup{f}[\Delta']&= \left[ \msup{f}[x_{i-1},x_i] \cdot (x_1-x_{i-1}) \right]\\
+				\ssup{f}-\ssup{f}[\Delta']&= \left[ \msup{f}[x_{i-1},x_i] \cdot (x_i-x_{i-1}) \right]\\
 				&- \left[ \msup{f}[x_{i-1},\bar{x}] \cdot (\bar{x}-x_{i-1}) + \msup{f}[\bar{x},x_i] \cdot (x_i-\bar{x}) \right]\\
 				&= (x_i-\bar{x}) \left[ \msup{f}[x_{i-1},x_i] - \msup{f}[\bar{x},x_i] \right]\\
 				&+ (\bar{x}-x_{i-1}) \left[ \msup{f}[x_{i-1},x_i] - \msup{f}[x_{i-1},\bar{x}] \right]\\
-				&\geq 0
+				&\gte 0
 			\end{align*}
 		\end{proof}
 	\end{prop}
 
 	\begin{prop}
-		Si $\Delta'\geq\Delta$, alors $\sinf{f}[\Delta'] \geq \sinf{f}$
-		\begin{proof}[d\'emonstration]~
+		Si $\Delta'\gte\Delta$, alors $\sinf{f}[\Delta'] \gte \sinf{f}$
+		\begin{proof}~
 
 			\begin{center}
 				\begin{tikzpicture}
@@ -224,14 +230,14 @@ Donn\'e par Mario Lambert}
 			$\sinf{f}=-\ssup{-f}$.
 		\end{rema}
 		\begin{coro}
-			$\forall \Delta_1,\Delta_2 \in \partitions, \sinf{f}[\Delta_1] \leq \ssup{f}[\Delta_2]$
-			\begin{proof}[d\'emonstration]~
+			$\forall \Delta_1,\Delta_2 \in \partitions, \sinf{f}[\Delta_1] \lte \ssup{f}[\Delta_2]$
+			\begin{proof}~
 
-				On a $\raffinement{\Delta_1}{\Delta_2} \geq \Delta_1$. Ainsi,
+				On a $\raffinement{\Delta_1}{\Delta_2} \gte \Delta_1$. Ainsi,
 				\begin{align*}
-					\sinf{f}[\Delta_1]&\leq \sinf{f}[\raffinement{\Delta_1}{\Delta_2}]\\
-					&\leq \ssup{f}[\raffinement{\Delta_1}{\Delta_2}]\\
-					&\leq \ssup{f}[\Delta_2]
+					\sinf{f}[\Delta_1]&\lte \sinf{f}[\raffinement{\Delta_1}{\Delta_2}]\\
+					&\lte \ssup{f}[\raffinement{\Delta_1}{\Delta_2}]\\
+					&\lte \ssup{f}[\Delta_2]
 				\end{align*}
 			\end{proof}
 		\end{coro}
@@ -242,35 +248,35 @@ Donn\'e par Mario Lambert}
 		~
 
 		\begin{enumerate}[label=\alph*)]
-			\item La somme par d\'efaut de $f$ est $\Sinf{f}=\displaystyle\sup\limits_{\Delta\in\partitions}\sinf{f}$.
-			\item La somme par exc\`es de $f$ est $\Ssup{f}=\displaystyle\inf\limits_{\Delta\in\partitions}\ssup{f}$.
+			\item La somme par d\'efaut de $f$ est $\Sinf{f}=\sup\limits_{\Delta\in\partitions}\sinf{f}$.
+			\item La somme par exc\`es de $f$ est $\Ssup{f}=\inf\limits_{\Delta\in\partitions}\ssup{f}$.
 		\end{enumerate}
 	\end{defin}
 
 	\begin{thm}
-		$\Sinf{f} \leq \Ssup{f}$
-		\begin{proof}[d\'emonstration]~
+		$\Sinf{f} \lte \Ssup{f}$
+		\begin{proof}~
 
 			Soit $\Delta_1 \in \partitions$
 
 			$\Sinf{f}=\sup\sinf{f}$ est le plus petit majorant des $\sinf{f}$ avec $\Delta \in \partitions$.
 
-			Du corollaire pr\'ec\'edant, on a que $\sinf{f} \leq \ssup{f}[\Delta_1]$.
+			Du corollaire pr\'ec\'edant, on a que $\sinf{f} \lte \ssup{f}[\Delta_1]$.
 
 			Donc, $\ssup{f}[\Delta_1]$ est un majorant des $\sinf{f}$.
 
-			Ainsi, $\Sinf{f} \leq \ssup{f}[\Delta_1]$.
+			Ainsi, $\Sinf{f} \lte \ssup{f}[\Delta_1]$.
 
 			De m\^eme, $\Ssup{f}=\inf\ssup{f}$ est le plus grand minorant des $\ssup{f}$ avec $\Delta \in \partitions$.
 
-			Comme $\Sinf{f}$ est un minorant des $\ssup{f}$, on a que $\Sinf{f} \leq \Ssup{f}$.
+			Comme $\Sinf{f}$ est un minorant des $\ssup{f}$, on a que $\Sinf{f} \lte \Ssup{f}$.
 		\end{proof}
 	\end{thm}
 
 	\begin{defin}
 		~
 
-		Soit $f \in \bornee$. On dit que $f$ est \emph{int\'egrable au sens de Riemann sur $[a,b]$} si $\Sinf{f}=\Ssup{f}$ et on note $f \in \riemann$. La valeur commune de $\Sinf{f}$ et $\Ssup{f}$ est not\'ee $\int_{a}^{b}f(x)\ dx$
+		Soit $f \in \bornee$. On dit que $f$ est \emph{int\'egrable au sens de Riemann sur $[a,b]$} si $\Sinf{f}=\Ssup{f}$ et on note $f \in \riemann$. La valeur commune de $\Sinf{f}$ et $\Ssup{f}$ est not\'ee $\dint{a}{b}{f(x)dx}$.
 	\end{defin}
 
 	\subsection{Crit\`ere d'int\'egrabilit\'e}
@@ -278,18 +284,18 @@ Donn\'e par Mario Lambert}
 		~
 
 		Soit $f \in \bornee$. Alors $f \in \riemann$ si, et seulement si, $\left( \forall \eps >0 \right) \left( \exists\Delta = \Delta(\eps) \in \partitions \right)$ t.q. $\ssup{f}-\sinf{f} < \eps$.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{itemize}
 				\item[$(\Rightarrow)$] Supposons $f \in \riemann$.
 
 				Soit $\eps>0$.
 
-				On a $\displaystyle\int_{a}^{b}f=\Ssup{f}=\inf\ssup{f}$.
+				On a $\dint{a}{b}{f}=\Ssup{f}=\inf\ssup{f}$.
 
 				Comme $\Ssup{f}+\dfrac{\eps}{2}$ ne peut minorer $\ssup{f}$, alors $\exists\Delta_1 \in \partitions$ t.q. $\ssup{f}[\Delta_1] < \Ssup{f}+\dfrac{\eps}{2}$.
 
-				De m\^eme, $\displaystyle\int_{a}^{b}f=\Sinf{f}=\sup\sinf{f}$.
+				De m\^eme, $\dint{a}{b}{f}=\Sinf{f}=\sup\sinf{f}$.
 
 				Comme $\Sinf{f}-\dfrac{\eps}{2}$ ne peut majorer $\sinf{f}$, alors $\exists\Delta_2 \in \partitions$ t.q. $\sinf{f}[\Delta_2] > \Sinf{f}-\dfrac{\eps}{2}$.
 
@@ -297,7 +303,7 @@ Donn\'e par Mario Lambert}
 
 				On a
 				\begin{align*}
-					\ssup{f} - \sinf{f}&\leq \ssup{f}[\Delta_1] - \sinf{f}[\Delta_2]\\
+					\ssup{f} - \sinf{f}&\lte \ssup{f}[\Delta_1] - \sinf{f}[\Delta_2]\\
 					&< \Ssup{f} + \dfrac{\eps}{2} - \left( \Sinf{f} - \dfrac{\eps}{2} \right)\\
 					&= \left( \Ssup{f} - \Sinf{f} \right) + \eps\\
 					&= \eps
@@ -310,8 +316,8 @@ Donn\'e par Mario Lambert}
 				Mais alors,
 				\begin{align*}
 					\eps&> \ssup{f}-\sinf{f}\\
-					&\geq \Ssup{f}-\Sinf{f}\\
-					&\geq 0
+					&\gte \Ssup{f}-\Sinf{f}\\
+					&\gte 0
 				\end{align*}
 
 				Du th\'eor\`eme du sandwich, $\Ssup{f}=\Sinf{f}$, car $\eps>0$ est arbitraire.
@@ -325,7 +331,7 @@ Donn\'e par Mario Lambert}
 	\end{thm}
 	\begin{thm}
 		Toute fonction continue sur $[a,b]$ est int\'egrable sur $[a,b]$.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			Soit $f \in \continue$.
 
@@ -366,17 +372,17 @@ Donn\'e par Mario Lambert}
 	\end{thm}
 	\begin{thm}
 		Toute $f:[a,b] \to \reels$ monotone est int\'egrable.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{enumerate}[label=(\arabic*)]
 				\item Si $f$ est constante, alors $\ssup{f}-\sinf{f}=0<\eps$.
 				\item Si $f$ est croissante,
 
-				Soit $\eps>0$
+				Soit $\eps>0$.
 
-				Soit $n \in \naturels$ t.q. $n\eps>(b-a)(f(b)-f(a))$
+				Soit $n \in \naturels$ t.q. $n\eps>(b-a)(f(b)-f(a))$.
 
-				Soit $\Delta:a=x_0<x_1<\dotsc<x_n=b$ avec $x_i=a+i\frac{b-a}{n}, i\in[0..n]$
+				Soit $\Delta:a=x_0<x_1<\dotsc<x_n=b$ avec $x_i=a+i\frac{b-a}{n}, i \in \{1,2,\dots,n\}$.
 
 				On a
 				\begin{align*}
@@ -396,31 +402,31 @@ Donn\'e par Mario Lambert}
 	\begin{thm}
 		~
 
-		Si $f_1,f_2 \in \riemann$, alors $f_1+f_2 \in \riemann$ et $\int \left( f_1+f_2 \right) =\int f_1 + \int f_2$.
-		\begin{proof}[d\'emonstration]~
+		Si $f_1,f_2 \in \riemann$, alors $f_1+f_2 \in \riemann$ et $\dint{}{}{\left( f_1+f_2 \right)} =\dint{}{}{f_1} + \dint{}{}{f_2}$.
+		\begin{proof}~
 
 			Soit $\eps>0$.
 
-			Comme $f_i \in \riemann$, $\exists\Delta_i \in \partitions$ t.q. $\ssup{f_i}[\Delta_i]-\sinf{f_i}[\Delta_i]<\frac{\eps}{2}$.
+			Comme $f_i \in \riemann$, $\exists\Delta_i \in \partitions$ t.q. $\ssup{f_i}[\Delta_i]-\sinf{f_i}[\Delta_i]<\dfrac{\eps}{2}$.
 
 			Soit $\Delta = \raffinement{\Delta_1}{\Delta_2}$.
 
-			Alors, $\ssup{f_i}-\sinf{f_i}<\frac{\eps}{2}$.
+			Alors, $\ssup{f_i}-\sinf{f_i}<\dfrac{\eps}{2}$.
 
 			Supposons $\Delta:a=x_0<x_1<\dotsc<x_n=b$.
 
 			On a
 			\begin{align*}
-				\ssup{f_1+f_2}&\leq \ssup{f_1} + \ssup{f_2}\\
-				\sinf{f_1+f_2}&\geq \sinf{f_1} + \sinf{f_2}
+				\ssup{f_1+f_2}&\lte \ssup{f_1} + \ssup{f_2}\\
+				\sinf{f_1+f_2}&\gte \sinf{f_1} + \sinf{f_2}
 			\end{align*}
 
-			Car $\sup(f_1+f_2) \leq \sup f_1 + \sup f_2$ et $\inf(f_1+f_2) \geq \inf f_1 + \inf f_2$.
+			Car $\sup(f_1+f_2) \lte \sup f_1 + \sup f_2$ et $\inf(f_1+f_2) \gte \inf f_1 + \inf f_2$.
 
 			Alors,
 			\begin{align*}
-				\ssup{f_1+f_2}-\sinf{f_1+f_2}&\leq \ssup{f_1} + \ssup{f_2} - \sinf{f_1} - \sinf{f_2}\\
-				&< \frac{\eps}{2} + \frac{\eps}{2}\\
+				\ssup{f_1+f_2}-\sinf{f_1+f_2}&\lte \ssup{f_1} + \ssup{f_2} - \sinf{f_1} - \sinf{f_2}\\
+				&< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
 				&= \eps
 			\end{align*}
 
@@ -428,38 +434,73 @@ Donn\'e par Mario Lambert}
 
 			De plus,
 			\begin{align*}
-				\int_{a}^{b}f_1+f_2&\leq \ssup{f_1+f_2}\\
-				&\leq \ssup{f_1} + \ssup{f_2}\\
-				&< \sinf{f_1}+\frac{\eps}{2} + \sinf{f_2}+\frac{\eps}{2}\\
-				&\leq \int_{a}^{b}f_1+\frac{\eps}{2} + \int_{a}^{b}f_2+\frac{\eps}{2}
+				\dint{a}{b}{f_1+f_2}&\lte \ssup{f_1+f_2}\\
+				&\lte \ssup{f_1} + \ssup{f_2}\\
+				&< \sinf{f_1}+\dfrac{\eps}{2} + \sinf{f_2}+\dfrac{\eps}{2}\\
+				&\lte \dint{a}{b}{f_1}+\dfrac{\eps}{2} + \dint{a}{b}{f_2}+\dfrac{\eps}{2}
 			\end{align*}
 
-			Ainsi, $\int_{a}^{b}f_1+f_2 < \int_{a}^{b}f_1 + \int_{a}^{b}f_2 + \eps$, $\forall\eps>0$.
+			Ainsi, $\dint{a}{b}{f_1+f_2} < \dint{a}{b}{f_1} + \dint{a}{b}{f_2} + \eps$, $\forall\eps>0$.
 
-			Donc, $\int_{a}^{b}f_1+f_2 \leq \int_{a}^{b}f_1 + \int_{a}^{b}f_2$.
+			Donc, $\dint{a}{b}{f_1+f_2} \lte \dint{a}{b}{f_1} + \dint{a}{b}{f_2}$.
 
-			De m\^eme, on peut montrer que $\int_{a}^{b}f_1+f_2 \geq \int_{a}^{b}f_1 + \int_{a}^{b}f_2$.
+			De m\^eme, on peut montrer que $\dint{a}{b}{f_1+f_2} \gte \dint{a}{b}{f_1} + \dint{a}{b}{f_2}$.
 
-			Donc, $\int_{a}^{b}f_1+f_2 = \int_{a}^{b}f_1 + \int_{a}^{b}f_2$.
+			Donc, $\dint{a}{b}{f_1+f_2} = \dint{a}{b}{f_1} + \dint{a}{b}{f_2}$.
 		\end{proof}
 	\end{thm}
 	\begin{thm}
 		~
 
-		Si $f \in \riemann$ et $\lambda \in \reels$, alors $\lambda f \in \riemann$ et $\int \lambda f = \lambda \int f$.
-		\begin{proof}[d\'emonstration]~
+		Si $f \in \riemann$ et $\lambda \in \reels$, alors $\lambda f \in \riemann$ et $\dint{}{}{\lambda f} = \lambda \dint{}{}{f}$.
+		\begin{proof}~
 
-			Laiss\'e en exercice.
-
-			Utiliser $\frac{\eps}{\lambda}$ et $\ssup{\lambda f} = \lambda\ssup{f}$.
+			Soit $\eps>0$.
+			
+			Comme $f \in \riemann$, $\exists\Delta \in \partitions$ t.q. $\ssup{f} - \sinf{f} < \dfrac{\eps}{\lambda}$.
+			
+			On a
+			\begin{align*}
+				\ssup{\lambda f}&= \lambda \ssup{f}\\
+				\sinf{\lambda f}&= \lambda \sinf{f}
+			\end{align*}
+			
+			Car $\sup(\lambda f) = \lambda \sup f$ et $\inf(\lambda f) = \lambda \inf f$.
+			
+			Alors,
+			\begin{align*}
+				\ssup{\lambda f} - \sinf{\lambda f}&= \lambda \ssup{f} - \lambda \sinf{f}\\
+				&= \lambda \left( \ssup{f} - \sinf{f} \right)\\
+				&< \lambda \cdot \dfrac{\eps}{\lambda}\\
+				&= \eps
+			\end{align*}
+			
+			Donc, $\lambda f \in \riemann$.
+			
+			De plus,
+			\begin{align*}
+				\dint{a}{b}{\lambda f}&\lte \ssup{\lambda f}\\
+				&= \lambda \ssup{f}\\
+				&< \lambda \left( \sinf{f} + \dfrac{\eps}{\lambda} \right)\\
+				&= \lambda \sinf{f} + \eps\\
+				&\lte \lambda \dint{a}{b}{f} + \eps
+			\end{align*}
+			
+			Ainsi, $\dint{a}{b}{\lambda f} < \lambda \dint{a}{b}{f} + \eps$, $\forall\eps>0$.
+			
+			Donc, $\dint{a}{b}{\lambda f} \lte \lambda \dint{a}{b}{f}$.
+			
+			De m\^eme, on peut montrer que $\dint{a}{b}{\lambda f} \gte \lambda \dint{a}{b}{f}$.
+			
+			Donc, $\dint{a}{b}{\lambda f} = \lambda \dint{a}{b}{f}$.
 		\end{proof}
 		\begin{coro}
 			~
 
-			Si $f,g \in \riemann$, alors $f \leq g \Rightarrow \int f \leq \int g$.
-			\begin{proof}[d\'emonstration]~
+			Si $f,g \in \riemann$, alors $f \lte g \Rightarrow \dint{}{}{f} \lte \dint{}{}{g}$.
+			\begin{proof}~
 
-				$g-f \geq 0 \Rightarrow \int g-f \geq 0 \Rightarrow \int g - \int f \geq 0$.
+				$g-f \gte 0 \Rightarrow \dint{}{}{g-f} \gte 0 \Rightarrow \dint{}{}{g} - \dint{}{}{f} \gte 0$.
 			\end{proof}
 		\end{coro}
 	\end{thm}
@@ -468,8 +509,8 @@ Donn\'e par Mario Lambert}
 	\begin{thm}[In\'egalit\'e du triangle]
 		~
 
-		Si $f \in \riemann$, alors $\abs{f} \in \riemann$ et $\abs{\int f} \leq \int\abs{f}$.
-		\begin{proof}[d\'emonstration]~
+		Si $f \in \riemann$, alors $\abs{f} \in \riemann$ et $\abs{\dint{}{}{f}} \lte \dint{}{}{\abs{f}}$.
+		\begin{proof}~
 
 			Soit $\eps>0$
 
@@ -477,8 +518,8 @@ Donn\'e par Mario Lambert}
 
 			On a
 			\begin{align*}
-				\ssup{\abs{f}}-\sinf{\abs{f}}&= \sum_{i=1}^{n}\left[ \msup{\abs{f}}[x_{i-1},x_i] - \minf{\abs{f}}[x_{i-1},x_i] \right] \left( x_i-x_{i-1} \right)\\
-				&\leq \sum_{i=1}^{n}\left[ \msup{f}[x_{i-1},x_i] - \minf{f}[x_{i-1},x_i] \right] \left( x_i-x_{i-1} \right)\\
+				\ssup{\abs{f}}-\sinf{\abs{f}}&= \dsum{i}{1}{n}{\left[ \msup{\abs{f}}[x_{i-1},x_i] - \minf{\abs{f}}[x_{i-1},x_i] \right] \left( x_i-x_{i-1} \right)}\\
+				&\lte \dsum{i}{1}{n}{\left[ \msup{f}[x_{i-1},x_i] - \minf{f}[x_{i-1},x_i] \right] \left( x_i-x_{i-1} \right)}\\
 				&= \ssup{f}-\sinf{f}\\
 				&< \eps
 			\end{align*}
@@ -487,16 +528,16 @@ Donn\'e par Mario Lambert}
 
 			Enfin,
 			\begin{align*}
-				-\abs{f} \leq f \leq \abs{f}&\Rightarrow -\int\abs{f} \leq \int f \leq \int\abs{f}\\
-				&\Rightarrow \int f \leq \int\abs{f}
+				-\abs{f} \lte f \lte \abs{f}&\Rightarrow -\dint{}{}{\abs{f}} \lte \dint{}{}{f} \lte \dint{}{}{\abs{f}}\\
+				&\Rightarrow \dint{}{}{f} \lte \dint{}{}{\abs{f}}
 			\end{align*}
 		\end{proof}
 	\end{thm}
 	\begin{thm}
 		~
 
-		Si $f \in \riemann$ et $a \leq c < d \leq b$, alors $f|_{[c,d]} \in \riemann$.
-		\begin{proof}[d\'emonstration]~
+		Si $f \in \riemann$ et $a \lte c < d \lte b$, alors $\left. f \right|_{[c,d]} \in \riemann$.
+		\begin{proof}~
 
 			Soit $\eps>0$
 
@@ -504,7 +545,7 @@ Donn\'e par Mario Lambert}
 
 			Soit $\Delta_2$ le raffinement de $\Delta_1$ en ajoutant les points $c$ et $d$.
 
-			Alors, $\ssup{f}[\Delta_2]-\sinf{f}[\Delta_2] \leq \ssup{f}[\Delta_1]-\sinf{f}[\Delta_1] < \eps$
+			Alors, $\ssup{f}[\Delta_2]-\sinf{f}[\Delta_2] \lte \ssup{f}[\Delta_1]-\sinf{f}[\Delta_1] < \eps$
 
 			Donc, $f \in \riemann[c,d]$.
 		\end{proof}
@@ -512,34 +553,34 @@ Donn\'e par Mario Lambert}
 	\begin{thm}
 		~
 
-		Si $f \in \riemann$ et $a<c<b$, alors $\int_{a}^{b}f = \int_{a}^{c}f + \int_{c}^{b}f$.
-		\begin{proof}[d\'emonstration]~
+		Si $f \in \riemann$ et $a<c<b$, alors $\dint{a}{b}{f} = \dint{a}{c}{f} + \dint{c}{b}{f}$.
+		\begin{proof}~
 
 			Soit $\eps>0$
 
-			$f \in \riemann \Rightarrow f \in \riemann[a,c] \Rightarrow \exists\Delta_1 \in \partitions[a,c]$ t.q. $\ssup{f}[\Delta_1] - \sinf{f}[\Delta_1] < \frac{\eps}{2}$.
+			$f \in \riemann \Rightarrow f \in \riemann[a,c] \Rightarrow \exists\Delta_1 \in \partitions[a,c]$ t.q. $\ssup{f}[\Delta_1] - \sinf{f}[\Delta_1] < \dfrac{\eps}{2}$.
 
-			De m\^eme, $\exists\Delta_2 \in \partitions[c,b]$ t.q. $\ssup{f}[\Delta_2] - \sinf{f}[\Delta_2] < \frac{\eps}{2}$.
+			De m\^eme, $\exists\Delta_2 \in \partitions[c,b]$ t.q. $\ssup{f}[\Delta_2] - \sinf{f}[\Delta_2] < \dfrac{\eps}{2}$.
 
 			Posons $\Delta = \raffinement{\Delta_1}{\Delta_2}$. Alors, $\Delta \in \partitions$ et
 			\begin{align*}
-				\int_{a}^{b}f&\leq \ssup{f}\\
+				\dint{a}{b}{f}&\lte \ssup{f}\\
 				&= \ssup{f}[\Delta_1] + \ssup{f}[\Delta_2]\\
-				&< \sinf{f}[\Delta_1] + \frac{\eps}{2} + \sinf{f}[\Delta_2] + \frac{\eps}{2}\\
+				&< \sinf{f}[\Delta_1] + \dfrac{\eps}{2} + \sinf{f}[\Delta_2] + \dfrac{\eps}{2}\\
 				&= \sinf{f}[\Delta_1] + \sinf{f}[\Delta_2] + \eps\\
-				&\leq \int_{a}^{c}f + \int_{c}^{b}f + \eps
+				&\lte \dint{a}{c}{f} + \dint{c}{b}{f} + \eps
 			\end{align*}
 
-			Comme $\eps>0$ est arbitraire, on a $\int_{a}^{b}f \leq \int_{a}^{c}f + \int_{c}^{b}f$.
+			Comme $\eps>0$ est arbitraire, on a $\dint{a}{b}{f} \lte \dint{a}{c}{f} + \dint{c}{b}{f}$.
 
-			De m\^eme, $\int_{a}^{b}f \geq \int_{a}^{c}f + \int_{c}^{b}f$.
+			De m\^eme, $\dint{a}{b}{f} \gte \dint{a}{c}{f} + \dint{c}{b}{f}$.
 		\end{proof}
 	\end{thm}
 	\begin{thm}
 		Soit $f \in \bornee$. Soit $n \in \naturels$.
 
 		Si $f$ poss\`ede $n$ discontinuit\'es dans $[a,b]$, alors $f \in \riemann$.
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			Pour $n=0$, $f \in \continue$, donc $f \in \riemann$ est un r\'esultat connu.
 
@@ -556,7 +597,7 @@ Donn\'e par Mario Lambert}
 			\begin{enumerate}
 				\item $a$ ou $b$ est une discontinuit\'e
 
-				SPDG, supposons que $a$ est la discontinuit\'e.
+				Sans perte de g\'en\'eralit\'e, supposons que $a$ est la discontinuit\'e.
 
 				Soit $\eta \in \reels^+$ t.q. $a$ est l'unique discontinuit\'e de $[a,a+\eta]$ et $\eta < \dfrac{\eps}{4M}$.
 
@@ -571,7 +612,7 @@ Donn\'e par Mario Lambert}
 				On a donc
 				\begin{align*}
 					\ssup{f}[\Delta_\eps] - \sinf{f}[\Delta_\eps]&= \left( \ssup{f} - \sinf{f} \right) + \left( \msup{f}[a,a+\eta] - \minf{f}[a,a+\eta] \right) \eta\\
-					&< \frac{\eps}{2} + 2M\eta\\
+					&< \dfrac{\eps}{2} + 2M\eta\\
 					&< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
 					&= \eps
 				\end{align*}
@@ -581,11 +622,9 @@ Donn\'e par Mario Lambert}
 
 				Soit $\eta \in \reels^+$ t.q. $c$ est l'unique discontinuit\'e de $[c-\eta,c+\eta] \subset [a,b]$ et $\eta < \dfrac{\eps}{8M}$.
 
-				Alors, $[a,c-\eta]$ et $[c+\eta,b]$ contiennent au plus $n$ discontinuit\'es, par l'hypoth\`ese de r\'ecurrence
+				Alors, $[a,c-\eta]$ et $[c+\eta,b]$ contiennent au plus $n$ discontinuit\'es, donc par l'hypoth\`ese de r\'ecurrence:
 
-				$\exists\Delta_1\in \partitions[a,c-\eta]$ t.q.  $\ssup{f}[\Delta_1] - \sinf{f}[\Delta_1] < \frac{\eps}{4}$.
-
-				$\exists\Delta_2\in \partitions[c+\eta,b]$ t.q.  $\ssup{f}[\Delta_2] - \sinf{f}[\Delta_2] < \frac{\eps}{4}$.
+				$\exists\Delta_1\in \partitions[a,c-\eta]$ t.q.  $\ssup{f}[\Delta_1] - \sinf{f}[\Delta_1] < \dfrac{\eps}{4}$ et $\exists\Delta_2\in \partitions[c+\eta,b]$ t.q.  $\ssup{f}[\Delta_2] - \sinf{f}[\Delta_2] < \dfrac{\eps}{4}$.
 
 				Posons $\Delta_\eps = \raffinement{\Delta_1}{\Delta_2}$.
 
@@ -647,24 +686,24 @@ Donn\'e par Mario Lambert}
 	\end{thm}
 
 	\begin{lem}
-		Si $f \in \bornee$, $\Delta,\Delta' \in \partitions$ et $\Delta'$ s'obtient de $\Delta$ en ajoutant un unique point, alors $\ssup{f} - \ssup{f}[\Delta'] \leq 2\msup{\abs{f}}[a,b] \cdot \norme{\Delta}$.
+		Si $f \in \bornee$, $\Delta,\Delta' \in \partitions$ et $\Delta'$ s'obtient de $\Delta$ en ajoutant un unique point, alors $\ssup{f} - \ssup{f}[\Delta'] \lte 2\msup{\abs{f}}[a,b] \cdot \norme{\Delta}$.
 
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
-			Soient $\Delta:a=x_0 < x_1 < \dotsc < x_{i-1} < x_i < \dotsc < x_n=b$.
-
+			Soient $\Delta:a=x_0 < x_1 < \dotsc < x_{i-1} < x_i < \dotsc < x_n=b$ et
+			
 			$\Delta':a=x_0 < x_1 < \dotsc < x_{i-1} < \bar{x} < x_i < \dotsc < x_n=b$.
 
 			\begin{align*}
 				\ssup{f} - \ssup{f}[\Delta'] &= \msup{f}[x_{i-1},x_i] \cdot \left( x_i-x_{i-1} \right) - \msup{f}[x_{i-1},\bar{x}] \cdot \left( \bar{x}-x_{i-1} \right) - \msup{f}[\bar{x},x_i] \cdot \left( x_i-\bar{x} \right)\\
-				&= \left( \bar{x}-x_{i-1} \right) \left( \msup{f}[x_{i-1},x_i] - \msup{f}[x_{i-1},\bar{x}] \right) + \left( x_i-\bar{x} \right) \left( \msup{f}[x_{i-1},x_-i] - \msup{f}[\bar{x},x_i] \right)\\
-				&\leq 2\msup{\abs{f}}[x_{i-1}x_i] \left( \left( \bar{x}-x_{i-1} \right) - \left( x_i-\bar{x} \right) \right)\\
-				&\leq 2\msup{\abs{f}} \norme{\Delta}
+				&= \left( \bar{x}-x_{i-1} \right) \left( \msup{f}[x_{i-1},x_i] - \msup{f}[x_{i-1},\bar{x}] \right) + \left( x_i-\bar{x} \right) \left( \msup{f}[x_{i-1},x_i] - \msup{f}[\bar{x},x_i] \right)\\
+				&\lte 2\msup{\abs{f}}[x_{i-1},x_i] \left( \left( \bar{x}-x_{i-1} \right) - \left( x_i-\bar{x} \right) \right)\\
+				&\lte 2\msup{\abs{f}} \norme{\Delta}
 			\end{align*}
 		\end{proof}
 
 		\begin{coro}
-			Si $f \in \bornee$, $\Delta,\Delta' \in \partitions$ et $\Delta'$ s'obtient de $\Delta$ en ajoutant $p$ points, au plus un point par sous-intervalle de $\Delta$, alors $\ssup{f} - \ssup{f}[\Delta'] \leq 2p\msup{\abs{f}}[a,b] \cdot \norme{\Delta}$.
+			Si $f \in \bornee$, $\Delta,\Delta' \in \partitions$ et $\Delta'$ s'obtient de $\Delta$ en ajoutant $p$ points, au plus un point par sous-intervalle de $\Delta$, alors $\ssup{f} - \ssup{f}[\Delta'] \lte 2p\msup{\abs{f}}[a,b] \cdot \norme{\Delta}$.
 		\end{coro}
 	\end{lem}
 
@@ -675,15 +714,15 @@ Donn\'e par Mario Lambert}
 		Si $f \in \bornee$, alors
 		\begin{align*}
 			\begin{split}
-				\Ssup{f}&= \lim\limits_{\norme{\Delta} \to 0} \ssup{f}
+				\Ssup{f}&= \dlim{\norme{\Delta}}{0}{\ssup{f}}
 			\end{split}
 			&
 			\begin{split}
-				\Sinf{f}&= \lim\limits_{\norme{\Delta} \to 0} \sinf{f}
+				\Sinf{f}&= \dlim{\norme{\Delta}}{0}{\sinf{f}}
 			\end{split}
 		\end{align*}
 
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			Soit $\eps>0$.
 
@@ -691,7 +730,7 @@ Donn\'e par Mario Lambert}
 
 			Ainsi, $\exists\Delta_0 : a=x_0 < \dotsc < x_n=b$ t.q. $\ssup{f}[\Delta_0] < \Ssup{f} + \dfrac{\eps}{2}$.
 
-			Soit $\delta>0$ t.q. $\delta < \min\limits_{i \in [1..n]}\abs{x_i-x_{i-1}}$ et $\delta < \dfrac{\eps}{4 (n-1) \msup{\abs{f}}}$.
+			Soit $\delta>0$ t.q. $\delta < \min\limits_{i \in \{1,2,\dots,n\}}\abs{x_i-x_{i-1}}$ et $\delta < \dfrac{\eps}{4 (n-1) \msup{\abs{f}}}$.
 
 			Soit $\Delta \in \partitions$ t.q. $\norme{\Delta} < \delta$.
 
@@ -699,18 +738,18 @@ Donn\'e par Mario Lambert}
 
 			Consid\'erons $\Delta' = \raffinement{\Delta}{\Delta_0}$.
 
-			Comme $\norme{\Delta'} \leq \norme{\Delta} < \norme{\Delta_0}$, aucun sous-intervalle ouvert de $\Delta$ ne contient plus d'un point de $\Delta_0$.
+			Comme $\norme{\Delta'} \lte \norme{\Delta} < \norme{\Delta_0}$, aucun sous-intervalle ouvert de $\Delta$ ne contient plus d'un point de $\Delta_0$.
 
 			Comme $\Delta'$ s'obtient de $\Delta$ en ajoutant au plus $n-1$ points $\left( x_1, x_2, \dotsc, x_{n-1} \right)$,
 			\begin{align*}
-				\ssup{f} - \ssup{f}[\Delta'] &\leq 2(n-1) \msup{\abs{f}} \norme{\Delta}\\
+				\ssup{f} - \ssup{f}[\Delta'] &\lte 2(n-1) \msup{\abs{f}} \norme{\Delta}\\
 				&< 2(n-1) \msup{f} \delta\\
 				&< \dfrac{\eps}{2}
 			\end{align*}
 
 			On a donc
 			\begin{align*}
-				\ssup{f} &\leq \ssup{f}[\Delta'] + \dfrac{\eps}{2}\\
+				\ssup{f} &\lte \ssup{f}[\Delta'] + \dfrac{\eps}{2}\\
 				&< \ssup{f}[\Delta_0] + \dfrac{\eps}{2}\\
 				&< \Ssup{f} + \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
 				&= \Ssup{f} + \eps
@@ -718,13 +757,13 @@ Donn\'e par Mario Lambert}
 
 			Comme $\eps>0$ est arbitraire, on a donc
 			\begin{align*}
-				\lim\limits_{\norme{\Delta} \to 0}\ssup{f}&= \Ssup{f}
+				\dlim{\norme{\Delta}}{0}{\ssup{f}}&= \Ssup{f}
 			\end{align*}
 
 			Enfin,
 			\begin{align*}
-				\lim\limits_{\norme{\Delta} \to 0} \sinf{f}&= \lim\limits_{\norme{\Delta} \to 0} -\ssup{-f}\\
-				&= -\lim\limits_{\norme{\Delta} \to 0} \ssup{-f}\\
+				\dlim{\norme{\Delta}}{0}{\sinf{f}}&= \dlim{\norme{\Delta}}{0}{-\ssup{-f}}\\
+				&= -\dlim{\norme{\Delta}}{0}{\ssup{-f}}\\
 				&= -\Ssup{-f}\\
 				&= \Sinf{f}
 			\end{align*}
@@ -738,14 +777,14 @@ Donn\'e par Mario Lambert}
 
 		Soit $\Delta : a=x_0 < x_1 < \dotsc < x_n=b \in \partitions$.
 
-		Soient $\bar{x}_i \in [x_{i-1},x_i]$, pour $i \in [1..n]$.
+		Soient $\bar{x}_i \in [x_{i-1},x_i]$, pour $i \in \{1,2,\dots,n\}$.
 
 		Le nombre r\'eel
 		\begin{align*}
-			\srie{f}&= \sum_{i=1}^{n}f(\bar{x}_i) \cdot (x_i-x_{i-1})
+			\srie{f}&= \dsum{i}{1}{n}{f(\bar{x}_i) \cdot (x_i-x_{i-1})}
 		\end{align*}
 
-		est appel\'e \emph{somme de Riemann} de la fonction $f$ correspondant \`a la partition $\Delta$ et aux points $\{\bar{x}_i\}_{i \in [1..n]}$.
+		est appel\'e \emph{somme de Riemann} de la fonction $f$ correspondant \`a la partition $\Delta$ et aux points $\{\bar{x}_i\}_{i \in \{1,2,\dots,n\}}$.
 	\end{defin}
 
 	\begin{thm}
@@ -755,25 +794,25 @@ Donn\'e par Mario Lambert}
 
 		Alors, $(\forall\eps>0)$, $(\exists\delta=\delta(\eps))$ t.q. pour toute partition $\Delta$ de $[a,b]$ avec $\norme{\Delta}<\delta$ et pour tout choix de points $\{\bar{x}_i\}$, on a
 		\[
-		\abs{\int_{a}^{b}f - S(f, \Delta, \{\bar{x}_i\})} < \eps
+		\abs{\dint{a}{b}{f} - S(f, \Delta, \{\bar{x}_i\})} < \eps
 		\]
 
 		c'est-\`a-dire.
 		\[
-		\lim_{\norme{\Delta} \to 0}\srie{f} = \int_{a}^{b}f
+		\dlim{\norme{\Delta}}{0}{\srie{f}} = \dint{a}{b}{f}
 		\]
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
-			On a $\sinf{f} \leq S(f, \Delta, \{\bar{x}_i\}) \leq \ssup{f}$.
+			On a $\sinf{f} \lte S(f, \Delta, \{\bar{x}_i\}) \lte \ssup{f}$.
 
 			Donc,
 			\[
-			\Sinf{f} = \lim_{\norme{\Delta} \to 0}\sinf{f} \leq \lim_{\norme{\Delta} \to 0}\srie{f} \leq \lim_{\norme{\Delta} \to 0}\ssup{f} = \Ssup{f}
+			\Sinf{f} = \dlim{\norme{\Delta}}{0}{\sinf{f}} \lte \dlim{\norme{\Delta}}{0}{\srie{f}} \lte \dlim{\norme{\Delta}}{0}{\ssup{f}} = \Ssup{f}
 			\]
 
-			Comme $f \in \riemann$, on a $\Sinf{f} = \Ssup{f} = \displaystyle\int_{a}^{b}f$.
+			Comme $f \in \riemann$, on a $\Sinf{f} = \Ssup{f} = \dint{a}{b}{f}$.
 
-			Par le th\'eor\`eme du sandwich, $\srie{f} = \displaystyle\int_a^bf$.
+			Par le th\'eor\`eme du sandwich, $\srie{f} = \dint{a}{b}{f}$.
 		\end{proof}
 	\end{thm}
 
@@ -782,16 +821,16 @@ Donn\'e par Mario Lambert}
 
 		Soit $f \in \riemann$.
 
-		Alors, $\exists\mu \in \left[ \minf{f}[a,b], \msup{f}[a,b] \right]$ t.q. $\displaystyle\int_{a}^{b}f = (b-a) \cdot \mu$.
-		\begin{proof}[d\'emonstration]~
+		Alors, $\exists\mu \in \left[ \minf{f}[a,b], \msup{f}[a,b] \right]$ t.q. $\dint{a}{b}{f} = (b-a) \cdot \mu$.
+		\begin{proof}~
 
 			Soit $\phi$ la fonction donn\'ee par $\phi(x)=(b-a)x$.
 
-			On a $\minf{f} \leq f \leq \msup{f}$.
+			On a $\minf{f} \lte f \lte \msup{f}$.
 
 			Donc
 			\[
-			\phi(\minf{f}) = (b-a)\minf{f} = \int_{a}^{b}\minf{f} \leq \int_{a}^{b}f \leq \msup{f} = (b-a)\msup{f} = \phi(\msup{f})
+			\phi(\minf{f}) = (b-a)\minf{f} = \dint{a}{b}{\minf{f}} \lte \dint{a}{b}{f} \lte \dint{a}{b}{\msup{f}} = (b-a)\msup{f} = \phi(\msup{f})
 			\]
 			\begin{rapp}
 				\begin{thm}[Th\'eor\`eme de valeur interm\'ediaire]~
@@ -802,10 +841,12 @@ Donn\'e par Mario Lambert}
 
 			Comme $\phi$ est continue sur $[\minf{f},\msup{f}]$, du TVI, $\exists\mu\in[\minf{f},\msup{f}]$ t.q. $\phi(\mu)=c$ pour tout $c \in [\phi(\minf{f}),\phi(\msup{f})]$.
 
-			En particulier, si $c=\displaystyle\int_{a}^{b}f$, $\exists\mu$ t.q. $\phi(\mu)=\displaystyle\int_{a}^{b}c$, c'est-\`a-dire t.q. $(b-a)\mu=\displaystyle\int_{a}^{b}f$.
+			En particulier, si $c=\dint{a}{b}{f}$, $\exists\mu$ t.q. $\phi(\mu)=\dint{a}{b}{c}$, c'est-\`a-dire t.q. $(b-a)\mu=\dint{a}{b}{f}$.
 		\end{proof}
 	\end{thm}
 
+
+	\subsection{Th\'eor\`eme fondamental du calcul diff\'erentiel et int\'egral}
 	\begin{thm}
 		~
 
@@ -814,26 +855,26 @@ Donn\'e par Mario Lambert}
 		Soit
 		$\begin{array}{rcl}
 			F:[a,b]&\to&\reels\\
-			x&\mapsto&F(x) = \displaystyle\int_{a}^{x}f(f) dt
+			x&\mapsto&F(x) = \displaystyle\int_{a}^{x}f(t) dt
 		\end{array}$
 
 		Alors,
 		\begin{enumerate}[label=\alph*)]
-			\item $\abs{F(x_1)-F(x_2)} \leq \msup{\abs{f}}(b-a) \cdot \abs{x_1-x_2}$ pour tous $x_1,x_2 \in [a,b]$;
+			\item $\abs{F(x_1)-F(x_2)} \lte \msup{\abs{f}}(b-a) \cdot \abs{x_1-x_2}$ pour tous $x_1,x_2 \in [a,b]$;
 			\item $F$ est uniform\'ement continue sur $[a,b]$;
 			\item Si $f$ est continue, alors $F$ est diff\'erentiable et $F'=f$.
 		\end{enumerate}
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{enumerate}[label=\alph*)]
-				\item Supp $x_1>x_2$
+				\item Supposons que $x_1>x_2$
 
 				On a
 				\begin{align*}
-					\abs{F(x_1)-F(x_2)}&= \abs{\int_{a}^{x_1}f - \int_{a}^{x_2}f}\\
-					&= \abs{\int_{x_2}^{x_1}f}\\
-					&\leq \int_{x_2}^{x_1}\abs{f}\\
-					&\leq \int_{x_2}^{x_1}\msup{\abs{f}}\\
+					\abs{F(x_1)-F(x_2)}&= \abs{\dint{a}{x_1}{f} - \dint{a}{x_2}{f}}\\
+					&= \abs{\dint{x_2}{x_1}{f}}\\
+					&\lte \dint{x_2}{x_1}{\abs{f}}\\
+					&\lte \dint{x_2}{x_1}{\msup{\abs{f}}}\\
 					&= \msup{\abs{f}} \cdot \abs{x_1-x_2}
 				\end{align*}
 				\item Soit $\eps>0$.
@@ -844,7 +885,7 @@ Donn\'e par Mario Lambert}
 
 				Alors,
 				\begin{align*}
-					\abs{F(x)-F(y)}&\leq \msup{\abs{f}} \cdot \abs{x-y}\\
+					\abs{F(x)-F(y)}&\lte \msup{\abs{f}} \cdot \abs{x-y}\\
 					&< \msup{\abs{f}} \cdot \delta\\
 					&= \eps
 				\end{align*}
@@ -852,18 +893,16 @@ Donn\'e par Mario Lambert}
 
 				On a
 				\begin{align*}
-					F'(x_0)&= \lim_{x \to x_0}\dfrac{F(x)-F(x_0)}{x-x_0}\\
-					&= \lim_{x \to x_0}\dfrac{\int_{a}^{x}f - \int_{a}^{x_0}}{x-x_0}\\
-					&= \lim_{x \to x_0}\dfrac{\int_{x_0}^{x}f}{x-x_0}\\
-					&\overset{\text{Loi de la moyenne}}{=} \lim_{x \to x_0}\dfrac{(x-x_0)f(x_0+\theta(x-x_0))}{x-x_0}&&\theta \in [0,1]\\
-					&= \lim_{x \to x_0}f(x_0+\theta(x-x_0))\\
+					F'(x_0)&= \dlim{x}{x_0}{\dfrac{F(x)-F(x_0)}{x-x_0}}\\
+					&= \dlim{x}{x_0}{\dfrac{\dint{a}{x}{f} - \dint{a}{x_0}{f}}{x-x_0}}\\
+					&= \dlim{x}{x_0}{\dfrac{\dint{x_0}{x}{f}}{x-x_0}}\\
+					&\overset{\text{Loi de la moyenne}}{=} \dlim{x}{x_0}{\dfrac{(x-x_0)f(x_0+\theta(x-x_0))}{x-x_0}}&&\theta \in [0,1]\\
+					&= \dlim{x}{x_0}{f(x_0+\theta(x-x_0))}\\
 					&= f(x_0)
 				\end{align*}
 			\end{enumerate}
 		\end{proof}
 	\end{thm}
-
-	\subsection{Th\'eor\`eme fondamental du calcul diff\'erentiel et int\'egral}
 	\begin{nota}
 		$F$ est une primitive de $f$.
 	\end{nota}
@@ -875,8 +914,8 @@ Donn\'e par Mario Lambert}
 	\end{coro}
 	\begin{thm}[Th\'eor\`eme fondamental du calcul int\'egral]~
 
-		Si $f \in \riemann$ et $F$ est une primitive de $f$, alors $\int_{a}^{b}f=F(b)-F(a)$.
-		\begin{proof}[d\'emonstration]~
+		Si $f \in \riemann$ et $F$ est une primitive de $f$, alors $\dint{a}{b}{f}=F(b)-F(a)$.
+		\begin{proof}~
 
 			Soit $\Delta:a=x_0<x_1<\dotsc<x_n=b \in \partitions$.
 
@@ -884,33 +923,33 @@ Donn\'e par Mario Lambert}
 
 			On a
 			\begin{align*}
-				F(b)-F(a)&= \sum_{i=1}^{n}\left[ F(x_i)-F(x_{i-1}) \right]\\
-				&= \sum_{i=1}^{n}(x_i-x_{i-1}) \cdot f(t_i)
+				F(b)-F(a)&= \dsum{i}{1}{n}{\left[ F(x_i)-F(x_{i-1}) \right]}\\
+				&= \dsum{i}{1}{n}{(x_i-x_{i-1}) \cdot f(t_i)}
 			\end{align*}
 
 			De plus,
 			\[
 			\begin{array}{rrcccl}
-				&\minf{f}[x_{i-1},x_i] &\leq& f(t_i) &\leq& \msup{f}[x_{i-1},x_i]\\
-				\Rightarrow&\displaystyle\sum_{i=1}^{n}(x_i-x_{i-1})\minf{f}[x_{i-1},x_i] &\leq& \displaystyle\sum_{i=1}^{n}(x_i-x_{i-1})f(t_i) &\leq& \displaystyle\sum_{i=1}^{n}(x_i-x_{i-1})\msup{f}[x_{i-1},x_i]\\
-				\Rightarrow&\sinf{f} &\leq& F(b)-F(a) &\leq& \ssup{f}\\
-				\Rightarrow&\displaystyle\int_{a}^{b}f=\Sinf{f}=\lim\limits_{\norme{\Delta}\to0}\sinf{f} &\leq& F(b)-F(a) &\leq& \lim\limits_{\norme{\Delta}\to0}\ssup{f}=\Ssup{f}=\displaystyle\int_{a}^{b}f
+				&\minf{f}[x_{i-1},x_i] &\lte& f(t_i) &\lte& \msup{f}[x_{i-1},x_i]\\
+				\Rightarrow&\dsum{i}{1}{n}{(x_i-x_{i-1})\minf{f}[x_{i-1},x_i]} &\lte& \dsum{i}{1}{n}{(x_i-x_{i-1})f(t_i)} &\lte& \dsum{i}{1}{n}{(x_i-x_{i-1})\msup{f}[x_{i-1},x_i]}\\
+				\Rightarrow&\sinf{f} &\lte& F(b)-F(a) &\lte& \ssup{f}\\
+				\Rightarrow&\dint{a}{b}{f}=\Sinf{f}=\dlim{\norme{\Delta}}{0}{\sinf{f}} &\lte& F(b)-F(a) &\lte& \dlim{\norme{\Delta}}{0}{\ssup{f}}=\Ssup{f}=\dint{a}{b}{f}
 			\end{array}
 			\]
 
-			Donc, $\int_{a}^{b}f=F(b)-F(a)$.
+			Donc, $\dint{a}{b}{f}=F(b)-F(a)$.
 		\end{proof}
 	\end{thm}
 	\begin{prop}
 		Soit $f:[a,b] \to \reels$ t.q. $f(x)=0$ sauf peut-\^etre en un nombre fini de points. Alors,
 		\begin{enumerate}[label=\alph*)]
 			\item $f \in \riemann$;
-			\item $\int_{a}^{b}f=0$.
+			\item $\dint{a}{b}{f}=0$.
 		\end{enumerate}
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{enumerate}[label=\alph*)]
-				\item d\'ej\`a fait
+				\item d\'ej\`a fait, car $f$ est continue sauf en un nombre fini de points.
 				\item Soit $p$ le nombre de points o\`u $f \neq 0$.
 
 				Pour $p=0$, c'est trivial.
@@ -921,7 +960,7 @@ Donn\'e par Mario Lambert}
 
 				Il y a deux cas \`a consid\'erer
 				\begin{enumerate}[label=\arabic*)]
-					\item $\exists c \in [a,b]$ avec $f(c) \neq 0$.
+					\item $\exists c \in ]a,b[$ avec $f(c) \neq 0$.
 
 					Soit $\eps>0$.
 
@@ -935,11 +974,11 @@ Donn\'e par Mario Lambert}
 					Par l'hypoth\`ese de r\'ecurrence,
 					\[
 					\begin{array}{rcccl}
-						\displaystyle\int_{a}^{c-\eta}f&=&0&\displaystyle\int_{c+\eta}^{b}f
+						\displaystyle\int_{a}^{c-\eta}f&=&0&=&\displaystyle\int_{c+\eta}^{b}f
 					\end{array}
 					\]
 
-					Du crit\`ere d'int\'egrabilit\'e, $\exists \Delta_1:a<x_0<x_1,\dotsc<x_n=c-\eta$, $\exists \Delta_2:c+\eta=y_0<y_1<\dotsc<y_n=b$ t.q. $\ssup{f}[\Delta_i] \leq \ssup{f}[\Delta_i]-\sinf{f}[\Delta_i]<\frac{\eps}{4}$, pour $i\in\{1,2\}$.
+					Du crit\`ere d'int\'egrabilit\'e, $\exists \Delta_1:a<x_0<x_1,\dotsc<x_n=c-\eta$, $\exists \Delta_2:c+\eta=y_0<y_1<\dotsc<y_n=b$ t.q. $\ssup{f}[\Delta_i] \lte \ssup{f}[\Delta_i]-\sinf{f}[\Delta_i]<\dfrac{\eps}{4}$, pour $i\in\{1,2\}$.
 
 					Prenons $\Delta=\raffinement{\Delta_1}{\Delta_2}$.
 
@@ -947,25 +986,25 @@ Donn\'e par Mario Lambert}
 					\begin{align*}
 						\begin{split}
 							\ssup{f}&= \ssup{f}[\Delta_1] + 2\eta \msup{f}[c-\eta,c+\eta] + \ssup{f}[\Delta_2]\\
-							&\leq \ssup{f}[\Delta_1] + 2\eta \msup{f} + \ssup{f}[\Delta_2]\\
-							&< \frac{\eps}{4} + \frac{\eps}{2} + \frac{\eps}{4}\\
+							&\lte \ssup{f}[\Delta_1] + 2\eta \msup{f} + \ssup{f}[\Delta_2]\\
+							&< \dfrac{\eps}{4} + \dfrac{\eps}{2} + \dfrac{\eps}{4}\\
 							&= \eps
 						\end{split}
 					\end{align*}
 
-					De m\^eme, $\sinf{f}[\Delta_i] > \ssup{f}[\Delta_i] < \frac{\eps}{4}$, pour $i\in\{1,2\}$.
+					De m\^eme, $\sinf{f}[\Delta_i] \lte \ssup{f}[\Delta_i] < \dfrac{\eps}{4}$, pour $i\in\{1,2\}$.
 
 					et
 					\begin{align*}
 						\sinf{f}&= \sinf{f}[\Delta_1] + 2\eta \minf{f}[c-\eta,c+\eta] + \sinf{f}[\Delta_2]\\
-						&\leq \sinf{f}[\Delta_1] + 2\eta \minf{f} + \sinf{f}[\Delta_2]\\
-						&< -\frac{\eps}{4} - \frac{\eps}{2} - \frac{\eps}{4}\\
+						&\gte \sinf{f}[\Delta_1] + 2\eta \minf{f} + \sinf{f}[\Delta_2]\\
+						&> -\dfrac{\eps}{4} - \dfrac{\eps}{2} - \dfrac{\eps}{4}\\
 						&= -\eps
 					\end{align*}
 
-					Donc, $\eps < \sinf{f} \leq \ssup{f} < \eps$.
+					Donc, $-\eps < \sinf{f} \lte \ssup{f} < \eps$.
 
-					Comme $\eps>0$ est arbirtaire, on en d\'eduit que $\int_{a}^{b}f=0$.
+					Comme $\eps>0$ est arbirtaire, on en d\'eduit que $\dint{a}{b}{f}=0$.
 					\item $f(c)\neq0$ en $a$ ou en $b$.
 
 					On proc\`ede de la m\^eme mani\`ere avec un sous-intervalle de largeur $\eta$ autour de $a$ et de $b$ t.q. $a$ et $b$ sont les seules discontinuit\'es dans ces intervalles.
@@ -974,27 +1013,28 @@ Donn\'e par Mario Lambert}
 		\end{proof}
 	\end{prop}
 	\begin{coro}
-		Si $f \in \riemann$ et $g:[a,b] \to \reels$ t.q. $f=g$ sauf peut-\^etre en nu nombre fini de points, alors $\int_{a}^{b}f = \int_{a}^{b}g$.
+		Si $f \in \riemann$ et $g:[a,b] \to \reels$ t.q. $f=g$ sauf peut-\^etre en un nombre fini de points, alors $\dint{a}{b}{f} = \int_{a}^{b}g$.
 	\end{coro}
 
+\newpage
 	\section{Techniques d'int\'egration}
 	\begin{thm}[Int\'egration par parties]~
 
 		Soient $f,g:[a,b] \to \reels$ deux fonctions diff\'erentiables t.q. $f',g' \in \riemann$. Alors,
 		\[
-		\int_{a}^{b}fg'=fg\mid_a^b-\int_{a}^{b}gf'
+		\dint{a}{b}{f}g' = \left. fg \right|_a^b-\dint{a}{b}{gf'}
 		\]
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			Posons $h=fg$.
 
 			Alors,
 			\begin{align*}
 				h'&= f'g + fg'\\
-				\int_{a}^{b} h'&= \int_{a}^{b} f'g + \int_{a}^{b} fg'\\
-				\int_{a}^{b} fg'&= \int_{a}^{b} h - \int_{a}^{b} f'g\\
-				&= h\mid_a^b - \int_{a}^{b} f'g\\
-				&= fg\mid_a^b - \int_{a}^{b} f'g
+				\dint{a}{b}{h'}&= \dint{a}{b}{f'g} + \dint{a}{b}{fg'}\\
+				\dint{a}{b}{fg'}&= \dint{a}{b}{h} - \dint{a}{b}{f'g}\\
+				&= \left. h \right|_a^b - \dint{a}{b}{f'g}\\
+				&= \left. fg \right|_a^b - \dint{a}{b}{f'g}
 			\end{align*}
 		\end{proof}
 	\end{thm}
@@ -1004,15 +1044,15 @@ Donn\'e par Mario Lambert}
 
 		Si $\phi(\alpha)=a$ et $\phi(\beta)=b$, alors
 		\begin{align*}
-			\int_{a}^{b}f(x) dx&= \int_{\alpha}^{\beta}f(\phi(t))\phi'(t) dt
+			\dint{a}{b}{f(x) dx}&= \dint{\alpha}{\beta}{f(\phi(t))\phi'(t) dt}
 		\end{align*}
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
-			Posons $h(x)=\int_{a}^{x}f(t) dt$.
+			Posons $h(x)=\dint{a}{x}{f(t) dt}$.
 
 			Du th\'eor\`eme fondamental, $h$ est uniform\'ement continue, diff\'erentiable et $h'=f$.
 
-			Soit $g(t)=(h \circ \phi)(t) = h(\phi(t)) = \int_{a}^{\phi(t)}f(t) dt$.
+			Soit $g(t)=(h \circ \phi)(t) = h(\phi(t)) = \dint{a}{\phi(t)}{f(x) dx}$.
 
 			On a $h,\phi$ diff\'erentiables, donc $g$ l'est aussi et
 			\begin{align*}
@@ -1022,12 +1062,12 @@ Donn\'e par Mario Lambert}
 
 			Enfin,
 			\begin{align*}
-				\int_{\alpha}^{\beta}f(\phi(t)) \cdot \phi'(t) dt&= \int_{\alpha}^{\beta}g'(t) dt\\
+				\dint{\alpha}{\beta}{f(\phi(t)) \cdot \phi'(t) dt}&= \dint{\alpha}{\beta}{g'(t) dt}\\
 				&= g(\beta)-g(\alpha)\\
 				&= h(\phi(\beta)) - h(\phi(\alpha))\\
 				&= h(b)-h(a)\\
-				&= \int_{a}^{b}f(t) dt - \int_{a}^{a}f(t) dt\\
-				&= \int_{a}^{b}f(t) dt
+				&= \dint{a}{b}{f(t) dt} - \dint{a}{a}{f(t) dt}\\
+				&= \dint{a}{b}{f(t) dt}
 			\end{align*}
 		\end{proof}
 	\end{thm}
@@ -1056,24 +1096,24 @@ Donn\'e par Mario Lambert}
 		\begin{exem}
 			~
 
-			$\displaystyle\int\dfrac{x^2}{\sqrt{x-1}} = \displaystyle\int x^2(x-1)^{\sfrac{-1}{2}}$.
+			$\dint{}{}{\dfrac{x^2}{\sqrt{x-1}}} = \dint{}{}{x^2(x-1)^{\sfrac{-1}{2}}}$.
 
 			Posons $x-1=t^2$.
 
 			Alors, $dx=2t dt$.
 
-			On obtient $\displaystyle\int x^2(x-1)^{\sfrac{-1}{2}} = \displaystyle\int (t^2-1)^2(t^2)^{\sfrac{-1}{2}}2tdt = 2 \int (t^2+1)^2 dt$.
+			On obtient $\dint{}{}{x^2(x-1)^{\sfrac{-1}{2}}} = \dint{}{}{(t^2-1)^2(t^2)^{\sfrac{-1}{2}}2tdt} = 2 \dint{}{}{(t^2+1)^2 dt}$.
 		\end{exem}
-		\item $\displaystyle\int x^\alpha(a+bx^\beta)^\gamma dx$ avec $\alpha,\beta,\gamma \in \rationels$.
+		\item $\dint{}{}{x^\alpha(a+bx^\beta)^\gamma dx}$ avec $\alpha,\beta,\gamma \in \rationels$.
 
 		On pose $t=x^\beta$.
 
 		Alors, $dt = \beta x^{\beta-1} dx$.
 
-		Donc, $dx = \dfrac{dt}{\beta x^{\beta-1}} = \dfrac{dt}{\beta t^{\sfrac{\beta-1}{\beta}}}$.
+		Donc, $dx = \dfrac{dt}{\beta x^{\beta-1}} = \dfrac{dt}{\beta t^{\sfrac{(\beta-1)}{\beta}}}$.
 		\begin{exem}~
 
-			$\displaystyle\int\dfrac{dx}{x^4\sqrt{1+x^2}} = \displaystyle\int x^{-4}(1+x^2)^{\sfrac{-1}{2}} dx$.
+			$\dint{}{}{\dfrac{dx}{x^4\sqrt{1+x^2}}} = \dint{}{}{x^{-4}(1+x^2)^{\sfrac{-1}{2}} dx}$.
 
 			Posons $t=x^2$.
 
@@ -1081,9 +1121,9 @@ Donn\'e par Mario Lambert}
 
 			On obtient
 			\begin{align*}
-				\int x^{-4}(1+x^2)^{\sfrac{-1}{2}} dx&= \int t^{-2} (1+t)^{\sfrac{-1}{2}} \dfrac{dt}{2\sqrt{t}}\\
-				&= \dfrac{1}{2} \int t^{\sfrac{-5}{2}}(1+t)^{\sfrac{-1}{2}} dt\\
-				&=\dfrac{1}{2}\int t^{-3}(\dfrac{1+t}{t})^{\sfrac{-1}{2}} dt
+				\dint{}{}{x^{-4}(1+x^2)^{\sfrac{-1}{2}} dx}&= \dint{}{}{t^{-2} (1+t)^{\sfrac{-1}{2}} \dfrac{dt}{2\sqrt{t}}}\\
+				&= \dfrac{1}{2} \dint{}{}{t^{\sfrac{-5}{2}}(1+t)^{\sfrac{-1}{2}} dt}\\
+				&=\dfrac{1}{2}\dint{}{}{t^{-3}\left(\dfrac{1+t}{t}\right)^{\sfrac{-1}{2}} dt}
 			\end{align*}
 
 			Posons $u^2=\dfrac{1+t}{t} = 1+\dfrac{1}{t}$. On a $u^2-1=\dfrac{1}{t} \Rightarrow t=\dfrac{1}{u^2-1}$.
@@ -1092,8 +1132,8 @@ Donn\'e par Mario Lambert}
 
 			Ainsi,
 			\begin{align*}
-				\dfrac{1}{2} \int t^{-3} \left( \dfrac{1+t}{t} \right)^{\sfrac{-1}{2}} dt&= -\dfrac{1}{2} \int (u^2-1)^3 u^{-1} (u^2-1)^{-1} 2udu\\
-				&= -\int (u^2-1) du
+				\dfrac{1}{2} \dint{}{}{t^{-3} \left( \dfrac{1+t}{t} \right)^{\sfrac{-1}{2}} dt}&= -\dfrac{1}{2} \dint{}{}{(u^2-1)^3 u^{-1} (u^2-1)^{-2} 2udu}\\
+				&= -\dint{}{}{(u^2-1) du}
 			\end{align*}
 		\end{exem}
 		\item $f(\sin x, \cos x)$.
@@ -1103,13 +1143,13 @@ Donn\'e par Mario Lambert}
 		Alors, $dx = \dfrac{2}{1+t^2} dt$.
 		\begin{exem}~
 
-			$\displaystyle\int \dfrac{dx}{2+\cos x}$.
+			$\dint{}{}{\dfrac{dx}{2+\cos x}}$.
 
 			On a
 			\begin{align*}
 				\cos x&= \cos^2\frac{x}{2} - \sin^2\frac{x}{2}\\
 				&= \dfrac{\cos^2\frac{x}{2}} {\cos^2\frac{x}{2} - \sin^2\frac{x}{2}} - \dfrac{\sin^2\frac{x}{2}} {\cos^2\frac{x}{2} + \sin^2\frac{x}{2}}\\
-				&= \dfrac{1}{\dfrac{\cos^2 + \sin^2} {\cos^2}} - \dfrac{\dfrac{1}{\cos^2} (\sin^2)} {\dfrac{1}{\cos^2} (\cos^2 + \sin^2)}\\
+				&= \dfrac{1}{\dfrac{\cos^2\frac{x}{2} + \sin^2\frac{x}{2}}{\cos^2\frac{x}{2}}} - \dfrac{\dfrac{1}{\cos^2\frac{x}{2}}\left(\sin^2\frac{x}{2}\right)} {\dfrac{1}{\cos^2\frac{x}{2}} \left(\cos^2\frac{x}{2} + \sin^2\frac{x}{2}\right)}\\
 				&= \dfrac{1}{1 + \tan^2 \frac{x}{2}} - \dfrac{\tan^2 \frac{x}{2}} {1 + \tan^2 \frac{x}{2}}\\
 				&= \dfrac{1 - \tan^2 \frac{x}{2}}{1 + \tan^2 \frac{x}{2}}\\
 				&= \dfrac{1-t^2}{1+t^2}
@@ -1117,9 +1157,9 @@ Donn\'e par Mario Lambert}
 
 			Alors,
 			\begin{align*}
-				\int\dfrac{dx}{2+\cos x}&= \int\dfrac{2dt}{1+t^2} \dfrac{1}{2 + \dfrac{1 - t^2}{1 + t^2}}\\
-				&= \int\dfrac{2dt}{3+t^2}\\
-				&= 2\int\dfrac{dt}{t^2+\sqrt{3}^2}\\
+				\dint{}{}{\dfrac{dx}{2+\cos x}}&= \dint{}{}{\dfrac{2dt}{1+t^2} \dfrac{1}{2 + \dfrac{1 - t^2}{1 + t^2}}}\\
+				&= \dint{}{}{\dfrac{2dt}{3+t^2}}\\
+				&= 2\dint{}{}{\dfrac{dt}{t^2+\sqrt{3}^2}}\\
 				&= \dfrac{2}{\sqrt{3}} \arctan\dfrac{t}{\sqrt{3}}\\
 				&= \dfrac{2}{\sqrt{3}} \arctan \dfrac{\tan \frac{x}{2}}{\sqrt{3}}
 			\end{align*}
@@ -1129,10 +1169,10 @@ Donn\'e par Mario Lambert}
 		On pose $x=a\sin t$. On a $dx=a\cos t dt$.
 		\begin{exem}
 			\begin{align*}
-				\int x^2\sqrt{a^2-x^2} dx&= \int a^2\sin^2t \sqrt{a^2-a^2\sin^2t} a\cos t dt\\
-				&= \int a^4 \sin^2t \cos^2 t dt\\
-				&= \int a^4 \dfrac{1}{4} \sin^2 2t dt\\
-				&= \int \dfrac{a^4}{4} \cdot \dfrac{1-\cos 4t}{2} dt\\
+				\dint{}{}{x^2\sqrt{a^2-x^2} dx}&= \dint{}{}{a^2\sin^2t \sqrt{a^2-a^2\sin^2t} a\cos t dt}\\
+				&= \dint{}{}{a^4 \sin^2t \cos^2 t dt}\\
+				&= \dint{}{}{a^4 \dfrac{1}{4} \sin^2 2t dt}\\
+				&= \dint{}{}{\dfrac{a^4}{4} \cdot \dfrac{1-\cos 4t}{2} dt}\\
 				&= \dfrac{a^4}{8} \left[ t - \dfrac{\sin 4t}{4} \right]
 			\end{align*}
 		\end{exem}
@@ -1192,27 +1232,28 @@ Donn\'e par Mario Lambert}
 		On pose $x = a \cosh t$. On a $dx = a \sinh t dt$.
 		\begin{exem}
 			\begin{align*}
-				\int \dfrac{x^2}{\sqrt{x^2-a^2}} dx &= \int \dfrac{a^2\cosh^2t}{\sqrt{a^2\cosh^2t-a^2}}a\sinh tdt\\
-				&= \int \dfrac{a^2\cosh^2t}{a\sinh t}a\sinh tdt\\
-				&= \int a^2\cosh^2tdt\\
-				&= \int a^2 \dfrac{a+\cosh 2t}{2}dt\\
+				\dint{}{}{\dfrac{x^2}{\sqrt{x^2-a^2}} dx}&= \dint{}{}{\dfrac{a^2\cosh^2t}{\sqrt{a^2\cosh^2t-a^2}}a\sinh tdt}\\
+				&= \dint{}{}{\dfrac{a^2\cosh^2t}{a\sinh t}a\sinh tdt}\\
+				&= \dint{}{}{a^2\cosh^2tdt}\\
+				&= \dint{}{}{a^2 \dfrac{a+\cosh 2t}{2}dt}\\
 				&= \dfrac{a^2t}{2} + \dfrac{a^2}{2}\dfrac{\sinh2t}{2}
 			\end{align*}
 		\end{exem}
 		\begin{rema}
 			$\mathrm{arccosh}t = \ln\left( t+\sqrt{t^2-1} \right)$, $\mathrm{arcsinh}t = \ln\left( t+\sqrt{1+t^2} \right)$.
 		\end{rema}
+		\newpage
 		\item $f\left( x, \sqrt{x^2+a^2} \right)$.
 
 		On pose $x = a\sinh t$. On a $dx = a\cosh t dt$.
 		\begin{exem}
 			\begin{align*}
-				\int \dfrac{x^3}{(x^2+a^2)^{\sfrac{3}{2}}} dx &= \int \dfrac{a^3\sinh^3t}{(a^2\sinh^2t+a^2)^{\sfrac{3}{2}}} a\cosh t dt\\
-				&= \int \dfrac{a^3\sinh^3t}{a^3\cosh^3t} a\cosh t dt\\
-				&= a\int \dfrac{\sinh^3t}{\cosh^2t} dt\\
-				&= a\int \dfrac{\sinh t \sinh^2t}{\cosh^2t} dt\\
-				&= a\int \dfrac{\sinh t (\cosh^2t-1)}{\cosh^2t} dt\\
-				&= a\int \left( \sinh t - \dfrac{\sinh t}{\cosh^2t} \right) dt\\
+				\dint{}{}{\dfrac{x^3}{(x^2+a^2)^{\sfrac{3}{2}}} dx}&= \dint{}{}{\dfrac{a^3\sinh^3t}{(a^2\sinh^2t+a^2)^{\sfrac{3}{2}}} a\cosh t dt}\\
+				&= \dint{}{}{\dfrac{a^3\sinh^3t}{a^3\cosh^3t} a\cosh t dt}\\
+				&= a\dint{}{}{\dfrac{\sinh^3t}{\cosh^2t} dt}\\
+				&= a\dint{}{}{\dfrac{\sinh t \sinh^2t}{\cosh^2t} dt}\\
+				&= a\dint{}{}{\dfrac{\sinh t (\cosh^2t-1)}{\cosh^2t} dt}\\
+				&= a\dint{}{}{\left( \sinh t - \dfrac{\sinh t}{\cosh^2t} \right) dt}\\
 				&\text{posons }u=\cosh t, du=\sinh t dt\\
 				&= a\cosh t + \dfrac{a}{\cosh t}\\
 				&= a\sqrt{\cosh^2t} + \dfrac{a}{\sqrt{\cosh^2t}}\\
@@ -1220,21 +1261,21 @@ Donn\'e par Mario Lambert}
 				&= a\sqrt{1+ \left( \frac{x}{a} \right) ^2} + \dfrac{a}{\sqrt{1+ \left( \frac{x}{a} \right) ^2}}
 			\end{align*}
 		\end{exem}
-		\item $f\left( \sqrt{x^2+2bx+c} \right)$, avec $x^2+2bx+c$ irr\'eductible dans $\reels$.
+		\item $f\left( x,\sqrt{x^2+2bx+c} \right)$, avec $x^2+2bx+c$ irr\'eductible dans $\reels$.
 
 		On a $x^2+2bx+c = (x+b)^2+(c-b^2)$.
 
 		On pose $t = x+b$. On a $dt = dx$.
 		\begin{exem}
 			\begin{align*}
-				\int \dfrac{x}{\sqrt{x^2+4x+5}} dx &= \int \dfrac{x}{\sqrt{(x+2)^2}+1} dx\\
+				\dint{}{}{\dfrac{x}{\sqrt{x^2+4x+5}} dx}&= \dint{}{}{\dfrac{x}{\sqrt{(x+2)^2+1}} dx}\\
 				&\text{posons }t=x+2, dt=dx\\
-				&= \int \dfrac{t-2}{\sqrt{t^2+1}} dt\\
-				&= \int \dfrac{t}{\sqrt{t^2+1}} dt - 2\int \dfrac{dt}{\sqrt{t^2+1}}\\
+				&= \dint{}{}{\dfrac{t-2}{\sqrt{t^2+1}} dt}\\
+				&= \dint{}{}{\dfrac{t}{\sqrt{t^2+1}} dt} - 2\dint{}{}{\dfrac{dt}{\sqrt{t^2+1}}}\\
 				&\text{posons }u=t^2+1, du=2tdt\\
 				&\text{posons }t=\sinh v, dt = \cosh v dv\\
-				&= \dfrac{1}{2}\int \dfrac{du}{\sqrt{u}} - 2\int \dfrac{\cosh v dv}{\sqrt{\sinh^2v+1}}\\
-				&= \sqrt{u} - 2\int dv\\
+				&= \dfrac{1}{2}\dint{}{}{\dfrac{du}{\sqrt{u}}} - 2\dint{}{}{\dfrac{\cosh v dv}{\sqrt{\sinh^2v+1}}}\\
+				&= \sqrt{u} - 2\dint{}{}{dv}\\
 				&= \sqrt{u} - 2v\\
 				&= \sqrt{t^2+1} - 2 \mathrm{arcsinh}t\\
 				&= \sqrt{t^2+1} - 2\ln(t+\sqrt{1+t^2})\\
@@ -1247,71 +1288,71 @@ Donn\'e par Mario Lambert}
 	\begin{defin}
 		$f:[a,\infty[$ continue par morceaux.
 
-		L'int\'egrale impropre (de 1\textsuperscript{\`ere} esp\`ece) de $f$ est $\displaystyle\int_{a}^{\infty}f(x)dx = \lim\limits_{y \to \infty}\displaystyle\int_{a}^{y}f(x)dx$.
+		L'int\'egrale impropre (de 1\textsuperscript{\`ere} esp\`ece) de $f$ est $\dint{a}{\infty}{f(x)dx} = \dlim{y}{\infty}{\dint{a}{y}{f(x)dx}}$.
 
 		Si la limite existe, on dit que l'int\'egrale converge.
 		\begin{exem}~
 
 			\begin{enumerate}
 				\item \begin{align*}
-					\int_{1}^{\infty}\dfrac{dx}{x}&= \lim_{y \to \infty}\int_{1}^{y}\dfrac{dx}{x}\\
-					&= \lim_{y \to \infty}(\ln y - \ln1)\\
+					\dint{1}{\infty}{\dfrac{dx}{x}}&= \dlim{y}{\infty}{\dint{1}{y}{dfrac{dx}{x}}}\\
+					&= \dlim{y}{\infty}{(\ln y - \ln1)}\\
 					&= \infty
 				\end{align*}
 				diverge
 				\item \begin{align*}
-					\int_{1}^{\infty}\dfrac{dx}{x^p}&= \lim_{y \to \infty}\int_{1}^{y}x^{-p}dx\\
-					&= \left. \lim_{y \to \infty}\dfrac{x^{-p+1}}{-p+1}\right| ^y_1\\
-					&= \lim_{y \to \infty}\left( \dfrac{y^{1-p}}{1-p} - \dfrac{1}{1-p} \right)
+					\dint{1}{\infty}{\dfrac{dx}{x^p}}&= \dlim{y}{\infty}{\dint{1}{y}{x^{-p}dx}}\\
+					&= \left. \dlim{y}{\infty}{\dfrac{x^{-p+1}}{-p+1}} \right| ^y_1\\
+					&= \dlim{y}{\infty}{\left( \dfrac{y^{1-p}}{1-p} - \dfrac{1}{1-p} \right)}
 				\end{align*}
 
 				Si $p>1$, alors $1-p<0$ et $y^{1-p} \xrightarrow[y \to \infty]{} 0$.
 
-				On a alors $\displaystyle\int_{1}^{\infty}\dfrac{dx}{x^p} = \dfrac{1}{1-p}$.
+				On a alors $\dint{1}{\infty}{\dfrac{dx}{x^p}} = \dfrac{1}{1-p}$.
 
 				Si $p<1$, alors $1-p>0$ et $y^{1-p} \xrightarrow[y \to \infty]{} \infty$.
 
-				On a alors que $\displaystyle\int_{1}^{\infty}\dfrac{dx}{x^p}$ diverge.
+				On a alors que $\dint{1}{\infty}{\dfrac{dx}{x^p}}$ diverge.
 
 				Si $p=1$, c'est le cas 1, qui diverge.
 				\item \begin{align*}
-					\int_{0}^{\infty}e^{-sx}dx&= \lim_{y \to \infty}\int_{0}^{y}e^{-sx}\\
-					&= \left. \lim_{y \to \infty}\dfrac{e^{-sx}}{-s}\right|^y_0\\
-					&= \lim_{y \to \infty}\left( \dfrac{e^{-sy}}{-s} + \dfrac{1}{s} \right)
+					\dint{0}{\infty}{e^{-sx}dx}&= \dlim{y}{\infty}{\dint{0}{y}{e^{-sx}}}\\
+					&= \left. \dlim{y}{\infty}{\dfrac{e^{-sx}}{-s}} \right|^y_0\\
+					&= \dlim{y}{\infty}{\left( \dfrac{e^{-sy}}{-s} + \dfrac{1}{s} \right)}
 				\end{align*}
 
 				Si $s<0$, alors $-sy>0$ et l'int\'egrale diverge.
 
 				Si $s>0$, alors $-sy<0$ et l'int\'egrale converge vers $\frac{1}{s}$.
 
-				Si $s=0$, alors $\displaystyle\int_{0}^{\infty}e^{-sx}dx = \displaystyle\int_{0}^{\infty}dx$ diverge.
+				Si $s=0$, alors $\dint{0}{\infty}{e^{-sx}dx} = \dint{0}{\infty}{dx}$ diverge.
 				\item \begin{align*}
-					\int_{0}^{\infty}\dfrac{dx}{x^2+1}&= \lim_{y \to \infty}\int_{0}^{\infty}\dfrac{dx}{x^2+1}\\
-					&= \lim_{y \to \infty}(\arctan y - \arctan0)\\
+					\dint{0}{\infty}{\dfrac{dx}{x^2+1}}&= \dlim{y}{\infty}{\dint{0}{\infty}{\dfrac{dx}{x^2+1}}}\\
+					&= \dlim{y}{\infty}{(\arctan y - \arctan0)}\\
 					&= \frac{\pi}{2}
 				\end{align*}
 			\end{enumerate}
 		\end{exem}
 	\end{defin}
 	\begin{defin}
-		$f:]a,b]$ continue, mais t.q. $\lim_{x \to a^+}f(x)$ n'existe pas.
+		$f:]a,b]$ continue, mais t.q. $\dlim{x}{a^+}{f(x)}$ n'existe pas.
 
-		L'int\'egrale impropre (de 2\textsuperscript{\`eme} esp\`ece) de $f$ est $\displaystyle\int_{a}^{b}f(x)dx = \lim\limits_{y \to a^+}\displaystyle\int_{y}^{b}f(x)dx$.
+		L'int\'egrale impropre (de 2\textsuperscript{\`eme} esp\`ece) de $f$ est $\dint{a}{b}{f}(x)dx = \dlim{y}{a^+}{\dint{y}{b}{f(x)dx}}$.
 
-		Si le limite existe, on dit que l'int\'egrale converge.
+		Si la limite existe, on dit que l'int\'egrale converge.
 		\begin{exem}~
 
 			\begin{enumerate}
 				\item \begin{align*}
-					\int_{0}^{1}\dfrac{dx}{x}&= \lim_{y \to 0^+}\int_{y}^{b}\dfrac{dx}{x}\\
-					&= \lim_{y \to 0^+}(\ln1-\ln y)\\
+					\dint{0}{1}{\dfrac{dx}{x}}&= \dlim{y}{0^+}{\dint{y}{b}{\dfrac{dx}{x}}}\\
+					&= \dlim{y}{0^+}{(\ln1-\ln y)}\\
 					&= \infty
 				\end{align*}
 				diverge
 				\item \begin{align*}
-					\int_{0}^{1}\dfrac{dx}{x^p}&= \lim_{y \to 0^+}\int_{y}^{1}\dfrac{dx}{x^p}\\
-					&= \lim_{y \to 0^+}\left. \dfrac{x^{-p+1}}{-p+1} \right|^1_y\\
-					&= \dfrac{1}{1-p} - \lim_{y \to 0^+}\dfrac{y^{1-p}}{1-p}
+					\dint{0}{1}{\dfrac{dx}{x^p}}&= \dlim{y}{0^+}{\dint{y}{1}{\dfrac{dx}{x^p}}}\\
+					&= \left. \dlim{y}{0^+}{\dfrac{x^{-p+1}}{-p+1}} \right|^1_y\\
+					&= \dfrac{1}{1-p} - \dlim{y}{0^+}{\dfrac{y^{1-p}}{1-p}}
 				\end{align*}
 
 				Si $p>1$, alors $1-p<0$ et l'int\'egrale diverge.
@@ -1320,8 +1361,8 @@ Donn\'e par Mario Lambert}
 
 				Si $p=1$, alors c'est le cas 1, qui diverge.
 				\item \begin{align*}
-					\int_{0}^{1}\dfrac{dx}{\sqrt{1-x^2}}&= \lim_{y \to 1^-}\int_{0}^{y}\dfrac{dx}{\sqrt{1-x^2}}\\
-					&= \lim_{y \to 1^-}(\arcsin y - \arcsin0)\\
+					\dint{0}{1}{\dfrac{dx}{\sqrt{1-x^2}}}&= \dlim{y}{1^-}{\dint{0}{y}{\dfrac{dx}{\sqrt{1-x^2}}}}\\
+					&= \dlim{y}{1^-}{(\arcsin y - \arcsin0)}\\
 					&= \dfrac{\pi}{2}
 				\end{align*}
 			\end{enumerate}
@@ -1331,23 +1372,23 @@ Donn\'e par Mario Lambert}
 
 		\begin{enumerate}
 			\item \begin{align*}
-				\int_{0}^{\infty}\dfrac{dx}{x}&= \overbrace{\int_{0}^{b}\dfrac{dx}{x}}^{\text{2\textsuperscript{\`eme} esp}} + \overbrace{\int_{b}^{\infty}\dfrac{dx}{x}}^{\text{1\textsuperscript{\`ere} esp}}\\
-				&= \lim_{y \to 0^+}\int_{y}^{b}\dfrac{dx}{x} + \lim_{y \to \infty}\int_{b}^{y}\dfrac{dx}{x}
+				\dint{0}{\infty}{\dfrac{dx}{x}}&= \overbrace{\dint{0}{b}{\dfrac{dx}{x}}}^{\text{2\textsuperscript{\`eme} esp}} + \overbrace{\dint{b}{\infty}{\dfrac{dx}{x}}}^{\text{1\textsuperscript{\`ere} esp}}\\
+				&= \dlim{y}{0^+}{\dint{y}{b}{\dfrac{dx}{x}}} + \dlim{y}{\infty}{\dint{b}{y}{\dfrac{dx}{x}}}
 			\end{align*}
 
-			$\displaystyle\int_{0}^{\infty}\dfrac{dx}{x}$ converge ssi les deux limites existent.
+			$\dint{0}{\infty}{\dfrac{dx}{x}}$ converge si, et seulement si, les deux limites existent.
 			\item \begin{align*}
-				\int_{-\infty}^{\infty}\sin xdx&= \lim_{y \to \infty}\int_{-y}^{y}\sin xdx\\
-				&= \left. \lim_{y \to \infty} \cos x\right|^y_{-y}\\
-				&= \lim_{y \to \infty}(\cos y - \cos (-y)) = \lim_{y \to \infty}0\\
+				\dint{-\infty}{\infty}{\sin xdx}&= \dlim{y}{\infty}{\dint{-y}{y}{\sin xdx}}\\
+				&= \left. \dlim{y}{\infty}{\cos x} \right|^y_{-y}\\
+				&= \dlim{y}{\infty}{(\cos y - \cos (-y))} = \dlim{y}{\infty}{0}\\
 				&= 0
 			\end{align*}
 
 			Cependant,
 			\begin{align*}
-				\int_{-\infty}^{\infty}\sin xdx&= \int_{-\infty}^{0}\sin xdx + \int_{0}^{\infty}\sin xdx\\
-				&= \lim_{y \to \infty}\int_{-y}^{0}\sin xdx + \lim_{y \to \infty}\int_{0}^{y}\sin xdx\\
-				&= \lim_{y \to \infty}(\cos(-y)-\cos y) + \lim_{y \to \infty}(\cos0-\cos y)
+				\dint{-\infty}{\infty}{\sin xdx}&= \dint{-\infty}{0}{\sin xdx} + \dint{0}{\infty}{\sin xdx}\\
+				&= \dlim{y}{\infty}{\dint{-y}{0}{\sin xdx}} + \dlim{y}{\infty}{\dint{0}{y}{\sin xdx}}\\
+				&= \dlim{y}{\infty}{(\cos0-\cos(-y))} + \dlim{y}{\infty}{(\cos0-\cos y)}
 			\end{align*}
 			diverge
 
@@ -1356,39 +1397,39 @@ Donn\'e par Mario Lambert}
 	\end{rema}
 	\begin{thm}[Crit\`ere de Cauchy]~
 
-		$\displaystyle\int_{a}^{\infty}f(x)dx$ converge ssi $(\forall\eps>0) (\exists M \geq a)$ t.q. $M \leq y_1 \leq y_2 \Rightarrow \abs{\displaystyle\int_{y_1}^{y_2}}<\eps$.
-		\begin{proof}[d\'emonstration]~
+		$\dint{a}{\infty}{f(x)dx}$ converge si, et seulement si, $(\forall\eps>0) (\exists M \gte a)$ t.q. $M \lte y_1 \lte y_2 \Rightarrow \abs{\dint{y_1}{y_2}{f(x)dx}}<\eps$.
+		\begin{proof}~
 
-			Posons $F(y) = \displaystyle\int_{a}^{y}f(x)dx$.
+			Posons $F(y) = \dint{a}{y}{f(x)dx}$.
 			\begin{itemize}
-				\item[$(\Rightarrow)$] Supposons que $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+				\item[$(\Rightarrow)$] Supposons que $\dint{a}{\infty}{f(x)dx}$ converge.
 
-				Soit $L = \lim\limits_{y \to \infty}\displaystyle\int_{a}^{y}f(x)dx$.
+				Soit $L = \dlim{y}{\infty}{\dint{a}{y}{f(x)dx}}$.
 
-				Alors, $(\forall\eps>0) (\exists M \geq a)$ t.q. $y \leq M \Rightarrow \abs{F(y)-L}<\dfrac{\eps}{2}$.
+				Alors, $(\forall\eps>0) (\exists M \gte a)$ t.q. $y \lte M \Rightarrow \abs{F(y)-L}<\dfrac{\eps}{2}$.
 
-				Soient $y_1,y_2$ avec $M \leq y_1 \leq y_2$.
+				Soient $y_1,y_2$ avec $M \lte y_1 \lte y_2$.
 
 				On a
 				\begin{align*}
-					\abs{\int_{y_1}^{y_2}f(x)dx}&= \abs{F(y_2)-F(y_1)}\\
+					\abs{\dint{y_1}{y_2}{f(x)dx}}&= \abs{F(y_2)-F(y_1)}\\
 					&= \abs{F(y_2)-L+L-F(y_1)}\\
-					&\leq \abs{F(y_2)-L} + \abs{F(y_1)-L}\\
+					&\lte \abs{F(y_2)-L} + \abs{F(y_1)-L}\\
 					&< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
 					&= \eps
 				\end{align*}
-				\item[$(\Leftarrow)$] Supposons que $(\forall\eps>0)(\exists M \geq a)$, $M \leq y_1 \leq y_2 \Rightarrow \abs{\int_{y_1}^{y_2}f(x)dx} < \eps$.
+				\item[$(\Leftarrow)$] Supposons que $(\forall\eps>0)(\exists M \gte a)$, $M \lte y_1 \lte y_2 \Rightarrow \abs{\dint{y_1}{y_2}{f(x)dx}} < \eps$.
 
 				Soit $n \in \naturels$.
 
-				En particulier, on a $(\forall\eps>0) (\exists M \geq a)$, $M \leq n \leq y \Rightarrow \abs{F(y)-F(n)}<\dfrac{\eps}{2}$.
+				En particulier, on a $(\forall\eps>0) (\exists M \gte a)$, $M \lte n \lte y \Rightarrow \abs{F(y)-F(n)}<\dfrac{\eps}{2}$.
 
 				Consid\'erons la suite $\{F(n)\}_{n \in \naturels}$.
 				\begin{rapp}
 					$\{a_n\}_{n \in \naturels}$ est une \emph{suite de Cauchy} si $(\forall\eps>0) (\exists N>0)$, $m>n>N \Rightarrow \abs{a_m-a_n}<\eps$.
 				\end{rapp}
 
-				La suite $\{F(n)\}_{n \in \naturels}$ est de Cauchy et elle est convergente. Soit $L = \lim\limits_{n \to \infty} F(n)$.
+				La suite $\{F(n)\}_{n \in \naturels}$ est de Cauchy et elle est convergente. Soit $L = \dlim{n}{\infty}{F(n)}$.
 
 				Alors, $(\forall\eps>0) (\exists N>0)$, $n>N \Rightarrow \abs{F(n)-L}<\dfrac{\eps}{2}$.
 
@@ -1397,112 +1438,112 @@ Donn\'e par Mario Lambert}
 				\`A partir d'un certain rang appropri\'e, on a
 				\begin{align*}
 					\abs{F(y)-L}&= \abs{F(y) - F(n) + F(n) - L}\\
-					&\leq \abs{F(y)-F(n)} + \abs{F(n)-L}\\
+					&\lte \abs{F(y)-F(n)} + \abs{F(n)-L}\\
 					&< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
 					&= \eps
 				\end{align*}
 			\end{itemize}
 		\end{proof}
 		\begin{rema}
-		Si $f \geq 0$, alors $F$ est croissante, donc $\lim F(y)$ converge ou tend vers $\infty$.
+		Si $f \gte 0$, alors $F$ est croissante, donc $\lim F(y)$ converge ou tend vers $\infty$.
 
-		Ainsi, $\displaystyle\int_{a}^{\infty}f(x)dx$ converge ssi $\displaystyle\int_{a}^{\infty}f(x)dx < \infty$.
+		Ainsi, $\dint{a}{\infty}{f(x)dx}$ converge si, et seulement si, $\dint{a}{\infty}{f(x)dx} < \infty$.
 		\end{rema}
 	\end{thm}
 	\begin{prop}[Test de comparaison]~
 
-		Supposons que $0 \leq f(x) \leq g(x)$, $(\forall x \geq a)$.
+		Supposons que $0 \lte f(x) \lte g(x)$, $(\forall x \gte a)$.
 
-		Alors, $\displaystyle\int_{a}^{\infty}g(x)dx$ converge implique $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
-		\begin{proof}[d\'emonstration]~
+		Alors, $\dint{a}{\infty}{g(x)dx}$ converge implique $\dint{a}{\infty}{f(x)dx}$ converge.
+		\begin{proof}~
 
-			$\displaystyle\int_{a}^{\infty}g(x)dx$ converge, alors $(\forall\eps>0) (\exists M \geq a)$, $M \leq y_1 \leq y_2 \Rightarrow \abs{\displaystyle\int_{y_1}^{y_2}g(x)dx}<\eps$.
+			$\dint{a}{\infty}{g(x)dx}$ converge, alors $(\forall\eps>0) (\exists M \gte a)$, $M \lte y_1 \lte y_2 \Rightarrow \abs{\dint{y_1}{y_2}{g(x)dx}}<\eps$.
 
 			On a
 			\begin{align*}
-				0 \leq \int_{y_1}^{y_2}f(x)dx \leq \int_{y_1}^{y_2}g(x)dx = \abs{\int_{y_1}^{y_2}g(x)dx} < \eps
+				0 \lte \dint{y_1}{y_2}{f(x)dx} \lte \dint{y_1}{y_2}{g(x)dx} = \abs{\dint{y_1}{y_2}{g(x)dx}} < \eps
 			\end{align*}
 
-			Donc, $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+			Donc, $\dint{a}{\infty}{f(x)dx}$ converge.
 		\end{proof}
 	\end{prop}
 	\begin{exem}
 		~
 
-		D\'eterminer si $\displaystyle\int_{1}^{\infty}e^{-x^2}$ converge.
+		D\'eterminer si $\dint{1}{\infty}{e^{-x^2}}$ converge.
 
-		Pour $x \geq 1$, on a $x^2 \geq x$, donc $-x^2 \leq -x$ et $e^{-x^2} \leq e^{-x}$.
+		Pour $x \gte 1$, on a $x^2 \gte x$, donc $-x^2 \lte -x$ et $e^{-x^2} \lte e^{-x}$.
 
-		Or, $\displaystyle\int_{1}^{\infty}e^{-x}dx = \lim_{y \to \infty}\displaystyle\int_{1}^{y}e^{-x}dx = \left. \lim_{y \to \infty}-e^{-x}\right|^y_1 = \lim_{y \to \infty}(e^{-1} - e^{-y}) = e^{-1}$.
+		Or, $\dint{1}{\infty}{e^{-x}dx} = \dlim{y}{\infty}{\dint{1}{y}{e^{-x}dx}} = \left. \dlim{y}{\infty}{-e^{-x}} \right|^y_1 = \dlim{y}{\infty}{(e^{-1} - e^{-y})} = e^{-1}$.
 
-		Comme $e^{-x^2} \geq 0$, on a que $\displaystyle\int_{1}^{\infty}e^{-x^2}dx$ converge.
+		Comme $e^y \gte 0, \forall y \in \reels$, on a que $\dint{1}{\infty}{e^{-x^2}dx}$ converge.
 	\end{exem}
 	\begin{prop}[Test de comparaison limite]~
 
-		Supposons $a \leq b \leq x$ et $f(x),g(x) \geq 0$, $(\forall x \geq b)$.
+		Supposons $a \lte b \lte x$ et $f(x),g(x) \gte 0$, $(\forall x \gte b)$.
 
-		Si $C = \lim\limits_{x \to \infty}\dfrac{f(x)}{g(x)}$ existe, alors $\displaystyle\int_{a}^{\infty}g(x)dx$ converge implique $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+		Si $C = \dlim{x}{\infty}{\dfrac{f(x)}{g(x)}}$ existe, alors $\dint{a}{\infty}{g(x)dx}$ converge implique $\dint{a}{\infty}{f(x)dx}$ converge.
 
-		De plus, si $C \neq 0$, $\displaystyle\int_{a}^{\infty}g(x)dx$ converge ssi $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
+		De plus, si $C \neq 0$, $\dint{a}{\infty}{g(x)dx}$ converge si, et seulement si, $\dint{a}{\infty}{f(x)dx}$ converge.
 	\end{prop}
 	\begin{prop}[Convergence absolue]~
 
 		\begin{enumerate}[label=\alph*)]
-			\item $\displaystyle\int_{a}^{\infty}\abs{f(x)}dx < \infty$, alors $\displaystyle\int_{a}^{\infty}f(x)dx < \infty$.
-			\item $\abs{\displaystyle\int_{a}^{\infty}{ f(x)dx}} \leq \displaystyle\int_{a}^{\infty}\abs{f(x)}dx$.
+			\item $\dint{a}{\infty}{\abs{f(x)}dx} < \infty$, alors $\dint{a}{\infty}{f(x)dx} < \infty$.
+			\item $\abs{\dint{a}{\infty}{f(x)dx}} \lte \dint{a}{\infty}{\abs{f(x)}dx}$.
 		\end{enumerate}
-		\begin{proof}[d\'emonstration]~
+		\begin{proof}~
 
 			\begin{enumerate}[label=\alph*)]
-				\item Si $\displaystyle\int_{a}^{\infty}\abs{f(x)}dx < \infty$, alors $(\forall\eps>0) (\exists M \geq a)$ t.q. $M \leq y_1 \leq y_2 \Rightarrow \abs{\displaystyle\int_{y_1}^{y_2}\abs{f(x)}dx}<\eps$.
+				\item Si $\dint{a}{\infty}{\abs{f(x)}dx} < \infty$, alors $(\forall\eps>0) (\exists M \gte a)$ t.q. $M \lte y_1 \lte y_2 \Rightarrow \abs{\dint{y_1}{y_2}{\abs{f(x)}dx}}<\eps$.
 
-				Or, $\abs{\displaystyle\int_{y_1}^{y_2}f(x)dx} \leq \displaystyle\int_{y_1}^{y_2}\abs{f(x)}dx = \abs{\displaystyle\int_{y_1}^{y_2}\abs{f(x)}dx} < \eps$.
+				Or, $\abs{\dint{y_1}{y_2}{f(x)dx}} \lte \dint{y_1}{y_2}{\abs{f(x)}dx} = \abs{\dint{y_1}{y_2}{\abs{f(x)}dx}} < \eps$.
 
 				Du crit\`ere de Cauchy, $\displaystyle\int_{a}^{\infty}f(x)dx$ converge.
 				\newpage
 				\item
 				\begin{align*}
-					\abs{\int_{a}^{\infty}f(x)dx}&= \abs{\lim_{y \to \infty}\int_{a}^{y}f(x)dx}\\
-					&= \lim_{y \to \infty}\abs{\int_{a}^{y}f(x)dx}\\
-					&\leq \lim_{y \to \infty}\int_{a}^{y}\abs{f(x)}dx\\
-					&= \int_{a}^{\infty}\abs{f(x)}dx
+					\abs{\dint{a}{\infty}{f(x)dx}}&= \abs{\dlim{y}{\infty}{\dint{a}{y}{f(x)dx}}}\\
+					&= \dlim{y}{\infty}{\abs{\dint{a}{y}{f(x)dx}}}\\
+					&\lte \dlim{y}{\infty}{\dint{a}{y}{\abs{f(x)}dx}}\\
+					&= \dint{a}{\infty}{\abs{f(x)}dx}
 				\end{align*}
 			\end{enumerate}
 		\end{proof}
 	\end{prop}
 	\begin{rema}
-		$\displaystyle\int_{a}^{\infty} f < \infty \not\Rightarrow \displaystyle\int_{a}^{\infty}\abs{f} < \infty$.
+		$\dint{a}{\infty}{f} < \infty \nRightarrow \dint{a}{\infty}{\abs{f}} < \infty$.
 		\begin{exem}[En effet]
 			\begin{align*}
-				\int_{a}^{\infty}\dfrac{\sin x}{x} dx&= \lim_{y \to \infty}\int_{a}^{y}\dfrac{\sin x}{x} dx\\
+				\dint{a}{\infty}{\dfrac{\sin x}{x} dx}&= \dlim{y}{\infty}{\dint{a}{y}{\dfrac{\sin x}{x} dx}}\\
 				u=\frac{1}{x}&\Rightarrow du=\frac{-dx}{x^2}\\
 				dv=\sin x&\Rightarrow v=-\cos x\\
-				&= \lim_{y \to \infty}\left( \left. \dfrac{-\cos x}{x} \right|^y_{\sfrac{\pi}{2}} - \int_{\sfrac{\pi}{2}}^{y}\dfrac{\cos x}{x^2} dx \right)\\
-				&= \lim_{y \to \infty}\left( \dfrac{\cos\sfrac{\pi}{2}}{\sfrac{\pi}{2}} - \int_{\sfrac{\pi}{2}}^y\dfrac{\cos x}{x^2} dx \right)\\
-				&= \lim_{y \to \infty}-\int_{\sfrac{\pi}{2}}^{y} \dfrac{\cos x}{x^2} dx
+				&= \dlim{y}{\infty} {\left( \left. \dfrac{-\cos x}{x} \right|^y_{\sfrac{\pi}{2}} - \dint{\sfrac{\pi}{2}}{y}{\dfrac{\cos x}{x^2} dx} \right)}\\
+				&= \dlim{y}{\infty} {\left( \dfrac{\cos\sfrac{\pi}{2}}{\sfrac{\pi}{2}} - \dint{\sfrac{\pi}{2}}y{\dfrac{\cos x}{x^2} dx} \right)}\\
+				&= \dlim{y}{\infty}{-\dint{\sfrac{\pi}{2}}{y}{\dfrac{\cos x}{x^2} dx}}
 			\end{align*}
 
-			Or, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \abs{\dfrac{\cos x}{x^2}} dx < \displaystyle\int_{\sfrac{\pi}{2}}^\infty \dfrac{dx}{x^2} = \lim_{y \to \infty} \displaystyle\int_{\sfrac{\pi}{2}}^y \dfrac{dx}{x^2} dx = \lim_{y \to \infty}\left. \dfrac{-1}{x}\right|^y_{\sfrac{\pi}{2}} = \lim_{y \to \infty}\left( \dfrac{2}{\pi} - \dfrac{1}{y} \right) = \dfrac{2}{\pi}$.
+			Or, $\dint{\sfrac{\pi}{2}}{\infty}{\abs{\dfrac{\cos x}{x^2}} dx} < \dint{\sfrac{\pi}{2}}{\infty}{\dfrac{dx}{x^2}} = \dlim{y}{\infty}{\dint{\sfrac{\pi}{2}}y{\dfrac{dx}{x^2} dx}} = \dlim{y}{\infty} {\left. \dfrac{-1}{x} \right|^y_{\sfrac{\pi}{2}}} = \dlim{y}{\infty}{\left( \dfrac{2}{\pi} - \dfrac{1}{y} \right)} = \dfrac{2}{\pi}$.
 
-			Donc, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \dfrac{\cos x}{x^2} dx < \infty$. Alors, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \dfrac{\sin x}{x^2} dx < \infty$.
+			Donc, $\dint{\sfrac{\pi}{2}}{\infty}{\dfrac{\cos x}{x^2} dx} < \infty$. Alors, $\dint{\sfrac{\pi}{2}}{\infty}{\dfrac{\sin x}{x^2} dx} < \infty$.
 			\begin{proof}[Montrons que]
-				$\displaystyle\int_{\sfrac{\pi}{2}}^\infty \abs{\dfrac{\sin x}{x}} dx$ diverge.
+				$\dint{\sfrac{\pi}{2}}{\infty}{\abs{\dfrac{\sin x}{x}} dx}$ diverge.
 
 				Consid\'erons les intervalles $I_k = \left[ 2k\pi, 2k\pi+\dfrac{\pi}{2} \right]$, avec $k \in \naturels$.
 
 				Sur $I_k$, $\sin x$ cro\^it de $0$ \`a $1$.
 
-				En particulier, $\exists x_k \in I_k$ t.q. $\sin x_k \geq \dfrac{\sqrt{2}}{2}$.
+				En particulier, $\exists x_k \in I_k$ t.q. $\sin x_k \gte \dfrac{\sqrt{2}}{2}$.
 
-				Ainsi, $\abs{\dfrac{\sin x_k}{x_k}} \geq \dfrac{\sqrt{2}}{2x_k}$.
+				Ainsi, $\abs{\dfrac{\sin x_k}{x_k}} \gte \dfrac{\sqrt{2}}{2x_k}$.
 
-				Or, $x_k \leq 2k\pi+\dfrac{\pi}{2} \leq 8k+\dfrac{\pi}{2} \leq 8k+2k = 10k$.
+				Or, $x_k \lte 2k\pi+\dfrac{\pi}{2} \lte 8k+\dfrac{\pi}{2} \lte 8k+2k = 10k$.
 
-				Alors, $\dfrac{1}{x_k} \geq \dfrac{1}{10} \cdot \dfrac{1}{k} = c \cdot \dfrac{1}{k}$.
+				Alors, $\dfrac{1}{x_k} \gte \dfrac{1}{10} \cdot \dfrac{1}{k} = c \cdot \dfrac{1}{k}$.
 
-				Ainsi, $\displaystyle\int_{I_k} \abs{\dfrac{\sin x_k}{x_k}} dx >  \displaystyle\int_{I_k} \dfrac{c}{k} dx = \dfrac{c}{k} \cdot \dfrac{\pi}{2}$.
+				Ainsi, $\dint{I_k}{}{\abs{\dfrac{\sin x_k}{x_k}} dx} >  \dint{I_k}{}{\dfrac{c}{k} dx} = \dfrac{c}{k} \cdot \dfrac{\pi}{2}$.
 
-				Enfin, $\displaystyle\int_{\sfrac{\pi}{2}}^\infty \abs{\dfrac{\sin x}{x}} dx \geq \displaystyle\sum_{k=1}^{\infty} \displaystyle\int_{I_k} \abs{\dfrac{\sin x_k}{x_k}} dx > \displaystyle\sum_{k=1}^\infty \dfrac{c}{k} \cdot \dfrac{\pi}{2} = \dfrac{c\pi}{2} \displaystyle\sum_{k=1}^\infty \dfrac{1}{k}$, la s\'erie harmonique qui diverge.
+				Enfin, $\dint{\sfrac{\pi}{2}}{\infty}{\abs{\dfrac{\sin x}{x}} dx} \gte \dsum{k}{1}{\infty}{\dint{I_k}{}{\abs{\dfrac{\sin x_k}{x_k}} dx}} > \dsum{k}{1}{\infty}{\dfrac{c}{k} \cdot \dfrac{\pi}{2}} = \dfrac{c\pi}{2} \dsum{k}{1}{\infty}{\dfrac{1}{k}}$, la s\'erie harmonique qui diverge.
 			\end{proof}
 		\end{exem}
 	\end{rema}
@@ -1510,24 +1551,24 @@ Donn\'e par Mario Lambert}
 
 		Soit $f: [1,\infty[ \to [0,\infty[$ monotone d\'ecroissante.
 
-		Alors, $\displaystyle\int_{1}^{\infty}f(x)dx < \infty$ ssi $\displaystyle\sum_{k=1}^{\infty} f(k) < \infty$.
-		\begin{proof}[d\'emonstration]~
+		Alors, $\dint{1}{\infty}{f(x)dx} < \infty$ si, et seulement si, $\dsum{k}{1}{\infty}{f(k)} < \infty$.
+		\begin{proof}~
 
 			Soit $\Delta: 1 = x_0 < x_1 < x_2 < \dotsb$, avec $x_i=i+1$, pour $i \in \naturels$.
 
 			On a
 			\begin{align*}
-				\srie{f}[\Delta][\{x_i\}]&= \sum_{i=1}^{\infty} f(x_i) \cdot (x_i-x_{i-1})\\
-				&= \sum_{i=1}^{\infty} f(i+1)\\
-				&= \sum_{j=2}^{\infty} f(j)
+				\srie{f}[\Delta][\{x_i\}]&= \dsum{i}{1}{\infty}{f(x_i) \cdot (x_i-x_{i-1})}\\
+				&= \dsum{i}{1}{\infty}{f(i+1)}\\
+				&= \dsum{j}{2}{\infty}{f(j)}
 			\end{align*}
 
-			De m\^eme, $\srie{f}[\Delta][\{x_{i-1}\}] = \dsum{i}{1}{\infty}{f(x_{i-1})} (x_i-x_{i-1}) = \dsum{i}{1}{\infty}{f(i)}$.
+			De m\^eme, $\srie{f}[\Delta][\{x_{i-1}\}] = \dsum{i}{1}{\infty}{f(x_{i-1})(x_i-x_{i-1})} = \dsum{i}{1}{\infty}{f(i)}$.
 
 			On a donc
-			\begin{align*}
-			\sum_{j=2}^\infty f(j) \leq \int_{1}^{\infty} f(x)dx \leq \sum_{i=1}^\infty f(i)
-			\end{align*}
+			\[
+			\dsum{j}{2}{\infty}{f(j)} \lte \dint{1}{\infty}{f(x)dx} \lte \dsum{i}{1}{\infty}{f(i)}
+			\]
 			\begin{itemize}
 			\item[$(\Rightarrow)$] Si $\dint{1}{\infty}{f(x)dx}$ converge, alors $\dsum{j}{2}{\infty}{f(j)}$ converge. Donc, $\dsum{i}{1}{\infty}{f(i)}$ converge.
 			\item[$(\Leftarrow)$] Si $\dsum{i}{1}{\infty}{f(i)}$ converge, alors $\dint{1}{\infty}{f(x)dx}$ converge.
@@ -1555,7 +1596,7 @@ Donn\'e par Mario Lambert}
 
 			On a $f'(x) = -px^{-p-1}<0$, donc $f$ est monotone d\'ecroissante.
 
-			De plus, $\dsum{n}{1}{\infty}{f(n)} = \dsum{n}{1}{\infty}{\dfrac{1}{n^p}}$ converge ssi $\dint{1}{\infty}{f(x)dx}$ converge.
+			De plus, $\dsum{n}{1}{\infty}{f(n)} = \dsum{n}{1}{\infty}{\dfrac{1}{n^p}}$ converge si, et seulement si, $\dint{1}{\infty}{f(x)dx}$ converge.
 
 			Or, $\dint{1}{\infty}{f(x)dx} = \dint{1}{\infty}{\dfrac{dx}{x^p}}$ converge si $p>1$.
 
@@ -1578,13 +1619,13 @@ Donn\'e par Mario Lambert}
 			On a $\dlim{n}{\infty}{\dlim{x}{1}{f_n(x)}} = \dlim{n}{\infty}{\left( \dlim{x}{1}{x^n} \right)} = \dlim{n}{\infty}{1^n} = 1$.
 
 			Cependant, $\dlim{x}{1}{\dlim{n}{\infty}{f_n(x)}} = \dlim{x}{1}{\left( \dlim{n}{\infty}{x^n} \right)} = \dlim{x}{1}{f(x)} = 0$ o\`u $f:[0,1] \to \reels$, avec $x \mapsto \left\lbrace \begin{array}{lll}
-				0&\text{si}&0 \leq x<1\\
+				0&\text{si}&0 \lte x<1\\
 				1&\text{si}&x=1
 			\end{array} \right.$.
 			\item Sur $[0,1]$, posons $f_n(x) = \left\lbrace \begin{array}{lll}
-				n^2x&\text{si}&x \leq \frac{1}{n}\\
+				n^2x&\text{si}&x \lte \frac{1}{n}\\
 				-n^2x+2n&\text{si}&\frac{1}{n}<x<\frac{2}{n}\\
-				0&\text{si}&x \geq \frac{2}{n}
+				0&\text{si}&x \gte \frac{2}{n}
 			\end{array} \right.$.
 
 			Posons $f(x)= 0$. On a $\dlim{n}{\infty}{f_n(x)} = f(x)$.
@@ -1593,18 +1634,18 @@ Donn\'e par Mario Lambert}
 
 			Cependant, $\dlim{n}{\infty}{\dint{0}{1}{f_n(x)dx}} = \dlim{n}{\infty}{\frac{bh}{2}} = \dlim{n}{\infty}{1} = 1$.
 			\item Sur $\reels$, posons $f_n(x) = \left\lbrace \begin{array}{lll}
-				nx^2+\frac{1}{4n}&\text{si}&\frac{-1}{2n} \leq x \leq \frac{1}{2n}\\
+				nx^2+\frac{1}{4n}&\text{si}&\frac{-1}{2n} \lte x \lte \frac{1}{2n}\\
 				\abs{x}&\multicolumn{2}{l}{\text{sinon}}
 			\end{array} \right.$. On a $f_n'(x) = \left\{ \begin{array}{lll}
-				-1&\text{si}&x \leq \frac{-1}{2n}\\
-				2nx&\text{si}&\frac{-1}{2n} \leq x \leq \frac{1}{2n}\\
-				1&\text{si}&x \geq \frac{1}{2n}
+				-1&\text{si}&x \lte \frac{-1}{2n}\\
+				2nx&\text{si}&\frac{-1}{2n} \lte x \lte \frac{1}{2n}\\
+				1&\text{si}&x \gte \frac{1}{2n}
 			\end{array} \right.$.
 
 			Ainsi, $\dlim{n}{\infty}{\dfrac{d}{dx}f_n(x)} = \dlim{n}{\infty}{\left\{ \begin{array}{lll}
-					-1&\text{si}&x \leq \frac{-1}{2n}\\
-					2nx&\text{si}&\frac{-1}{2n} \leq x \leq \frac{1}{2n}\\
-					1&\text{si}&x \geq \frac{1}{2n}
+					-1&\text{si}&x \lte \frac{-1}{2n}\\
+					2nx&\text{si}&\frac{-1}{2n} \lte x \lte \frac{1}{2n}\\
+					1&\text{si}&x \gte \frac{1}{2n}
 				\end{array} \right.} = \left\{ \begin{array}{lll}
 				-1&\text{si}&x<0\\
 				0&\text{si}&x=0\\
@@ -1646,7 +1687,7 @@ Donn\'e par Mario Lambert}
 					\draw (0,1) -- ++(-.05,0) node[left] {1};
 
 					\begin{scope}
-						\clip (0,0) rectangle (1,1);
+						\clip (0,0) rectangle (1,1.12);
 						\draw[thick,red] (0,0) -- (1,1);
 						\draw[thick,Blue] plot[domain=0:.25] (\x,16*\x) plot[domain=.25:.5] (\x,8-16*\x) plot[domain=.5:1] (\x,0);
 						\draw[thick,ForestGreen] plot[domain=0:.1] (\x,100*\x) plot[domain=.1:.2] (\x,20-100*\x) plot[domain=.2:1] (\x,0);
@@ -1705,7 +1746,7 @@ Donn\'e par Mario Lambert}
 				&= 0
 			\end{align*}
 			\item Sur $[0,1]$, prenons $f_n(x)=x^n$ et $f(x) = \left\lbrace \begin{array}{lll}
-				0&\text{si}&0\leq x<1\\
+				0&\text{si}&0\lte x<1\\
 				1&\text{si}&x=1
 			\end{array}\right.$. On a
 			\begin{align*}
@@ -1716,27 +1757,30 @@ Donn\'e par Mario Lambert}
 				&= 1
 			\end{align*}
 
-			Donc, $f_n \not\convabs f$ sur $[0,1]$.
+			Donc, $f_n \not\convuni f$ sur $[0,1]$.
 		\end{enumerate}
+		\begin{nota}
+			On note la convergence uniforme et la convergence ponctuelle d'une suite de fonction vers une fonction $f_n \convuni f$ et $f_n \to f$ respectivement.
+		\end{nota}
 	\end{exem}
 	\begin{prop}
-		$f_n \convabs f \Rightarrow f_n \to f$.
-		\begin{proof}[d\'emonstration]~
+		$f_n \convuni f \Rightarrow f_n \to f$.
+		\begin{proof}~
 
-			$f_n \convabs f \Rightarrow \dlim{n}{\infty}{\sup\limits_{x \in \mathcal{D}}\abs{f_n(x)-f(x)}}=0$.
+			$f_n \convuni f \Rightarrow \dlim{n}{\infty}{\sup\limits_{x \in \mathcal{D}}\abs{f_n(x)-f(x)}}=0$.
 
-			Alors, $\dlim{n}{\infty}{\abs{f_n(x)-f(x)}}$, $\forall x \in \mathcal{D}$.
+			Alors, $\dlim{n}{\infty}{\abs{f_n(x)-f(x)}}=0$, $\forall x \in \mathcal{D}$.
 
 			Ainsi, $f_n \to f$.
 		\end{proof}
 	\end{prop}
 	\begin{prop}
-		Si $f_n \to f$ et $f_n \convabs g$, alors $f=g$.
-		\begin{proof}[d\'emonstration]~
+		Si $f_n \to f$ et $f_n \convuni g$, alors $f=g$.
+		\begin{proof}~
 
 			$f_n \to f \Rightarrow f_n(x) \to f(x)$, $\forall x \in \mathcal{D}$.
 
-			$f_n \convabs g \Rightarrow f_n \to g \Rightarrow f_n(x) \to g(x)$, $\forall x \in \mathcal{D}$.
+			$f_n \convuni g \Rightarrow f_n \to g \Rightarrow f_n(x) \to g(x)$, $\forall x \in \mathcal{D}$.
 
 			Ainsi, $f(x)=g(x)$, $\forall x \in \mathcal{D}$.
 		\end{proof}
@@ -1746,8 +1790,8 @@ Donn\'e par Mario Lambert}
 
 		Supposons que $(f_n)$ sont continues sur $\mathcal{D}$.
 
-		Si $(f_n) \convabs f$, alors $f$ est continue sur $\mathcal{D}$.
-		\begin{proof}[d\'emonstration]~
+		Si $f_n \convuni f$, alors $f$ est continue sur $\mathcal{D}$.
+		\begin{proof}~
 
 			Soit $\eps>0$.
 
@@ -1755,20 +1799,20 @@ Donn\'e par Mario Lambert}
 
 			On veut montrer que $f$ est continue en $x_0$, c'est-\`a-dire $\exists\delta>0$ t.q. $\abs{x-x_0}<\delta \Rightarrow \abs{f(x)-f(x_0)}<\eps$.
 
-			Comme $(f_n) \convabs f$, on a $\dlim{n}{\infty}{\mathrm{dist}(f_n,f)}=0$.
+			Comme $(f_n) \convuni f$, on a $\dlim{n}{\infty}{\mathrm{dist}(f_n,f)}=0$.
 
-			Ainsi, $\exists M>0$ t.q. $n \geq M \Rightarrow \mathrm{dist}(f_n,f) < \dfrac{\eps}{3}$.
+			Ainsi, $\exists M>0$ t.q. $n \gte M \Rightarrow \mathrm{dist}(f_n,f) < \dfrac{\eps}{3}$.
 
 			En particulier, $\mathrm{dist}(f_M,f) < \dfrac{\eps}{3}$, c'est-\`a-dire $\sup\limits_{x \in \mathcal{D}}\abs{f_M(x)-f(x)} < \dfrac{\eps}{3}$ et donc, $\abs{f_M(x_0)-f(x_0)} < \dfrac{\eps}{3}$.
 
 			De plus, $f_n$ continue sur $\mathcal{D} \Rightarrow f_M$ continue en $x_0$.
 
-			Ainsi, $(\exists>0)$ t.q. $\abs{x-x_0} < \delta \Rightarrow \abs{f_M(x)-f_M(x_0)} < \dfrac{\eps}{3}$.
+			Ainsi, $(\exists\delta>0)$ t.q. $\abs{x-x_0} < \delta \Rightarrow \abs{f_M(x)-f_M(x_0)} < \dfrac{\eps}{3}$.
 
 			Supposons donc que $\abs{x-x_0} < \delta$. On a
 			\begin{align*}
 				\abs{f(x)-f(x_0)}&= \abs{f(x) - f_M(x) + f_M(x) - f_M(x_0) + f_M(x_0) - f(x_0)}\\
-				&\leq \abs{f(x)-f_M(x)} + \abs{f_M(x)-f_M(x_0)} + \abs{f_M(x_0)-f(x_0)}\\
+				&\lte \abs{f(x)-f_M(x)} + \abs{f_M(x)-f_M(x_0)} + \abs{f_M(x_0)-f(x_0)}\\
 				&< \dfrac{\eps}{3} + \dfrac{\eps}{3} + \dfrac{\eps}{3}\\
 				&= \eps
 			\end{align*}
@@ -1776,7 +1820,7 @@ Donn\'e par Mario Lambert}
 		\begin{coro}
 			~
 
-			Si $f_n$ continues et $f_n \convabs f$, alors $\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} = \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}$.
+			Si $f_n$ continues et $f_n \convuni f$, alors $\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} = \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}$.
 
 			Comme $f_n$ continue en $x_0$, $\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} = \dlim{n}{\infty}{f_n(x_0)} = f(x_0)$.
 
