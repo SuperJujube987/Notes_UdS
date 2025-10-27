@@ -456,17 +456,17 @@ Donn\'e par Mario Lambert}
 		\begin{proof}~
 
 			Soit $\eps>0$.
-			
+
 			Comme $f \in \riemann$, $\exists\Delta \in \partitions$ t.q. $\ssup{f} - \sinf{f} < \dfrac{\eps}{\lambda}$.
-			
+
 			On a
 			\begin{align*}
 				\ssup{\lambda f}&= \lambda \ssup{f}\\
 				\sinf{\lambda f}&= \lambda \sinf{f}
 			\end{align*}
-			
+
 			Car $\sup(\lambda f) = \lambda \sup f$ et $\inf(\lambda f) = \lambda \inf f$.
-			
+
 			Alors,
 			\begin{align*}
 				\ssup{\lambda f} - \sinf{\lambda f}&= \lambda \ssup{f} - \lambda \sinf{f}\\
@@ -474,9 +474,9 @@ Donn\'e par Mario Lambert}
 				&< \lambda \cdot \dfrac{\eps}{\lambda}\\
 				&= \eps
 			\end{align*}
-			
+
 			Donc, $\lambda f \in \riemann$.
-			
+
 			De plus,
 			\begin{align*}
 				\dint{a}{b}{\lambda f}&\lte \ssup{\lambda f}\\
@@ -485,13 +485,13 @@ Donn\'e par Mario Lambert}
 				&= \lambda \sinf{f} + \eps\\
 				&\lte \lambda \dint{a}{b}{f} + \eps
 			\end{align*}
-			
+
 			Ainsi, $\dint{a}{b}{\lambda f} < \lambda \dint{a}{b}{f} + \eps$, $\forall\eps>0$.
-			
+
 			Donc, $\dint{a}{b}{\lambda f} \lte \lambda \dint{a}{b}{f}$.
-			
+
 			De m\^eme, on peut montrer que $\dint{a}{b}{\lambda f} \gte \lambda \dint{a}{b}{f}$.
-			
+
 			Donc, $\dint{a}{b}{\lambda f} = \lambda \dint{a}{b}{f}$.
 		\end{proof}
 		\begin{coro}
@@ -691,7 +691,7 @@ Donn\'e par Mario Lambert}
 		\begin{proof}~
 
 			Soient $\Delta:a=x_0 < x_1 < \dotsc < x_{i-1} < x_i < \dotsc < x_n=b$ et
-			
+
 			$\Delta':a=x_0 < x_1 < \dotsc < x_{i-1} < \bar{x} < x_i < \dotsc < x_n=b$.
 
 			\begin{align*}
@@ -1827,4 +1827,79 @@ Donn\'e par Mario Lambert}
 			Comme $f$ continue en $x_0$, $f(x_0) = \dlim{x}{x_0}{f(x)} = \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}$.
 		\end{coro}
 	\end{thm}
+	\begin{thm}~
+
+		Soient $(f_n)_{n \in \naturels}$ continues sur $[a,b]$.
+
+		Si $f_n \convuni f$, alors
+		\[
+		\dlim{n}{\infty}{\dint{a}{b}{f_n(x)dx}} = \dint{a}{b}{\underbrace{\dlim{n}{\infty}{f_n(x)}}_{f}dx}
+		\]
+		\begin{proof}~
+
+			$f_n$ continues et $f_n \convuni f$, alors $f \in \continue$, donc $f \in \riemann$.
+
+			On a
+			\begin{align*}
+				\dlim{n}{\infty}{\abs{\dint{a}{b}{f_n(x)dx} - \dint{a}{b}{f(x)dx}}}&= \dlim{n}{\infty}{\abs{\dint{a}{b}{(f_n-f)(x)dx}}}\\
+				&\lte \dlim{n}{\infty}{\dint{a}{b}{\abs{f_n(x)-f(x)}dx}}\\
+				&\lte \dlim{n}{\infty}{(b-a) \sup\limits_{x \in [a,b]}\abs{f_n(x)-f(x)}}\\
+				&= (b-a) \dlim{n}{\infty}{\mathrm{dist}(f_n,f)}\\
+				&= 0&\text{car }f_n \convuni f
+			\end{align*}
+		\end{proof}
+	\end{thm}
+	\begin{thm}~
+
+		Soient $(f_n)_{n \in \naturels}$ des fonctions de classe $C^1$ (c'est-\`a-dire d\'erivable \`a d\'eriv\'ee continue).
+
+		Supposons
+		\begin{enumerate}[label=\roman*)]
+			\item $f_n' \convuni g$;
+			\item $\dlim{n}{\infty}{f_n(a)}$ existe pour au moins un $a$.
+		\end{enumerate}
+
+		Alors,
+		\begin{enumerate}[label=\alph*)]
+			\item $f_n$ converge ponctuellement vers $f$;
+			\item $f \in C^1$;
+			\item $f'=g$, c'est-\`a-dire $\dfrac{d}{dx}\dlim{n}{\infty}{f_n(x)} = \dlim{n}{\infty}{\dfrac{d}{dx}f_n(x)}$.
+		\end{enumerate}
+		\begin{proof}~
+
+			Supposons $L = \dlim{n}{\infty}{f_n(a)}$ pour un certain $a$.
+
+			On a $f_n \in C^1$, alors $f_n'$ est continue.
+
+			De plus, $f_n' \convuni g$, donc $g$ est continue.
+
+			Alors, $\dlim{n}{\infty}{\dint{a}{x}{f_n'(t)dt}} = \dint{a}{x}{\dlim{n}{\infty}{f_n'(t)}dt} = \dint{a}{x}{g(t)dt}$, pour tout $x$.
+
+			Du th\'eor\`eme fondamental du calcul, $\dint{a}{x}{f_n'(t)dt} = f_n(x)-f_n(a)$.
+
+			On a
+			\begin{align*}
+				f(x)&= \dlim{n}{\infty}{f_n(x)}\\
+				&= \dlim{n}{\infty}{\left[ \dint{a}{x}{f_n'(t)dt} + f_n(a) \right]}\\
+				&= L + \dlim{n}{\infty}{\dint{a}{x}{f_n'(t)dt}}\\
+				&= L + \dint{a}{x}{\dlim{n}{\infty}{f_n'(t)}dt}\\
+				&= L + \dint{a}{x}{g(t)dt}
+			\end{align*}
+
+			Ainsi, $f'(x) = \dfrac{d}{dx}\left( L + \dint{a}{x}{g(t)dt} \right) = \dfrac{d}{dx}\dint{a}{x}{g(t)dt} = g(x)$.
+
+			D'o\`u b) et c), $f \in C^1$ avec $f'=g$.
+		\end{proof}
+	\end{thm}
+
+	\chapter{S\'eries de fonctions}
+	\section{Convergence uniforme de s\'erie}
+	\begin{defin}~
+
+		Soient $(f_k)_{k \in \naturels}$ des fonctions $f_k:A \to \reels$.
+
+		La \emph{s\'erie} des $f_k$ est la suite $(s_n)_{n \in \naturels}$, o\`u $s_n(x) = \dsum{k}{0}{n}{f_k(x)}$.
+
+		Si la suite $(s_n(x))$ converge ponctuellement vers une fonction $s(x)$, alors $\dlim{n}{\infty}{s_n(x)}$ est appel\'ee la \emph{somme} de la s\'erie, c'est-\`a-dire, $\dlim{n}{\infty}{s_n(x)} = \dsum{k}{0}{\infty}{f_k(x)}$.
+	\end{defin}
 \end{document}
