@@ -75,6 +75,7 @@ Donn\'e par Jean-Philippe Burelle}
 \newcommand*{\entiers}{\mathbb{Z}}
 \newcommand*{\rationels}{\mathbb{Q}}
 \newcommand*{\naturels}{\mathbb{N}}
+\newcommand*{\identite}{\mathds{1}}
 
 \renewcommand{\thesection}{ \arabic{chapter}.\arabic{section}}
 \renewcommand{\thesubsection}{}
@@ -162,7 +163,7 @@ Donn\'e par Jean-Philippe Burelle}
 			&$\cap$&intersection\\
 			\textbullet&$E \times F$&produit cart\'esien (paires $(x,y)$)\\
 			\textbullet&$f:E \to F$&\emph{fonction} ou \emph{application}, associe \`a \underline{chaque $x \in E$} un unique $\underline{f(x) \in F}$, image de $x$ par $f$\\
-			\textbullet&$\mathds{1}$&$\mathds{1}_E:E \to E$ est d\'efinie comme $\mathds{1}_E(x)=x$
+			\textbullet&$\identite$&$\identite_E:E \to E$ est d\'efinie comme $\identite_E(x)=x$
 		\end{tabularx}
 	\end{rappel}
 
@@ -224,14 +225,14 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{defin}
 
 	\begin{defin}[Red\'efinition de l'inverse]~
-		
-		$g \circ f=\mathds{1}_E$
 
-		$f \circ g=\mathds{1}_F$
+		$g \circ f=\identite_E$
+
+		$f \circ g=\identite_F$
 	\end{defin}
 
 	\begin{exem}~
-		
+
 		$A=\{a,b,c\}$
 
 		$B=\{d,e,f\}$
@@ -240,9 +241,9 @@ Donn\'e par Jean-Philippe Burelle}
 
 		$g:B \to A$, $d \mapsto a, e \mapsto b, f \mapsto c$
 
-		$g \circ f:A \to A$, $g \circ f(x)=x$, $g \circ f=\mathds{1}_A$.
+		$g \circ f:A \to A$, $g \circ f(x)=x$, $g \circ f=\identite_A$.
 
-		De la m\^eme mani\`ere, $f \circ g=\mathds{1}_B$.
+		De la m\^eme mani\`ere, $f \circ g=\identite_B$.
 
 		~
 
@@ -284,91 +285,91 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{defin}
 
 	\begin{exem}~
-		
+
 		\begin{ulist}
-			\item 
+			\item
 			\[
 			f:\reels \to \reels^{\gte0}, f(x)=\abs{x}
 			\]
 			$f$ n'est pas injective, car $f(1)=\abs{1}=1$ et $f(-1)=\abs{-1}=1$, mais $1 \neq -1$.
-			
+
 			$f$ est surjective, car soit $y \in \reels^{\gte0}$, alors pour $x=y$, on a $f(x)=f(y)=\abs{y}=y$.
-			
-			\item 
+
+			\item
 			\[
 			\begin{array}{rrcl}
 				f:&\naturels&\to&\naturels\\
 				&x&\mapsto&x+1
 			\end{array}
 			\]
-			
+
 			$f$ est injective:
-			
+
 			Soient $x_1,x_2 \in \naturels$.
-			
+
 			On suppose $f(x_1)=f(x_2)$.
-			
+
 			\begin{align*}
 				x_1+1&= x_2+1\\
 				x_1&= x_2
 			\end{align*}
-			
+
 			$f$ n'est pas surjective
-			
+
 			$y=0\in\naturels$ n'est pas \'egal \`a $f(x)$ pour $x\in\naturels$. Si il existait $x$ avec $f(x)=0$, $x+1=0$, $x=-1$, $x \not\in \naturels$.
-			
-			\item 
+
+			\item
 			\[
 			\begin{array}{rrcl}
 				f:&\reels&\to&\reels\\
 				&x&\mapsto&2x+3
 			\end{array}
 			\]
-			
+
 			$f$ est injective:
-			
+
 			Soient $x_1,x_2 \in \reels$.
-			
+
 			supposons $f(x_1)=f(x_2)$, $2x_1+3=2x_2+3$, $2x_1=2x_2$, $x_1=x_2$.
-			
+
 			$f$ est surjective:
-			
+
 			Soit $y \in \reels$.
-			
+
 			On cherche $x$ t.q. $f(x)=y$.
-			
+
 			Posons $x=\dfrac{y-3}{2} \in \reels$.
-			
+
 			Alors, $f(x) = f\left( \dfrac{y-3}{2} \right) = 2 \cdot  \dfrac{y-3}{2} + 3 = y-3+3 = y$.
-			
+
 			Ainsi, $f$ est bijective.
-			
-			\item 
+
+			\item
 			\[
 			f:A \to B; A=\{1,48,57\}, B=\{a,b,c\}
 			\]
-			
+
 			\[
 			1 \mapsto a, 48 \mapsto a, 57 \mapsto b
 			\]
-			
+
 			$f$ n'est pas injective, car $1 \mapsto a$ et $48 \mapsto a$  avec $1 \neq 48$.
-			
+
 			$f$ n'est pas surjective, car aucun \'el\'ement de $x \in A \mapsto c$.
 		\end{ulist}
-		
+
 
 		~
 
-		
+
 
 		~
 
-		
+
 
 		~
 
-		
+
 	\end{exem}
 
 	\begin{rema}
@@ -396,59 +397,59 @@ Donn\'e par Jean-Philippe Burelle}
 		$f:A \to B$ est bijective \emph{si, et seulement si,} elle est inversible.
 
 		\begin{proof}~
-			
+
 			\begin{itemize}
 				\item[$\Leftarrow$:] ~
-				
+
 				Supposons que $f$ est inversible.
-				
+
 				Alors, il existe un inverse $g:B \to A$.
-				
+
 				\begin{itemize}
 					\item[(inj):] ~
-					
+
 					Soient $x_1,x_2 \in A$.
-					
+
 					On suppose que $f(x_1)=f(x_2)$.
-					
+
 					Alors, $g(f(x_1)) = g(f(x_2))$.
-					
+
 					Donc, $x_1 = x_2$.
 					\item[(surj):] ~
-					
+
 					Soit $y \in B$.
-					
+
 					Posons $x=g(y) \in A$.
-					
+
 					Alors, $f(x)=f(g(y))=y$.
 				\end{itemize}
-				
+
 				Ainsi, $f$ est bijective.
 				\item[$\Rightarrow$:] ~
-				
+
 				Supposons $f$ est injective et surjective.
-				
+
 				\begin{lem}
 					Pour \emph{chaque} $y \in B$, il existe un \emph{unique} $x \in A$ t.q. $f(x)=y$.
-					
+
 					\renewcommand{\qedsymbol}{$\blacksquare$}
 					\begin{proof}~
-						
+
 						\underline{Existance}:
 						Comme $f$ est surjective, $x$ existe.
-						
+
 						\underline{Unicit\'e}:
 						Supposons $x_1,x_2 \in A$ t.q. $f(x_1)=f(x_2)$, alors $x_1=x_2$ puisque $f$ est injective.
 					\end{proof}
 					\renewcommand{\qedsymbol}{$\square$}
 				\end{lem}
-				
+
 				On d\'efinit $g:B \to A$ par $g(y)=x$ o\`u $x$ est l'unique \'el\'ement du lemme.
-				
+
 				On v\'erifie:
-				
+
 				Soit $x \in A$, alors $g(\underbrace{f(x)}_y)=x$, par d\'efinition de $g$.
-				
+
 				Soit $y \in B$, alors $f(\underbrace{g(y)}_{\text{l'unique $x$ t.q. $f(x)=y$}})=y$.
 			\end{itemize}
 		\end{proof}
@@ -537,7 +538,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{rappel}
 
 	\begin{exem}~
-		
+
 		Sur $\naturels$,
 
 		\begin{ulist}
@@ -572,25 +573,25 @@ Donn\'e par Jean-Philippe Burelle}
 			La matrice $I=\left( \begin{array}{cc}
 				1&0\\0&1
 			\end{array}\right)$ est neutre pour $\times$.
-			\item Sur $E=\{f:A \to A\}$, la fonction $\mathds{1}_A$ est neutre pour la composition de fonctions.
+			\item Sur $E=\{f:A \to A\}$, la fonction $\identite_A$ est neutre pour la composition de fonctions.
 			\begin{proof}~
 
-				On doit montrer $\mathds{1}_A \circ f=f$ et $f \circ \mathds{1}_A=f$ pour tout $f \in E$.
+				On doit montrer $\identite_A \circ f=f$ et $f \circ \identite_A=f$ pour tout $f \in E$.
 				\begin{nlist}
 					\item Soit $x \in A$, alors
 					\begin{align*}
-						(\mathds{1}_A \circ f)(x)&= \mathds{1}_A(f(x))\\
+						(\identite_A \circ f)(x)&= \identite_A(f(x))\\
 						&= f(x)
 					\end{align*}
 
-					Donc, $\mathds{1}_A \circ f=f$.
+					Donc, $\identite_A \circ f=f$.
 					\item Soit $x \in A$, alors
 					\begin{align*}
-						(f \circ \mathds{1}_A)(x)&= f(\mathds{1}_A(x))\\
+						(f \circ \identite_A)(x)&= f(\identite_A(x))\\
 						&=f(x)
 					\end{align*}
 
-					Donc,$f \circ \mathds{1}_A=f$.
+					Donc,$f \circ \identite_A=f$.
 				\end{nlist}
 			\end{proof}
 		\end{ulist}
@@ -613,7 +614,7 @@ Donn\'e par Jean-Philippe Burelle}
 			0&\mapsto&1\\
 			1&\mapsto&1
 		\end{array}$
-		On a $f_2=\mathds{1}_A$.
+		On a $f_2=\identite_A$.
 
 		\[
 		\begin{array}{c||c|c|c|c}
@@ -780,7 +781,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 			$S(A)=\{f:A \to A|f \text{ est bijective}\}$ est un groupe pour $\circ$.
 
-			Neutre: $\mathds{1}_A$
+			Neutre: $\identite_A$
 
 			Inverse de $f$: $f^{-1}$
 		\end{nlist}
@@ -929,7 +930,7 @@ Donn\'e par Jean-Philippe Burelle}
 				\coordinate (B) at (0:2cm);
 				\coordinate (C) at (60:2cm);
 				\draw (A) -- (B) -- (C) -- cycle;
-				
+
 				\coordinate (a) at ($(A)!.5!(B)$);
 				\coordinate (b) at ($(B)!.5!(C)$);
 				\coordinate (c) at ($(A)!.5!(C)$);
@@ -939,17 +940,17 @@ Donn\'e par Jean-Philippe Burelle}
 				\node (alpha) at (a) [below=2mm] {$\alpha$};
 				\node (beta) at (b) [above right=0mm and 1mm] {$\beta$};
 				\node (gamma) at (c) [above left=0mm and 1mm] {$\gamma$};
-				
+
 				\draw[<->] (a)+(215:7pt) -- +(325:7pt);
 				\draw[<->] (b)+(335:7pt) -- +(85:7pt);
 				\draw[<->] (c)+(95:7pt) -- +(205:7pt);
-				
+
 				\coordinate (r1) at (77.02:1.65cm);
 				\coordinate (r2) at (108.57:.64cm);
 				\coordinate (s1) at (44.55:2.29);
 				\coordinate (s2) at (15.45:2.29);
 				\path[->,bend angle=45] (r1) edge[bend right] (r2) (s1) edge[bend left] (s2);
-				
+
 				\node (sigma) at (30:2.6cm) {$\sigma$};
 				\node (rho) at (100.96:1.32cm) {$\rho$};
 			\end{tikzpicture}
@@ -1044,7 +1045,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{prop}
 	\begin{exem}
 		\begin{ulist}~
-			
+
 			\item $\reels \times \reels = \reels^2$
 
 			$(x,y)+(x',y')=(x+x',y+y')$.
@@ -1250,8 +1251,8 @@ Donn\'e par Jean-Philippe Burelle}
 				\end{align*}
 				\item $f^{-1}$ est bijective, car elle est inversible d'inverse $f$.
 				\begin{align*}
-					f \circ f^{-1}&= \mathds{1}_H\\
-					f^{-1} \circ f&= \mathds{1}_G
+					f \circ f^{-1}&= \identite_H\\
+					f^{-1} \circ f&= \identite_G
 				\end{align*}
 			\end{nlist}
 		\end{proof}
@@ -1370,7 +1371,7 @@ Donn\'e par Jean-Philippe Burelle}
 			``m\^eme table''
 			\item $f,g$ isomorphismes $\Rightarrow$ $f^{-1}, g \circ f$ isomorphismes.
 
-			$\mathds{1}_G:G \to G$ est trivialement un isomorphisme.
+			$\identite_G:G \to G$ est trivialement un isomorphisme.
 			\item $G$ est isomorphe \`a $H$ s'il existe un isomorphisme $f:G \to H$.
 			\item Puissances:
 
@@ -2155,7 +2156,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 		$S(E)$ est un groupe lorsque muni de l'op\'eration $\circ$.
 
-		$\mathds{1}_E$ est l'\'el\'ement neutre.
+		$\identite_E$ est l'\'el\'ement neutre.
 
 		$f^{-1}$ est l'\'el\'ement inverse de $f$.
 
@@ -2731,7 +2732,7 @@ Donn\'e par Jean-Philippe Burelle}
 				\end{pmatrix}(8)\\
 				&= 2
 			\end{split}\tag{8}
-		\end{align*}%TODO mettre chaque terme dans un split et realigner
+		\end{align*}
 		\begin{align*}
 		\begin{pmatrix}
 			2&8
@@ -2765,9 +2766,7 @@ Donn\'e par Jean-Philippe Burelle}
 				2&4
 			\end{pmatrix} \in S_4$.
 			\begin{align*}
-				\mathrm{sgn}\begin{pmatrix}
-					2&4
-				\end{pmatrix}&= \left( \dfrac{\cancel{1-4}}{\cancel{1-2}} \right) \left( \dfrac{\cancel{1-3}}{\cancel{1-3}} \right) \left( \dfrac{\cancel{1-2}}{\cancel{1-4}} \right) \left( \dfrac{\cancelto{-1}{4-3}}{\cancel{2-3}} \right) \left( \dfrac{\cancelto{-1}{4-2}}{\cancel{2-4}} \right) \left( \dfrac{\cancelto{-1}{3-2}}{\cancel{3-4}} \right)\\
+				\mathrm{sgn}(\sigma)&= \left( \dfrac{\colorbox{col1}{$\cancel{3-4}$}}{\colorbox{col2}{$\cancel{1-2}$}} \right) \left( \dfrac{\colorbox{col3}{$\cancelto{-1}{3-1}$}}{\colorbox{col3}{$\cancel{1-3}$}} \right) \left( \dfrac{\colorbox{col4}{$\cancelto{-1}{3-2}$}}{\colorbox{col5}{$\cancel{1-4}$}} \right) \left( \dfrac{\colorbox{col5}{$\cancelto{-1}{4-1}$}}{\colorbox{col4}{$\cancel{2-3}$}} \right) \left( \dfrac{\colorbox{col6}{$\cancelto{-1}{4-2}$}}{\colorbox{col6}{$\cancel{2-4}$}} \right) \left( \dfrac{\colorbox{col2}{$\cancel{1-2}$}}{\colorbox{col1}{$\cancel{3-4}$}} \right)\\
 				&= (-1)^3\\
 				&= -1
 			\end{align*}
@@ -2832,6 +2831,176 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{tikzpicture}
 		\end{center}
 
-		Connecter chaque \'el\'ement, compter les intersections des segments, $\mathrm{sgn}(\sigma) = (-1)^\gamma$, o\`u $\gamma$ est le nombre d'intersections.
+		Connecter chaque \'el\'ement, compter les intersections des segments, $\mathrm{sgn}(\sigma) = (-1)^\gamma$, o\`u $\gamma$ est le nombre d'intersections. Ici, $\mathrm{sgn}(\sigma) = (-1)^8 = 1$.
 	\end{rema}
+
+	\stepcounter{chapter}
+	\chapter{Homomorphismes}
+	\cours
+	\begin{defin}
+		Soient $G,H$ deux groupes et $f:G \to H$.
+
+		On dit que $f$ est un \emph{homomorphisme} (ou morphisme de groupes) si $f(ab) = f(a)f(b)$, $\forall a,b \in G$.
+	\end{defin}
+	\begin{exem}~
+
+		\begin{nlist}
+			\item Tous les isomorphismes sont des morphismes.
+			\item $f:G \to H$, $a \mapsto e_H$ est toujours un homomorphisme.
+
+			En effet, $f(ab) = e_H = e_H e_H = f(a) f(b)$.
+
+			$f$ n'est pas un isomorphisme, sauf si $G=H=\{e\}$.
+			\item $\mathrm{sgn}:S_n \to \{-1,1\} = C_2$.
+
+			$\mathrm{sgn}(\alpha \circ \beta) = \mathrm{sgn}(\alpha) \cdot \mathrm{sgn}(\beta)$, donc $\mathrm{sgn}$ est un homomorphisme.
+			\item $\det:GL(n, \reels) \to \reels_*$ est un homomorphisme, car $\det(AB) = \det(A) \cdot \det(B)$.
+			\item Pour un $m \in \entiers$ fix\'e, $f:\entiers \to \entiers$, $f(n) = m \cdot n$ est un homomorphisme.
+
+			En effet, $f(n_1+n_2) = m(n_1+n_2) = mn_1 + mn_2 = f(n_1) + f(n_2)$.
+			\item Si $H \lte G$, $i:H \to G$, $i(x)=x$ est un homomorphisme.
+
+			Ce n'est pas $\identite$, car $H \neq G$ en g\'en\'eral.
+		\end{nlist}
+	\end{exem}
+	\begin{prop}~
+
+		Si $f:G \to H$ est un homomorphisme, alors
+		\begin{nlist}
+			\item $f(e_G) = e_H$
+			\item $f(a^{-1}) = f(a)^{-1}$
+		\end{nlist}
+		\begin{proof}~
+
+			\begin{nlist}
+				\item
+				\begin{align*}
+					f(e_G)&= f(e_G e_G)\\
+					&= f(e_G) f(e_G)\\
+					f(e_G)^{-1}f(e_G)&= f(e_G)^{-1} f(e_G) f(e_G)\\
+					e_H&= e_H f(e_G)\\
+					&= f(e_G)
+				\end{align*}
+				\item $f(a^{-1}) f(a) = f(a^{-1}a) = f(e_G) = e_H$, donc $f(a^{-1}) = f(a)^{-1}$.
+			\end{nlist}
+		\end{proof}
+	\end{prop}
+	\begin{prop}~
+
+		La composition de deux homomorphismes est un homomorphisme.
+		\begin{proof}~
+
+			Soient $f:G \to H$ et $g:H \to K$ deux homomorphismes, et $a,b \in G$.
+			\begin{align*}
+				(g \circ f)(ab)&= g(f(ab))\\
+				&= g(f(a)f(b))\\
+				&= g(f(a))g(f(b))\\
+				&= (g \circ f)(a) (g \circ f)(b)
+			\end{align*}
+		\end{proof}
+	\end{prop}
+	\begin{prop}
+		Soit $f:G \to H$ un homomorphisme. Alors,
+		\begin{nlist}
+			\item 	$\mathrm{Im}(f) = \{f(a) \mid a \in G\}$ est un sous-groupe de $H$;
+			\item le \emph{noyau} $\ker(f) = \{a \in G \mid f(a) = e\}$ est un sous-groupe de $G$.
+		\end{nlist}
+		\begin{exem}~
+
+			\begin{enumerate}[label=(\alph*)]
+				\item $\mathrm{Im}(\det) = \reels_*$, $\det\begin{pmatrix}
+					x&0&\dotsb&0\\
+					0&1&\dotsb&0\\
+					\vdots&\vdots&\ddots&\vdots\\
+					0&\dotsb&0&1
+				\end{pmatrix}=x$
+
+				$\ker(\det) = \{M \in GL(n,\reels) \mid \det(M)=1\} = SL(n,\reels)$.
+				\item $f:\entiers \to \entiers$, $f(n)=mn$.
+
+				$\mathrm{Im}(f) = m\entiers \lte \entiers$
+
+				$\ker(f) = \left\{ \begin{array}{rl}
+					\entiers&\text{si } m=0\\
+					\{0\}&\text{sinon}
+				\end{array} \right.$
+			\end{enumerate}
+		\end{exem}
+		\begin{proof}~
+
+			\begin{nlist}
+				\item $f(e_G) \in \mathrm{Im}(f)$, donc $\mathrm{Im}(f) \neq \emptyset$.
+
+				Si $a,b \in \mathrm{Im}(f)$, alors $a=f(c)$ et $b=f(d)$.
+
+				On a alors
+				\begin{align*}
+					ab^{-1}&= f(c)f(d)^{-1}\\
+					&= f(c)f(d^{-1})\\
+					&= f(cd^{-1}) \in \mathrm{Im}(f)
+				\end{align*}
+				\item $f(e_G) = e_H \Rightarrow f(e_G) \in \ker(f) \Rightarrow \ker(f) \neq \emptyset$.
+
+				Soient $a,b \in \ker(f)$. Alors, $f(a)=e_H$ et $f(b)=e_H$.
+				\begin{align*}
+					f(ab^{-1})&= f(a)f(b^{-1})\\
+					&= f(a)f(b)^{-1}\\
+					&= e_H e_H^{-1}\\
+					&= e_H
+				\end{align*}
+				donc $ab^{-1} \in \ker(f)$.
+			\end{nlist}
+		\end{proof}
+		\begin{exem}~
+
+			$\mathrm{Im}(\mathrm{sgn}) = C_2 = \{-1,1\}$, si $n \gte 1$.
+
+			$\ker(\mathrm{sgn}) = \{\sigma \in S_n \mid \mathrm{sgn}(\sigma)=1\}$ est un sous-groupe de $S_n$.
+			\begin{nota}
+				On note ce sous-groupe $A_n$ et on l'appelle le \emph{groupe altern\'e}.
+			\end{nota}
+			\begin{exem}
+				$n=3$.
+
+				$A_3 = \{e,(123),(132)\}$.
+			\end{exem}
+		\end{exem}
+	\end{prop}
+	\begin{prop}~
+
+		Soit $f:G \to H$ un morphisme.
+
+		$\ker(f) = \{e\}$ si, et seulement si, $f$ est injective.
+		\begin{proof}~
+
+			\begin{itemize}
+				\item[$(\Leftarrow)$] Supposons que $f$ est injective.
+
+				On sait que $e_G \in \ker(f)$.
+
+				Supposons que $\exists a \in \ker(f)$. On a
+				\begin{align*}
+					f(a)&= e_H&&\text{par d\'efinition de }\ker\\
+					&= f(e_G)\\
+					a&= e_G&&\text{car $f$ est injective}
+				\end{align*}
+
+				Donc, $\ker(f) = \{e_G\}$.
+				\item[$(\Rightarrow)$] Supposons que $\ker(f) = \{e_G\}$.
+
+				Soient $a,b \in G$ t.q. $f(a) = f(b)$.
+				\begin{align*}
+					f(a)&= f(b)\\
+					f(a)f(b)^{-1}&= e_H\\
+					f(a)f(b^{-1})&= e_H\\
+					f(ab^{-1})&= e_H\\
+					ab^{-1}&= e_G\\
+					a&= b
+				\end{align*}
+			\end{itemize}
+		\end{proof}
+		\begin{rema}
+			$\mathrm{Im}(f)=H$ si, et seulement si, $f$ est surjective.
+		\end{rema}
+	\end{prop}
 \end{document}
