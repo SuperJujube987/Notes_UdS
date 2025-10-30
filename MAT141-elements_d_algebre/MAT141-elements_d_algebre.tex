@@ -75,7 +75,11 @@ Donn\'e par Jean-Philippe Burelle}
 \newcommand*{\entiers}{\mathbb{Z}}
 \newcommand*{\rationels}{\mathbb{Q}}
 \newcommand*{\naturels}{\mathbb{N}}
+
 \newcommand*{\identite}{\mathds{1}}
+
+\newcommand*{\image}{\operatorname{Im}}
+\newcommand*{\signe}{\operatorname{sgn}}
 
 \renewcommand{\thesection}{ \arabic{chapter}.\arabic{section}}
 \renewcommand{\thesubsection}{}
@@ -89,6 +93,7 @@ Donn\'e par Jean-Philippe Burelle}
 \newtheorem*{thm}{Th\'eor\`eme}
 \newtheorem*{lem}{Lemme}
 \newtheorem*{prop}{Proposition}
+\newtheorem*{coro}{Corollaire}
 \theoremstyle{definition}
 \newtheorem*{defin}{D\'efinition}
 \theoremstyle{remark}
@@ -2569,7 +2574,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{defin}
 		Le \emph{signe} d'une permutation $\sigma \in S_n$ est le nombre
 		\[
-		\mathrm{sgn}(\sigma) = \prod_{i < j}\dfrac{\sigma(i) - \sigma(j)}{i-j}
+		\signe(\sigma) = \prod_{i < j}\dfrac{\sigma(i) - \sigma(j)}{i-j}
 		\]
 	\end{defin}
 	\begin{exem}
@@ -2580,23 +2585,23 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{pmatrix}
 		\]
 		\begin{align*}
-			\mathrm{sgn}(\sigma)&= \left( \dfrac{\colorbox{col1}{$3-4$}}{\colorbox{col2}{$1-2$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col3}{$3-1$}}}{\colorbox{col3}{$1-3$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col4}{$3-2$}}}{\colorbox{col5}{$1-4$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col5}{$4-1$}}}{\colorbox{col4}{$2-3$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col6}{$4-2$}}}{\colorbox{col6}{$2-4$}} \right) \left( \dfrac{\colorbox{col2}{$1-2$}}{\colorbox{col1}{$3-4$}} \right)\\
+			\signe(\sigma)&= \left( \dfrac{\colorbox{col1}{$3-4$}}{\colorbox{col2}{$1-2$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col3}{$3-1$}}}{\colorbox{col3}{$1-3$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col4}{$3-2$}}}{\colorbox{col5}{$1-4$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col5}{$4-1$}}}{\colorbox{col4}{$2-3$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col6}{$4-2$}}}{\colorbox{col6}{$2-4$}} \right) \left( \dfrac{\colorbox{col2}{$1-2$}}{\colorbox{col1}{$3-4$}} \right)\\
 			&= (-1)^4 = 1
 		\end{align*}
 	\end{exem}
 	\begin{rema}
-		Chaque terme $(i-j)$ appara\^it au d\'enominateur et au num\'erateur, \`a signe pr\`es, donc $\mathrm{sgn}(\sigma) \in \{-1,1\}$.
+		Chaque terme $(i-j)$ appara\^it au d\'enominateur et au num\'erateur, \`a signe pr\`es, donc $\signe(\sigma) \in \{-1,1\}$.
 	\end{rema}
 	\begin{prop}
-		Soient $\alpha, \beta \in S_n$, alors $\mathrm{sgn}(\alpha \circ \beta) = \mathrm{sgn}(\alpha) \cdot \mathrm{sgn}(\beta)$.
+		Soient $\alpha, \beta \in S_n$, alors $\signe(\alpha \circ \beta) = \signe(\alpha) \cdot \signe(\beta)$.
 		\begin{proof}~
 
 			\begin{align*}
-				\mathrm{sgn}(\alpha \circ \beta)&= \prod_{i < j}\dfrac{\alpha(\beta(i)) - \alpha(\beta(j))}{i-j}\\
+				\signe(\alpha \circ \beta)&= \prod_{i < j}\dfrac{\alpha(\beta(i)) - \alpha(\beta(j))}{i-j}\\
 				&= \prod_{i < j}\left( \dfrac{\alpha(\beta(i)) - \alpha(\beta(j))}{i-j} \right) \left( \dfrac{\beta(i) - \beta(j)}{\beta(i) - \beta(j)} \right)\\
 				&= \prod_{i < j}\dfrac{\alpha(\beta(i)) - \alpha(\beta(j))}{\beta(i) - \beta(j)} \cdot \prod_{i < j}\dfrac{\beta(i) - \beta(j)}{i-j}\\
-				&= \left( \prod_{i < j}\dfrac{\alpha(\beta(i)) - \alpha(\beta(j))}{\beta(i) - \beta(j)} \right) \cdot \mathrm{sgn}(\beta)\\
-				&= \mathrm{sgn}(\alpha) \cdot \mathrm{sgn}(\beta)
+				&= \left( \prod_{i < j}\dfrac{\alpha(\beta(i)) - \alpha(\beta(j))}{\beta(i) - \beta(j)} \right) \cdot \signe(\beta)\\
+				&= \signe(\alpha) \cdot \signe(\beta)
 			\end{align*}
 		\end{proof}
 	\end{prop}
@@ -2747,7 +2752,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{pmatrix}
 		\end{align*}
 
-		Alors, $\mathrm{sgn}(\sigma) = \mathrm{sgn}\left( \begin{pmatrix}
+		Alors, $\signe(\sigma) = \signe\left( \begin{pmatrix}
 			2&8
 		\end{pmatrix} \circ \begin{pmatrix}
 			2&6
@@ -2766,7 +2771,7 @@ Donn\'e par Jean-Philippe Burelle}
 				2&4
 			\end{pmatrix} \in S_4$.
 			\begin{align*}
-				\mathrm{sgn}(\sigma)&= \left( \dfrac{\colorbox{col1}{$\cancel{3-4}$}}{\colorbox{col2}{$\cancel{1-2}$}} \right) \left( \dfrac{\colorbox{col3}{$\cancelto{-1}{3-1}$}}{\colorbox{col3}{$\cancel{1-3}$}} \right) \left( \dfrac{\colorbox{col4}{$\cancelto{-1}{3-2}$}}{\colorbox{col5}{$\cancel{1-4}$}} \right) \left( \dfrac{\colorbox{col5}{$\cancelto{-1}{4-1}$}}{\colorbox{col4}{$\cancel{2-3}$}} \right) \left( \dfrac{\colorbox{col6}{$\cancelto{-1}{4-2}$}}{\colorbox{col6}{$\cancel{2-4}$}} \right) \left( \dfrac{\colorbox{col2}{$\cancel{1-2}$}}{\colorbox{col1}{$\cancel{3-4}$}} \right)\\
+				\signe(\sigma)&= \left( \dfrac{\colorbox{col1}{$\cancel{3-4}$}}{\colorbox{col2}{$\cancel{1-2}$}} \right) \left( \dfrac{\colorbox{col3}{$\cancelto{-1}{3-1}$}}{\colorbox{col3}{$\cancel{1-3}$}} \right) \left( \dfrac{\colorbox{col4}{$\cancelto{-1}{3-2}$}}{\colorbox{col5}{$\cancel{1-4}$}} \right) \left( \dfrac{\colorbox{col5}{$\cancelto{-1}{4-1}$}}{\colorbox{col4}{$\cancel{2-3}$}} \right) \left( \dfrac{\colorbox{col6}{$\cancelto{-1}{4-2}$}}{\colorbox{col6}{$\cancel{2-4}$}} \right) \left( \dfrac{\colorbox{col2}{$\cancel{1-2}$}}{\colorbox{col1}{$\cancel{3-4}$}} \right)\\
 				&= (-1)^3\\
 				&= -1
 			\end{align*}
@@ -2831,7 +2836,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{tikzpicture}
 		\end{center}
 
-		Connecter chaque \'el\'ement, compter les intersections des segments, $\mathrm{sgn}(\sigma) = (-1)^\gamma$, o\`u $\gamma$ est le nombre d'intersections. Ici, $\mathrm{sgn}(\sigma) = (-1)^8 = 1$.
+		Connecter chaque \'el\'ement, compter les intersections des segments, $\signe(\sigma) = (-1)^\gamma$, o\`u $\gamma$ est le nombre d'intersections. Ici, $\signe(\sigma) = (-1)^8 = 1$.
 	\end{rema}
 
 	\stepcounter{chapter}
@@ -2851,9 +2856,9 @@ Donn\'e par Jean-Philippe Burelle}
 			En effet, $f(ab) = e_H = e_H e_H = f(a) f(b)$.
 
 			$f$ n'est pas un isomorphisme, sauf si $G=H=\{e\}$.
-			\item $\mathrm{sgn}:S_n \to \{-1,1\} = C_2$.
+			\item $\signe:S_n \to \{-1,1\} = C_2$.
 
-			$\mathrm{sgn}(\alpha \circ \beta) = \mathrm{sgn}(\alpha) \cdot \mathrm{sgn}(\beta)$, donc $\mathrm{sgn}$ est un homomorphisme.
+			$\signe(\alpha \circ \beta) = \signe(\alpha) \cdot \signe(\beta)$, donc $\signe$ est un homomorphisme.
 			\item $\det:GL(n, \reels) \to \reels_*$ est un homomorphisme, car $\det(AB) = \det(A) \cdot \det(B)$.
 			\item Pour un $m \in \entiers$ fix\'e, $f:\entiers \to \entiers$, $f(n) = m \cdot n$ est un homomorphisme.
 
@@ -2902,13 +2907,13 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{prop}
 		Soit $f:G \to H$ un homomorphisme. Alors,
 		\begin{nlist}
-			\item 	$\mathrm{Im}(f) = \{f(a) \mid a \in G\}$ est un sous-groupe de $H$;
+			\item 	$\image(f) = \{f(a) \mid a \in G\}$ est un sous-groupe de $H$;
 			\item le \emph{noyau} $\ker(f) = \{a \in G \mid f(a) = e\}$ est un sous-groupe de $G$.
 		\end{nlist}
 		\begin{exem}~
 
 			\begin{enumerate}[label=(\alph*)]
-				\item $\mathrm{Im}(\det) = \reels_*$, $\det\begin{pmatrix}
+				\item $\image(\det) = \reels_*$, $\det\begin{pmatrix}
 					x&0&\dotsb&0\\
 					0&1&\dotsb&0\\
 					\vdots&\vdots&\ddots&\vdots\\
@@ -2918,7 +2923,7 @@ Donn\'e par Jean-Philippe Burelle}
 				$\ker(\det) = \{M \in GL(n,\reels) \mid \det(M)=1\} = SL(n,\reels)$.
 				\item $f:\entiers \to \entiers$, $f(n)=mn$.
 
-				$\mathrm{Im}(f) = m\entiers \lte \entiers$
+				$\image(f) = m\entiers \lte \entiers$
 
 				$\ker(f) = \left\{ \begin{array}{rl}
 					\entiers&\text{si } m=0\\
@@ -2929,15 +2934,15 @@ Donn\'e par Jean-Philippe Burelle}
 		\begin{proof}~
 
 			\begin{nlist}
-				\item $f(e_G) \in \mathrm{Im}(f)$, donc $\mathrm{Im}(f) \neq \emptyset$.
+				\item $f(e_G) \in \image(f)$, donc $\image(f) \neq \emptyset$.
 
-				Si $a,b \in \mathrm{Im}(f)$, alors $a=f(c)$ et $b=f(d)$.
+				Si $a,b \in \image(f)$, alors $a=f(c)$ et $b=f(d)$.
 
 				On a alors
 				\begin{align*}
 					ab^{-1}&= f(c)f(d)^{-1}\\
 					&= f(c)f(d^{-1})\\
-					&= f(cd^{-1}) \in \mathrm{Im}(f)
+					&= f(cd^{-1}) \in \image(f)
 				\end{align*}
 				\item $f(e_G) = e_H \Rightarrow f(e_G) \in \ker(f) \Rightarrow \ker(f) \neq \emptyset$.
 
@@ -2953,9 +2958,9 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{proof}
 		\begin{exem}~
 
-			$\mathrm{Im}(\mathrm{sgn}) = C_2 = \{-1,1\}$, si $n \gte 1$.
+			$\image(\signe) = C_2 = \{-1,1\}$, si $n \gte 1$.
 
-			$\ker(\mathrm{sgn}) = \{\sigma \in S_n \mid \mathrm{sgn}(\sigma)=1\}$ est un sous-groupe de $S_n$.
+			$\ker(\signe) = \{\sigma \in S_n \mid \signe(\sigma)=1\}$ est un sous-groupe de $S_n$.
 			\begin{nota}
 				On note ce sous-groupe $A_n$ et on l'appelle le \emph{groupe altern\'e}.
 			\end{nota}
@@ -3000,7 +3005,137 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{itemize}
 		\end{proof}
 		\begin{rema}
-			$\mathrm{Im}(f)=H$ si, et seulement si, $f$ est surjective.
+			$\image(f)=H$ si, et seulement si, $f$ est surjective.
 		\end{rema}
 	\end{prop}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item homomorphisme: $f:G \to H$ t.q. $f(ab)=f(a)f(b)$
+			\item Si $f$ est un homomorphisme, alors
+			\begin{ulist}
+				\item $f(e_G)=e_H$
+				\item $f(a^{-1})=f(a)^{-1}$
+				\item $f(a^n)=f(a)^n$
+			\end{ulist}
+			\item $\image(f) = \{f(a) \mid a \in G\} \lte H$
+			\item $\ker(f) = \{a \in G \mid f(a)=e_H\} \lte G$
+			\item $\ker(f)=\{e_G\} \Leftrightarrow f$ est injective
+		\end{ulist}
+	\end{rappel}
+	\begin{exem}~
+
+		$\begin{array}{rcl}
+			f:\entiers&\to&\entiers_m\\
+			n&\mapsto&\overline{n}
+		\end{array}$ est un homomorphisme.
+
+		En effet,
+		\begin{align*}
+			f(n_1+n_2)&= \overline{n_1+n_2}\\
+			&= \overline{n_1} + \overline{n_2}\\
+			&= f(n_1) + f(n_2)
+		\end{align*}
+
+		$\image(f) = \entiers_m$.
+
+		$\ker(f) = m\entiers$.
+	\end{exem}
+
+	\phantomsection\section*{\'Equivalence modulo $H$ et th\'eor\`eme de Lagrange}
+	\addcontentsline{toc}{section}{\'Equivalence modulo $H$ et th\'eor\`eme de Lagrange}
+	$G$ un groupe quelconque et $H \lte G$ un sous-groupe.
+
+	On d\'efinit une relation sur $G$ par $a \sim b$ si, et seulement si, $ab^{-1} \in H$.
+
+	Cette relation est appel\'ee \emph{\'equivalence modulo $H$}.
+	\begin{prop}~
+
+		$\sim$ est une relation d'\'equivalence.
+		\begin{proof}~
+
+			\begin{itemize}
+				\item[(refl)] Soit $a \in G$.
+
+				$aa^{-1} = e_G \in H$, puisque $H \lte G$.
+
+				Alors, $a \sim a$.
+				\item[(sym)] Soient $a,b \in G$.
+
+				Supposons que $a \sim b$.
+
+				Alors, $ab^{-1} \in H$.
+
+				Comme $H$ est un groupe, $H$ est ferm\'e pour la prise d'inverses, donc $(ab^{-1})^{-1} = ba^{-1} \in H$.
+
+				Ainsi, $b \sim a$.
+				\item[(trans)] Soient $a,b,c \in G$.
+
+				Supposons que $a \sim b$ et $b \sim c$.
+
+				Alors, $ab^{-1} \in H$ et $bc^{-1} \in H$.
+
+				Comme $H$ est un groupe, $H$ est ferm\'e pour son op\'eration, donc $\left( ab^{-1} \right) \left( bc^{-1} \right) = a \left( bb^{-1} \right) c^{-1} = ac^{-1} \in H$.
+
+				Ainsi, $a \sim c$.
+			\end{itemize}
+		\end{proof}
+	\end{prop}
+
+	Le groupe $G$ se partitionne en classes d'\'equivalence modulo $H$: $G = \overline{a_1} \cup \overline{a_2} \cup \dots$
+	\begin{exem}~
+
+		$G=\entiers_8$, $H = \{\overline0, \overline4\}$.
+
+		La classe de $\overline0 \in G \mod H$ est l'ensemble des $\overline{n} \in \entiers_8$ t.q. $\overline0 - \overline{n} \in H$.
+
+		Alors, $-\overline{n} \in \{\overline0, \overline4\}$, donc $\overline{n} = \overline0$ ou $\overline{n} = \overline4$.
+
+		$C(\overline0) = \{\overline0,\overline4\}$, $C(\overline1) = \{\overline1,\overline5\}$, $C(\overline2) = \{\overline2,\overline6\}$, $C(\overline3) = \{\overline3,\overline7\}$.
+	\end{exem}
+	\begin{lem}~
+
+		La classe modulo $H$ de  $a \in G$ est $\{ha \mid h \in H\}$.
+		\begin{nota}~
+
+			$\{ha \mid h \in H\}$ est not\'e $Ha$.
+		\end{nota}
+		\begin{proof}~
+
+			Soient $a,b \in G$.
+			\begin{itemize}
+				\item[$(\subseteq)$] Supposons que $b \sim a \mod H$, c'est-\`a-dire $b \in \overline{a}$.
+
+				Alors, $ba^{-1} \in H$, disons $ba^{-1} = h$ avec $h \in H$, donc $b=ha$.
+
+				$\therefore \overline{a} \subseteq Ha$.
+				\item[$(\supseteq)$] Supposons que $b \in Ha$.
+
+				Alors, $b=ha$ avec $h \in H$, donc $ba^{-1} = h \in H$. Ainsi, $b \sim a$, donc $b \in \overline{a}$.
+
+				$\therefore Ha \subseteq \overline{a}$.
+			\end{itemize}
+
+			Ainsi, $Ha = \overline{a}$.
+		\end{proof}
+	\end{lem}
+	\begin{coro}~
+
+		Toutes les classes d'\'equivalence modulo $H$ ont le m\^eme nombre d'\'el\'ements.
+
+		Plus pr\'ecis\'ement, $\card{Ha} = \card{H}$.
+		\begin{proof}~
+
+			$\begin{array}{rcl}
+				f:H&\to&Ha\\
+				h&\mapsto&ha
+			\end{array}$ est bijective, car elle est inversible d'inverse
+			$\begin{array}{rcl}
+				f^{-1}:Ha&\to&H\\
+				b&\mapsto&ba^{-1}
+			\end{array}$.
+		\end{proof}
+	\end{coro}
 \end{document}
