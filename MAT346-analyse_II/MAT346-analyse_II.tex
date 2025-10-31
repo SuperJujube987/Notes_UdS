@@ -23,11 +23,11 @@
 
 \fancyfoot{}
 \fancyhead{}
-\fancyfoot[l]{MAT346 - Analyse II}
-\fancyfoot[r]{\thepage}
-\fancyhead[l]{\leftmark}
+\fancyhead[l]{MAT346 - Analyse II}
+\fancyhead[r]{\leftmark}
+\fancyfoot[c]{\thepage}
 \renewcommand{\headrulewidth}{.4pt}
-\renewcommand{\footrulewidth}{.4pt}
+\renewcommand{\footrulewidth}{0pt}
 
 \setcounter{tocdepth}{3}
 
@@ -1822,9 +1822,9 @@ Donn\'e par Mario Lambert}
 
 			Si $f_n$ continues et $f_n \convuni f$, alors $\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} = \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}$.
 
-			Comme $f_n$ continue en $x_0$, $\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} = \dlim{n}{\infty}{f_n(x_0)} = f(x_0)$.
+			Comme $f_n$ est continue en $x_0$, $\dlim{n}{\infty}{\dlim{x}{x_0}{f_n(x)}} = \dlim{n}{\infty}{f_n(x_0)} = f(x_0)$.
 
-			Comme $f$ continue en $x_0$, $f(x_0) = \dlim{x}{x_0}{f(x)} = \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}$.
+			Comme $f$ est continue en $x_0$, $f(x_0) = \dlim{x}{x_0}{f(x)} = \dlim{x}{x_0}{\dlim{n}{\infty}{f_n(x)}}$.
 		\end{coro}
 	\end{thm}
 	\begin{thm}~
@@ -1900,6 +1900,186 @@ Donn\'e par Mario Lambert}
 
 		La \emph{s\'erie} des $f_k$ est la suite $(s_n)_{n \in \naturels}$, o\`u $s_n(x) = \dsum{k}{0}{n}{f_k(x)}$.
 
-		Si la suite $(s_n(x))$ converge ponctuellement vers une fonction $s(x)$, alors $\dlim{n}{\infty}{s_n(x)}$ est appel\'ee la \emph{somme} de la s\'erie, c'est-\`a-dire, $\dlim{n}{\infty}{s_n(x)} = \dsum{k}{0}{\infty}{f_k(x)}$.
+		Si la suite $(s_n(x))$ converge ponctuellement vers une fonction $s(x)$, alors $\dlim{n}{\infty}{s_n(x)}$ est appel\'ee la \emph{somme} de la s\'erie, c'est-\`a-dire, $s = \dlim{n}{\infty}{s_n(x)} = \dsum{k}{0}{\infty}{f_k(x)}$.
 	\end{defin}
+	\begin{exem}~
+
+		$f_k(x) = x^k$, pour $x \in \reels$.
+
+		On cherche $\dsum{k}{0}{\infty}{f_k(x)} = \dsum{k}{0}{\infty}{x^k}$.
+
+		D'Alembert: $L = \dlim{k}{\infty}{\abs{\dfrac{x^{k+1}}{x^k}}} = \dlim{k}{\infty}{\abs{x}} = \abs{x}$. On a convergence si $L<1$, c'est-\`a-dire $-1<x<1$.
+
+		Si $x=-1$, alors $\dsum{k}{0}{\infty}{x^k} = \dsum{k}{0}{\infty}{(-1)^k}$ oscille.
+
+		Si $x=1$, alors $\dsum{k}{0}{\infty}{x^k} = \dsum{k}{0}{\infty}{1^k}$ diverge.
+
+		Donc, la s\'erie converge sur $]-1,1[$.
+
+		On a, sur $]-1,1[$, $s = \dlim{n}{\infty}{s_n} = \dlim{n}{\infty}{\dsum{k}{0}{n}{x^k}} = \dlim{n}{\infty}{\dfrac{1-x^{n+1}}{1-x}} = \dfrac{1}{1-x}$.
+	\end{exem}
+	\begin{defin}~
+
+		La s\'erie de fonctions $\dsum{k}{0}{\infty}{f_k}$ \emph{converge uniform\'ement} sur $A$ vers une fonction $s:A \to \reels$ si $\left(s_n=\dsum{k}{0}{n}{f_k}\right)_{n \in \naturels} \convuni s$, c'est-\`a-dire si $\dlim{n}{\infty}{\sup\limits_{x \in A}\abs{s_n(x)-s(x)}}=0$.
+	\end{defin}
+	\begin{exem}~
+
+		\begin{enumerate}[label=\alph*)]
+			\item $f_k(x)=x^k$ sur $A=\left[ -\frac{1}{2}, \frac{1}{2} \right]$. On a
+			\begin{align*}
+				\dlim{n}{\infty}{\sup\limits_{x \in A}\abs{\dsum{k}{0}{n}{x^k} - \dsum{k}{0}{\infty}{x^k}}}&= \dlim{n}{\infty}{\sup\limits_{x \in A}\abs{-\dsum{k}{n+1}{\infty}{x^k}}}\\
+				&\lte \dlim{n}{\infty}{\sup\limits_{x \in A}\dsum{k}{n+1}{\infty}{\abs{x^k}}}\\
+				&= \dlim{n}{\infty}{\dsum{k}{n+1}{\infty}{\left(\frac{1}{2}\right)^k}}\\
+				&= \dlim{n}{\infty}{\left(\frac{1}{2}\right)^{n+1}\dsum{k}{0}{\infty}{\left(\frac{1}{2}\right)^k}}\\
+				&= \dlim{n}{\infty}{\left(\frac{1}{2}\right)^{n+1} \cdot \dfrac{1}{1-\frac{1}{2}}}\\
+				&= \dlim{n}{\infty}{\left(\frac{1}{2}\right)^n} = 0
+			\end{align*}
+
+			Donc, $\dsum{k}{0}{\infty}{x^k} \convuni \dfrac{1}{1-x}$ sur $\left[-\frac{1}{2}, \frac{1}{2}\right]$.
+			\item $f_k(x) = x^k$ sur $A=\left]-1,1\right[$.
+			\begin{align*}
+				\dlim{n}{\infty}{\sup\limits_{x \in A}\abs{\dsum{k}{0}{n}{x^k} - \dsum{k}{0}{\infty}{x^k}}}&= \dlim{n}{\infty}{\sup\limits_{x \in A}\abs{\dsum{k}{n+1}{\infty}{x^k}}}\\
+				&= \dlim{n}{\infty}{\abs{\dsum{k}{n+1}{\infty}{1^k}}}\\
+				&\neq 0
+			\end{align*}
+		\end{enumerate}
+	\end{exem}
+	\begin{thm}[Crit\`ere de Weierstrass]~
+
+		Soient $(f_k:A \to \reels)_{k \in \naturels}$ t.q.
+		\begin{enumerate}[label=\roman*),nosep]
+			\item $(\forall k)(\exists M=M_k)(\forall x \in A), \abs{f_k(x)} \lte M_k$;
+			\item $\dsum{k}{0}{\infty}{M_k}$ converge.
+		\end{enumerate}
+
+		Alors, $\dsum{k}{0}{\infty}{f_k}$ converge uniform\'ement.
+		\begin{proof}~
+
+			Soit $x \in A$.
+
+			On a $\dsum{k}{0}{\infty}{\abs{f_k(x)}} \lte \dsum{k}{0}{\infty}{M_k}$, par \textit{i)}, qui converge, par \textit{ii)}.
+
+			Donc, $\dsum{k}{0}{\infty}{f_k(x)}$ converge absolument et donc converge.
+
+			De plus, sur $A$,
+			\begin{align*}
+				\dlim{n}{\infty}{\sup\limits_{x \in A}\abs{s(x)-s_n(x)}}&= \dlim{n}{\infty}{\sup\limits_{x \in A}\abs{\dsum{k}{n+1}{\infty}{f_k(x)}}}\\
+				&\lte \dlim{n}{\infty}{\sup\limits_{x \in A}\dsum{k}{n+1}{\infty}{\abs{f_k(x)}}}\\
+				&\lte \dlim{n}{\infty}{\dsum{k}{n+1}{\infty}{M_k}}
+			\end{align*}
+			d'o\`u la convergence uniforme.
+		\end{proof}
+	\end{thm}
+	\begin{exem}~
+
+		\'Etudions la convergence uniforme de $\dsum{k}{1}{\infty}{\dfrac{\cos kx}{k^2}}$.
+
+		On a
+		\begin{enumerate}[label=\roman*)]
+			\item $\abs{\dfrac{\cos kx}{k^2}} \lte \dfrac{1}{k^2}$;
+			\item $\dsum{k}{1}{\infty}{\dfrac{1}{k^2}} = \dfrac{\pi^2}{6}$ converge.
+		\end{enumerate}
+
+		Donc, $\dsum{k}{1}{\infty}{\dfrac{\cos kx}{k^2}}$ converge uniform\'ement.
+	\end{exem}
+	\begin{thm}~
+
+		$(f_k:A \to \reels)$, $f_k$ continue, $\dsum{k}{0}{\infty}{f_k} \convuni s$, alors $s$ est continue sur $A$.
+		\begin{proof}~
+
+			$\dsum{k}{0}{\infty}{f_k} \convuni s \Rightarrow (s_n) \convuni s$.
+
+			Or, $s_n = \dsum{k}{0}{n}{f_k}$ est continue.
+
+			Alors, $s$ est continue.
+		\end{proof}
+	\end{thm}
+	\begin{thm}~
+
+		$f_k$ continue et $\dsum{k}{0}{\infty}{f_k}$ converge uniform\'ement, alors $\dsum{k}{0}{\infty}{\dint{a}{b}{f_k(x)dx}} = \dint{a}{b}{\dsum{k}{0}{\infty}{f_k(x)}dx}$.
+		\begin{proof}~
+
+			\begin{align*}
+				\dsum{k}{0}{\infty}{\dint{a}{b}{f_k(x)dx}}&= \dlim{n}{\infty}{\dsum{k}{0}{n}{\dint{a}{b}{f_k(x)dx}}}\\
+				\text{\footnotesize puisque la somme est finie}&= \dlim{n}{\infty}{\dint{a}{b}{\dsum{k}{0}{n}{f_k(x)}dx}}\\
+				&= \dlim{n}{\infty}{\dint{a}{b}{s_n(x)dx}}
+			\end{align*}
+			Or, $f_k$ continue $\Rightarrow$ $s_n$ continue et $\dsum{k}{0}{\infty}{f_k}$ converge uniform\'ement $\Leftrightarrow$ $(s_n)_{n \in \naturels}$ converge uniform\'ement.
+			\begin{align*}
+				\dlim{n}{\infty}{\dint{a}{b}{s_n(x)dx}}&= \dint{a}{b}{\dlim{n}{\infty}{s_n(x)}dx}\\
+				&= \dint{a}{b}{\dlim{n}{\infty}{\dsum{k}{0}{n}{f_k(x)}}dx}\\
+				&= \dint{a}{b}{\dsum{k}{0}{\infty}{f_k(x)}dx}
+			\end{align*}
+		\end{proof}
+	\end{thm}
+	\begin{thm}~
+
+		$f_k \in C^1$ sur $A$, $\dsum{k}{0}{\infty}{f_k'} \convuni u$ et $\dsum{k}{0}{\infty}{f_k(a)}$ converge pour au moins un $a \in A$, alors
+		\begin{enumerate}[label=\alph*)]
+			\item $\dsum{k}{0}{\infty}{f_k}$ converge uniform\'ement vers $s$;
+			\item $s \in C^1$ sur $A$;
+			\item $s'=u$, c'est-\`a-dire $\dfrac{d}{dx}\dsum{k}{0}{\infty}{f_k} = \dsum{k}{0}{\infty}{\dfrac{d}{dx}f_k(x)}$.
+		\end{enumerate}
+		\begin{proof}~
+
+			Comme au chapitre pr\'ec\'edent.
+		\end{proof}
+	\end{thm}
+	\begin{exem}~
+
+		$f_k(x) = \dfrac{\sin kx}{k^3}$, $k \in \naturels_*$.
+
+		On a
+		\begin{enumerate}[label=\roman*)]
+			\item $f_k \in C^1$ sur $\reels$;
+			\item $\dsum{k}{0}{\infty}{f_k'(x)} = \dsum{k}{0}{\infty}{\dfrac{\cos kx}{k^2}}$ converge uniform\'ement (Weierstrass);
+			\item $\dsum{k}{0}{\infty}{f_k(0)} = \dsum{k}{0}{\infty}{\dfrac{\sin 0k}{k^3}} = 0$ converge.
+		\end{enumerate}
+
+		Alors, $\dfrac{d}{dx}\dsum{k}{0}{\infty}{f_k(x)} = \dsum{k}{0}{\infty}{\dfrac{d}{dx}f_k(x)} = \dsum{k}{0}{\infty}{\dfrac{\cos kx}{k^2}} = \dfrac{d}{dx}\dsum{k}{0}{\infty}{\dfrac{\sin kx}{x^3}}$
+	\end{exem}
+	\section{S\'eries de puissances}
+	\begin{defin}~
+
+		Si $f_k(x) = a_k \cdot (x-x_0)^k$, alors $\dsum{k}{0}{\infty}{f_k(x)}$ est une \emph{s\'erie de puissance}.
+	\end{defin}
+	\begin{exem}~
+
+		$f(x) = \dsum{i}{0}{\infty}{\dfrac{x^i}{i!}} = \dsum{i}{0}{\infty}{\dfrac{1}{i!} \cdot (x-0)^i}$, o\`u $a_i=\frac{1}{i!}$ et $x_0=0$.
+	\end{exem}
+	\begin{thm}~
+
+		Soit $R = \dlim{k}{\infty}{\abs{\dfrac{a_k}{a_{k+1}}}}$. Alors,
+		\begin{enumerate}[label=\alph*)]
+			\item $\dsum{k}{0}{\infty}{a_k(x-x_0)^k}$ converge sur $]x_0-R, x_0+R[$;
+			\item Si $R>0$ et $0<r<R$, alors $\dsum{k}{0}{\infty}{a_k(x-x_0)^k}$ converge uniform\'ement sur $[x_0-r, x_0+r]$.
+		\end{enumerate}
+		\begin{proof}~
+
+			\begin{enumerate}[label=\alph*)]
+				\item Fixons $x$.
+
+				Posons $b_k = a_k(x-x_0)^k$.
+
+				Consid\'erons la s\'erie r\'eelle $\dsum{k}{0}{\infty}{b_k}$.
+
+				De d'Alembert, la s\'erie converge si, et seulement si, $L<1$, avec $L = \dlim{n}{\infty}{\abs{\dfrac{b_{n+1}}{b_n}}} = \dlim{n}{\infty}{\abs{\dfrac{a_{n+1}(x-x_0)^{n+1}}{a_n(x-x_0)^n}}} = \abs{x-x_0} \dlim{n}{\infty}{\abs{\dfrac{a_{n+1}}{a_n}}} = \dfrac{\abs{x-x_0}}{\dlim{n}{\infty}{\abs{\dfrac{a_n}{a_{n+1}}}}} = \dfrac{\abs{x-x_0}}{R}$.
+
+				Donc, $\dsum{k}{0}{\infty}{b_k}$ converge si, et seulement si, $L<1$, c'est-\`a-dire $\dfrac{\abs{x-x_0}}{R}<1 \Leftrightarrow \abs{x-x_0} < R \Leftrightarrow x \in ]x_0-R, x_0+R[$.
+				\item Supposons que $R>0$ et soit $0<r<R$.
+
+				Pour $x \in [x_0-r, x_0+r]$, on a
+				\begin{enumerate}[label=\roman*)]
+					\item $\abs{f_k(x)} = \abs{a_k(x-x_0)^k} = \abs{a_k} \abs{x-x_0}^k \lte \abs{a_k} r^k$
+					\item $\dsum{k}{0}{\infty}{\abs{a_k}r^k}$ converge.
+
+					En effet, $L = \dlim{n}{\infty}{\abs{\dfrac{a_{n+1}r^{n+1}}{a_nr^n}}} = r \dlim{n}{\infty}{\abs{\dfrac{a_{n+1}}{a_n}}} = \dfrac{r}{\dlim{n}{\infty}{\abs{\dfrac{a_n}{a_{n+1}}}}} = \dfrac{r}{R}$.
+
+					Ainsi, $L<1 \Leftrightarrow \dfrac{r}{R}<1 \Leftrightarrow r<R$.
+				\end{enumerate}
+
+				De Weierstrass, $\dsum{k}{0}{\infty}{a_k(x-x_0)^k}$ converge uniform\'ement sur $[x_0-r, x_0+r]$.
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
 \end{document}
