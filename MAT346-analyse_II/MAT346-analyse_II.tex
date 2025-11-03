@@ -2082,4 +2082,52 @@ Donn\'e par Mario Lambert}
 			\end{enumerate}
 		\end{proof}
 	\end{thm}
+	\begin{defin}~
+
+		$R=\dlim{k}{\infty}{\abs{\dfrac{a_k}{a_{k+1}}}}$ est le \emph{rayon de convergence} de la s\'erie.
+	\end{defin}
+	\begin{exem}~
+
+		\begin{enumerate}[label=\alph*)]
+			\item $\dsum{i}{0}{\infty}{\dfrac{x^i}{i!}} = \dsum{i}{0}{\infty}{\frac{1}{i!}(x-0)^i}$
+
+			$R = \dlim{i}{\infty}{\abs{\dfrac{\frac{1}{i!}}{\frac{1}{(i+1)!}}}} = \dlim{i}{\infty}{(i+1)} = \infty$.
+
+			Donc, $\dsum{i}{0}{\infty}{\dfrac{x^i}{i!}}$ converge sur tout $\reels$.
+			\item $\dsum{k}{1}{\infty}{\dfrac{x^k}{k}} = \dsum{k}{1}{\infty}{\frac{1}{k}(x-0)^k}$
+
+			$R \dlim{k}{\infty}{\abs{\dfrac{\sfrac{1}{k}}{\sfrac{1}{(k+1)}}}} = \dlim{k}{\infty}{\abs{\dfrac{k+1}{k}}} = 1$.
+
+			Donc, $\dsum{k}{1}{\infty}{\dfrac{x^k}{k}}$ converge sur $]-1,1[$ converge unifirm\'ement sur $[-r,r]$ avec $0<r<1$.
+
+			Pour $x=\frac{1}{2}$, on a $\dsum{k}{1}{\infty}{\dfrac{1}{k \cdot 2^k}} = \dsum{k}{1}{\infty}{\dfrac{(\sfrac{1}{2})^k}}{k} = \dsum{k}{1}{\infty}{\dint{0}{\sfrac{1}{2}}{x^{k-1}dx}}$.
+
+			Puisque $\frac{x^k}{k}$ est continue pour tout $k$ et $\sum\frac{x^k}{k}$ converge uniform\'ement, on a $\dsum{k}{1}{\infty}{\dint{0}{\sfrac{1}{2}}{x^{k-1}dx}} = \dint{0}{\sfrac{1}{2}}{\dsum{k}{1}{\infty}{x^{k-1}}dx} = \dint{0}{\sfrac{1}{2}}{\dsum{k}{0}{\infty}{x_k}dx} = \dint{0}{\sfrac{1}{2}}{\dfrac{1}{1-x}dx} = -\ln\abs{1-x}\big|_0^{\sfrac{1}{2}} = -\ln\frac{1}{2} + \ln1 = \ln2$.
+		\end{enumerate}
+	\end{exem}
+	\begin{coro}~
+
+		Supposons que $\dsum{k}{0}{\infty}{a_k(x-x_0)^k}$ converge vers $f$ sur $]x_0-R,x_0+R[$. Alors,
+		\begin{enumerate}[label=\alph*)]
+			\item $\dsum{k}{0}{\infty}{\dfrac{d}{dx}(a_k(x-x_0)^k)}$ est une s\'erie de puissance qui converge sur $]x_0-R,x_0+R[$;
+			\item $f \in C^\infty$ sur $]x_0-R,x_0+R[$;
+			\item $\dfrac{d^n}{dx^n}f = \dsum{k}{0}{\infty}{\dfrac{d^n}{dx^n}(a_k(x-x_0)^k)} = \dfrac{d^n}{dx^n}\dsum{k}{0}{\infty}{a_k(x-x_0)^k}$.
+		\end{enumerate}\begin{proof}~
+
+			\begin{enumerate}[label=\alph*)]
+				\item $\dsum{k}{0}{\infty}{\dfrac{d}{dx}(a_k(x-x_0)^k)} = \dsum{k}{0}{\infty}{ka_k(x-x_0)^{k-1}} = \dsum{k}{1}{\infty}{ka_k(x-x_0)^{k-1}} = \dsum{k}{0}{\infty}{(k+1)a_{k+1}(x-x_0)^k}$ qui est effectivement une s\'erie de puissance.
+
+				$\dlim{k}{\infty}{\abs{\dfrac{(k+1)a_{k+1}}{(k+2)a_{k+2}}}} = \dlim{k}{\infty}{\abs{\dfrac{k+1}{k+2}}} \cdot \dlim{k}{\infty}{\abs{\dfrac{a_{k+1}}{a_{k+2}}}} = 1 \cdot \dlim{k}{\infty}{\abs{\dfrac{a_k}{a_{k+1}}}} = R$.
+				\item[b),c)] Soit $x \in ]x_0-R,x_0+R[$. Alors, $\exists 0<r<R$ t.q. $x \in [x_0-r,x_0+r]$. On sait que $\dsum{k}{0}{\infty}{\dfrac{d}{dx}(a_k(x-x_0)^k)}$ converge uniform\'ement sur $[x_0-r,x_0+r]$.
+
+				De plus, $\dsum{k}{0}{\infty}{a_k(x-x_0)^k}$ converge pour au moins un $a \in [x_0-r,x_0+r]$.
+
+				Du th\'eor\`eme, $f'(x) = \dfrac{d}{dx}\dsum{k}{0}{\infty}{a_k(x-x_0)^k} = \dsum{k}{0}{\infty}{\dfrac{d}{dx}(a_k(x-x_0)^k)} = \dsum{k}{1}{\infty}{ka_k(x-x_0)^{k-1}}$.
+
+				Donc, $f'$ est continue et $\dfrac{d}{dx}\dsum{k}{0}{\infty}{a_k(x-x_0)^k} = \dsum{k}{0}{\infty}{\dfrac{d}{dx}(a_k(x-x_0)^k)}$.
+
+				Par r\'ecurrence, on obtient les r\'esultats.
+			\end{enumerate}
+		\end{proof}
+	\end{coro}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.28)  31 OCT 2025 16:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.28)  3 NOV 2025 09:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1246,6 +1246,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [32]
+Overfull \hbox (3.78775pt too wide) in paragraph at lines 2105--2106
+[]\OT1/cmr/m/n/10 Puisque $[]$ est conti-nue pour tout $\OML/cmm/m/it/10 k$ \OT
+1/cmr/m/n/10 et $[] []$ converge uni-form^^Sement, on a $[] [][] \OML/cmm/m/it/
+10 x[]dx \OT1/cmr/m/n/10 = [][] [] \OML/cmm/m/it/10 x[]dx \OT1/cmr/m/n/10 =
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1254,7 +1261,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[33] (MAT346-analyse_II.aux)
+[33]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[34] (MAT346-analyse_II.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-09>
@@ -1268,8 +1284,8 @@ Package rerunfilecheck Info: File `MAT346-analyse_II.out' has not changed.
 (rerunfilecheck)             Checksum: 6C47BB22369A6FC8AD48F579A99564EA;2678.
  ) 
 Here is how much of TeX's memory you used:
- 25573 strings out of 468080
- 475561 string characters out of 5425771
+ 25580 strings out of 468080
+ 475610 string characters out of 5425771
  924972 words of memory out of 5000000
  53697 multiletter control sequences out of 15000+600000
  641348 words of font info for 99 fonts, out of 8000000 for 9000
@@ -1299,9 +1315,9 @@ rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam
 10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/symbols/msbm10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/symbols/msbm7.pfb>
-Output written on MAT346-analyse_II.pdf (35 pages, 417382 bytes).
+Output written on MAT346-analyse_II.pdf (36 pages, 423228 bytes).
 PDF statistics:
- 448 PDF objects out of 1000 (max. 8388607)
- 135 named destinations out of 1000 (max. 500000)
+ 459 PDF objects out of 1000 (max. 8388607)
+ 142 named destinations out of 1000 (max. 500000)
  133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
