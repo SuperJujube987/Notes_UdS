@@ -38,11 +38,11 @@
 
 \fancyfoot{}
 \fancyhead{}
-\fancyfoot[l]{MAT141 - \'El\'ements d'alg\`ebre}
-\fancyfoot[r]{\thepage}
-\fancyhead[l]{\leftmark}
+\fancyhead[l]{MAT141 - \'El\'ements d'alg\`ebre}
+\fancyhead[r]{\leftmark}
+\fancyfoot[c]{\thepage}
 \renewcommand{\headrulewidth}{.4pt}
-\renewcommand{\footrulewidth}{.4pt}
+\renewcommand{\footrulewidth}{0pt}
 
 \pagestyle{fancy}
 
@@ -649,10 +649,12 @@ Donn\'e par Jean-Philippe Burelle}
 			Supposons que $e$ et $e'$ sont neutres pour $*$.
 
 			On a
-			\begin{align*}
-				e*e'&=e'&&\text{car $e$ est neutre}\\
-				e*e'&=e&&\text{car $e'$ est neutre}
-			\end{align*}
+			\[
+			\begin{array}{rclll}
+				e*e'&=&e'&\quad&\text{\footnotesize car $e$ est neutre}\\
+				e*e'&=&e&&\text{\footnotesize car $e'$ est neutre}
+			\end{array}
+			\]
 
 			Donc, $e=e'$.
 		\end{proof}
@@ -692,9 +694,9 @@ Donn\'e par Jean-Philippe Burelle}
 			Alors,
 			\begin{align*}
 				b&=b*e\\
-				&=b*(a*b')&&\text{car $b'$ est inverse de $a$}\\
-				&=(b*a)*b'&&\text{associativit\'e}\\
-				&=e*b'&&\text{car $b$ est inverse de $a$}\\
+				\text{\footnotesize car $b'$ est inverse de $a$}&=b*(a*b')\\
+				\text{\footnotesize associativit\'e}&=(b*a)*b'\\
+				\text{\footnotesize car $b$ est inverse de $a$}&=e*b'\\
 				&=b'
 			\end{align*}
 		\end{proof}
@@ -1319,7 +1321,7 @@ Donn\'e par Jean-Philippe Burelle}
 				\begin{align*}
 					a^{(n+1)+m}&= a^{n+m+1}\\
 					&= a*a^{n+m}\\
-					\text{hyp rec}&= a*(a^n*a^m)\\
+					\text{\footnotesize hyp rec}&= a*(a^n*a^m)\\
 					&= (a*a^n)*a^m\\
 					&= a^{n+1}*a^m
 				\end{align*}
@@ -1353,7 +1355,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\item supposons que $(a^n)^m=a^{nm}$ pour un certain $m \in \naturels$.
 			\begin{align*}
 				(a^n)^{m+1}&= (a^n)(a^n)^m\\
-				\text{hyp rec}&= (a^n)a^{nm}\\
+				\text{\footnotesize hyp rec}&= (a^n)a^{nm}\\
 				&= a^{n+nm}\\
 				&= a^{n(m+1)}
 			\end{align*}
@@ -1415,7 +1417,7 @@ Donn\'e par Jean-Philippe Burelle}
 					\begin{align*}
 						f(a^{n+1})&= f(a \cdot a^n)\\
 						&= f(a)f(a^n)\\
-						\text{hyp rec}&= f(a)f(a)^n\\
+						\text{\footnotesize hyp rec}&= f(a)f(a)^n\\
 						&= f(a)^{n+1}
 					\end{align*}
 				\end{nlist}
@@ -2585,7 +2587,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{pmatrix}
 		\]
 		\begin{align*}
-			\signe(\sigma)&= \left( \dfrac{\colorbox{col1}{$3-4$}}{\colorbox{col2}{$1-2$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col3}{$3-1$}}}{\colorbox{col3}{$1-3$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col4}{$3-2$}}}{\colorbox{col5}{$1-4$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col5}{$4-1$}}}{\colorbox{col4}{$2-3$}} \right) \left( \dfrac{\cancelto{-1}{\colorbox{col6}{$4-2$}}}{\colorbox{col6}{$2-4$}} \right) \left( \dfrac{\colorbox{col2}{$1-2$}}{\colorbox{col1}{$3-4$}} \right)\\
+			\signe(\sigma)&= \left( \dfrac{\colorbox{col1}{$\cancel{3-4}$}}{\colorbox{col2}{$\cancel{1-2}$}} \right) \left( \dfrac{\colorbox{col3}{$\cancelto{-1}{3-1}$}}{\colorbox{col3}{$\cancel{1-3}$}} \right) \left( \dfrac{\colorbox{col4}{$\cancelto{-1}{3-2}$}}{\colorbox{col5}{$\cancel{1-4}$}} \right) \left( \dfrac{\colorbox{col5}{$\cancelto{-1}{4-1}$}}{\colorbox{col4}{$\cancel{2-3}$}} \right) \left( \dfrac{\colorbox{col6}{$\cancelto{-1}{4-2}$}}{\colorbox{col6}{$\cancel{2-4}$}} \right) \left( \dfrac{\colorbox{col2}{$\cancel{1-2}$}}{\colorbox{col1}{$\cancel{3-4}$}} \right)\\
 			&= (-1)^4 = 1
 		\end{align*}
 	\end{exem}
@@ -2771,9 +2773,8 @@ Donn\'e par Jean-Philippe Burelle}
 				2&4
 			\end{pmatrix} \in S_4$.
 			\begin{align*}
-				\signe(\sigma)&= \left( \dfrac{\colorbox{col1}{$\cancel{3-4}$}}{\colorbox{col2}{$\cancel{1-2}$}} \right) \left( \dfrac{\colorbox{col3}{$\cancelto{-1}{3-1}$}}{\colorbox{col3}{$\cancel{1-3}$}} \right) \left( \dfrac{\colorbox{col4}{$\cancelto{-1}{3-2}$}}{\colorbox{col5}{$\cancel{1-4}$}} \right) \left( \dfrac{\colorbox{col5}{$\cancelto{-1}{4-1}$}}{\colorbox{col4}{$\cancel{2-3}$}} \right) \left( \dfrac{\colorbox{col6}{$\cancelto{-1}{4-2}$}}{\colorbox{col6}{$\cancel{2-4}$}} \right) \left( \dfrac{\colorbox{col2}{$\cancel{1-2}$}}{\colorbox{col1}{$\cancel{3-4}$}} \right)\\
-				&= (-1)^3\\
-				&= -1
+				\signe(\sigma)&= \left( \dfrac{\colorbox{col3}{$\cancel{1-4}$}}{\colorbox{col1}{$\cancel{1-2}$}} \right) \left( \dfrac{\colorbox{col2}{$\cancel{1-3}$}}{\colorbox{col2}{$\cancel{1-3}$}} \right) \left( \dfrac{\colorbox{col1}{$\cancel{1-2}$}}{\colorbox{col3}{$\cancel{1-4}$}} \right) \left( \dfrac{\colorbox{col6}{$\cancelto{-1}{4-3}$}}{\colorbox{col4}{$\cancel{2-3}$}} \right) \left( \dfrac{\colorbox{col5}{$\cancelto{-1}{4-2}$}}{\colorbox{col5}{$\cancel{2-4}$}} \right) \left( \dfrac{\colorbox{col4}{$\cancelto{-1}{3-2}$}}{\colorbox{col6}{$\cancel{3-4}$}} \right)\\
+				&= (-1)^3 = -1
 			\end{align*}
 			\renewcommand{\qedsymbol}{\#}
 		\end{proof}
@@ -2984,11 +2985,13 @@ Donn\'e par Jean-Philippe Burelle}
 				On sait que $e_G \in \ker(f)$.
 
 				Supposons que $\exists a \in \ker(f)$. On a
-				\begin{align*}
-					f(a)&= e_H&&\text{par d\'efinition de }\ker\\
-					&= f(e_G)\\
-					a&= e_G&&\text{car $f$ est injective}
-				\end{align*}
+				\[
+				\begin{array}{rclll}
+					f(a)&=&e_H&\quad&\text{\footnotesize par d\'efinition de }\ker\\
+					&=&f(e_G)\\
+					a&=&e_G&&\text{\footnotesize car $f$ est injective}
+				\end{array}
+				\]
 
 				Donc, $\ker(f) = \{e_G\}$.
 				\item[$(\Rightarrow)$] Supposons que $\ker(f) = \{e_G\}$.
@@ -3138,4 +3141,333 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{array}$.
 		\end{proof}
 	\end{coro}
+
+	\cours
+	\begin{rappel}
+		Pour d\'terminer $\ker(f)$ et $\image(f)$ d'un homomorphisme $f$.
+		\begin{exem}
+			$\begin{array}{rcl}
+				f:\entiers_{12}&\to&\entiers_6\\
+				\overline{n}&\mapsto&\overline{n}
+			\end{array}$.
+
+			$\ker(f) = \{a \in G \mid f(a)=e\}$.
+
+			Supposons que $\overline{n} \in \ker(f)$. Alors,
+			\begin{align*}
+				f(\overline{n})&= \overline0\\
+				\overline{n}&= \overline0\\
+				n&= 6k
+			\end{align*}
+			avec $k \in \entiers$. Donc, $\ker(f) \subseteq 6\entiers_{12}$.
+
+			Pour avoir $\ker(f) = 6\entiers_{12}$, il faut aussi montrer $6\entiers \subseteq \ker(f)$.
+
+			Supposons que $n = 6k \Rightarrow \overline{n} = \overline{6k} \Rightarrow f(\overline{n}) = f(\overline{6k}) = \overline{6k} = \overline0$, donc $\overline{n} \in \ker(f)$.
+		\end{exem}
+	\end{rappel}
+	\begin{rappel}~
+
+		$G$ groupe, $H \lte G$ sous-groupe.
+		\begin{ulist}
+			\item \'Equivalence$\mod H$:
+
+			$a \sim b \Leftrightarrow ab^{-1} \in H$;
+			\item Les  classes d'\'equivalence$\mod H$ sont $\overline{a} = Ha = \{ha \mid h \in H\}$;
+			\item Toutes les classes ont la m\^eme taille, $\card{Ha} = \card{H}$.
+		\end{ulist}
+	\end{rappel}
+	\begin{exem}~
+
+		$G = S_3 = \{e, \begin{pmatrix}
+			1&2
+		\end{pmatrix}, \begin{pmatrix}
+			1&3
+		\end{pmatrix}, \begin{pmatrix}
+			2&3
+		\end{pmatrix}, \begin{pmatrix}
+			1&2&3
+		\end{pmatrix}, \begin{pmatrix}
+			1&3&2
+		\end{pmatrix}\}, H = \{e, \begin{pmatrix}
+			1&2
+		\end{pmatrix}\}$.
+
+		Calculons les classes$\mod H$.
+		\begin{ulist}
+			\item $He = \{e \circ e,\begin{pmatrix}
+				1&2
+			\end{pmatrix} \circ e\} = H$;
+			\item $H\begin{pmatrix}
+				1&3
+			\end{pmatrix} = \{e \circ \begin{pmatrix}
+				1&3
+			\end{pmatrix}, \begin{pmatrix}
+				1&2
+			\end{pmatrix} \circ \begin{pmatrix}
+				1&3
+			\end{pmatrix}\} = \{\begin{pmatrix}
+				1&3
+			\end{pmatrix}, \begin{pmatrix}
+				1&3&2
+			\end{pmatrix}\}$;
+			\item $H\begin{pmatrix}
+				2&3
+			\end{pmatrix} = \{e \circ \begin{pmatrix}
+				2&3
+			\end{pmatrix}, \begin{pmatrix}
+				1&2
+			\end{pmatrix} \circ \begin{pmatrix}
+				2&3
+			\end{pmatrix}\} = \{\begin{pmatrix}
+				2&3
+			\end{pmatrix}, \begin{pmatrix}
+				1&2&3
+			\end{pmatrix}\}$.
+		\end{ulist}
+	\end{exem}
+	\begin{thm}[Lagrange]~
+
+		Soit $G$ un groupe fini.
+
+		Si $H \lte G$, alors $\card{H} \big| \card{G}$.
+		\begin{proof}~
+
+			Les classes modulo $H$ partitionnent $G$ est sous-ensembles (classes) de taille $\card{H}$ chacun, donc
+			\begin{align*}
+				G&= Ha_1 \cup Ha_2 \cup \dotsb \cup Ha_n\\
+				\card{G}&= \card{H} + \card{H} + \dotsb + \card{H}\\
+				&= n\card{H}
+			\end{align*}
+		\end{proof}
+	\end{thm}
+	\begin{coro}
+		$a \in G$, $o(a) \big| \card{G}$.
+		\begin{proof}~
+
+			$\langle a \rangle = \{a^n \mid n \in \entiers\}$, le sous-groupe engendr\'e par $a$, est un sous-groupe car
+			\begin{ulist}
+				\item $a^0 = e \in \langle a \rangle$, donc $\langle a \rangle \neq \emptyset$;
+				\item Si $a^n, a^m \in \langle a \rangle$, alors $a^n(a^m)^{-1} = a^{n-m} \in \langle a \rangle$, donc $\langle a \rangle \lte G$.
+			\end{ulist}
+
+			Par le th\'eor\`eme de Lagrange, $\card{\langle a \rangle} \big| \card{G}$.
+
+			De plus, $\card{\langle a \rangle} = o(a)$, qu'on d\'emontrera plus tard, donc $o(a) \big| \card{G}$.
+		\end{proof}
+	\end{coro}
+	\begin{coro}
+		Si $\card{G} = m$ et $a \in G$, alors $a^m = e$.
+		\begin{proof}~
+
+			On sait que $a^{o(a)} = e$.
+
+			Par le corollaire pr\'ec\'edent, $m = ko(a)$, car $o(a) \big| m$, donc $a^m = a^{ko(a)} = \left( a^{o(a)} \right)^k = e^k = e$.
+		\end{proof}
+	\end{coro}
+	\begin{coro}[petit th\'eor\`eme de Fermat]
+		Si $a \in \entiers$ et $p$ est un nombre premier t.q. $p \nmid a$, alors $a^{p-1} \equiv 1 \pmod{p}$.
+		\begin{lem}
+			${\entiers_p}_*$ est un groupe pour la multiplication.
+		\end{lem}
+		\begin{proof}~
+
+			${\entiers_p}_*$ est un groupe avec $\card{{\entiers_p}_*} = p-1$.
+
+			Par le corollaire pr\'ec\'edent, si $a \in {\entiers_p}_*$, alors $\overline{a}^{p-1}=\overline1$, donc $a^{p-1} \equiv \pmod{p}$.
+		\end{proof}
+	\end{coro}
+	\begin{nota}
+		$\card{G}$ s'appelle aussi l'\emph{ordre} de $G$.
+	\end{nota}
+	\begin{defin}
+		$H \lte G$.
+
+		On appelle \emph{indice} de $H$ dans $G$ le nombre de classes modulo $H$ et on le note $[G:H]$.
+
+		Le th\'eor\`eme de Lagrange implique que si $G$ est fini, $[G:H] = \frac{\card{G}}{\card{H}}$.
+
+		L'indice peut \^etre fini m\^eme si $G$ et $H$ sont infinis.
+		\begin{exem}
+			$[\entiers:m\entiers]=m$.
+		\end{exem}
+	\end{defin}
+	\begin{exem}
+		Les seuls sous-groupes de $\entiers_p$ avec $p$ premier sont $\{\overline0\}$ et $\entiers_p$, car si $H \lte \entiers_p$. Par Lagrange, $\card{H} \in \{1,p\}$.
+	\end{exem}
+	\begin{exem}
+		$H \lte \entiers_8$ qui contient au moins 5 \'el\'ements distincts, alors $H = \entiers_8$, car les diviseurs de 8 sont $\{1,2,4,8\}$.
+	\end{exem}
+
+	\setcounter{section}{5}
+	\section{Groupes quotients}
+	On veut d\'efinir une op\'eration sur les classes d'\'equivalence$\mod H$ pour en faire un groupe.
+
+	\subsection*{Tentative}
+	On voudrait d\'efinir $Ha*Hb=H(a*b)$. Est-ce d\'efini sans ambigu\"it\'e?
+
+	Supposons que $Ha=Ha'$ et $Hb=Hb'$, c'est-\`a-dire $a(a')^{-1} \in H$ et $b(b')^{-1} \in H$. Alors, on voudrait montrer que $H(ab) = H(a'b') \Leftrightarrow (ab)(a'b') \in H \Leftrightarrow ab(b')^{-1}(a')^{-1} \in H$. Cependant, ce n'est pas vrai en g\'en\'eral.
+
+	\begin{defin}~
+
+		Un sous-groupe $H \lte G$ est \emph{distingu\'e}, ou \emph{normal}, si $\forall a \in G$, $Ha=aH$, c'est-\`a-dire, $\{ha \mid h \in H\} = \{ah \mid h \in H\}$.
+		\begin{rema}~
+
+			$Ha=aH$ \emph{ne veut pas dire} $ha=ah$ pour tout $h \in H$.
+
+			Plut\^ot, $Ha=aH$ signifie $ha=ah'$ pour un certain $h' \in H$.
+		\end{rema}
+	\end{defin}
+	\begin{exem}~
+
+		Pour $G = S_3 = \{e, \begin{pmatrix}
+			1&2
+		\end{pmatrix}, \begin{pmatrix}
+			1&3
+		\end{pmatrix}, \begin{pmatrix}
+			2&3
+		\end{pmatrix}, \begin{pmatrix}
+			1&2&3
+		\end{pmatrix}, \begin{pmatrix}
+			1&3&2
+		\end{pmatrix}\}$.
+
+		\begin{ulist}
+			\item Le sous-groupe $H=\{e, \begin{pmatrix}
+				1&2
+			\end{pmatrix}\}$ n'est pas distingu\'e. En effet, regardons la classe de $\begin{pmatrix}
+				1&3
+			\end{pmatrix}$.
+			\begin{align*}
+				H\begin{pmatrix}
+					1&3
+				\end{pmatrix}&= \{\begin{pmatrix}
+					1&3
+				\end{pmatrix}, \begin{pmatrix}
+					1&3&2
+				\end{pmatrix}\}\\
+				\begin{pmatrix}
+					1&3
+				\end{pmatrix}H&= \{\begin{pmatrix}
+					1&3
+				\end{pmatrix} \circ e, \begin{pmatrix}
+					1&3
+				\end{pmatrix} \circ \begin{pmatrix}
+					1&2
+				\end{pmatrix}\} = \{\begin{pmatrix}
+					1&3
+				\end{pmatrix}, \begin{pmatrix}
+					1&2&3
+				\end{pmatrix}\}
+			\end{align*}
+			\item Le sous-groupe $N=\{e, \begin{pmatrix}
+				1&2&3
+			\end{pmatrix}, \begin{pmatrix}
+				1&3&2
+			\end{pmatrix}\}$ est distingu\'e. En effet
+			\begin{align*}
+				\begin{split}
+					Ne&= \{e \circ e, \begin{pmatrix}
+						1&2&3
+					\end{pmatrix} \circ e, \begin{pmatrix}
+						1&3&2
+					\end{pmatrix} \circ e\} = \{e, \begin{pmatrix}
+						1&2&3
+					\end{pmatrix}, \begin{pmatrix}
+						1&3&2
+					\end{pmatrix}\} = N
+				\end{split}
+				\\
+				\begin{split}
+					eN&= \{e \circ e, e \circ \begin{pmatrix}
+						1&2&3
+					\end{pmatrix}, e \circ \begin{pmatrix}
+						1&3&2
+					\end{pmatrix}\} = \{e, \begin{pmatrix}
+						1&2&3
+					\end{pmatrix}, \begin{pmatrix}
+						1&3&2
+					\end{pmatrix}\} = N
+				\end{split}
+				\\[1em]
+				\begin{split}
+					N\begin{pmatrix}
+						1&2
+					\end{pmatrix}&= \{e \circ \begin{pmatrix}
+						1&2
+					\end{pmatrix}, \begin{pmatrix}
+						1&2&3
+					\end{pmatrix} \circ \begin{pmatrix}
+						1&2
+					\end{pmatrix}, \begin{pmatrix}
+						1&3&2
+					\end{pmatrix} \circ \begin{pmatrix}
+						1&2
+					\end{pmatrix}\} = \{\begin{pmatrix}
+						1&2
+					\end{pmatrix}, \begin{pmatrix}
+						1&3
+					\end{pmatrix}, \begin{pmatrix}
+						2&3
+					\end{pmatrix}\}
+				\end{split}
+				\\
+				\begin{split}
+					\begin{pmatrix}
+						1&2
+					\end{pmatrix}N&= \{\begin{pmatrix}
+						1&2
+					\end{pmatrix} \circ e, \begin{pmatrix}
+						1&2
+					\end{pmatrix} \circ \begin{pmatrix}
+						1&2&3
+					\end{pmatrix}, \begin{pmatrix}
+						1&2
+					\end{pmatrix} \circ \begin{pmatrix}
+						1&3&2
+					\end{pmatrix}\} = \{\begin{pmatrix}
+						1&2
+					\end{pmatrix}, \begin{pmatrix}
+						2&3
+					\end{pmatrix}, \begin{pmatrix}
+						1&3
+					\end{pmatrix}\}
+				\end{split}
+			\end{align*}
+		\end{ulist}
+	\end{exem}
+	\begin{prop}
+		Si $f:G \to H$ est un homomorphisme, $\ker(f)$ est un sous-groupe distingu\'e de $G$.
+		\begin{proof}
+			$\ker(f) = \{a \in G \mid f(a)=e\}$.
+
+			Soit $b \in G$. On veut montrer que $b\ker(f)=\ker(f)b$.
+			\begin{itemize}
+				\item[$(\subseteq)$] Soit $ba \in b\ker(f)$.
+				\begin{align*}
+					ba&= bab^{-1}b
+				\end{align*}
+				posons $a'=bab^{-1}$
+				\begin{align*}
+					f(a')&= f(bab^{-1})\\
+					&= f(b)f(a)f(b^{-1})\\
+					&= f(b)ef(b^{-1})\\
+					&= e
+				\end{align*}
+				donc $a' \in \ker(f) \Rightarrow ba=a'b \in \ker(f)b \Rightarrow b\ker(f) \subseteq \ker(f)b$.
+				\item[$(\supseteq)$] Soit $ab \in \ker(f)b$.
+				\begin{align*}
+					ab&= bb^{-1}ab
+				\end{align*}
+				posons $a'=b^{-1}ab$
+				\begin{align*}
+					f(a')&= f(b^{-1}ab)\\
+					&= f(b^{-1})f(a)f(b)\\
+					&= f(b^{-1})ef(b)\\
+					&= e
+				\end{align*}
+				donc $a' \in \ker(f) \Rightarrow ab=ba' \in \ker(f)b \Rightarrow \ker(f)b \subseteq b\ker(f)$.
+			\end{itemize}
+		\end{proof}
+	\end{prop}
 \end{document}

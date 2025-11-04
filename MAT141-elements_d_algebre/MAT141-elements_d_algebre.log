@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.28)  30 OCT 2025 10:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.28)  4 NOV 2025 10:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1097,15 +1097,57 @@ l.188 	\end{defin}
 
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 275.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [2]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [3]
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [4]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [5]
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [6]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [7]
 Chapitre 6.
@@ -1116,12 +1158,19 @@ Chapitre 6.
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 843.
+(hyperref)                than one, level fixed on input line 845.
 
 
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [9]
-Overfull \hbox (6.07794pt too wide) in paragraph at lines 1002--1003
+Overfull \hbox (6.07794pt too wide) in paragraph at lines 1004--1005
 []$\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 +)\OML/cm
 m/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 Q\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 
 +)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 R\OML/cmm/m/it/10 ; \OT1/cm
@@ -1135,21 +1184,84 @@ mr/m/n/10 )$ sont des groupes non ab^^Seliens.
 
 
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [10]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [11]
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [12]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [13]
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [14]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [15]
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [16]
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [17]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [18]
 Chapitre 2.
@@ -1198,20 +1310,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{chapter.6}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2156 	\chapter{Groupes (suite)}
+l.2158 	\chapter{Groupes (suite)}
                                  
 Chapitre 6.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2158.
+(hyperref)                removing `math shift' on input line 2160.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2158.
+(hyperref)                removing `subscript' on input line 2160.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2158.
+(hyperref)                removing `math shift' on input line 2160.
 
 
 
@@ -1226,20 +1338,48 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 \l__nicematrix_right_delim_dim=\dimen367
 
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [25]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-527.
+529.
  (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2527.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2529.
 
 
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [26]
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [27]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [28]
 Chapitre 8.
@@ -1249,36 +1389,84 @@ Chapitre 8.
 
 ]
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3048.
+(hyperref)                removing `math shift' on input line 3051.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3048.
+(hyperref)                removing `math shift' on input line 3051.
 
 
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [31]
 
-[32] (MAT141-elements_d_algebre.aux)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[32]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[33]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[34]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[35] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-09>
  ***********
 Package rerunfilecheck Info: File `MAT141-elements_d_algebre.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: B732AFA042F84B9B5DF1AEF74050698E;2723.
+(rerunfilecheck)             Checksum: 9D8CE136F945AC447A6CCFFF452514A6;2866.
  ) 
 Here is how much of TeX's memory you used:
- 29686 strings out of 468080
- 587860 string characters out of 5425771
- 1060290 words of memory out of 5000000
- 57774 multiletter control sequences out of 15000+600000
+ 29695 strings out of 468080
+ 587944 string characters out of 5425771
+ 1059287 words of memory out of 5000000
+ 57779 multiletter control sequences out of 15000+600000
  641321 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,25n,107p,608b,1079s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,25n,107p,607b,1079s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
 1000.pk> <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/dpi60
 0\wasy10.pk> <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
@@ -1296,19 +1484,21 @@ ts/cm/cmr12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmr5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/jujub/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jujub/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Us
-ers/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10
-.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-latxfont/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MAT141-elements_d_algebre.pdf (34 pages, 393678 bytes).
+KTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jujub/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jujub/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jujub/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users
+/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+<C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/doubl
+estroke/dsrom10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/latxfont/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on MAT141-elements_d_algebre.pdf (37 pages, 427515 bytes).
 PDF statistics:
- 448 PDF objects out of 1000 (max. 8388607)
- 125 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 479 PDF objects out of 1000 (max. 8388607)
+ 129 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
