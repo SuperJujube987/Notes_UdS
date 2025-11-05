@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.28)  4 NOV 2025 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.30)  5 NOV 2025 10:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1455,15 +1455,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-09>
  ***********
-Package rerunfilecheck Info: File `MAT141-elements_d_algebre.out' has not chang
-ed.
-(rerunfilecheck)             Checksum: 9D8CE136F945AC447A6CCFFF452514A6;2866.
+
+
+Package rerunfilecheck Warning: File `MAT141-elements_d_algebre.out' has change
+d.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `MAT141-elements_d_algebre.out':
+(rerunfilecheck)             Before: ED5A4482103672FD4078DE919E4F167B;2882
+(rerunfilecheck)             After:  9D8CE136F945AC447A6CCFFF452514A6;2866.
  ) 
 Here is how much of TeX's memory you used:
- 29695 strings out of 468080
- 587944 string characters out of 5425771
+ 29694 strings out of 468080
+ 587873 string characters out of 5425771
  1059287 words of memory out of 5000000
- 57779 multiletter control sequences out of 15000+600000
+ 57778 multiletter control sequences out of 15000+600000
  641321 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,25n,107p,607b,1079s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1496,7 +1503,7 @@ ublic/amsfonts/latxfont/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MAT141-elements_d_algebre.pdf (37 pages, 427515 bytes).
+Output written on MAT141-elements_d_algebre.pdf (37 pages, 427479 bytes).
 PDF statistics:
  479 PDF objects out of 1000 (max. 8388607)
  129 named destinations out of 1000 (max. 500000)
