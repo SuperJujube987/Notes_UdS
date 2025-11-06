@@ -18,6 +18,7 @@
 \usepackage[makeroom]{cancel}
 \usepackage{nicematrix}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{xfrac}
 
 \hypersetup{
 	colorlinks=false
@@ -3466,8 +3467,144 @@ Donn\'e par Jean-Philippe Burelle}
 					&= f(b^{-1})ef(b)\\
 					&= e
 				\end{align*}
-				donc $a' \in \ker(f) \Rightarrow ab=ba' \in \ker(f)b \Rightarrow \ker(f)b \subseteq b\ker(f)$.
+				donc $a' \in \ker(f) \Rightarrow ab=ba' \in b\ker(f) \Rightarrow \ker(f)b \subseteq b\ker(f)$.
 			\end{itemize}
+		\end{proof}
+	\end{prop}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item Classes d'\'equivalence \`a droite modulo $H$ de $a \in G$: $Ha$
+			\item Th\'eor\`eme de Lagrange: $\card{H} \bigm| \card{G}$
+			\item Indice de $H$ dans $G$: $\left[G:H\right]$ repr\'esente le nombre de classes
+			\item Corollaires de Lagrange:
+			\begin{ulist}
+				\item $o(a) \bigm| \card{G}$
+				\item $a^{\card{G}}=e$
+				\item petit th\'eor\`eme de Fermat: si $p \nmid a$, $a^{p-1} \equiv 1 \pmod{p}$, avec $p$ un nombre premier
+			\end{ulist}
+			\item Sous-groupe \emph{normal} ou \emph{distingu\'e}: $Ha=aH$
+			\item $\ker(f)$ est toujours distingu\'e
+		\end{ulist}
+	\end{rappel}
+	\begin{prop}~
+
+		$H \lte G$ est distingu\'e si, et seulement si, pour tous $h \in H$ et $g \in G$, $ghg^{-1} \in H$.
+		\begin{proof}~
+
+			\begin{itemize}
+				\item[$(\Rightarrow)$] Supposons que $H$ est distingu\'e.
+
+				Soient $h \in H$ et $g \in G$. On a $gh \in gH$. Mais alors, $gh \in Hg$, donc $gh = h'g$ avec $h' \in H$.
+				\begin{align*}
+					ghg^{-1}&= h'gg^{-1}\\
+					&= h' \in H
+				\end{align*}
+				\item[$(\Leftarrow)$] Supposons que $ghg^{-1} \in H$, $\forall g \in G$, $\forall h \in H$.
+
+				On veut montrer que $gH=Hg$, $\forall g \in G$.
+				\begin{itemize}
+					\item[$(\subseteq)$] Soit $gh \in gH$. On a
+					\begin{align*}
+						gh&= ghg^{-1}g\\
+						&= h'g \in Hg
+					\end{align*}
+					\item[$(\supseteq)$] Soit $hg \in Hg$. Alors
+					\begin{align*}
+						hg&= gg^{-1}hg\\
+						&= gh' \in gH
+					\end{align*}
+				\end{itemize}
+			\end{itemize}
+		\end{proof}
+	\end{prop}
+	\subsection*{Nouvelle tentative}
+	Soit $G$ un groupe. Soit $N$ un sous-groupe normal de $G$.
+
+	On a $\sfrac{G}{N}$ l'ensemble des classes$\mod N$:
+	\begin{equation*}
+		\sfrac{G}{N} = \{Na \mid a \in G\}
+	\end{equation*}
+	\begin{prop}~
+
+		$\sfrac{G}{N}$ est un groupe par l'op\'eration $(Na)(Nb) = N(ab)$.
+		\begin{proof}~
+
+			Montrons que l'op\'eration est d\'efinie sans ambigu\"it\'e.
+
+			Supposons que $Na=Na'$ et $Nb=Nb'$. Alors, $a(a')^{-1} \in N$ et $b(b')^{-1} \in N$.
+			\begin{align*}
+				ab(a'b')^{-1}&= ab(b')^{-1}(a')^{-1}\\
+				&= ab(b')^{-1}(a')^{-1}aa^{-1}
+			\end{align*}
+			On sait que $b(b')^{-1} \in N$.
+
+			De plus, $(a')^{-1}a \in N$, car $a(a')^{-1} \in N$ et $N$ est normal, donc $a^{-1}\left(a(a')^{-1}\right)a \in N$.
+
+			Comme $N$ est ferm\'e pour la multiplication, $b(b')^{-1}(a')^{-1}a \in N$ que nous noterons $n$.
+
+			On a donc
+			\begin{equation*}
+				ab(a'b')^{-1} = ana^{-1} \in N
+			\end{equation*}
+
+			Ainsi, $N(ab) = N(a'b')$, donc l'op\'eration est d\'efinie sans ambigu\"it\'e.
+
+			Maintenant, montrons que $\sfrac{G}{N}$ est un groupe.
+			\begin{itemize}
+				\item[(A)] Soient $Na, Nb, Nc \in \sfrac{G}{N}$.
+				\begin{align*}
+					(NaNb)Nc&= N(ab)Nc\\
+					&= N((ab)c)\\
+					&= N(a(bc))\\
+					&= NaN(bc)\\
+					&= Na(NbNc)
+				\end{align*}
+				\item[(N)] On v\'erifie que $Ne=N$ est neutre.
+				\begin{align*}
+					\begin{split}
+						NeNa&= N(ea)\\
+						&= Na
+					\end{split}
+					&
+					\begin{split}
+						NaNe&= N(ae)\\
+						&= Na
+					\end{split}
+				\end{align*}
+				\item[(I)] L'inverse de $Na$ est $Na^{-1}$
+				\begin{align*}
+					\begin{split}
+						NaNa^{-1}&= N(aa^{-1})\\
+						&= N
+					\end{split}
+					&
+					\begin{split}
+						Na^{-1}Na&= N(a^{-1}a)\\
+						&= N
+					\end{split}
+				\end{align*}
+			\end{itemize}
+		\end{proof}
+	\end{prop}
+	\begin{nota}
+		$N \trianglelefteq G$ repr\'esente $N$ est un sous-groupe normal de $G$.
+	\end{nota}
+	\begin{prop}~
+
+		$\begin{array}{rcl}
+			p:G&\to&\sfrac{G}{N}\\
+			a&\mapsto&Na
+		\end{array}$ est un homomorphisme.
+		\begin{proof}~
+
+			\begin{align*}
+				p(ab)&= N(ab)\\
+				&= NaNb\\
+				&= p(a)p(b)
+			\end{align*}
 		\end{proof}
 	\end{prop}
 \end{document}
