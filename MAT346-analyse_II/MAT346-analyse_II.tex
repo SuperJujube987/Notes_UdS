@@ -2111,7 +2111,7 @@ Donn\'e par Mario Lambert}
 		\begin{enumerate}[label=\alph*)]
 			\item $\dsum{k}{0}{\infty}{\dfrac{d}{dx}(a_k(x-x_0)^k)}$ est une s\'erie de puissance qui converge sur $]x_0-R,x_0+R[$;
 			\item $f \in C^\infty$ sur $]x_0-R,x_0+R[$;
-			\item $\dfrac{d^n}{dx^n}f = \dsum{k}{0}{\infty}{\dfrac{d^n}{dx^n}(a_k(x-x_0)^k)} = \dfrac{d^n}{dx^n}\dsum{k}{0}{\infty}{a_k(x-x_0)^k}$.
+			\item $\dfrac{d^n}{dx^n}f = \dfrac{d^n}{dx^n}\dsum{k}{0}{\infty}{a_k(x-x_0)^k} = \dsum{k}{0}{\infty}{\dfrac{d^n}{dx^n}(a_k(x-x_0)^k)}$.
 		\end{enumerate}\begin{proof}~
 
 			\begin{enumerate}[label=\alph*)]
@@ -2130,4 +2130,200 @@ Donn\'e par Mario Lambert}
 			\end{enumerate}
 		\end{proof}
 	\end{coro}
+	\begin{coro}~
+
+		Supposons que $\dsum{k}{0}{\infty}{a_k(x-x_0)^k} = f$, sur $]x_0-R, x_0+R[$. Alors, $a_k = \dfrac{\left(\dfrac{d^k}{dx^k}f\right)(x_0)}{k!}$.
+		\begin{proof}~
+
+			\begin{align*}
+				f^{(n)}(x)&= \dfrac{d^n}{dx^n}\dsum{k}{0}{\infty}{a_K(x-x_0)^k}\\
+				&= \dsum{k}{0}{\infty}{\dfrac{d^n}{dx^n}(a_k(x-x_0)^k)}\\
+				&= \dfrac{d^n}{dx^n}(a_0) + \dfrac{d^n}{dx^n}(a_1(x-x_0)) + \dotsb + \dfrac{d^n}{dx^n}(a_n(x-x_0)^n) + \dfrac{d^n}{dx^n}(a_{n+1}(x-x_0)^{n+1}) + \dotsb\\
+				&= 0 + 0 + \dotsb + a_n(n)(n-1)\dotsb(2)(1) + a^{n+1}(n+1)(n)(n-1)\dots(3)(2)(x-x_0) + \dotsb
+			\end{align*}
+
+			Ainsi, $f^{(n)}(x_0) = 0 + \dotsb + 0 + a_n \cdot n! + 0 + \dotsb = a_n \cdot n!$, donc $a_n = \dfrac{f^{(n)}(x_0)}{n!}$.
+		\end{proof}
+	\end{coro}
+
+	\section{S\'eries de Taylor}
+	\begin{thm}~
+
+		Soient $n \in \naturels$, $f:A \to \reels$ de classe $C^{n+1}$ sur $A$ et $x_0 \in A$.
+
+		Alors, $(\forall x \in A)$, $f(x) = \dsum{k}{0}{n}{\dfrac{f^{(k)}(x_0)}{k!}(x-x_0)^k} + R_n(x_0, x)$, o\`u $R_n(x_0, x) = \dint{x_0}{x}{\dfrac{f^{(n+1)}(t)(x-t)^n}{n!} dt}$.
+		\begin{proof}~
+
+			\begin{itemize}
+				\item[Base:] Pour $n=0$, la formule devient
+				\begin{align*}
+					f(x)&= \dfrac{f^{(0)}(x_0)}{0!}(x-x_0)^0 + R_0(x_0, x)\\
+					&= f(x_0) + \dint{x_0}{x}{f'(t) dt}\\
+					\dint{x_0}{x}{f'(t) dt}&= f(x)-f(x_0)
+				\end{align*}
+				qui est le th\'eor\`eme fondamental du calcul.
+				\item[Hyp:] Supposons vrai pour $n$.
+				\item[Pas:] On a $f(x) = \dsum{k}{0}{n}{\dfrac{f^{(k)}(x_0)}{k!}(x-x_0)^k} + R_n(x_0, x)$.
+
+				Or,
+				\begin{align*}
+					R_n(x_0, x)&= \dint{x_0}{x}{\dfrac{f^{(n+1)}(t)}{n!}(x-t)^n dt}
+				\end{align*}
+				posons $u = f^{(n+1)}(t)$, donc $du = f^{(n+2)}(t)dt$ et $dv = \dfrac{(x-t)^n}{n!}dt$, donc $v = -\dfrac{(x-t)^{n+1}}{(n+1)!}$.
+				\begin{align*}
+					&= \left. \dfrac{f^{(n+1)}(t)(x-t)^{n+1}}{(n+1)!} \right|_{x_0}^x + \dint{x_0}{x}{\dfrac{f^{(n+2)}(t)}{(n+1)!}(x-t)^{n+1} dt}\\
+					&= \dfrac{f^{(n+1)}(x_0)}{(n+1)!}(x-x_0)^{n+1} + R_{n+1}(x_0, x)
+				\end{align*}
+
+				Donc, $f(x) = \dsum{k}{0}{n+1}{\dfrac{f^{(k)}(x_0)}{k!}(x-x_0)^k} + R_{n+1}(x_0, x)$.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+	\begin{thm}~
+
+		S'il existe $M>0$ t.q. $\abs{f^{(n+1)}(t)} \lte M^{n+1}$ pour tout $t \in [x_0, x]$, alors
+		\[
+			R_n(x_0, x) \xrightarrow{n \to \infty} 0
+		\]
+		\begin{proof}~
+
+			\begin{align*}
+				\abs{R_n(x_0, x)}&= \abs{\dint{x_0}{x}{\dfrac{f^{(n+1)}(t)}{n!}(x-t)^n dt}}\\
+				&\lte \dint{x_0}{x}{\dfrac{\abs{f^{(n+1)}(t)}}{n!}(x-t)^n dt}\\
+				&\lte \dfrac{M^{n+1}}{n!}\dint{x_0}{x}{(x-t)^n dt}\\
+				&= \dfrac{M^{n+1}}{n!} \cdot \left. \dfrac{-(x-t)^{n+1}}{n+1} \right|_{x_0}^x\\
+				&= \dfrac{M^{n+1}}{(n+1)!}(x-x_0)^{n+1}\\
+				&= \dfrac{(M(x-x_0))^{n+1}}{(n+1)!}\\
+				\text{\footnotesize Stirling: $n! \simeq \sqrt{2\pi n}\left(\frac{n}{e}\right)^n$}\\
+				&\xrightarrow{n \to \infty} 0
+			\end{align*}
+		\end{proof}
+	\end{thm}
+	\begin{coro}~
+
+		Sous ces conditions, $f(x) = \dsum{k}{0}{\infty}{\dfrac{f^{(n)}(x_0)}{k!}(x-x_0)^k}$, la s\'erie de Taylor de $f$ autour de $x_0$.
+	\end{coro}
+	\begin{coro}~
+
+		Si la s\'erie de puissance $\dsum{k}{0}{\infty}{a_k(x-x_0)^k}$ a comme limite $f$, alors la s\'erie de puissance est la s\'erie de Taylor de $f$ autour de $x_0$.
+	\end{coro}
+	\begin{exem}~
+
+		\begin{enumerate}[label=\alph*)]
+			\item $\cos x$, avec $x_0=0$.
+			\[
+			\begin{array}{rlrcl}
+				\cos x&:\qquad&\cos0&=&0\\
+				-\sin x&:&-\sin0&=&0\\
+				-\cos x&:&-\cos0&=&-1\\
+				\sin x&:&\sin0&=&0
+			\end{array}
+			\]
+
+			Ainsi, $\cos x = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \dfrac{x^6}{6!} + \dotsb + \dfrac{(-1)^n}{(2n)!}x^{2n} + R_n(0, x)$.
+
+			On a%TODO enlever les x du R
+			\begin{align*}
+				R&= \dlim{k}{\infty}{\abs{\dfrac{a_k}{a_{k+1}}}}\\
+				&= \dlim{k}{\infty}{\abs{\dfrac{\dfrac{(-1)^k}{(2k)!}}{\dfrac{(-1)^{k+1}}{(2(k+1))!}}}}\\
+				&= \dlim{k}{\infty}{\abs{(2k+2)(2k+1)}}\\
+				&= \infty
+			\end{align*}
+
+			On veut montrer que $R_n(0, x) \xrightarrow{n \to \infty} 0, (\forall x \in \reels)$.
+
+			Pour $x>0$, on a
+			\begin{align*}
+				R_n(0, x)&= \dint{0}{x}{\dfrac{\cos^{(n+1)}(t) (x-t)^n}{n!} dt}\\
+				&\lte \dint{0}{x}{\dfrac{(x-t)^n}{n!} dt}\\
+				&= \left. \dfrac{-(x-t)^{n+1}}{(n+1)!} \right|_0^x\\
+				&= \dfrac{x^{n+1}}{(n+1)!}\\
+				&= \dfrac{\abs{x}^{n+1}}{(n+1)!}
+			\end{align*}
+
+			Pour $x<0$, $R_n(0, x) \gte \dfrac{-\abs{x}^{n+1}}{(n+1)!}$.
+
+			Donc, $\abs{R_n(0, x)} \lte \dfrac{\abs{x}^{n+1}}{(n+1)!} \xrightarrow{n \to \infty} 0$.
+
+			Donc, $\cos x = \dsum{k}{0}{\infty}{\dfrac{(-1)^kx^{2k}}{(2k)!}}$.
+			\item $f(x)=\frac{1}{x}$, avec $x_0=1$.
+			\[
+			\begin{array}{rcllrcl}
+				f(x)&=&\frac{1}{x}&:\qquad&f(1)&=&1\\
+				f'(x)&=&-x^{-2}&:&f'(1)&=&-1\\
+				f''(x)&=&2x^{-3}&:&f''(1)&=&2\\
+				f^{(3)}(x)&=&-6x^{-4}&:&f^{(3)}(1)&=&-6\\
+				f^{(4)}(x)&=&24x^{-5}&:&f^{(4)}(1)&=&24\\
+				f^{(n)}(x)&=&(-1)^nn!x^{-(n+1)}
+			\end{array}
+			\]
+
+			Donc, $f(x) = 1 - (x-1) + \dfrac{2}{2!}(x-1)^2 - \dfrac{6}{3!}(x-1)^3 + \dfrac{24}{4!}(x-1)^4 + \dotsb + (-1)^n(x-1)^n + \dotsb + R_n(1, x)$.
+
+			On a
+			\begin{align*}
+				R&= \dlim{n}{\infty}{\abs{\dfrac{a_n}{a_{n+1}}}}\\
+				&= \dlim{n}{\infty}{\abs{\dfrac{(-1)^n}{(-1)^{n+1}}}}\\
+				&= 1
+			\end{align*}
+
+			Il y a donc convergence sur $]0,2[$.
+			\begin{align*}
+				\abs{R_n(1, x)}&= \abs{\dint{1}{x}{\dfrac{f^{(n+1)}(t)}{n!}(x-t)^n dt}}\\
+				&= \abs{\dint{1}{x}{\dfrac{(-1)^{n+1}(n+1)!t^{-(n+2)}}{n!}(x-t)^n dt}}\\
+				&\lte \dint{1}{x}{\abs{(n+1)t^{-(n+2)}\abs{x-t}^n dt}}\\
+				&\lte (n+1) \dint{1}{x}{\abs{x-t}^n dt}\\
+				&= \left. \abs{x-t}^{n+1} \right|_1^x\\
+				&= \abs{x-1}^{n+1}\\
+				\text{\footnotesize car $x \in ]0,2[$}&\xrightarrow{n \to \infty} 0
+			\end{align*}
+
+			Donc, $\dfrac{1}{x} = \dsum{k}{0}{\infty}{(-1)^k(x-1)^k}$.
+		\end{enumerate}
+	\end{exem}
+
+	\chapter{Int\'egrales avec param\`etres}
+	\begin{align*}
+		\mathscr{L}\{t^n\}(s)&= \dint{0}{\infty}{t^ne^{-st} dt} = \dfrac{n!}{s^{n+1}}\\
+		\mathscr{L}\{t^2\}(s)&= \dfrac{2}{s^3}\\
+		\mathscr{L}\{t^3\}(s)&= \dfrac{6}{s^4}
+	\end{align*}
+
+	\section{Fonction Gamma}
+	\begin{defin}~
+
+		$\Gamma(y) = \dint{0}{\infty}{t^{y-1}e^{-t} dt}$, pour $y>0$.
+	\end{defin}
+	\begin{prop}~
+
+		$\Gamma(y)$ converge pour tout $y>0$.
+		\begin{proof}~
+
+			\begin{enumerate}
+				\item $y \gte 1$. On a donc $y-1 \gte 0$ et c'est une int\'egrale impropre de premi\`ere esp\`ece.
+
+				On utilise le test de comparaison limite.
+
+				Posons $f(t) = t^{y-1}e^{-t}$ et $g(t) = e^{\sfrac{-t}{2}}$.
+
+				On a
+				\begin{align*}
+					C&= \dlim{t}{\infty}{\dfrac{f(t)}{g(t)}}\\
+					&= \dlim{t}{\infty}{\dfrac{t^{y-1}e^{-t}}{e^{\sfrac{-t}{2}}}}\\
+					&= \dlim{t}{\infty}{\dfrac{t^{y-1}}{e^{\sfrac{t}{2}}}}\\
+					&\overset{H}{=} \dlim{t}{\infty}{\dfrac{(y-1)t^{y-2}}{\frac{1}{2}e^{\sfrac{t}{2}}}}\\
+					&\overset{H}{=} \dlim{t}{\infty}{\dfrac{(y-1)(y-2)t^{y-3}}{\left(\frac{1}{2}\right)^2e^{\sfrac{t}{2}}}}\\
+					&\overset{H}{=} \dotsb\\
+					&\overset{H}{=} \dlim{t}{\infty}{\dfrac{(y-1)(y-2)\dotsb(y-k)}{\left(\frac{1}{2}^ke^{\sfrac{t}{2}}\right)t^{k-y}}}&\text{avec }y-k&<0\\
+					&= 0
+				\end{align*}
+
+				Or, $\dint{0}{\infty}{g(t) dt} = \dint{0}{\infty}{e^{-\sfrac{t}{2}} dt} = \dotsb = 2$.
+
+				Comme $\int g$ converge, on a $\int f$ converge.
+
+				Donc, $\Gamma(y)$ converge si $y \gte 1$.
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
 \end{document}
