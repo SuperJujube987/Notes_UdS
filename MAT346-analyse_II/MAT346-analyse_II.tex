@@ -2300,7 +2300,9 @@ Donn\'e par Mario Lambert}
 		\begin{proof}~
 
 			\begin{enumerate}
-				\item $y \gte 1$. On a donc $y-1 \gte 0$ et c'est une int\'egrale impropre de premi\`ere esp\`ece.
+				\item $y \gte 1$.
+
+				On a donc $y-1 \gte 0$ et c'est une int\'egrale impropre de premi\`ere esp\`ece.
 
 				On utilise le test de comparaison limite.
 
@@ -2323,7 +2325,114 @@ Donn\'e par Mario Lambert}
 				Comme $\int g$ converge, on a $\int f$ converge.
 
 				Donc, $\Gamma(y)$ converge si $y \gte 1$.
+				\item $0<y<1$.
+
+				On a $\Gamma(y) = \underbrace{\dint{0}{1}{t^{y-1}e^{-t} dt}}_{\text{2\textsuperscript{\`eme} esp}} + \underbrace{\dint{1}{\infty}{t^{y-1}e^{-t} dt}}_{\text{1\textsuperscript{\`ere} esp}}$.
+
+				On obtient
+				\begin{align*}
+					\dint{0}{1}{t^{y-1}e^{-t} dt}&\lte \dint{0}{1}{t^{y-1} dt}\\
+					&= \dlim{h}{0^+}{\dint{h}{1}{t^{y-1} dt}}\\
+					&= \dlim{h}{0^+}{\left. \dfrac{t^y}{y} \right|_{t=h}^1}\\
+					&= \dfrac{1}{y}
+				\end{align*}
+
+				La 2\textsuperscript{\`eme} int\'egrale s'obtient comme au 1\textsuperscript{er} cas.
 			\end{enumerate}
 		\end{proof}
 	\end{prop}
+	\begin{prop}~
+
+		\begin{enumerate}[label=\alph*)]
+			\item $\Gamma(1)=1$;
+			\item $\Gamma(y)=(y-1) \Gamma(y-1)$, si $y>1$;
+			\item $\Gamma(y)=(y-1)(y-2)\dotsb(y-k) \Gamma(y-k)$, si $y>k$;
+			\item $\Gamma(n+1)=n!$, si $n \in \naturels$;
+			\item $\Gamma(\sfrac{1}{2})=\sqrt{\pi}$.
+		\end{enumerate}
+		\begin{proof}~
+
+			\begin{enumerate}[label=\alph*)]
+				\item \begin{align*}
+					\Gamma(1)&= \dint{0}{\infty}{t^{1-1}e^{-t} dt}\\
+					&= \left. -e^{-t} \right|_{t=0}^\infty\\
+					&= 1
+				\end{align*}
+				\item Posons $u=t^{y-1}$, $du=(y-1)t{y-2}$, $dv=e^{-t}dt$, $v=-e^{-t}$.
+
+				\begin{align*}
+					\Gamma(y)&= \left. -t^{y-1}e^{-t} \right|_{t=0}^\infty + (y-1) \dint{0}{\infty}{t^{y-2}e^{-t} dt}\\
+					&= -\dlim{t}{\infty}{\dfrac{t^{y-1}}{e^t}} + (y-1)\Gamma(y-1)\\
+					&= (y-1)\Gamma(y-1)
+				\end{align*}
+				\item r\'ecurrence du b)
+				\item suit de c) et a)
+				\item \begin{align*}
+					\Gamma(\sfrac{1}{2})&= \dint{0}{\infty}{t^{-\sfrac{1}{2}}e^{-t} dt}\\
+					\left.\begin{array}{l}
+						t=x^2\\
+						dt=2xdx
+					\end{array}\right\}&= \dint{0}{\infty}{(x^2)^{-\sfrac{1}{2}}e^{-x^2} 2xdx}\\
+					&= 2 \dint{0}{\infty}{e^{-x^2} dx}\\
+					\left.\begin{array}{l}
+						X \sim N(\mu, \sigma^2)\\
+						f_X(x)=\dfrac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(x-\mu)^2}{2\sigma^2}}
+					\end{array}\right\}&= 2\sqrt{\pi} \mathbb{P}(X>0)&\text{lorsque } X \sim N(0, \sfrac{1}{2})\\
+					&= \sqrt{\pi}
+				\end{align*}
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+	\begin{rema}[Utilit\'e]~
+
+		\begin{enumerate}[label=\alph*)]
+			\item $\Gamma(\alpha, \gamma)$: $f(x) = \dfrac{\lambda e^{-\lambda x} (\lambda x)^{\alpha-1}}{\Gamma(\alpha)}$, $x \gte 0$;
+			\item $\chi^2_n$: $f(x) = \dfrac{1}{2^{\sfrac{n}{2}} \Gamma(\sfrac{n}{2})} \chi^{\frac{n}{2}-1} e^{-\sfrac{x}{2}}$;
+			\item Transform\'ee de Laplace: $\mathscr{L}\{t^n\}(s) = \dint{0}{\infty}{t^n e^{-st} dt} = \dfrac{\Gamma(n+1)}{s^{n+1}}$, $s>0, n>-1$;
+			\item Une compagnie d'assurance a $240~000$ clients.
+
+			Soit $N(t)$ le nombre de d\'ec\`es jusqu'au temps $t$.
+
+			Supposons que le taux de mortalit\'e annuelle est $\sfrac{1}{10~000}$.
+
+			Supposons
+			\begin{enumerate}[label=\roman*)]
+				\item $N(0)=0$;
+				\item $N(t+s)-N(s) \sim P(\lambda t)$, $(\forall s,t \gte 0) (\forall\lambda>0)$;
+				\item $N(b_2)-N(a_2)$ est ind\'ependant de $N(b_1)-N(a_1)$ lorsque $[a_1,b_1] \cap [a_2,b_2] = \emptyset$.
+			\end{enumerate}
+
+			On dit que $N(t)$ est un \emph{processus de Poisson} d'intensit\'e $\lambda$.
+
+			On a $N(t)-N(0) = N(t) \sim P(\lambda t)$ et $E[N(t)] = \lambda t$, d'o\`u $E\left[\frac{N(t)}{t}\right]=\lambda$.
+
+			Donc $\lambda$ est le nombre moyen d'\'ev\'enements sur une p\'eriode donn\'ee. Ainsi, $\lambda=\frac{240~000}{10~000} = 24$.
+
+			Soit $T_1$ le temps avant un 1\textsuperscript{er} d\'ec\`es.
+
+			On a
+			\begin{align*}
+				F_{T_1}&= \mathbb{P}(T_1 \lte t)\\
+				&= 1 - \mathbb{P}(T_1 > t)\\
+				&= 1-\mathbb{P}(N(t)=0)\\
+				&= 1-\mathbb{P}(P(\lambda t)=0)\\
+				&= 1-\dfrac{e^{-\lambda t}(\lambda t)^0}{0!}\\
+				&= 1-e^{-\lambda t}
+			\end{align*}
+
+			On en d\'eduit que $f_{T_1} = \dfrac{d}{dt}F_{T_1} = \lambda e^{-\lambda t}$.
+
+			Ainsi, $T_1 \sim \operatorname{exp}(\lambda)$.
+
+			De m\^eme, si $T_i$ d\'esigne le temps entre le $(i-1)$\textsuperscript{\`eme} d\'ec\`es et le $i$\textsuperscript{\`eme} d\'ec\`es, on peut montrer que $\{T_i\}$ sont iid $\operatorname{exp}(\lambda)$.
+
+			On cherche \`a trouver le temps moyen pour avoir $4$ d\'ec\`es \`a partir d'un moment donn\'e.
+			\begin{align*}
+				E\left[T_{i_0} + T_{i_0+1} + T_{i_0+2} + T_{i_0+3}\right]&= E\left[\Gamma(4, 24)\right]\\
+				&= \frac{4}{24} = \frac{2}{12}
+			\end{align*}
+
+			Il faut donc en moyenne $2$ mois pour avoir $4$ d\'ec\`es.
+		\end{enumerate}
+	\end{rema}
 \end{document}
