@@ -7,7 +7,7 @@
 \usepackage{indentfirst}
 \usepackage{dsfont}
 \usepackage{tikz}
-\usetikzlibrary{tikzmark,calc,positioning}
+\usetikzlibrary{tikzmark, calc, positioning, arrows.meta, shapes.geometric}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
@@ -103,6 +103,26 @@ Donn\'e par Jean-Philippe Burelle}
 \newtheorem*{nota}{Notation}
 \newtheorem*{rema}{Remarque}
 \newtheorem*{rappel}{Rappel}
+
+\newenvironment*{subproof}[1]
+{
+\begin{proof}[#1]
+
+}
+{
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+\end{proof}
+\renewcommand{\qedsymbol}{$\square$}
+}
+\newenvironment{subsubproof}[1]
+{
+\begin{proof}[#1]
+}
+{
+	\renewcommand{\qedsymbol}{$\#$}
+\end{proof}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+}
 
 \begin{document}
 	\maketitle
@@ -925,9 +945,9 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{rema}
 	\end{exem}
 	\begin{exem}
-		~
+		~\phantomsection
 
-		$\left( \mathbb{D}_3, \circ \right)$ - groupe dih\'edral d'ordre 3.
+		$\left( \mathbb{D}_3, \circ \right)$ - groupe dih\'edral d'ordre 3.\label{D3}
 
 		Groupe des sym\'etries d'un triangle \'equilat\'eral.
 
@@ -3607,4 +3627,303 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{align*}
 		\end{proof}
 	\end{prop}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item $N \trianglelefteq G$ sous-groupe normal (ou distingu\'e)
+			\begin{ulist}
+				\item $\forall g \in G$, $gN=Ng$
+				\item $\forall g \in G, \forall n \in N$, $gng^{-1} \in N$
+			\end{ulist}
+			\item $f:G \to H$ homomorphisme $\Rightarrow \ker(f) \trianglelefteq G$
+			\item Groupe quotient: $\sfrac{G}{N} = \{Ng \mid g \in G\}$
+			\begin{ulist}
+				\item op\'eration: $NaNb=Nab$
+				\item neutre: $N$
+				\item inverse: $(Na)^{-1} = Na^{-1}$
+			\end{ulist}
+			\item $p:G \to \sfrac{G}{N}$ est un homomorphisme avec $p(a)=Na$.
+		\end{ulist}
+	\end{rappel}
+	\begin{nota}
+		Effectuer $ghg^{-1}$ s'appelle la \emph{conjugaison} de $h$ par $g$.
+	\end{nota}
+	\begin{rema}
+		$H \lte G$ et $g \in G$, alors $gHg^{-1} \lte G$.
+
+		Dans le cas d'un sous-groupe normal, le sous-groupe obtenu par la conjugaison reste le m\^eme sous-groupe.
+	\end{rema}
+	\begin{exem}~
+
+		\begin{ulist}
+			\item Dans $\mathbb{D}_3$\footnote{Pour la d\'efinition de $\mathbb{D}_3$, voir p.\pageref{D3}}
+			\begin{ulist}
+				\item $\{\varepsilon, \alpha\}$
+				\item $\{\varepsilon, \beta\}$
+				\item $\{\varepsilon, \gamma\}$
+			\end{ulist}
+			ne sont pas normaux.
+			\begin{ulist}
+				\item $\{\varepsilon, \rho, \sigma\}$
+			\end{ulist}
+			est normal.
+			\item Soient $G = \mathbb{D}_3$ et $N=\{\varepsilon, \rho, \sigma\}$.
+
+			Les classes \`a droites sont
+			\begin{ulist}
+				\item $N = N\varepsilon = \{\varepsilon, \rho, \sigma\}$
+				\item $N\alpha = N\beta = N\gamma = \{\alpha, \beta, \gamma\}$
+			\end{ulist}
+
+			Alors, $\sfrac{G}{N} = \{N, N\alpha\}$.
+			\renewcommand{\arraystretch}{1.2}
+			\[
+			\begin{array}{c||c|c}
+				\circ&N&N\alpha\\
+				\hline\hline
+				N&N&N\alpha\\
+				\hline
+				N\alpha&N\alpha&N
+			\end{array}
+			\]
+			\renewcommand{\arraystretch}{1}
+			\item Soient $G=\entiers_{10}$ et $N=\{\overline0,\overline5\}$
+
+			Les classes d'\'euivalence sont
+			\begin{ulist}
+				\item $N = N+\overline0 = \{\overline0,\overline5\}$
+				\item $N+\overline1 = \{\overline1,\overline6\}$
+				\item $N+\overline2 = \{\overline2,\overline7\}$
+				\item $N+\overline3 = \{\overline3,\overline8\}$
+				\item $N+\overline4 = \{\overline4,\overline9\}$
+			\end{ulist}
+			$\sfrac{G}{N} = \{N, N+\overline1, N+\overline2, N+\overline3, N+\overline4\}$.
+			\begin{center}
+				\begin{tikzpicture}[every node/.style={shape=circle, very thick, inner sep=2pt}]
+					\node () at (0,0) {$\entiers_{10}:$};
+					\begin{scope}[xshift=22mm]
+						\node[draw=col1,fill=col1!30] (0) at (90:12mm) {$\overline0$};
+						\node[draw=col2,fill=col2!30] (1) at (90-36:12mm) {$\overline1$};
+						\node[draw=col3,fill=col3!30] (2) at (90-2*36:12mm) {$\overline2$};
+						\node[draw=col4,fill=col4!30] (3) at (90-3*36:12mm) {$\overline3$};
+						\node[draw=col5,fill=col5!30] (4) at (90-4*36:12mm) {$\overline4$};
+						\node[draw=col1,fill=col1!30] (5) at (90-5*36:12mm) {$\overline5$};
+						\node[draw=col2,fill=col2!30] (6) at (90-6*36:12mm) {$\overline6$};
+						\node[draw=col3,fill=col3!30] (7) at (90-7*36:12mm) {$\overline7$};
+						\node[draw=col4,fill=col4!30] (8) at (90-8*36:12mm) {$\overline8$};
+						\node[draw=col5,fill=col5!30] (9) at (90-9*36:12mm) {$\overline9$};
+					\end{scope}
+					\draw (0)--(5) (1)--(6) (2)--(7) (3)--(8) (4)--(9);
+				\end{tikzpicture}
+			\end{center}
+			$\sfrac{\entiers_{10}}{5\entiers_{10}} =$ \{\textcolor{col1}{$\blacksquare$}, \textcolor{col2}{$\blacksquare$}, \textcolor{col3}{$\blacksquare$}, \textcolor{col4}{$\blacksquare$}, \textcolor{col5}{$\blacksquare$}\}.
+			\item Soient $G = \reels^2 = \{(x,y) \mid x,y \in \reels\}$ et $N = \{(a,a) \in \reels^2 \mid a \in \reels\}$.
+
+			$N \trianglelefteq G$.
+
+			$\sfrac{G}{N}$ est infini et l'op\'eration sur $\sfrac{G}{N}$ est: $(N+(x,y))+(N+(x',y')) = N+(x+x',y+y')$.
+		\end{ulist}
+	\end{exem}
+
+	\subsection*{Motivation}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) ellipse (1cm and 2cm);
+			\node (A) at (1,1.75) {$A$};
+			\node (1) at (0,1.5) {$1$};
+			\node (2) at (0,.9) {$2$};
+			\node (3) at (0,.3) {$3$};
+			\node (4) at (0,-.3) {$4$};
+			\node (5) at (0,-.9) {$5$};
+			\node (6) at (0,-1.5) {$6$};
+
+			\begin{scope}[xshift=5cm]
+				\draw (0,0) ellipse (1cm and 2cm);
+				\node (B) at (-1,1.75) {$B$};
+				\node (e) at (0,1.5) {$*$};
+				\node (t) at (0,.9) {$\triangle$};
+				\node (r) at (0,.3) {$\circ$};
+				\node (c) at (0,-.3) {$\square$};
+				\node (h) at (0,-.9) {$\#$};
+				\node (x) at (0,-1.5) {$\times$};
+			\end{scope}
+
+			\path[arrows=-{Stealth[length=3mm]}] (A) edge[bend left] node[above] {$f$} (B);
+
+			\path[arrows=-{Stealth[length=3mm]}] (1) edge (t) (2) edge (t) (3) edge (c) (4) edge (c) (5) edge (c) (6) edge (x);
+		\end{tikzpicture}
+	\end{center}
+	$f$ n'est ni injective ni surjective.
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) ellipse (1cm and 2cm);
+			\node (A) at (1,1.75) {$A$};
+			\node (1) at (0,1.5) {$1$};
+			\node (2) at (0,.9) {$2$};
+			\node (3) at (0,.3) {$3$};
+			\node (4) at (0,-.3) {$4$};
+			\node (5) at (0,-.9) {$5$};
+			\node (6) at (0,-1.5) {$6$};
+
+			\begin{scope}[xshift=5cm]
+				\draw (0,0) ellipse (1cm and 2cm);
+				\node (B) at (-1,1.75) {$B'$};
+				\node (t) at (0,.9) {$\triangle$};
+				\node (c) at (0,0) {$\square$};
+				\node (x) at (0,-.9) {$\times$};
+			\end{scope}
+
+			\path[arrows=-{Stealth[length=3mm]}] (A) edge[bend left] node[above] {$f'$} (B);
+
+			\path[arrows=-{Stealth[length=3mm]}] (1) edge (t) (2) edge (t) (3) edge (c) (4) edge (c) (5) edge (c) (6) edge (x);
+		\end{tikzpicture}
+	\end{center}
+	$f'$ est surjective, mais elle n'est toujours pas injective.
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) ellipse (1cm and 2cm);
+			\node (A) at (1,1.75) {$A'$};
+			\node[draw,shape=ellipse] (12) at (0,.9) {$1~2$};
+			\node[draw,shape=ellipse] (345) at (0,0) {$3~4~5$};
+			\node[draw,shape=ellipse] (6) at (0,-.9) {$6$};
+
+			\begin{scope}[xshift=5cm]
+				\draw (0,0) ellipse (1cm and 2cm);
+				\node (B) at (-1,1.75) {$B'$};
+				\node (t) at (0,.9) {$\triangle$};
+				\node (c) at (0,0) {$\square$};
+				\node (x) at (0,-.9) {$\times$};
+			\end{scope}
+
+			\path[arrows=-{Stealth[length=3mm]}] (A) edge[bend left] node[above] {$f''$} (B);
+
+			\path[arrows=-{Stealth[length=3mm]}] (12) edge (t) (345) edge (c) (6) edge (x);
+		\end{tikzpicture}
+	\end{center}
+	$f''$ est injective et surjective, donc bijective.
+	\begin{center}
+		\begin{tikzpicture}
+			\node (A) at (-1,1) {$A$};
+			\node (A') at (-1,-1) {$A'$};
+			\node (B') at (1,-1) {$B'$};
+			\node (B) at (1,1) {$B$};
+			\path[arrows=-{Stealth[length=2mm]}] (A) edge node[above] {$f$} (B) edge node[left] {$p$} (A') (A') edge node[below] {$f''$} (B') (B') edge node[right] {$i$} (B);
+		\end{tikzpicture}
+	\end{center}
+	o\`u $p$ repr\'esente une projection et $i$ une inclusion. Donc, $f=i \circ f'' \circ p$, o\`u $i$ est injective, $p$ est surjective et $f''$ est bijective.
+	\begin{thm}[d'isomorphisme de Jordan]~
+
+		Soit $f:G \to H$ un homomorphisme de groupes. Posons $N = \ker(f) \trianglelefteq G$.
+		\begin{center}
+			\begin{tikzpicture}
+				\node (G) at (-1,1) {$G$};
+				\node (H) at (1,1) {$H$};
+				\node (GN) at (-1,-1) {$\sfrac{G}{N}$};
+				\node (Im) at (1,-1) {$\image(f)$};
+				\path[arrows=-{Stealth[length=2mm]}] (G) edge node[above] {$f$} (H) edge node[left] {$p$} (GN) (GN) edge[dashed] node[below] {$\bar{f}$} (Im) (Im) edge node[right] {$i$} (H);
+			\end{tikzpicture}
+		\end{center}
+
+		$\left(\begin{array}{rcl}
+			P:G&\to&\sfrac{g}{N}\\
+			a&\mapsto&Na
+		\end{array} ~\middle|~ \begin{array}{rcl}
+			i:\image(f)&\to&H\\
+			h&\mapsto&h
+		\end{array}\right)$.
+
+		Alors, il existe un unique homomorphisme $\bar{f}:\sfrac{G}{N} \to \image(f)$ t.q. $f=i \circ \bar{f} \circ p$. De plus, $\bar{f}$ est un isomorphisme.
+		\begin{exem}
+			$\det:GL(n,\reels) \to \reels_*$.
+
+			$N = \ker(\det) = SL(n,\reels)$ les matrices dont le d\'etrerminant vaut $1$.
+
+			$\image(\det) = \reels_*$.
+
+			Le th\'eor\`eme implique que $\sfrac{GL(n,\reels)}{SL(n,\reels)} \cong \reels_*$.
+		\end{exem}
+		\begin{proof}~
+
+			\begin{subproof}{Unicit\'e de $\bar{f}$}~
+
+				Supposons que $\bar{f}$ existe.
+
+				Soit $\tilde{f}$ un autre homomorphisme t.q. $f=i \circ \tilde{f} \circ p$.
+
+				Alors, soit $Na \in \sfrac{G}{N}$. On a
+				\begin{align*}
+					f(a)&= \left(i \circ \tilde{f} \circ p\right)(a)\\
+					&= i(\tilde{f}(p(a)))\\
+					&= \tilde{f}(Na)
+				\end{align*}
+
+				De m\^eme, $f(a)=\bar{f}(a)$.
+
+				Donc, $\bar{f}(Na) = \tilde{f}(Na) = f(a)$, alors $\bar{f} = \tilde{f}$.
+			\end{subproof}
+
+			\begin{subproof}{Existence de $\bar{f}$}~
+
+				On veut d\'efinir $\bar{f}(Na)=f(a)$. V\'erifions que cette d\'efinition est sans abigu\"it\'e.
+
+				Supposons $Na=Nb$, c'est-\`a-dire, $ab^{-1} \in N = \ker(f)$.
+
+				Alors, $f(ab^{-1})=e$, donc $f(a)f(b)^{-1}=e$, ainsi $f(a)=f(b)$, qui est \'equivalent \`a $\bar{f}(Na) = \bar{f}(Nb)$.
+			\end{subproof}
+
+			\begin{subproof}{$\bar{f}$ est un homomorphisme}~
+
+				$\bar{f}(NaNb) = \bar{f}(Nab) = f(ab) = f(a)f(b) = \bar{f}(Na)\bar{f}(Nb)$.
+			\end{subproof}
+
+			\begin{subproof}{$\bar{f}$ est un isomorphisme}~
+
+				\begin{subsubproof}{surjectivit\'e}~
+
+					Soit $b \in \image(f)$. Alors, $b=f(a)$ pour un certain $a \in G$. Donc, $b=\bar{f}(Na)$.
+				\end{subsubproof}
+
+				\begin{subsubproof}{injectivit\'e}~
+
+					Supposons $Na \in \ker(\bar{f})$. Alors, $\bar{f}(Na)=e$, donc $f(a)=e$, ainsi $a \in \ker(f) = N$.
+
+					Comme $a \in N$, $Na=N$. Donc, $\ker(\bar{f}) \subseteq \{N\}$, alors $\ker(\bar{f})=N$.
+				\end{subsubproof}
+			\end{subproof}
+		\end{proof}
+	\end{thm}
+	\begin{exem}~
+
+		\begin{ulist}
+			\item $\signe:S_n \to C_2$.
+
+			$\ker(\signe) = A_n$.
+
+			$\image(\signe) = C_2$.
+
+			Alors, $\sfrac{S_n}{A_n} \cong C_2 \cong \entiers_2$.
+			\item $\begin{array}{rcl}
+				f:\entiers_{10}&\to&\entiers_5\\
+				\overline{n}&\mapsto&\overline{n}
+			\end{array}$. $f$ est un homomorphisme.
+
+			$\ker(f) = \{\overline0, \overline5\}$.
+
+			$\image(f) = \entiers_5$.
+
+			Alors, $\sfrac{\entiers_{10}}{\{\overline0,\overline5\}} \cong \entiers_5$.
+			\item $\begin{array}{rcl}
+				\reels^2&\to&\reels\\
+				(x,y)&\mapsto&x-y
+			\end{array}$. $f$ est un homomorphisme.
+
+			$\ker(f) = \{(a,a) \mid a \in \reels\} \eqcolon N$.
+
+			$\image(f) = \reels$.
+
+			Alors, $\sfrac{\reels^2}{N} \cong \reels$.
+		\end{ulist}
+	\end{exem}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.28)  6 NOV 2025 10:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.28)  11 NOV 2025 11:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -564,6 +564,22 @@ File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 z/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen291
+\pgfarrowlength=\dimen292
+\pgfarrowwidth=\dimen293
+\pgfarrowlinewidth=\dimen294
+)
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
@@ -621,7 +637,7 @@ ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen291
+\@linkdim=\dimen295
 \Hy@linkcounter=\count326
 \Hy@pagecounter=\count327
  (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
@@ -651,7 +667,7 @@ Package hyperref Info: Bookmarks ON on input line 4462.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen292
+\XeTeXLinkMargin=\dimen296
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -662,8 +678,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count330
-\Field@Width=\dimen293
-\Fld@charsize=\dimen294
+\Field@Width=\dimen297
+\Fld@charsize=\dimen298
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -701,8 +717,8 @@ Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count336
 \calc@Bcount=\count337
-\calc@Adimen=\dimen295
-\calc@Bdimen=\dimen296
+\calc@Adimen=\dimen299
+\calc@Bdimen=\dimen300
 \calc@Askip=\skip63
 \calc@Bskip=\skip64
 LaTeX Info: Redefining \setlength on input line 86.
@@ -714,16 +730,16 @@ LaTeX Info: Redefining \addtolength on input line 87.
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 \g_MT_multlinerow_int=\count339
-\l_MT_multwidth_dim=\dimen297
+\l_MT_multwidth_dim=\dimen301
 \origjot=\skip66
-\l_MT_shortvdotswithinadjustabove_dim=\dimen298
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen299
-\l_MT_above_intertext_sep=\dimen300
-\l_MT_below_intertext_sep=\dimen301
-\l_MT_above_shortintertext_sep=\dimen302
-\l_MT_below_shortintertext_sep=\dimen303
+\l_MT_shortvdotswithinadjustabove_dim=\dimen302
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen303
+\l_MT_above_intertext_sep=\dimen304
+\l_MT_below_intertext_sep=\dimen305
+\l_MT_above_shortintertext_sep=\dimen306
+\l_MT_below_shortintertext_sep=\dimen307
 \xmathstrut@box=\box70
-\xmathstrut@dim=\dimen304
+\xmathstrut@dim=\dimen308
 ) (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
@@ -770,7 +786,7 @@ LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?)
 on input line 2058.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2083.
-\U@D=\dimen305
+\U@D=\dimen309
 \l@unhyphenated=\language79
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
@@ -808,20 +824,20 @@ Package babel Info: Making ! an active character on input line 275.
 Package babel Info: Making ? an active character on input line 276.
 \FBguill@level=\count343
 \FBold@everypar=\toks47
-\FB@Mht=\dimen306
+\FB@Mht=\dimen310
 \mc@charclass=\count344
 \mc@charfam=\count345
 \mc@charslot=\count346
 \std@mcc=\count347
 \dec@mcc=\count348
-\FB@pardim=\dimen307
-\listindentFB=\dimen308
-\descindentFB=\dimen309
-\labelindentFB=\dimen310
-\labelwidthFB=\dimen311
-\leftmarginFB=\dimen312
-\parindentFFN=\dimen313
-\FBfnindent=\dimen314
+\FB@pardim=\dimen311
+\listindentFB=\dimen312
+\descindentFB=\dimen313
+\labelindentFB=\dimen314
+\labelwidthFB=\dimen315
+\leftmarginFB=\dimen316
+\parindentFFN=\dimen317
+\FBfnindent=\dimen318
 )))
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/cancel\cancel.sty
@@ -830,46 +846,46 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/nicematrix\nicematrix.s
 ty
 Package: nicematrix 2025/10/23 v7.4 Enhanced arrays with the help of PGF/TikZ
-\l__nicematrix_tmpc_dim=\dimen315
-\l__nicematrix_tmpd_dim=\dimen316
+\l__nicematrix_tmpc_dim=\dimen319
+\l__nicematrix_tmpd_dim=\dimen320
 \l__nicematrix_tmpc_int=\count349
 \g__nicematrix_env_int=\count350
 \l__nicematrix_the_array_box=\box71
 \g__nicematrix_NiceMatrixBlock_int=\count351
 \g__nicematrix_notes_caption_int=\count352
-\l__nicematrix_columns_width_dim=\dimen317
-\l__nicematrix_col_width_dim=\dimen318
+\l__nicematrix_columns_width_dim=\dimen321
+\l__nicematrix_col_width_dim=\dimen322
 \g__nicematrix_row_total_int=\count353
 \g__nicematrix_col_total_int=\count354
 \g__nicematrix_last_row_node_int=\count355
 \l__nicematrix_key_nb_rows_int=\count356
-\g__nicematrix_blocks_wd_dim=\dimen319
-\g__nicematrix_blocks_ht_dim=\dimen320
-\g__nicematrix_blocks_dp_dim=\dimen321
-\l__nicematrix_width_dim=\dimen322
-\l__nicematrix_tabular_width_dim=\dimen323
-\l__nicematrix_rule_width_dim=\dimen324
+\g__nicematrix_blocks_wd_dim=\dimen323
+\g__nicematrix_blocks_ht_dim=\dimen324
+\g__nicematrix_blocks_dp_dim=\dimen325
+\l__nicematrix_width_dim=\dimen326
+\l__nicematrix_tabular_width_dim=\dimen327
+\l__nicematrix_rule_width_dim=\dimen328
 \l__nicematrix_old_iRow_int=\count357
 \l__nicematrix_old_jCol_int=\count358
-\l__nicematrix_X_columns_dim=\dimen325
-\l__nicematrix_x_initial_dim=\dimen326
-\l__nicematrix_y_initial_dim=\dimen327
-\l__nicematrix_x_final_dim=\dimen328
-\l__nicematrix_y_final_dim=\dimen329
-\g__nicematrix_dp_row_zero_dim=\dimen330
-\g__nicematrix_ht_row_zero_dim=\dimen331
-\g__nicematrix_ht_row_one_dim=\dimen332
-\g__nicematrix_dp_ante_last_row_dim=\dimen333
-\g__nicematrix_ht_last_row_dim=\dimen334
-\g__nicematrix_dp_last_row_dim=\dimen335
-\g__nicematrix_width_last_col_dim=\dimen336
-\g__nicematrix_width_first_col_dim=\dimen337
+\l__nicematrix_X_columns_dim=\dimen329
+\l__nicematrix_x_initial_dim=\dimen330
+\l__nicematrix_y_initial_dim=\dimen331
+\l__nicematrix_x_final_dim=\dimen332
+\l__nicematrix_y_final_dim=\dimen333
+\g__nicematrix_dp_row_zero_dim=\dimen334
+\g__nicematrix_ht_row_zero_dim=\dimen335
+\g__nicematrix_ht_row_one_dim=\dimen336
+\g__nicematrix_dp_ante_last_row_dim=\dimen337
+\g__nicematrix_ht_last_row_dim=\dimen338
+\g__nicematrix_dp_last_row_dim=\dimen339
+\g__nicematrix_width_last_col_dim=\dimen340
+\g__nicematrix_width_first_col_dim=\dimen341
 \g__nicematrix_ddots_int=\count359
 \g__nicematrix_iddots_int=\count360
-\g__nicematrix_delta_x_one_dim=\dimen338
-\g__nicematrix_delta_y_one_dim=\dimen339
-\g__nicematrix_delta_x_two_dim=\dimen340
-\g__nicematrix_delta_y_two_dim=\dimen341
+\g__nicematrix_delta_x_one_dim=\dimen342
+\g__nicematrix_delta_y_one_dim=\dimen343
+\g__nicematrix_delta_x_two_dim=\dimen344
+\g__nicematrix_delta_y_two_dim=\dimen345
 \l__nicematrix_row_min_int=\count361
 \l__nicematrix_row_max_int=\count362
 \l__nicematrix_col_min_int=\count363
@@ -883,14 +899,14 @@ Package: nicematrix 2025/10/23 v7.4 Enhanced arrays with the help of PGF/TikZ
 \l__nicematrix_local_start_int=\count371
 \l__nicematrix_local_end_int=\count372
 \g__nicematrix_static_num_of_col_int=\count373
-\l__nicematrix_rounded_corners_dim=\dimen342
-\l__nicematrix_tab_rounded_corners_dim=\dimen343
-\l__nicematrix_offset_dim=\dimen344
-\l__nicematrix_line_width_dim=\dimen345
+\l__nicematrix_rounded_corners_dim=\dimen346
+\l__nicematrix_tab_rounded_corners_dim=\dimen347
+\l__nicematrix_offset_dim=\dimen348
+\l__nicematrix_line_width_dim=\dimen349
 \g__nicematrix_block_box_int=\count374
-\l__nicematrix_submatrix_extra_height_dim=\dimen346
-\l__nicematrix_submatrix_left_xshift_dim=\dimen347
-\l__nicematrix_submatrix_right_xshift_dim=\dimen348
+\l__nicematrix_submatrix_extra_height_dim=\dimen350
+\l__nicematrix_submatrix_left_xshift_dim=\dimen351
+\l__nicematrix_submatrix_right_xshift_dim=\dimen352
 \l__nicematrix_first_row_int=\count375
 \l__nicematrix_first_col_int=\count376
 \l__nicematrix_last_row_int=\count377
@@ -898,20 +914,20 @@ Package: nicematrix 2025/10/23 v7.4 Enhanced arrays with the help of PGF/TikZ
 \c@tabularnote=\count379
 \g__nicematrix_tabularnote_int=\count380
 \c@nicematrix_draft=\count381
-\l__nicematrix_cell_space_top_limit_dim=\dimen349
-\l__nicematrix_cell_space_bottom_limit_dim=\dimen350
-\l__nicematrix_xdots_inter_dim=\dimen351
-\l__nicematrix_xdots_shorten_start_dim=\dimen352
-\l__nicematrix_xdots_shorten_end_dim=\dimen353
-\l__nicematrix_xdots_radius_dim=\dimen354
-\l__nicematrix_left_margin_dim=\dimen355
-\l__nicematrix_right_margin_dim=\dimen356
-\l__nicematrix_extra_left_margin_dim=\dimen357
-\l__nicematrix_extra_right_margin_dim=\dimen358
-\c__nicematrix_max_l_dim=\dimen359
+\l__nicematrix_cell_space_top_limit_dim=\dimen353
+\l__nicematrix_cell_space_bottom_limit_dim=\dimen354
+\l__nicematrix_xdots_inter_dim=\dimen355
+\l__nicematrix_xdots_shorten_start_dim=\dimen356
+\l__nicematrix_xdots_shorten_end_dim=\dimen357
+\l__nicematrix_xdots_radius_dim=\dimen358
+\l__nicematrix_left_margin_dim=\dimen359
+\l__nicematrix_right_margin_dim=\dimen360
+\l__nicematrix_extra_left_margin_dim=\dimen361
+\l__nicematrix_extra_right_margin_dim=\dimen362
+\c__nicematrix_max_l_dim=\dimen363
 \l__nicematrix_position_int=\count382
 \l__nicematrix_multiplicity_int=\count383
-\l__nicematrix_brace_yshift_dim=\dimen360
+\l__nicematrix_brace_yshift_dim=\dimen364
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
@@ -920,11 +936,11 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 Package: xfrac 2024-06-04 Split-level fractions
 \l__xfrac_slash_box=\box72
 \l__xfrac_tmp_box=\box73
-\l__xfrac_denominator_bot_sep_dim=\dimen361
-\l__xfrac_numerator_bot_sep_dim=\dimen362
-\l__xfrac_numerator_top_sep_dim=\dimen363
-\l__xfrac_slash_left_sep_dim=\dimen364
-\l__xfrac_slash_right_sep_dim=\dimen365
+\l__xfrac_denominator_bot_sep_dim=\dimen365
+\l__xfrac_numerator_bot_sep_dim=\dimen366
+\l__xfrac_numerator_top_sep_dim=\dimen367
+\l__xfrac_slash_left_sep_dim=\dimen368
+\l__xfrac_slash_right_sep_dim=\dimen369
 \l__xfrac_slash_left_muskip=\muskip19
 \l__xfrac_slash_right_muskip=\muskip20
 
@@ -950,15 +966,15 @@ Package hyperref Info: Option `colorlinks' set `false' on input line 25.
 \c@cours=\count389
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 107.
+(french3.ldf)             reported on input line 127.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 107.
+(french3.ldf)             reported on input line 127.
 
 
 Package french3.ldf Warning: OT1 encoding should not be used for French.
 (french3.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(french3.ldf)                of your document; reported on input line 107.
+(french3.ldf)                of your document; reported on input line 127.
 
 (MAT141-elements_d_algebre.aux
 Package babel Info: 'french' activates 'french' shorthands.
@@ -966,24 +982,24 @@ Package babel Info: 'french' activates 'french' shorthands.
 )
 \openout1 = `MAT141-elements_d_algebre.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1024,13 +1040,13 @@ LaTeX Font Info:    ... okay on input line 107.
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count390
-\scratchdimen=\dimen366
+\scratchdimen=\dimen370
 \scratchbox=\box74
 \nofMPsegments=\count391
 \nofMParguments=\count392
 \everyMPshowfont=\toks48
 \MPscratchCnt=\count393
-\MPscratchDim=\dimen367
+\MPscratchDim=\dimen371
 \MPnumerator=\count394
 \makeMPintoPDFobject=\count395
 \everyMPtoPDFconversion=\toks49
@@ -1053,37 +1069,37 @@ G,.JBIG2,.JB2,.eps]
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 107.
+Package hyperref Info: Link coloring OFF on input line 127.
  (MAT141-elements_d_algebre.out) (MAT141-elements_d_algebre.out)
 \@outlinefile=\write4
 \openout4 = `MAT141-elements_d_algebre.out'.
 
-LaTeX Info: Redefining \degres on input line 107.
-\c__nicematrix_shift_Ldots_last_row_dim=\dimen368
-\c__nicematrix_innersep_middle_dim=\dimen369
+LaTeX Info: Redefining \degres on input line 127.
+\c__nicematrix_shift_Ldots_last_row_dim=\dimen372
+\c__nicematrix_innersep_middle_dim=\dimen373
 \c@tabularnotesi=\count396
 \enitdp@tabularnotes=\count397
 \c@tabularnotes*i=\count398
 \enitdp@tabularnotes*=\count399
-LaTeX Font Info:    Trying to load font information for U+msa on input line 109
+LaTeX Font Info:    Trying to load font information for U+msa on input line 129
 .
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 109
+LaTeX Font Info:    Trying to load font information for U+msb on input line 129
 .
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 10
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 12
 9.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 10
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 12
 9.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
@@ -1106,7 +1122,7 @@ Chapitre 1.
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd)
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 177.
+(hyperref)                than one, level fixed on input line 197.
 
 
 
@@ -1115,13 +1131,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.189 	\end{defin}
+l.209 	\end{defin}
                    [1
 
 ]
 
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported on input line 276.
+(babel)             Reported on input line 296.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1183,7 +1199,7 @@ Chapitre 6.
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 846.
+(hyperref)                than one, level fixed on input line 866.
 
 
 
@@ -1195,7 +1211,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [9]
-Overfull \hbox (6.07794pt too wide) in paragraph at lines 1005--1006
+Overfull \hbox (6.07794pt too wide) in paragraph at lines 1025--1026
 []$\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 +)\OML/cm
 m/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 Q\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 
 +)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 R\OML/cmm/m/it/10 ; \OT1/cm
@@ -1335,32 +1351,32 @@ pdfTeX warning (ext4): destination with the same identifier (name{chapter.6}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2159 	\chapter{Groupes (suite)}
+l.2179 	\chapter{Groupes (suite)}
                                  
 Chapitre 6.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2161.
+(hyperref)                removing `math shift' on input line 2181.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2161.
+(hyperref)                removing `subscript' on input line 2181.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2161.
+(hyperref)                removing `math shift' on input line 2181.
 
 
 
 [24
 
 ]
-\g__nicematrix_max_cell_width_dim=\dimen370
+\g__nicematrix_max_cell_width_dim=\dimen374
 \c@iRow=\count400
 \c@jCol=\count401
 \l__nicematrix_cell_box=\box75
-\l__nicematrix_left_delim_dim=\dimen371
-\l__nicematrix_right_delim_dim=\dimen372
+\l__nicematrix_left_delim_dim=\dimen375
+\l__nicematrix_right_delim_dim=\dimen376
 
 
 
@@ -1372,12 +1388,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [25]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-530.
+550.
  (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2530.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2550.
 
 
 
@@ -1424,11 +1440,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3052.
+(hyperref)                removing `math shift' on input line 3072.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3052.
+(hyperref)                removing `math shift' on input line 3072.
 
 
 
@@ -1493,7 +1509,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[37] (MAT141-elements_d_algebre.aux)
+[37]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[38]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[39]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[40] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-09>
@@ -1505,13 +1548,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT141-elements_d_algebre.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 9D8CE136F945AC447A6CCFFF452514A6;2866.
+(rerunfilecheck)             Checksum: 5ABE1CB9C4D1C920E7C9A769CE995E35;2866.
  ) 
 Here is how much of TeX's memory you used:
- 29898 strings out of 468080
- 593563 string characters out of 5425771
- 1068223 words of memory out of 5000000
- 57975 multiletter control sequences out of 15000+600000
+ 30951 strings out of 468080
+ 618679 string characters out of 5425771
+ 1100575 words of memory out of 5000000
+ 59012 multiletter control sequences out of 15000+600000
  646465 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,25n,107p,607b,1079s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1524,29 +1567,33 @@ type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jujub/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jujub/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jujub/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/User
-s/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/User
+s/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
 <C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/jujub/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jujub/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jujub/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jujub/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users
-/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-<C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-tt10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/doubl
-estroke/dsrom10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/latxfont/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MAT141-elements_d_algebre.pdf (39 pages, 433637 bytes).
+mi8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jujub/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/jujub/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/jujub/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jujub/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
+jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C
+:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmti10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmtt10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/doublestroke/dsrom10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/Users/jujub/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jujub
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C
+:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/symbols/msbm7.pfb>
+Output written on MAT141-elements_d_algebre.pdf (42 pages, 471925 bytes).
 PDF statistics:
- 487 PDF objects out of 1000 (max. 8388607)
- 131 named destinations out of 1000 (max. 500000)
+ 519 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
