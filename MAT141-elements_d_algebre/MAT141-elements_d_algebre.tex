@@ -19,6 +19,7 @@
 \usepackage{nicematrix}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{xfrac}
+\usepackage{tikz-cd}
 
 \hypersetup{
 	colorlinks=false
@@ -3926,4 +3927,162 @@ Donn\'e par Jean-Philippe Burelle}
 			Alors, $\sfrac{\reels^2}{N} \cong \reels$.
 		\end{ulist}
 	\end{exem}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item Th\'eor\`eme d'isomorphisme
+
+			\begin{center}
+				\begin{tikzcd}[row sep=large]
+					G \arrow[r, "f"'] \arrow[d, twoheadrightarrow, "p"']&H\\
+					\sfrac{G}{\ker(f)} \arrow[r, dashed, "\bar{f}"]&\image(f) \arrow[u, hookrightarrow, "i"']
+				\end{tikzcd}
+			\end{center}
+
+			$\exists!$ isomorphisme $\bar{f}: \sfrac{G}{\ker(f)} \to \image(f)$ t.q. $f=i \circ \bar{f} \circ p$.
+		\end{ulist}
+		\begin{nota}
+			$\hookrightarrow$: fonction injective, $\twoheadrightarrow$: fonction surjective.
+		\end{nota}
+
+		2 cas importants:
+		\begin{nlist}
+			\item Si $f$ est surjectif
+
+			$\image(f)=H$.
+
+			Le th\'eor\`eme dit que $\begin{array}{rcl}
+				\bar{f}:\sfrac{G}{\ker(f)}&\to&H\\
+				Na&\mapsto&f(a)
+			\end{array}$ est un isomorphisme.
+			\item Si $f$ est injectif
+
+			$\ker(f)=\{e\}$.
+
+			$\sfrac{G}{\ker(f)} = \sfrac{G}{\{e\}}$, les classes sont de la forme $\{e\}a=\{a\}$, donc chaque \'el\'ement de $G$ est seul dans sa classe d'\'equivalence.
+
+			$\begin{array}{rcl}
+				G&\xrightarrow{\cong}&\sfrac{G}{\{e\}}\\
+				a&\mapsto&\{a\}
+			\end{array}$ est un isomorphisme.
+
+			Dans ce cas, $G \cong \sfrac{G}{\{e\}} \cong \image(f)$. On a que $G$ est isomorphe au sous-groupe $\image(f)$ de $H$.
+		\end{nlist}
+	\end{rappel}
+	\begin{coro}~
+
+		$f:G \to H$ un homomorphisme entre groupes finis. Alors, $\card{G} = \card{\ker(f)} \card{\image(f)}$.
+		\begin{proof}~
+
+			$\bar{f}$ est une bijection entre $\sfrac{G}{\ker(f)}$ et $\image(f)$. Alors, $\card{\sfrac{G}{\ker(f)}} = \card{\image(f)}$. Donc, $\dfrac{\card{G}}{\card{\ker(f)}} = \card{\image(f)}$.
+		\end{proof}
+	\end{coro}
+
+	\phantomsection\section*{Groupes monog\`enes}\addcontentsline{toc}{section}{Groupes monog\`enes}
+
+	$a \in G$, $\langle a \rangle = \{a^n \mid n \in \entiers\}$ le groupe \emph{engendr\'e par $a$}.
+	\begin{thm}[Classification des groupes monog\`enes]~
+
+		Soit $G = \langle a \rangle$ un groupe monog\`ene. Alors
+		\begin{nlist}
+			\item Si $o(a)=\infty$, alors $G \cong \entiers$.
+			\item Si $o(a)=m$, alors $G \cong \entiers_m$.
+		\end{nlist}
+		\begin{proof}~
+
+			La fonction $\begin{array}{rcl}
+				f:\entiers&\to&G\\
+				n&\mapsto&a^n
+			\end{array}$ est un homomorphisme. En effet
+			\begin{align*}
+				f(n_1+n_2)&= a^{n_1+n_2}\\
+				&= a^{n_1}a^{n_2}\\
+				&= f(n_1)f(n_2)
+			\end{align*}
+
+			$f$ est surjectif, car tout \'el\'ement de $G$ s'\'ecrit $a^n$ par d\'efinition.
+
+			Le th\'eor\`eme d'isomorphisme nous dit que $\sfrac{\entiers}{\ker(f)} \cong G$.
+			\begin{nlist}
+				\item Le seul $n$ t.q. $a^n=e$ est $n=0$, donc $\ker(f)=\{0\}$, alors $\entiers \cong \sfrac{\entiers}{\{0\}} \cong G$.
+				\item On veut montrer que $\ker(f)=m\entiers$.
+				\begin{subproof}{$\subseteq$:}~
+
+					Supposons $n \in \ker(f)$, alors $f(n) = a^n = e$, donc $o(a) \bigm| n$, c'est-\`a-dire, $n = ko(a) = km \in m\entiers$.
+
+					Ainsi, $\ker(f) \subseteq m\entiers$.
+				\end{subproof}
+				\begin{subproof}{$\supseteq$:}~
+
+					Supposons $n \in m\entiers$, alors $n=km$, donc $f(n) = a^n = a^{mk} = (a^m)^k = e$.
+
+					Ainsi, $m\entiers \subseteq \ker(f)$.
+				\end{subproof}
+
+				Ainsi, $\sfrac{\entiers}{m\entiers} = m\entiers \cong G$.
+			\end{nlist}
+		\end{proof}
+	\end{thm}
+	\begin{exem}~
+
+		$\sigma = \begin{pmatrix}
+			1&2&3&4&5&6\\
+			3&6&1&2&4&5
+		\end{pmatrix} \in S_6 = \begin{pmatrix}
+			1&3
+		\end{pmatrix}\begin{pmatrix}
+			2&6&4&5
+		\end{pmatrix}$. $o(\sigma) = \verb|ppcm|(2,4) = 4$.
+
+		Par le th\'eor\`eme de classification, $\langle \sigma \rangle \cong \entiers_4$.
+
+		Autrement dit, $\langle \sigma \rangle = \{e, \sigma, \sigma^2, \sigma^3\} = \{\sigma^0, \sigma^1, \sigma^2, \sigma^3\}$.
+	\end{exem}
+
+	\setcounter{section}{2}
+	\section{Th\'eor\`eme de Cayley}
+	$G$ un groupe quelconque, $a \in G$.
+
+	On d\'efinit une fonction
+	\begin{equation*}
+		\begin{array}{rcl}
+			\sigma_a:G&\to&G\\
+			b&\mapsto&ab
+		\end{array}
+	\end{equation*}
+
+	\begin{lem}
+		$\sigma_a$ est bijective.
+		\begin{proof}~
+
+			$\sigma_{a^{-1}}$ est un inverse de $\sigma_a$. En effet
+			\begin{align*}
+				\begin{split}
+					\sigma_{a^{-1}}(\sigma_a(b))&= \sigma_{a^{-1}}(ab)\\
+					&= a^{-1}ab\\
+					&= b
+				\end{split}
+				&
+				\begin{split}
+					\sigma_a(\sigma_{a^{-1}}(b))&= \sigma_a(a^{-1}b)\\
+					&= aa^{-1}b\\
+					&= b
+				\end{split}
+			\end{align*}
+		\end{proof}
+	\end{lem}
+	\begin{rema}
+		Ce lemme implique que $\sigma_a \in S(G) = \{f:G \to G \mid f \text{ est bijective}\}$.
+	\end{rema}
+	\begin{defin}
+		On d\'efinit $\begin{array}{rcl}
+			\psi:G&\to&S(G)\\
+			a&\mapsto&\sigma_a
+		\end{array}$.
+	\end{defin}
+	\begin{prop}
+		$\psi$ est un homomorphisme.
+	\end{prop}
 \end{document}

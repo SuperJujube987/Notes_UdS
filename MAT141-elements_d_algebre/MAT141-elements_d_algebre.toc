@@ -15,3 +15,5 @@
 \contentsline {chapter}{\numberline {8}Homomorphismes}{29}{chapter.8}%
 \contentsline {section}{\'Equivalence modulo $H$ et th\'eor\`eme de Lagrange}{32}{section*.13}%
 \contentsline {section}{\numberline { 8.6}Groupes quotients}{34}{section.8.6}%
+\contentsline {section}{Groupes monog\`enes}{41}{section*.14}%
+\contentsline {section}{\numberline { 8.3}Th\'eor\`eme de Cayley}{42}{section.8.3}%
