@@ -2627,5 +2627,138 @@ Donn\'e par Mario Lambert}
 	\end{prop}
 	\begin{prop}
 		$f(t) = a_1\cos\omega_1t + a_2\cos\omega_2t$ est p\'eriodique de p\'eriode $T$ si, et seulement si, $\exists m_1,m_2 \in \entiers$ t.q. $\omega_1T = 2\pi m_1$ et $\omega_2T = 2\pi m_2$. Alors, $\dfrac{\omega_1}{\omega_2} = \dfrac{m_1}{m_2} \in \rationels$ et $\omega_1=\dfrac{2\pi m_1}{T}, \omega_2=\dfrac{2\pi m_2}{T}$.
+		\begin{proof}~
+
+			\begin{itemize}
+				\item[$(\Leftarrow)$]
+				\begin{align*}
+					f(t+T)&= a_1\cos\omega_1(t+T) + a_2\cos\omega_2(t+T)\\
+					&= a_1\cos\omega_1t\cos\omega_1T - a_1\sin\omega_1t\sin\omega_1T + a_2\cos\omega_2t\cos\omega_2T - a_2\sin\omega_2t\sin\omega_2T\\
+					&= a_1\cos\omega_1t+a_2\cos\omega_2t\\
+					&= f(t)
+				\end{align*}
+				\item[$(\Rightarrow)$] Supposons $\omega_1 \neq \omega_2$.
+
+				On veut montrer que $\cos\omega_1t$ et $\cos\omega_2t$ sont lin\'eairement ind\'ependantes.
+
+				Soient $c_1, c_2$ t.q. $c_1\cos\omega_1t + c_2\cos\omega_2t = 0$, $(\forall t \in \reels)$.
+
+				On applique $\dfrac{d^2}{dt^2}$: $-c_1\omega_1^2\cos\omega_1t - c_2\omega_2^2\cos\omega_2t = 0$, $(\forall t \in \reels)$.
+
+				En $t=0$, on a
+				\[
+				\left\{ \begin{array}{rcrcl}
+					c_1&+&c_2&=&0\\
+					-c_1\omega_1^2&-&c_2\omega_2^2&=&0
+				\end{array} \right. \quad\Rightarrow\quad \begin{pmatrix}
+					1&1\\
+					-\omega_1^2&\omega_2^2
+				\end{pmatrix} \begin{pmatrix}
+					c_1\\c_2
+				\end{pmatrix} = \begin{pmatrix}
+					0\\0
+				\end{pmatrix}
+				\]
+
+				Comme $\det\begin{pmatrix}
+					1&1\\
+					-\omega_1^2&-\omega_2^2
+				\end{pmatrix} \neq 0$, la seule solution est $(c_1,c_2)=(0,0)$.
+
+				Comme $f$ est p\'eriodique de p\'eriode $T$, on a
+				\begin{align*}
+					a_1\cos\omega_1t+a_2\cos\omega_2t&= f(t)\\
+					&= f(t+T)\\
+					a_1\cos\omega_1(t+T)+a_2\cos\omega_2(t+T)
+				\end{align*}
+
+				Alors,
+				\begin{align*}
+					a_1\left[ \underbrace{\cos\omega_1(t+T) - \cos\omega_1t}_{g_1(t)} \right] + a_2\left[ \underbrace{\cos\omega_2(t+T) - \cos\omega_2t}_{g_2(t)} \right]&= 0
+				\end{align*}
+
+				Or, par $\cos(x+\alpha)-\cos x = -2\sin\left( x+\frac{\alpha}{2} \right)\sin\frac{\alpha}{2}$, on a
+				\begin{align*}
+					g_1(t) &= -2\sin\left( \omega_1t + \frac{\omega_1T}{2} \right)\sin\frac{\omega_1T}{2}\\
+					g_2(t) &= -2\sin\left( \omega_2t + \frac{\omega_2T}{2} \right)\sin\frac{\omega_2T}{2}
+				\end{align*}
+
+				Comme les $\sin$ sont ind\'ependants, on en d\'eduit que $g_1$ et $g_2$ le sont aussi.
+
+				Comme $a_1,a_2 \neq 0$, il faut donc que $g_1(t)=g_2(t)=0$.
+
+				Ainsi,
+				\begin{align*}
+					\cos\omega_1t + \omega_1T&= \cos\omega_1t\\
+					\cos\omega_2t + \omega_2T&= \cos\omega_2t
+				\end{align*}
+
+				Donc, $\omega_1T = 2\pi m_1$ et $\omega_2T = 2\pi m_2$, pour $m_1, m_2 \in \entiers$.
+			\end{itemize}
+		\end{proof}
 	\end{prop}
+	\begin{rema}
+		On obtient $\omega_i = \dfrac{2m_i\pi}{T}$, pour $i \in \{1,2\}$.
+	\end{rema}
+	\begin{prop}~
+
+		$c_1\sin\omega t+c_2\cos\omega t = B\cos(\omega t+\phi)$, pour des constantes $B$ et $\phi$.
+		\begin{proof}~
+
+			Prenons $\theta = \arctan\frac{c_2}{c_1}$.
+
+			On a $\tan\theta = \frac{c_2}{c_1}$ et
+			\begin{align*}
+				\sin^2\theta + \cos^2\theta = 1 &\Rightarrow \tan^1\theta + 1 = \dfrac{1}{\cos^2\theta}\\
+				&\Rightarrow \dfrac{c_2^2}{c_1^2} + 1 = \dfrac{1}{\cos^2\theta}\\
+				&\Rightarrow \cos\theta = \dfrac{c_1}{\sqrt{c_1^2+c_2^2}}
+			\end{align*}
+
+			et
+			\begin{equation*}
+				\sin\theta = \dfrac{c_2}{\sqrt{c_1^2+c_2^2}}
+			\end{equation*}
+
+			Posons $B=-\sqrt{c_1^2+c_2^2}$ et $\phi = \theta+\frac{\pi}{2}$.
+
+			On obtient
+			\begin{align*}
+				B\cos(\omega t+\phi)&= B\cos\omega t\cos\phi - B\sin\omega t\sin\phi\\
+				&= B\cos\omega t(-\sin\theta) - B\sin\omega t\cos\theta\\
+				&= \sqrt{c_1^2+c_2^2}\cos\omega t\dfrac{c_2}{\sqrt{c_1^2+c_2^2}} + \sqrt{c_1^2+c_2^2}\sin\omega t\dfrac{c_1}{\sqrt{c_1^2+c_2^2}}\\
+				&= c_1\sin\omega t+c_2\cos\omega t
+			\end{align*}
+		\end{proof}
+	\end{prop}
+	\begin{defin}~
+
+		\begin{enumerate}[label=\alph*)]
+			\item Un \emph{polyn\^ome trigonom\'etrique} est une somme de la forme
+			\begin{equation*}
+				\dsum{k}{0}{n}{\left[ a_k\cos\dfrac{2k\pi}{T}t + b_k\sin\dfrac{2k\pi}{T}t \right]}
+			\end{equation*}
+			\item Lorsque $n=\infty$, c'est une \emph{s\'erie trigonom\'etrique}.
+		\end{enumerate}
+	\end{defin}
+	\begin{prop}
+		Tout polyn\^ome trigonom\'etrique est $T$-p\'eriodique.
+	\end{prop}
+	\begin{prop}
+		Si une s\'erie trigonom\'etrique converge $(\forall x)$, alors sa somme est $T$-p\'eriodique.
+	\end{prop}
+	\begin{rema}
+		Si $f$ n'est pas p\'eriodique, alors $f$ ne pourra \^etre la somme d'une s\'erie trigonom\'etrique.
+	\end{rema}
+	\begin{defin}
+		Soient $f:[a,b] \to \reels$ t.q. $f(a)=f(b)$ et $T=b-a$. L'\emph{extension $T$-p\'eriodique de $f$} est
+		\begin{equation*}
+			\begin{array}{rcl}
+				\tilde{f}:\reels&\to&\reels\\
+				x&\mapsto&\left\{ \begin{array}{lcll}
+					f(x)&\text{si}&x \in [a,b]\\
+					f(x-nT)&\text{si}&x \in [a+nT, b+nT]&\text{pour un } n \in \entiers
+				\end{array} \right.
+			\end{array}
+		\end{equation*}
+	\end{defin}
 \end{document}
