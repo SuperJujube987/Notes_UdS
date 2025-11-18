@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  13 NOV 2025 10:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  18 NOV 2025 10:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -970,7 +970,18 @@ File: tikzlibrarymatrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 z/libraries\tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )))
-Package hyperref Info: Option `colorlinks' set `false' on input line 26.
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\fontawesom
+e5.sty
+Package: fontawesome5 2022/05/02 v5.15.4 Font Awesome 5
+
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\fontawesom
+e5-generic-helper.sty
+Package: fontawesome5-generic-helper 2022/05/02 v5.15.4 non-uTeX helper for fon
+tawesome5
+
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\fontawesom
+e5-mapping.def)))
+Package hyperref Info: Option `colorlinks' set `false' on input line 27.
 \c@nlisti=\count384
 \c@nlistii=\count385
 \c@nlistiii=\count386
@@ -979,15 +990,15 @@ Package hyperref Info: Option `colorlinks' set `false' on input line 26.
 \c@cours=\count389
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 128.
+(french3.ldf)             reported on input line 130.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 128.
+(french3.ldf)             reported on input line 130.
 
 
 Package french3.ldf Warning: OT1 encoding should not be used for French.
 (french3.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(french3.ldf)                of your document; reported on input line 128.
+(french3.ldf)                of your document; reported on input line 130.
 
 (MAT141-elements_d_algebre.aux
 Package babel Info: 'french' activates 'french' shorthands.
@@ -995,24 +1006,24 @@ Package babel Info: 'french' activates 'french' shorthands.
 )
 \openout1 = `MAT141-elements_d_algebre.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1074,38 +1085,38 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 128.
+Package hyperref Info: Link coloring OFF on input line 130.
  (MAT141-elements_d_algebre.out) (MAT141-elements_d_algebre.out)
 \@outlinefile=\write4
 \openout4 = `MAT141-elements_d_algebre.out'.
 
-LaTeX Info: Redefining \degres on input line 128.
+LaTeX Info: Redefining \degres on input line 130.
 \c__nicematrix_shift_Ldots_last_row_dim=\dimen372
 \c__nicematrix_innersep_middle_dim=\dimen373
 \c@tabularnotesi=\count396
 \enitdp@tabularnotes=\count397
 \c@tabularnotes*i=\count398
 \enitdp@tabularnotes*=\count399
-LaTeX Font Info:    Trying to load font information for U+msa on input line 130
+LaTeX Font Info:    Trying to load font information for U+msa on input line 132
 .
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 130
+LaTeX Font Info:    Trying to load font information for U+msb on input line 132
 .
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 13
-0.
+2.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for U+wasy on input line 13
-0.
+2.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
@@ -1124,19 +1135,19 @@ Chapitre 1.
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd)
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 198.
+(hyperref)                than one, level fixed on input line 200.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.210 	\end{defin}
+l.212 	\end{defin}
                    [1
 
 ]
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported on input line 297.
+(babel)             Reported on input line 299.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1192,7 +1203,7 @@ Chapitre 6.
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 867.
+(hyperref)                than one, level fixed on input line 869.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1202,7 +1213,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [9]
-Overfull \hbox (6.07794pt too wide) in paragraph at lines 1026--1027
+Overfull \hbox (6.07794pt too wide) in paragraph at lines 1028--1029
 []$\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 +)\OML/cm
 m/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 Q\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 
 +)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 R\OML/cmm/m/it/10 ; \OT1/cm
@@ -1326,20 +1337,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{chapter.6}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2180 	\chapter{Groupes (suite)}
+l.2182 	\chapter{Groupes (suite)}
                                  
 Chapitre 6.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2182.
+(hyperref)                removing `math shift' on input line 2184.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2182.
+(hyperref)                removing `subscript' on input line 2184.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2182.
+(hyperref)                removing `math shift' on input line 2184.
 
 [24
 
@@ -1360,12 +1371,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [25]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-551.
+553.
  (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2551.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2553.
 
 
 
@@ -1406,11 +1417,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3073.
+(hyperref)                removing `math shift' on input line 3075.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3073.
+(hyperref)                removing `math shift' on input line 3075.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1507,7 +1518,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[42] (MAT141-elements_d_algebre.aux)
+[42]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[43]
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
+nput line 4369.
+
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
+mefree0.fd)
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
+nput line 4376.
+
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
+mefree2.fd) [44
+
+{C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5f
+ree0.enc}{C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawes
+ome5/fa5free2.enc}]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[45] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1519,53 +1560,54 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT141-elements_d_algebre.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: E7FB91B20C58C1CD54BB046A1E0AD7E2;3169.
+(rerunfilecheck)             Checksum: A63856A74DB0128BA0D5C70F3586187C;3311.
  ) 
 Here is how much of TeX's memory you used:
- 31586 strings out of 467871
- 640126 string characters out of 5418375
- 1121479 words of memory out of 5000000
- 59836 multiletter control sequences out of 15000+600000
- 646465 words of font info for 126 fonts, out of 8000000 for 9000
+ 34641 strings out of 467871
+ 707586 string characters out of 5418375
+ 1166469 words of memory out of 5000000
+ 62855 multiletter control sequences out of 15000+600000
+ 647084 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,25n,107p,607b,1341s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
 1000.pk> <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/dpi60
 0\wasy10.pk> <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\tcrm1000.pk><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmbx10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jujub/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jujub/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jujub/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/User
-s/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
+lic/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/jujub/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jujub/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jujub/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/User
+s/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mmi12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmi5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jujub/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jujub/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/juju
+b/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Use
+rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb>
 <C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-mi8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jujub/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/jujub/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/jujub/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jujub/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
-jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C
-:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
-6.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmtt10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/doublestroke/dsrom10.pfb><C:/Users/jujub/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/Users/jujub/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Use
-rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam
-7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/symbols/msbm10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/symbols/msbm7.pfb>
-Output written on MAT141-elements_d_algebre.pdf (44 pages, 490897 bytes).
+r8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/jujub/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/
+jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/line10
+.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on MAT141-elements_d_algebre.pdf (47 pages, 518367 bytes).
 PDF statistics:
- 552 PDF objects out of 1000 (max. 8388607)
- 146 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 595 PDF objects out of 1000 (max. 8388607)
+ 162 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -20,6 +20,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{xfrac}
 \usepackage{tikz-cd}
+\usepackage{fontawesome5}
 
 \hypersetup{
 	colorlinks=false
@@ -82,6 +83,7 @@ Donn\'e par Jean-Philippe Burelle}
 
 \newcommand*{\image}{\operatorname{Im}}
 \newcommand*{\signe}{\operatorname{sgn}}
+\newcommand*{\stab}{\operatorname{stab}}
 
 \renewcommand{\thesection}{ \arabic{chapter}.\arabic{section}}
 \renewcommand{\thesubsection}{}
@@ -4078,11 +4080,370 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{rema}
 	\begin{defin}
 		On d\'efinit $\begin{array}{rcl}
-			\psi:G&\to&S(G)\\
+			\Psi:G&\to&S(G)\\
 			a&\mapsto&\sigma_a
 		\end{array}$.
 	\end{defin}
 	\begin{prop}
-		$\psi$ est un homomorphisme.
+		$\Psi$ est un homomorphisme de groupes.
+		\begin{proof}~
+
+			Soient $a,b,c \in G$.
+			\begin{align*}
+				\Psi(ab)(c)&= \sigma_{ab}(c)\\
+				&= (ab)c\\
+				&= a(bc)\\
+				&= a\sigma_b(c)\\
+				&= \sigma_a(\sigma_b(c))\\
+				&= (\sigma_a \circ \sigma_b)(c)
+			\end{align*}
+
+			Ainsi, $\sigma_{ab} = \sigma_a \circ \sigma_b$, c'est-\`a-dire, $\Psi(ab) = \Psi(a) \circ \Psi(b)$.
+		\end{proof}
 	\end{prop}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item \emph{Th\'eor\`eme d'isomorphismes}: $f:G \to H$, $\sfrac{G}{\ker(f)} \cong \image(f)$.
+			\begin{ulist}
+				\item Si $f$ \emph{surjective}, $\sfrac{G}{\ker(f) \cong H}$;
+				\item Si $f$ \emph{injective}, $G \cong \image(f)$.
+			\end{ulist}
+			\item $\card{G} = \card{\ker(f)} \cdot \card{\image(f)}$;
+			\item Groupe \emph{monog\`ene} (ou cyclique) $G = \langle a \rangle = \{a^n \mid n \in \entiers\}$;
+			\item Classification
+			\begin{ulist}
+				\item $\langle a \rangle \cong \entiers$ si $o(a)=\infty$;
+				\item $\langle a \rangle \cong \entiers_m$ si $o(a)=m$.
+			\end{ulist}
+			\item $a \in G$
+			\begin{ulist}
+				\item $\begin{array}{rcl}
+					\sigma_a:G&\to&G\\
+					b&\mapsto&ab
+				\end{array}$ est une bijection;
+				\item $\begin{array}{rcl}
+					\Psi:G&\to&S(G)\\
+					a&\mapsto&\sigma_a
+				\end{array}$, o\`u $S(G)$ est le groupe des bijections de $G$.
+			\end{ulist}
+		\end{ulist}
+	\end{rappel}
+	\begin{prop}
+		$\Psi$ est injectif.
+		\begin{proof}
+			Montrons que $\ker(\Psi)=\{e\}$.
+
+			Supposons que $(a \in G) \in \ker(\Psi)$, alors $\Psi(a)=e$.
+			\begin{align*}
+				\Psi(a)&= \identite_G\\
+				\sigma_a&= \identite_G\\
+				\sigma_a(e)&= \identite_G(e)\\
+				ae&= e\\
+				a&= e
+			\end{align*}
+
+			Alors, $\ker(\Psi) \subseteq \{e\}$.
+
+			De plus, $\{e\} \subseteq \ker(\Psi)$ trivialement.
+
+			Ainsi, $\ker(\Psi) = \{e\}$, donc $\Psi$ est injectif.
+		\end{proof}
+	\end{prop}
+	\begin{thm}[Cayley]
+		Tout groupe $G$ est isomorphe \`a un sous-groupe d'un groupe sym\'etrique $S(E)$.
+		\begin{proof}~
+
+			On prend $E=G$. $\Psi:G \to S(G)$ est un homomorphisme injectif.
+
+			Alors, $G \cong \image(\Psi) \lte S(G)$.
+		\end{proof}
+	\end{thm}
+	\begin{exem}~
+
+		$\mathbb{D}_3 = \{\varepsilon, \alpha, \beta, \gamma, \rho, \sigma\}$.
+
+		Calculons $\Psi$.
+		\begin{align*}
+			\begin{split}
+				\Psi(\varepsilon)&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\varepsilon\varepsilon&\varepsilon\alpha&\varepsilon\beta&\varepsilon\gamma&\varepsilon\rho&\varepsilon\sigma
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma
+				\end{pmatrix}
+			\end{split}
+			&
+			\begin{split}
+				\Psi(\alpha)&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\alpha\varepsilon&\alpha\alpha&\alpha\beta&\alpha\gamma&\alpha\rho&\alpha\sigma
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\alpha&\varepsilon&\rho&\sigma&\beta&\gamma
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\alpha
+				\end{pmatrix} \begin{pmatrix}
+					\beta&\rho
+				\end{pmatrix} \begin{pmatrix}
+					\gamma&\sigma
+				\end{pmatrix}
+			\end{split}
+			\\[1em]
+			\begin{split}
+				\Psi(\beta)&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\beta\varepsilon&\beta\alpha&\beta\beta&\beta\gamma&\beta\rho&\beta\sigma
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\beta&\sigma&\varepsilon&\rho&\gamma&\alpha
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\beta
+				\end{pmatrix} \begin{pmatrix}
+					\alpha&\sigma
+				\end{pmatrix} \begin{pmatrix}
+					\gamma&\rho
+				\end{pmatrix}
+			\end{split}
+			&
+			\begin{split}
+				\Psi(\gamma)&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\gamma\varepsilon&\gamma\alpha&\gamma\beta&\gamma\gamma&\gamma\rho&\gamma\sigma
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\gamma&\rho&\sigma&\varepsilon&\alpha&\beta
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\gamma
+				\end{pmatrix} \begin{pmatrix}
+					\alpha&\rho
+				\end{pmatrix} \begin{pmatrix}
+					\beta&\sigma
+				\end{pmatrix}
+			\end{split}
+			\\[1em]
+			\begin{split}
+				\Psi(\rho)&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\rho\varepsilon&\rho\alpha&\rho\beta&\rho\gamma&\rho\rho&\rho\sigma
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\rho&\gamma&\alpha&\beta&\sigma&\varepsilon
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\rho&\sigma
+				\end{pmatrix} \begin{pmatrix}
+					\alpha&\gamma&\beta
+				\end{pmatrix}
+			\end{split}
+			&
+			\begin{split}
+				\Psi(\sigma)&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\sigma\varepsilon&\sigma\alpha&\sigma\beta&\sigma\gamma&\sigma\rho&\sigma\sigma
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\sigma&\beta&\gamma&\alpha&\varepsilon&\rho
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					\varepsilon&\sigma&\rho
+				\end{pmatrix} \begin{pmatrix}
+					\alpha&\beta&\gamma
+				\end{pmatrix}
+			\end{split}
+		\end{align*}
+	\end{exem}
+	\begin{rema}
+		Le groupe $S(G)$ est toujours plus grand que $G$.
+		\begin{exem}
+			Si on prend $G=S_n$, $\Psi:S_n \to S(S_n)$, o\`u $\card{S_n} = n!$ et $\card{S(S_n)} = (n!)!$.
+		\end{exem}
+	\end{rema}
+	\begin{exem}
+		$G = \entiers_2 \times \entiers_2 = \{(\overline0,\overline0), (\overline0,\overline1), (\overline1,\overline0), (\overline1,\overline1)\}$.
+		\begin{equation*}
+			\Psi:G \to S(G) \cong S_4
+		\end{equation*}
+
+		Num\'erotons les \'el\'ements de $G$ comme $\{1,2,3,4\}$.
+		\begin{align*}
+			\begin{split}
+				\Psi(\overline0,\overline0)&= \identite
+			\end{split}
+			&
+			\begin{split}
+				\Psi(\overline0,\overline1)&= \begin{pmatrix}
+					1&2&3&4\\
+					2&1&4&3
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					1&2
+				\end{pmatrix} \begin{pmatrix}
+					3&4
+				\end{pmatrix}
+			\end{split}
+			&
+			\begin{split}
+				\Psi(\overline1,\overline0)&= \begin{pmatrix}
+					1&2&3&4\\
+					3&4&1&2
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					1&3
+				\end{pmatrix} \begin{pmatrix}
+					2&4
+				\end{pmatrix}
+			\end{split}
+			&
+			\begin{split}
+				\Psi(\overline1,\overline1)&= \begin{pmatrix}
+					1&2&3&4\\
+					4&3&2&1
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					1&4
+				\end{pmatrix} \begin{pmatrix}
+					2&3
+				\end{pmatrix}
+			\end{split}
+		\end{align*}
+
+		Cayley nous dit que $\entiers_2 \times \entiers_2 \cong \{\identite, \begin{pmatrix}
+			1&2
+		\end{pmatrix} \begin{pmatrix}
+			3&4
+		\end{pmatrix}, \begin{pmatrix}
+			1&3
+		\end{pmatrix} \begin{pmatrix}
+			2&4
+		\end{pmatrix}, \begin{pmatrix}
+			1&4
+		\end{pmatrix} \begin{pmatrix}
+			2&3
+		\end{pmatrix}\}$.
+	\end{exem}
+
+	\phantomsection\chapter*{Actions de groupes}\addcontentsline{toc}{chapter}{Actions de groupes}
+	Soient $G$ un groupe et $E$ un ensemble.
+	\begin{defin}
+		Une \emph{action} de $G$ sur $E$ est une fonction $\begin{array}{rcl}
+			\bullet:G \times E&\to&E\\
+			(a,x)&\mapsto&a \bullet x
+		\end{array}$, satisfaisant \`a
+		\begin{nlist}
+			\item $\forall x \in E$, $e \bullet x = x$;
+			\item $\forall a,b \in G$, $\forall x \in e$, $a \bullet (b \bullet x) = (ab) \bullet x$.
+		\end{nlist}
+	\end{defin}
+	\begin{exem}~
+
+		\begin{nlist}
+			\item $G = GL(n, \reels)$, $E=\reels^n$.
+			\[
+			\begin{array}{rcl}
+				\bullet:GL(n, \reels) \times \reels^n&\to&\reels^n\\
+				(M, \vec{v})&\mapsto&M\vec{v}
+			\end{array}
+			\]
+			est une action.
+			\item $G = S_n$, $E = \{1,2,\dots,n\}$.
+			\[
+			\begin{array}{rcl}
+				\bullet:S_n \times \{1,2,\dots,n\}&\to&\{s,2,\dots,n\}\\
+				(\sigma,i)&\mapsto&\sigma(i)
+			\end{array}
+			\]
+			est une action.
+			\item $G = \entiers_2$, $E =$ {\LARGE\faChild} $\subseteq \reels^2$.
+
+			$\entiers_2$ agit sur $E$ par
+			\begin{align*}
+				\overline0 \bullet (x,y)&= (x,y)\\
+				\overline1 \bullet (x,y)&= (-x,y)
+			\end{align*}
+			\item $G = \entiers_3$, $E =$ {\LARGE\faRecycle} $\subseteq \reels^2$.
+
+			$G$ agit sur $E$ o\`u $\overline1$ est une rotation de $120$\textdegree et $\overline2$ est une rotation de $240$\textdegree.
+			\item $\mathbb{D}_3$ agit sur un triangle \'equilat\'eral.
+			\item $G$ agit sur lui-m\^eme par
+			\[
+			\begin{array}{rcl}
+				\bullet:G \times G&\to&G\\
+				(a,b)&\mapsto&ab
+			\end{array}
+			\]
+			\item $G$ agit sur lui-m\^eme aussi par
+			\[
+			\begin{array}{rcl}
+				\bullet:G \times G&\to&G\\
+				(a,b)&\mapsto&aba^{-1}
+			\end{array}
+			\]
+			\begin{subproof}{En effet}~
+
+				\begin{nlist}
+					\item Soit $b \in G$, alors
+					\begin{align*}
+						e \bullet b&= ebe^{-1}\\
+						&= b
+					\end{align*}
+					\item Soient $a,b,c \in G$
+					\begin{align*}
+						(ab) \bullet c&= (ab)c(ab)^{-1}\\
+						&= abcb^{-1}a^{-1}\\
+						&= a(b \bullet c)a^{-1}\\
+						&= a \bullet (b \bullet c)
+					\end{align*}
+				\end{nlist}
+			\end{subproof}
+		\end{nlist}
+	\end{exem}
+	\begin{defin}
+		Une \emph{action} de $G$ sur $E$ est un homomorphisme $\Psi:G \to E$.
+	\end{defin}
+
+	Pour passer de la premi\`ere d\'efinition \`a la deuxi\`eme, on pose $\Psi(a) = \sigma_a$, o\`u $\sigma_a(x) = a \bullet x$.
+
+	Pour passer de la deuxi\`eme d\'efinition \`a la premi\`ere, on pose $a \bullet x = (\Psi(a))(x)$.
+	\begin{defin}
+		$G$ un groupe qui agit sur un ensemble $E$.
+
+		Soit $x \in E$.
+
+		L'\emph{orbite} de $x$ est l'ensemble $G \bullet x = \{a \bullet x \mid a \in G\} \subseteq E$.
+	\end{defin}
+	\begin{defin}
+		Soit $x \in E$.
+
+		Le \emph{stabilisateur} de $x$ est $\stab(x) = \{a \in G \mid a \bullet x = x\} \lte G$.
+	\end{defin}
+	\begin{exem}~
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=3]
+				\draw (0:5mm) node (a) {} -- ++(120:1cm) node (b) {} -- ++(240:1cm) node (c) {} -- cycle;
+				\fill[Col1] (a) circle (1pt) (b) circle (1pt) (c) circle (1pt);
+				\fill[Col4] ($(a)!.2!(b)$) circle (1pt) ($(b)!.2!(c)$) circle (1pt) ($(c)!.2!(a)$) circle (1pt) ($(b)!.2!(a)$) circle (1pt) ($(c)!.2!(b)$) circle (1pt) ($(a)!.2!(c)$) circle (1pt);
+				\fill[Col6] ($(a)!.5!(b)$) circle (1pt) ($(b)!.5!(c)$) circle (1pt) ($(c)!.5!(a)$) circle (1pt);
+				\node[anchor=south] () at (b.north) {$x$};
+				\begin{scope}[xshift=2cm, yshift=5mm, scale=1]
+					\node () at (0,0) {\textcolor{Col1}{\CIRCLE}, \textcolor{Col4}{\CIRCLE} et \textcolor{Col6}{\CIRCLE} sont trois orbites.};
+					\node () at (0,-.2) {$\stab(x) = \{\varepsilon, \alpha\}$};
+				\end{scope}
+			\end{tikzpicture}
+		\end{figure}
+	\end{exem}
 \end{document}

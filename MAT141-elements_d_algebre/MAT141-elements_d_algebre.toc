@@ -17,3 +17,4 @@
 \contentsline {section}{\numberline { 8.6}Groupes quotients}{34}{section.8.6}%
 \contentsline {section}{Groupes monog\`enes}{41}{section*.14}%
 \contentsline {section}{\numberline { 8.3}Th\'eor\`eme de Cayley}{42}{section.8.3}%
+\contentsline {chapter}{Actions de groupes}{44}{chapter*.16}%
