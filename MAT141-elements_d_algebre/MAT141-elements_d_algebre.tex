@@ -4336,6 +4336,7 @@ Donn\'e par Jean-Philippe Burelle}
 	\end{exem}
 
 	\phantomsection\chapter*{Actions de groupes}\addcontentsline{toc}{chapter}{Actions de groupes}
+	\renewcommand{\leftmark}{ACTIONS DE GROUPES}
 	Soient $G$ un groupe et $E$ un ensemble.
 	\begin{defin}
 		Une \emph{action} de $G$ sur $E$ est une fonction $\begin{array}{rcl}
@@ -4445,5 +4446,141 @@ Donn\'e par Jean-Philippe Burelle}
 				\end{scope}
 			\end{tikzpicture}
 		\end{figure}
+	\end{exem}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item Th\'eor\`eme de Cayley
+			\begin{ulist}
+				\item $\begin{array}{rcl}
+					\Psi:G&\to&S(G)\\
+					a&\mapsto&\sigma_a
+				\end{array}$, o\`u $\sigma_a(b)=ab$ est un homomorphisme injectif;
+				\item $G \cong \image(\Psi) \lte S(G)$.
+			\end{ulist}
+			\item Action de $G$ sur $E$
+			\begin{ulist}
+				\item $a \bullet x \in E$
+				\begin{nlist}
+					\item $e \bullet x = x$
+					\item $(ab) \bullet x = a \bullet (b \bullet x)$
+				\end{nlist}
+				\item homomorphisme $\begin{array}{rcl}
+					\Psi:G&\to&S(E)\\
+					a&\mapsto&(x \mapsto a \bullet x)
+				\end{array}$
+			\end{ulist}
+			\item Orbite de $x \in E$: $G \bullet x = \{a \bullet x \in e \mid a \in G\} \subseteq E$
+			\item Stabilisateur de $x \in E$: $\stab(x) = \{a \in G \mid a \bullet x = x\} \lte G$
+		\end{ulist}
+	\end{rappel}
+	\begin{rema}
+		$x \bullet a$ n'est pas d\'efini.
+	\end{rema}
+	\begin{prop}
+		$\stab(x) \lte G$.
+		\begin{proof}~
+
+			\begin{align*}
+				e \bullet x&= x\\
+				\Rightarrow e&\in \stab(x)\\
+				\Rightarrow \stab(x)&\neq \emptyset
+			\end{align*}
+
+			Soient $a,b \in \stab(x)$. On veut v\'erifier que $ab^{-1} \in \stab(x)$, c'est-\`a-dire $(ab^{-1}) \bullet x = x$.
+
+			Remarquons que $b \bullet x = x$, alors $b^{-1} \bullet (b \bullet x) = b^{-1} \bullet x$, donc $(b^{-1}b) \bullet x = b^{-1} \bullet x$, donc $e \bullet x = b^{-1} \bullet x$, ainsi $x = b^{-1} \bullet x$.
+
+			On a donc
+			\begin{align*}
+				(ab^{-1}) \bullet x&= a \bullet (b^{-1} \bullet x)\\
+				&= a \bullet x\\
+				\text{\footnotesize car $a \in \stab(x)$}&= x
+			\end{align*}
+
+			Ainsi, $ab^{-1} \in \stab(x)$.
+		\end{proof}
+	\end{prop}
+	\begin{prop}
+		La relation $x \sim y$ si, et seulement si, $\exists a \in G$ t.q. $y=a \bullet x$ est une \'equivalence donc les classes d'\'equivalence sont les orbites, c'est-\`a-dire, $\overline{x} = G \bullet x$.
+
+		En particulier, les orbites forment une \emph{partition} de $E$.
+		\begin{proof}~
+
+			\begin{subproof}{\'Equivalence}~
+
+				\begin{itemize}
+					\item[(Refl)] Soit $x \in E$.
+
+					Or, $x = e \bullet x$, donc $x \sim x$.
+					\item[(Sym)] Soient $x,y \in E$ t.q. $x \sim y$.
+
+					Ainsi, $\exists a \in G$ t.q. $y = a \bullet x$.
+
+					Or, $a^{-1} \in G$, donc $a^{-1} \bullet y = a^{-1} \bullet (a \bullet x) = (a^{-1}a) \bullet x = x$.
+
+					Ainsi, $y \sim x$.
+					\item[(Trans)] Soient $x,y,z \in E$ t.q. $x \sim y$ et $y \sim z$. Alors, $\exists a,b \in G$ t.q. $y = a \bullet x$ et $z = b \bullet y$.
+
+					Or, $z = b \bullet y = b \bullet (a \bullet x) = (ba) \bullet x$, o\`u $ba \in G$.
+
+					Ainsi, $x \sim z$.
+				\end{itemize}
+			\end{subproof}
+			\begin{subproof}{Les classes d'\'equivalence sont les orbites}~
+
+				La classe d'\'equivalence de $x \in E$, par d\'efinition, est
+				\begin{align*}
+					\overline{x} &= \{y \in E \mid x \sim y\}\\
+					&= \{y \in E \mid \exists a \in G, y = a \bullet x\}\\
+					&= \{a \bullet x \mid a \in G\}\\
+					&= G \bullet x
+				\end{align*}
+			\end{subproof}
+		\end{proof}
+	\end{prop}
+	\begin{exem}~
+
+		\begin{nlist}
+			\item $G = \left\{\begin{psmallmatrix}
+				1&a\\0&1
+			\end{psmallmatrix} ~\middle|~ a \in \reels\right\}$, $E = \reels^2$ avec l'action $M \bullet \vec{v} = M\vec{v}$ la multiplication matricielle usuelle.
+
+			Calculons l'orbite d'un vecteur $\vec{v} = \begin{psmallmatrix}
+				x\\y
+			\end{psmallmatrix} \in \reels^2$.
+			\begin{align*}
+				G \bullet \vec{v}&= \left\{\begin{pmatrix}
+					1&a\\0&1
+				\end{pmatrix} \begin{pmatrix}
+					x\\y
+				\end{pmatrix} ~\middle|~ a \in \reels\right\}\\
+				&= \left\{\begin{pmatrix}
+					x+ay\\y
+				\end{pmatrix} ~\middle|~ a \in \reels\right\}
+			\end{align*}
+
+			Si $y=0$, $G \bullet \begin{psmallmatrix}
+				x\\0
+			\end{psmallmatrix} = \left\{\begin{psmallmatrix}
+				x\\0
+			\end{psmallmatrix}\right\}$.
+
+			Si $y \neq 0$, $\{x+ay, a \in \reels\} = \reels$, donc $G \bullet \begin{psmallmatrix}
+				x\\y
+			\end{psmallmatrix} = \left\{\begin{psmallmatrix}
+				a\\y
+			\end{psmallmatrix} ~\middle|~ a \in \reels\right\}$.
+			\item $G = S_3$, $E = \mathcal{P}(\{1,2,3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$.
+
+			$S_3$ agit sur un sous-ensemble en agissant sur chaque \'el\'ement du sous-ensemble, c'est-\`a-dire, par exemple, $\sigma \bullet \{i,j\} = \{\sigma(i), \sigma(j)\}$.
+
+			Les orbites de l'action sont
+			\begin{equation*}
+					\{\emptyset\}; \{\{1\}, \{2\}, \{3\}\}; \{\{1,2\}, \{1,3\}, \{2,3\}\}; \{\{1,2,3\}\}
+			\end{equation*}
+		\end{nlist}
 	\end{exem}
 \end{document}

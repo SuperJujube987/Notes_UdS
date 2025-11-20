@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  18 NOV 2025 10:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  20 NOV 2025 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1528,12 +1528,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [43]
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 4369.
+nput line 4370.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
 mefree0.fd)
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 4376.
+nput line 4377.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
 mefree2.fd) [44
@@ -1548,7 +1548,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[45] (MAT141-elements_d_algebre.aux)
+[45]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[46] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1563,10 +1571,10 @@ ed.
 (rerunfilecheck)             Checksum: A63856A74DB0128BA0D5C70F3586187C;3311.
  ) 
 Here is how much of TeX's memory you used:
- 34641 strings out of 467871
- 707586 string characters out of 5418375
+ 34649 strings out of 467871
+ 707705 string characters out of 5418375
  1166469 words of memory out of 5000000
- 62855 multiletter control sequences out of 15000+600000
+ 62858 multiletter control sequences out of 15000+600000
  647084 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,25n,107p,607b,1341s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1596,18 +1604,19 @@ s/cm/cmsy10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/jujub/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/
-jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/line10
-.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MAT141-elements_d_algebre.pdf (47 pages, 518367 bytes).
+MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jujub/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/juj
+ub/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C
+:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfon
+t/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on MAT141-elements_d_algebre.pdf (48 pages, 532728 bytes).
 PDF statistics:
- 595 PDF objects out of 1000 (max. 8388607)
- 162 named destinations out of 1000 (max. 500000)
+ 609 PDF objects out of 1000 (max. 8388607)
+ 167 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
