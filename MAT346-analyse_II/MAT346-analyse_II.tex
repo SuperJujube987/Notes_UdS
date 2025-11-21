@@ -2747,7 +2747,7 @@ Donn\'e par Mario Lambert}
 		Si une s\'erie trigonom\'etrique converge $(\forall x)$, alors sa somme est $T$-p\'eriodique.
 	\end{prop}
 	\begin{rema}
-		Si $f$ n'est pas p\'eriodique, alors $f$ ne pourra \^etre la somme d'une s\'erie trigonom\'etrique.
+		Si $f$ n'est pas p\'eriodique, alors $f$ ne pourra pas \^etre la somme d'une s\'erie trigonom\'etrique.
 	\end{rema}
 	\begin{defin}
 		Soient $f:[a,b] \to \reels$ t.q. $f(a)=f(b)$ et $T=b-a$. L'\emph{extension $T$-p\'eriodique de $f$} est
@@ -2761,4 +2761,248 @@ Donn\'e par Mario Lambert}
 			\end{array}
 		\end{equation*}
 	\end{defin}
+	\begin{exem}~
+
+		$f(t) = \abs{t}$, sur $[-3,3]$.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[x=7mm,y=5mm]
+				\draw[->] (-3.2,0) -- (3.2,0) node[right] {$x$};
+				\draw[->] (0,-.1) -- (0,3.2) node[above] {$y$};
+				\draw plot[domain=-3:3] (\x,{abs(\x)});
+				\draw (-3,.1) -- (-3,-.2) node[below] {$-3$};
+				\draw (3,.1) -- (3,-.2) node[below] {$3$};
+			\end{tikzpicture}
+			\caption{$f$ sur $[-3,3]$}
+		\end{figure}
+
+		L'extension $6$-p\'eriodique de $f$ est
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[x=7mm,y=5mm]
+				\draw[->] (-9.2,0) -- (9.2,0) node[right] {$x$};
+				\draw[->] (0,-.1) -- (0,3.2) node[above] {$y$};
+				\draw[dashed,xshift=-42mm] plot[domain=-3:3] (\x,{abs(\x)});
+				\draw plot[domain=-3:3] (\x,{abs(\x)});
+				\draw[dashed,xshift=42mm] plot[domain=-3:3] (\x,{abs(\x)});
+				\draw (-3,.1) -- (-3,-.2) node[below] {$-3$};
+				\draw (3,.1) -- (3,-.2) node[below] {$3$};
+				\draw (-9,.1) -- (-9,-.2) node[below] {$-9$};
+				\draw (9,.1) -- (9,-.2) node[below] {$9$};
+			\end{tikzpicture}
+			\caption{$f$ sur $[-9,9]$}
+		\end{figure}
+	\end{exem}
+	\begin{rapp}~
+
+		Soit $E$ un $K$-espace vectoriel.
+
+		Un \emph{produit scalaire} sur $E$ est une fonction
+		\begin{equation*}
+			\begin{array}{rcl}
+				\langle \cdot , \cdot \rangle:E \times E&\to&K\\
+				(x,y)&\mapsto&\langle x,y \rangle
+			\end{array}
+		\end{equation*}
+		t.q.
+		\begin{enumerate}[label=\roman*)]
+			\item $\langle x,x \rangle \gte 0$;
+
+			$\langle x,x \rangle = 0$ si, et seulement si, $x=\vec{0}$;
+			\item $\langle a_1x_1+a_2x_2, y \rangle = a_1 \langle x_1,y \rangle + a_2 \langle x_2,y \rangle$;
+			\item $\langle x,y \rangle = \overline{\langle y,x \rangle}$.
+		\end{enumerate}
+	\end{rapp}
+	\begin{prop}~
+
+		L'ensemble $E=\{f:[-\pi,\pi]\to\reels \mid f \text{ continue}\}$ est un $\reels$-espace vectoriel et
+		\begin{equation*}
+			\langle f,g \rangle = \dint{-\pi}{\pi}{f(t)g(t) dt}
+		\end{equation*}
+		est un produit scalaire sur $E$.
+	\end{prop}
+	\begin{defin}
+		La norme de $x \in E$ est
+		\begin{equation*}
+			\norme{x} = \sqrt{\langle x,x \rangle}
+		\end{equation*}
+	\end{defin}
+	\begin{rema}
+		Si on prend $T=2\pi$, le polyn\^ome trigonom\'etrique s'\'ecrit
+		\begin{equation*}
+			\dsum{k}{0}{n}{\left[ a_k\cos kt + b_k\sin kt \right]} = a_0 + \dsum{k}{1}{n}{\left[ a_k\cos kt + b_k\sin kt \right]}
+		\end{equation*}
+	\end{rema}
+	\begin{prop}
+		$\{1, \cos kt, \sin kt \mid k \gte 1\}$ est une famille de fonctions orthogonales.
+		\begin{proof}~
+
+			\begin{align*}
+				\begin{split}
+					\langle \cos nt, \sin mt \rangle&= \dint{-\pi}{\pi}{\underbrace{\overbrace{(\cos nt)}^{\text{paire}}\overbrace{(\sin mt)}^{\text{impaire}}}_{\text{impaire}} dt}\\
+					&= 0
+				\end{split}
+				\\[1em]
+				\begin{split}
+					\langle \cos nt, \cos mt \rangle&= \dint{-\pi}{\pi}{(\cos nt)(\cos mt) dt}\\
+					&= 0
+				\end{split}
+				\\[1em]
+				\begin{split}
+					\langle \sin nt, \sin mt \rangle&= \dint{-\pi}{\pi}{(\sin nt)(\sin mt) dt}\\
+					&= 0
+				\end{split}
+			\end{align*}
+		\end{proof}
+	\end{prop}
+	\begin{coro}~
+
+		$\mathcal{B} = \left\{ \dfrac{1}{\sqrt{2\pi}}, \dfrac{\cos nx}{\sqrt{\pi}}, \dfrac{\sin mx}{\sqrt{\pi}} ~\middle|~ m,n \gte 1 \right\}$ est un ensemble de fonctions orthonormales.
+		\begin{proof}~
+
+			\begin{align*}
+				\begin{split}
+					\norme{1}&= \sqrt{\langle 1,1 \rangle}\\
+					&= \sqrt{\dint{-\pi}{\pi}{dt}}\\
+					&= \sqrt{2\pi}
+				\end{split}
+				&
+				\begin{split}
+					\Rightarrow\norme{\dfrac{1}{\sqrt{2\pi}}}&= \abs{\dfrac{1}{\sqrt{2\pi}}} \norme{1}\\
+					&= \abs{\dfrac{1}{\sqrt{2\pi}}} \sqrt{2\pi}\\
+					&= 1
+				\end{split}
+				\\[1em]
+				\begin{split}
+					\norme{\cos nx}&= \sqrt{\langle \cos nx, \cos nx \rangle}\\
+					&= \sqrt{\dint{-\pi}{\pi}{(\cos nx)(\cos nx)} dx}\\
+					&= \sqrt{\pi}
+				\end{split}
+				&
+				\begin{split}
+					\norme{\sin mx}&= \sqrt{\langle \sin mx, \sin mx \rangle}\\
+					&= \sqrt{\dint{-\pi}{\pi}{(\sin mx)(\sin mx)} dx}\\
+					&= \sqrt{\pi}
+				\end{split}
+			\end{align*}
+		\end{proof}
+	\end{coro}
+	\begin{coro}~
+
+		$\mathcal{B} = \left\{ \dfrac{1}{\sqrt{2\pi}}, \dfrac{\cos nx}{\sqrt{\pi}}, \dfrac{\sin mx}{\sqrt{\pi}} ~\middle|~ m,n \gte 1 \right\}$ est un ensemble lin\'eairement ind\'ependant.
+	\end{coro}
+	\begin{prop}~
+
+		Si $f(x) = a_0 + \dsum{k}{1}{n}{a_k\cos kx} + \dsum{k}{1}{n}{b_k\sin kx}$, alors
+		\begin{enumerate}[label=\roman*)]
+			\item $a_0 = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{f(t) dt}$;
+			\item $a_k = \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t)\cos kt dt}$;
+			\item $b_k = \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t)\sin kt dt}$.
+		\end{enumerate}
+		\begin{proof}~
+
+			\begin{enumerate}[label=\roman*)]
+				\item
+				\begin{align*}
+					\left\langle f, \dfrac{1}{\sqrt{2\pi}} \right\rangle&= \left\langle a_0 + \dsum{k}{1}{n}{a_k \cos kx} + \dsum{k}{1}{n}{b_k \sin kx}, \dfrac{1}{\sqrt{2\pi}} \right\rangle\\
+					&= \left\langle a_0, \dfrac{1}{\sqrt{2\pi}} \right\rangle + \dsum{k}{1}{n}{a_k \left\langle \cos kx, \dfrac{1}{\sqrt{2\pi}} \right\rangle} + \dsum{k}{1}{n}{b_k \left\langle \sin kx, \dfrac{1}{2\pi} \right\rangle}\\
+					&= a_0 \dfrac{1}{\sqrt{2\pi}} \langle 1,1 \rangle\\
+					&= \dfrac{a_0}{\sqrt{2\pi}} 2\pi\\
+					&= a_0\sqrt{2\pi}
+				\end{align*}
+
+				Ainsi, $a_0 = \dfrac{1}{\sqrt{2\pi}} \langle f, \dfrac{1}{\sqrt{2\pi}} \rangle = \dfrac{1}{2\pi} \langle f,1 \rangle = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{f(t) dt}$.
+				\item
+				\begin{align*}
+					\left\langle f, \dfrac{\cos nx}{\sqrt{\pi}} \right\rangle&= \left\langle a_0 + \sum{a_k \cos kx} + \sum{b_k \sin kx}, \dfrac{\cos nx}{\sqrt{\pi}} \right\rangle\\
+					&= \left\langle a_n \cos nx, \dfrac{\cos nx}{\sqrt{\pi}} \right\rangle\\
+					&= \dfrac{a_n}{\sqrt{\pi}} \langle \cos nx, \cos nx \rangle\\
+					&= \dfrac{a_n}{\sqrt{\pi}}\pi\\
+					&= a_n\sqrt{\pi}
+				\end{align*}
+
+				Ainsi, $a_n = \dfrac{1}{\sqrt{\pi}} \langle f, \dfrac{\cos nx}{\sqrt{\pi}} \rangle = \dfrac{1}{\pi} \langle f,\cos nx \rangle = \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t) \cos nt dt}$.
+				\item idem%TODO
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+	\begin{defin}
+		Soit $f:[a,b] \to \reels$ une fonction continue par morceaux. Posons $T=b-a$. La \emph{s\'erie de Fourier $T$-p\'eriodique} de $f$ est
+		\begin{equation*}
+			S(f) = a_0 + \dsum{k}{1}{\infty}{a_k \cos\dfrac{2k\pi}{T}t} + \dsum{k}{1}{\infty}{b_k \sin\dfrac{2k\pi}{T}t}
+		\end{equation*}
+		o\`u
+		\begin{enumerate}[label=\roman*)]
+			\item $a_0 = \dfrac{1}{T} \dint{a}{b}{f(t) dt}$;
+			\item $a_k = \dfrac{2}{T} \dint{a}{b}{f(t)\cos \dfrac{2k\pi}{T}t dt}$;
+			\item $b_k = \dfrac{2}{T} \dint{a}{b}{f(t)\sin \dfrac{2k\pi}{T}t dt}$.
+		\end{enumerate}
+	\end{defin}
+	\begin{exem}~
+
+		\begin{enumerate}[label=\alph*)]
+			\item $f(x) = \abs{x}$ sur $[-\pi,\pi]$. On a $T=2\pi$.
+			\begin{align*}
+				\begin{split}
+					T&= 2\pi
+				\end{split}
+				&
+				\begin{split}
+					a_0&= \dfrac{1}{2\pi} \dint{-\pi}{\pi}{f(t) dt}\\
+					&= \dfrac{1}{2\pi} \dint{-\pi}{\pi}{\abs{t} dt}\\
+					&= \dfrac{1}{\pi} \dint{0}{\pi}{t dt}\\
+					&= \dfrac{\pi}{2}
+				\end{split}
+				&
+				\begin{split}
+					a_k&= \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t) \cos kt dt}\\
+					&= \dfrac{2}{\pi} \dint{0}{\pi}{t \cos kt dt}\\
+					&= \dotsb\\
+					&= \dfrac{2}{k^2\pi}\left[\cos k\pi - 1\right]\\
+					&= \left\{ \begin{array}{rll}
+						0&\text{si}&k \text{ pair}\\
+						\dfrac{-4}{k^2\pi}&\text{si}&k \text{ impair}
+					\end{array} \right.
+				\end{split}
+				&
+				\begin{split}
+					b_k&= \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t) \sin kt dt}\\
+					&= \dfrac{1}{\pi} \dint{-\pi}{\pi}{\abs{t} \sin kt dt}\\
+					&= 0
+				\end{split}
+			\end{align*}
+
+			Donc, $S(f) = \dfrac{\pi}{2} - \dfrac{4}{\pi} \cos t - \dfrac{4}{9\pi} \cos 3t - \dfrac{4}{25\pi} \cos 5t - \dotsb = \frac{\pi}{2} - \dfrac{4}{\pi} \dsum{n}{0}{\infty}{\dfrac{\cos(2n+1)t}{(2n+1)^2}}$.
+
+			On a $\abs{\dfrac{\cos(2n+1)t}{(2n+1)^2}} \lte \dfrac{1}{(2n+1)^2} \eqcolon M_n$.
+
+			$\dsum{n}{0}{\infty}{M_n} = \dsum{n}{0}{\infty}{\dfrac{1}{(2n+1)^2}} = \dfrac{\pi}{8}$ converge.
+
+			Du crit\`ere de Weierstrass, $S(f)$ converge uniform\'ement.
+			\item $f(t) = \left\{\begin{array}{rll}
+				t&\text{si}&0 \lte t <3\\
+				f(t-3)&\text{sinon}
+			\end{array}\right.$. On a $T=3$ avec $a=0$ et $b=3$.
+			\begin{align*}
+				\begin{split}
+					a_0&= \text{valeur moyenne de $f$ sur $[0,3[$}\\
+					&= \dfrac{3}{2}
+				\end{split}
+				&
+				\begin{split}
+					a_k&= \dfrac{2}{T} \dint{a}{b}{f(t) \cos \dfrac{2k\pi}{T}t dt}\\
+					&= \dfrac{2}{3} \dint{0}{3}{t \cos\dfrac{2k\pi}{3}t dt}\\
+					&= 0
+				\end{split}
+				&
+				\begin{split}
+					b_k&= \dfrac{2}{T} \dint{a}{b}{f(t) \sin\dfrac{2k\pi}{T}t dt}\\
+					&= \dfrac{2}{3} \dint{0}{3}{t \sin\dfrac{2k\pi}{3}t dt}\\
+					&= -\dfrac{3}{k\pi}
+				\end{split}
+			\end{align*}
+
+			Donc, $S(f) = \dfrac{3}{2} + \dsum{k}{1}{\infty}{\dfrac{-3}{k\pi} \sin\dfrac{2k\pi}{3}t}$.
+		\end{enumerate}
+	\end{exem}
 \end{document}
