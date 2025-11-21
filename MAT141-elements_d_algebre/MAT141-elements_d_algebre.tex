@@ -3721,7 +3721,7 @@ Donn\'e par Jean-Philippe Burelle}
 					\draw (0)--(5) (1)--(6) (2)--(7) (3)--(8) (4)--(9);
 				\end{tikzpicture}
 			\end{center}
-			$\sfrac{\entiers_{10}}{5\entiers_{10}} =$ \{\textcolor{col1}{$\blacksquare$}, \textcolor{col2}{$\blacksquare$}, \textcolor{col3}{$\blacksquare$}, \textcolor{col4}{$\blacksquare$}, \textcolor{col5}{$\blacksquare$}\}.
+			$\sfrac{\entiers_{10}}{5\entiers_{10}} =$ \{\colorbox{col1}{\textcolor{col1}{\textperiodcentered}}, \colorbox{col2}{\textcolor{col2}{\textperiodcentered}}, \colorbox{col3}{\textcolor{col3}{\textperiodcentered}}, \colorbox{col4}{\textcolor{col4}{\textperiodcentered}}, \colorbox{col5}{\textcolor{col5}{\textperiodcentered}}\}.
 			\item Soient $G = \reels^2 = \{(x,y) \mid x,y \in \reels\}$ et $N = \{(a,a) \in \reels^2 \mid a \in \reels\}$.
 
 			$N \trianglelefteq G$.
@@ -3741,6 +3741,9 @@ Donn\'e par Jean-Philippe Burelle}
 			\node (4) at (0,-.3) {$4$};
 			\node (5) at (0,-.9) {$5$};
 			\node (6) at (0,-1.5) {$6$};
+			
+			\node[shape=coordinate] (12) at (2,1.2) {};
+			\node[shape=coordinate] (345) at (2,-.3) {};
 
 			\begin{scope}[xshift=5cm]
 				\draw (0,0) ellipse (1cm and 2cm);
@@ -3754,8 +3757,11 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{scope}
 
 			\path[arrows=-{Stealth[length=3mm]}] (A) edge[bend left] node[above] {$f$} (B);
+			
+			\draw (1) -- (12) (2) -- (12);
+			\draw (3) -- (345) (4) -- (345) (5) -- (345);
 
-			\path[arrows=-{Stealth[length=3mm]}] (1) edge (t) (2) edge (t) (3) edge (c) (4) edge (c) (5) edge (c) (6) edge (x);
+			\path[arrows=-{Stealth[length=3mm]}] (12) edge (t) (345) edge (c) (6) edge (x);
 		\end{tikzpicture}
 	\end{center}
 	$f$ n'est ni injective ni surjective.
@@ -3769,6 +3775,9 @@ Donn\'e par Jean-Philippe Burelle}
 			\node (4) at (0,-.3) {$4$};
 			\node (5) at (0,-.9) {$5$};
 			\node (6) at (0,-1.5) {$6$};
+			
+			\node[shape=coordinate] (12) at (2,1.2) {};
+			\node[shape=coordinate] (345) at (2,-.3) {};
 
 			\begin{scope}[xshift=5cm]
 				\draw (0,0) ellipse (1cm and 2cm);
@@ -3779,8 +3788,11 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{scope}
 
 			\path[arrows=-{Stealth[length=3mm]}] (A) edge[bend left] node[above] {$f'$} (B);
-
-			\path[arrows=-{Stealth[length=3mm]}] (1) edge (t) (2) edge (t) (3) edge (c) (4) edge (c) (5) edge (c) (6) edge (x);
+			
+			\draw (1) -- (12) (2) -- (12);
+			\draw (3) -- (345) (4) -- (345) (5) -- (345);
+			
+			\path[arrows=-{Stealth[length=3mm]}] (12) edge (t) (345) edge (c) (6) edge (x);
 		\end{tikzpicture}
 	\end{center}
 	$f'$ est surjective, mais elle n'est toujours pas injective.

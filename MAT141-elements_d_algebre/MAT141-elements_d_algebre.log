@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  20 NOV 2025 10:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.20)  21 NOV 2025 09:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1528,12 +1528,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [43]
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 4370.
+nput line 4382.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
 mefree0.fd)
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 4377.
+nput line 4389.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
 mefree2.fd) [44
@@ -1572,7 +1572,7 @@ ed.
  ) 
 Here is how much of TeX's memory you used:
  34649 strings out of 467871
- 707705 string characters out of 5418375
+ 707643 string characters out of 5418375
  1166469 words of memory out of 5000000
  62858 multiletter control sequences out of 15000+600000
  647084 words of font info for 128 fonts, out of 8000000 for 9000
@@ -1614,9 +1614,9 @@ msfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MAT141-elements_d_algebre.pdf (48 pages, 532728 bytes).
+Output written on MAT141-elements_d_algebre.pdf (48 pages, 533066 bytes).
 PDF statistics:
- 609 PDF objects out of 1000 (max. 8388607)
+ 610 PDF objects out of 1000 (max. 8388607)
  167 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
