@@ -7,7 +7,7 @@
 \usepackage{indentfirst}
 \usepackage{dsfont}
 \usepackage{tikz}
-\usetikzlibrary{positioning}
+\usetikzlibrary{positioning,arrows.meta}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
@@ -2790,7 +2790,7 @@ Donn\'e par Mario Lambert}
 				\draw (-9,.1) -- (-9,-.2) node[below] {$-9$};
 				\draw (9,.1) -- (9,-.2) node[below] {$9$};
 			\end{tikzpicture}
-			\caption{$f$ sur $[-9,9]$}
+			\caption{$\tilde{f}$ sur $[-9,9]$}
 		\end{figure}
 	\end{exem}
 	\begin{rapp}~
@@ -2911,7 +2911,7 @@ Donn\'e par Mario Lambert}
 					&= a_0\sqrt{2\pi}
 				\end{align*}
 
-				Ainsi, $a_0 = \dfrac{1}{\sqrt{2\pi}} \langle f, \dfrac{1}{\sqrt{2\pi}} \rangle = \dfrac{1}{2\pi} \langle f,1 \rangle = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{f(t) dt}$.
+				Ainsi, $a_0 = \dfrac{1}{\sqrt{2\pi}} \left\langle f, \dfrac{1}{\sqrt{2\pi}} \right\rangle = \dfrac{1}{2\pi} \langle f,1 \rangle = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{f(t) dt}$.
 				\item
 				\begin{align*}
 					\left\langle f, \dfrac{\cos nx}{\sqrt{\pi}} \right\rangle&= \left\langle a_0 + \sum{a_k \cos kx} + \sum{b_k \sin kx}, \dfrac{\cos nx}{\sqrt{\pi}} \right\rangle\\
@@ -2921,7 +2921,7 @@ Donn\'e par Mario Lambert}
 					&= a_n\sqrt{\pi}
 				\end{align*}
 
-				Ainsi, $a_n = \dfrac{1}{\sqrt{\pi}} \langle f, \dfrac{\cos nx}{\sqrt{\pi}} \rangle = \dfrac{1}{\pi} \langle f,\cos nx \rangle = \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t) \cos nt dt}$.
+				Ainsi, $a_n = \dfrac{1}{\sqrt{\pi}} \left\langle f, \dfrac{\cos nx}{\sqrt{\pi}} \right\rangle = \dfrac{1}{\pi} \langle f,\cos nx \rangle = \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t) \cos nt dt}$.
 				\item idem%TODO
 			\end{enumerate}
 		\end{proof}
@@ -3005,4 +3005,128 @@ Donn\'e par Mario Lambert}
 			Donc, $S(f) = \dfrac{3}{2} + \dsum{k}{1}{\infty}{\dfrac{-3}{k\pi} \sin\dfrac{2k\pi}{3}t}$.
 		\end{enumerate}
 	\end{exem}
+
+	\section{Convergence}
+	\begin{thm}
+		Supposons
+		\begin{enumerate}[label=\roman*)]
+			\item $f:[a,b] \to \reels$ continue par morceaux;
+			\item $f'$ existe, sauf peut-\^etre en un nombre fini de points;
+			\item $f'$ continue par morceaux.
+		\end{enumerate}
+
+		Soit
+		\begin{equation*}
+			\begin{array}{rcl}
+				g:[a,b]&\to&\reels\\
+				x&\mapsto&\left\{\begin{array}{rllll}
+					f(x)&\text{si}&x \in ]a,b[&\text{et}&\text{$f$ continue en $x$}\\
+					\dfrac{f(x^-)+f(x^+)}{2}&\text{si}&x \in ]a,b[&\text{et}&\text{$f$ non continue en $x$}\\
+					\dfrac{f(a^+)+f(b^-)}{2}&\text{si}&x=a&\text{ou}&x=b
+				\end{array}\right.
+			\end{array}
+		\end{equation*}
+		o\`u $f(x^-) = \dlim{t}{x^-}{f(t)}$ et $f(x^+) = \dlim{t}{x^+}{f(t)}$.
+
+		Alors, la s\'erie de Fourier $T$-p\'eriodique de $f$ converge ponctuellement vers l'extension $T$-p\'eriodique de $g$.
+	\end{thm}
+	\begin{exem}~
+
+		Soit $\begin{array}{rcl}
+			f:[-\pi,\pi]&\to&\reels\\
+			x&\mapsto&\left\{\begin{array}{rll}
+				-1&\text{si}&-\pi\lte x <0\\
+				1&\text{si}&0\lte x \lte\pi
+			\end{array}\right.
+		\end{array}$. On a $\begin{array}{rcl}
+			g:[-\pi,\pi]&\to&\reels\\
+			x&\mapsto&\left\{\begin{array}{rll}
+				-1&\text{si}&-\pi<x<0\\
+				1&\text{si}&0<x<\pi\\
+				0&\text{si}&x \in \{-\pi,0,\pi\}
+			\end{array}\right\}
+		\end{array}$.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}
+				\draw[-{To[length=1.5mm]}] (-3.3,0) -- (3.3,0) node[right] {$x$};
+				\draw[-{To[length=1.5mm]}] (0,-1.3) -- (0,1.3) node[above] {$y$};
+				\draw (-3,-1) -- (0,-1);
+				\draw (0,1) -- (3,1);
+				\fill (-3,-1) circle (3pt);
+				\fill (0,1) circle (3pt);
+				\fill (3,1) circle (3pt);
+				\draw (0,-1) circle (3pt);
+				\node () at (1.5,.7) {$f$};
+				\node[anchor=west, inner sep=5pt] () at (0,-1) {$-1$};
+				\node[anchor=east, inner sep=5pt] () at (0,1) {$1$};
+				\draw (-3,-.2) -- (-3,.2) node[above] {$-\pi$};
+				\draw (3,.2) -- (3,-.2) node[below] {$\pi$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\draw[-{To[length=1.5mm]}] (-3.3,0) -- (3.3,0) node[right] {$x$};
+				\draw[-{To[length=1.5mm]}] (0,-1.3) -- (0,1.3) node[above] {$y$};
+				\draw (-3,-1) -- (0,-1);
+				\draw (0,1) -- (3,1);
+				\fill (-3,0) circle(3pt);
+				\fill (0,0) circle(3pt);
+				\fill (3,0) circle(3pt);
+				\draw (-3,-1) circle(3pt);
+				\draw (0,-1) circle(3pt);
+				\draw (0,1) circle(3pt);
+				\draw (3,1) circle(3pt);
+				\node () at (1.5,.7) {$g$};
+				\node[anchor=south, inner sep=5pt] () at (-3,0) {$-\pi$};
+				\node[anchor=north, inner sep=5pt] () at (3,0) {$\pi$};
+				\node[anchor=west, inner sep=5pt] () at (0,-1) {$-1$};
+				\node[anchor=east, inner sep=5pt] () at (0,1) {$1$};
+			\end{tikzpicture}
+			\caption{$f$ et $g$}
+		\end{figure}
+
+		Calculons $S(f)$. On a
+		\begin{align*}
+			\begin{split}
+				a_0&= \dfrac{1}{2\pi} \dint{-\pi}{-\pi}{f(t) dt}\\
+				&= 0
+			\end{split}
+			&
+			\begin{split}
+				a_k&= \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t) \cos kt dt}\\
+				&= 0
+			\end{split}
+			&
+			\begin{split}
+				b_k&= \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t) \sin kt dt}\\
+				&= \dfrac{2}{\pi} \dint{0}{\pi}{\sin kt dt}\\
+				&= -\dfrac{2}{\pi} \left.\dfrac{\cos kt}{k}\right|_0^\pi\\
+				&= -\dfrac{2}{k\pi}\underbrace{\left(\cos k\pi-1\right)}_{\left\lbrace \begin{array}{rcl}
+						0&\text{si}&k\text{ pair}\\
+						-2&\text{si}&k\text{ impair}
+				\end{array} \right.}
+			\end{split}
+		\end{align*}
+
+		On obtient
+		\begin{align*}
+			S(f)&= \underbrace{\dfrac{4}{\pi} \sin t}_{k=1} + \underbrace{\dfrac{4}{3\pi} \sin 3t}_{k=3} + \underbrace{\dfrac{4}{5\pi} \sin 5t}_{k=5} + \dotsb\\
+			&= \dfrac{4}{\pi} \dsum{n}{0}{\infty}{\dfrac{\sin(2n+1)t}{2n+1}}
+		\end{align*}
+		qui converge ponctuellement vers l'extension $2\pi$-p\'eriodique de $g$.
+
+		Comme $\dfrac{\sin(2n+1)t}{2n+1}$ est continue, si la convergence \'etait uniforme, on aurait que l'extension $2\pi$-p\'eriodique de $g$ serait continue. Or, $g$ n'est pas continue et la convergence n'est pas uniforme.
+
+		En $x=\sfrac{\pi}{2}$, on a $f(\sfrac{\pi}{2}) = 1$ et $S(f)(\sfrac{\pi}{2}) = \dfrac{4}{\pi} \dsum{n}{0}{\infty}{\dfrac{\sin(2n+1)\frac{\pi}{2}}{2n+1}} = \dfrac{4}{\pi} \dsum{n}{0}{\infty}{\dfrac{(-1)^n}{2n+1}}$.
+
+		Comme $f$ est continue en $x=\sfrac{\pi}{2}$, on a $g(\sfrac{\pi}{2})=1$ et on obtient $1 = \dfrac{4}{\pi} \dsum{n}{0}{\infty}{\dfrac{(-1)^n}{2n+1}}$, d'o\`u $\dsum{n}{0}{\infty}{\dfrac{(-1)^n}{2n+1}} = \dfrac{\pi}{4}$.
+	\end{exem}
+	\begin{prop}~
+
+		Si une s\'erie trigonom\'etrique
+		\begin{equation*}
+			a_0 + \dsum{k}{1}{\infty}{\left( a_k \cos\dfrac{2k\pi}{T}t + b_k \sin\dfrac{2k\pi}{T}t \right)}\tag{$*$}
+		\end{equation*}
+		converge uniform\'ement vers, disons, $f$, alors la s\'erie de Fourier de $f$ est $(*)$, c'est-\`a-dire, $S(f) = (*)$.
+	\end{prop}
 \end{document}

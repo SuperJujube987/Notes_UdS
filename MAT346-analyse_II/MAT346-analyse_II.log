@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  21 NOV 2025 16:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  24 NOV 2025 09:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -534,6 +534,14 @@ File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 z/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen287
+\pgfarrowlength=\dimen288
+\pgfarrowwidth=\dimen289
+\pgfarrowlinewidth=\dimen290
+)
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
@@ -591,7 +599,7 @@ ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen287
+\@linkdim=\dimen291
 \Hy@linkcounter=\count325
 \Hy@pagecounter=\count326
  (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
@@ -621,7 +629,7 @@ Package hyperref Info: Bookmarks ON on input line 4462.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen288
+\XeTeXLinkMargin=\dimen292
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -632,8 +640,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count329
-\Field@Width=\dimen289
-\Fld@charsize=\dimen290
+\Field@Width=\dimen293
+\Fld@charsize=\dimen294
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -671,8 +679,8 @@ Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count335
 \calc@Bcount=\count336
-\calc@Adimen=\dimen291
-\calc@Bdimen=\dimen292
+\calc@Adimen=\dimen295
+\calc@Bdimen=\dimen296
 \calc@Askip=\skip63
 \calc@Bskip=\skip64
 LaTeX Info: Redefining \setlength on input line 86.
@@ -684,16 +692,16 @@ LaTeX Info: Redefining \addtolength on input line 87.
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 \g_MT_multlinerow_int=\count338
-\l_MT_multwidth_dim=\dimen293
+\l_MT_multwidth_dim=\dimen297
 \origjot=\skip66
-\l_MT_shortvdotswithinadjustabove_dim=\dimen294
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen295
-\l_MT_above_intertext_sep=\dimen296
-\l_MT_below_intertext_sep=\dimen297
-\l_MT_above_shortintertext_sep=\dimen298
-\l_MT_below_shortintertext_sep=\dimen299
+\l_MT_shortvdotswithinadjustabove_dim=\dimen298
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen299
+\l_MT_above_intertext_sep=\dimen300
+\l_MT_below_intertext_sep=\dimen301
+\l_MT_above_shortintertext_sep=\dimen302
+\l_MT_below_shortintertext_sep=\dimen303
 \xmathstrut@box=\box70
-\xmathstrut@dim=\dimen300
+\xmathstrut@dim=\dimen304
 ) (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
@@ -701,11 +709,11 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 Package: xfrac 2024-06-04 Split-level fractions
 \l__xfrac_slash_box=\box71
 \l__xfrac_tmp_box=\box72
-\l__xfrac_denominator_bot_sep_dim=\dimen301
-\l__xfrac_numerator_bot_sep_dim=\dimen302
-\l__xfrac_numerator_top_sep_dim=\dimen303
-\l__xfrac_slash_left_sep_dim=\dimen304
-\l__xfrac_slash_right_sep_dim=\dimen305
+\l__xfrac_denominator_bot_sep_dim=\dimen305
+\l__xfrac_numerator_bot_sep_dim=\dimen306
+\l__xfrac_numerator_top_sep_dim=\dimen307
+\l__xfrac_slash_left_sep_dim=\dimen308
+\l__xfrac_slash_right_sep_dim=\dimen309
 \l__xfrac_slash_left_muskip=\muskip19
 \l__xfrac_slash_right_muskip=\muskip20
 
@@ -759,7 +767,7 @@ LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?)
 on input line 2058.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2083.
-\U@D=\dimen306
+\U@D=\dimen310
 \l@unhyphenated=\language79
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
@@ -797,20 +805,20 @@ Package babel Info: Making ! an active character on input line 275.
 Package babel Info: Making ? an active character on input line 276.
 \FBguill@level=\count342
 \FBold@everypar=\toks47
-\FB@Mht=\dimen307
+\FB@Mht=\dimen311
 \mc@charclass=\count343
 \mc@charfam=\count344
 \mc@charslot=\count345
 \std@mcc=\count346
 \dec@mcc=\count347
-\FB@pardim=\dimen308
-\listindentFB=\dimen309
-\descindentFB=\dimen310
-\labelindentFB=\dimen311
-\labelwidthFB=\dimen312
-\leftmarginFB=\dimen313
-\parindentFFN=\dimen314
-\FBfnindent=\dimen315
+\FB@pardim=\dimen312
+\listindentFB=\dimen313
+\descindentFB=\dimen314
+\labelindentFB=\dimen315
+\labelwidthFB=\dimen316
+\leftmarginFB=\dimen317
+\parindentFFN=\dimen318
+\FBfnindent=\dimen319
 )))
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
@@ -898,13 +906,13 @@ LaTeX Font Info:    ... okay on input line 100.
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count349
-\scratchdimen=\dimen316
+\scratchdimen=\dimen320
 \scratchbox=\box73
 \nofMPsegments=\count350
 \nofMParguments=\count351
 \everyMPshowfont=\toks48
 \MPscratchCnt=\count352
-\MPscratchDim=\dimen317
+\MPscratchDim=\dimen321
 \MPnumerator=\count353
 \makeMPintoPDFobject=\count354
 \everyMPtoPDFconversion=\toks49
@@ -1338,7 +1346,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[49] (MAT346-analyse_II.aux)
+[49]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[50] (MAT346-analyse_II.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1349,13 +1365,13 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 3.25pt have occurred.
 
 Package rerunfilecheck Info: File `MAT346-analyse_II.out' has not changed.
-(rerunfilecheck)             Checksum: FB654E99E7EFDB71B7F9B280F29A22ED;3513.
+(rerunfilecheck)             Checksum: 2A03E0C75561FE3ACB8C2721AA0839AC;3623.
  ) 
 Here is how much of TeX's memory you used:
- 25700 strings out of 467871
- 477070 string characters out of 5418375
- 928377 words of memory out of 5000000
- 53958 multiletter control sequences out of 15000+600000
+ 26028 strings out of 467871
+ 485927 string characters out of 5418375
+ 938731 words of memory out of 5000000
+ 54275 multiletter control sequences out of 15000+600000
  642683 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,28n,107p,556b,879s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1364,35 +1380,36 @@ cmbx10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmcsc10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jujub/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/jujub/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jujub/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/
-jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C
-:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
-7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmmi8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmr10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jujub/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/jujub/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jujub/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/j
-ujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
-:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
-5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/jujub/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/j
-ujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pf
-b><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.
-pfb>
-Output written on MAT346-analyse_II.pdf (51 pages, 552824 bytes).
+iKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/jujub/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/juju
+b/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/U
+sers/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.p
+fb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jujub/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jujub/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/juju
+b/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Use
+rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pf
+b><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/jujub/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/ju
+jub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
+b><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sym
+bols/msbm7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/rsfs/rsfs10.pfb>
+Output written on MAT346-analyse_II.pdf (52 pages, 568987 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 207 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 661 PDF objects out of 1000 (max. 8388607)
+ 214 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
