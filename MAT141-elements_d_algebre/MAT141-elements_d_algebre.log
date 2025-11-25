@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.20)  21 NOV 2025 09:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  25 NOV 2025 12:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -580,6 +580,10 @@ File: tikzlibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrary3d.code.tex
+File: tikzlibrary3d.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
@@ -1556,7 +1560,45 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[46] (MAT141-elements_d_algebre.aux)
+[46]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[47]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[48]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[49]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[50] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1571,11 +1613,11 @@ ed.
 (rerunfilecheck)             Checksum: A63856A74DB0128BA0D5C70F3586187C;3311.
  ) 
 Here is how much of TeX's memory you used:
- 34649 strings out of 467871
- 707643 string characters out of 5418375
- 1166469 words of memory out of 5000000
- 62858 multiletter control sequences out of 15000+600000
- 647084 words of font info for 128 fonts, out of 8000000 for 9000
+ 34785 strings out of 467871
+ 711104 string characters out of 5418375
+ 1167532 words of memory out of 5000000
+ 62981 multiletter control sequences out of 15000+600000
+ 647481 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,25n,107p,607b,1341s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
@@ -1585,38 +1627,39 @@ pi600\tcrm1000.pk><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/jujub/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jujub/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jujub/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/User
-s/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmmi5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jujub/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jujub/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/juju
-b/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Use
-rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-<C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-r8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jujub/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/juj
-ub/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C
-:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfon
-t/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MAT141-elements_d_algebre.pdf (48 pages, 533066 bytes).
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Use
+rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pf
+b><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jujub/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jujub/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jujub/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/j
+ujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/
+Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.p
+fb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jujub/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jujub/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/ju
+jub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:
+/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsro
+m10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/latxfont/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on MAT141-elements_d_algebre.pdf (52 pages, 560702 bytes).
 PDF statistics:
- 610 PDF objects out of 1000 (max. 8388607)
- 167 named destinations out of 1000 (max. 500000)
+ 641 PDF objects out of 1000 (max. 8388607)
+ 176 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

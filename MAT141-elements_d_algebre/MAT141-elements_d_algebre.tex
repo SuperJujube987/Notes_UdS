@@ -7,7 +7,7 @@
 \usepackage{indentfirst}
 \usepackage{dsfont}
 \usepackage{tikz}
-\usetikzlibrary{tikzmark, calc, positioning, arrows.meta, shapes.geometric}
+\usetikzlibrary{tikzmark, calc, positioning, arrows.meta, shapes.geometric, 3d}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
@@ -3741,7 +3741,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\node (4) at (0,-.3) {$4$};
 			\node (5) at (0,-.9) {$5$};
 			\node (6) at (0,-1.5) {$6$};
-			
+
 			\node[shape=coordinate] (12) at (2,1.2) {};
 			\node[shape=coordinate] (345) at (2,-.3) {};
 
@@ -3757,7 +3757,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{scope}
 
 			\path[arrows=-{Stealth[length=3mm]}] (A) edge[bend left] node[above] {$f$} (B);
-			
+
 			\draw (1) -- (12) (2) -- (12);
 			\draw (3) -- (345) (4) -- (345) (5) -- (345);
 
@@ -3775,7 +3775,7 @@ Donn\'e par Jean-Philippe Burelle}
 			\node (4) at (0,-.3) {$4$};
 			\node (5) at (0,-.9) {$5$};
 			\node (6) at (0,-1.5) {$6$};
-			
+
 			\node[shape=coordinate] (12) at (2,1.2) {};
 			\node[shape=coordinate] (345) at (2,-.3) {};
 
@@ -3788,10 +3788,10 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{scope}
 
 			\path[arrows=-{Stealth[length=3mm]}] (A) edge[bend left] node[above] {$f'$} (B);
-			
+
 			\draw (1) -- (12) (2) -- (12);
 			\draw (3) -- (345) (4) -- (345) (5) -- (345);
-			
+
 			\path[arrows=-{Stealth[length=3mm]}] (12) edge (t) (345) edge (c) (6) edge (x);
 		\end{tikzpicture}
 	\end{center}
@@ -4442,7 +4442,8 @@ Donn\'e par Jean-Philippe Burelle}
 
 		Le \emph{stabilisateur} de $x$ est $\stab(x) = \{a \in G \mid a \bullet x = x\} \lte G$.
 	\end{defin}
-	\begin{exem}~
+	\begin{exem}
+		avec $\mathbb{D}_3\footnote{voir p.\pageref{D3}}$
 
 		\begin{figure}[h]
 			\centering
@@ -4595,4 +4596,504 @@ Donn\'e par Jean-Philippe Burelle}
 			\end{equation*}
 		\end{nlist}
 	\end{exem}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item Orbite d'un \'el\'ement $x \in E$
+			\begin{ulist}
+				\item $G \bullet x = \{a \bullet x \mid a \in G\}$
+			\end{ulist}
+			\item Stabilisateur de $x \in E$
+			\begin{ulist}
+				\item $\stab(x) = \{a \in G \mid a \bullet x = x\} \lte G$
+			\end{ulist}
+			\item Les orbites forment une \emph{partition} de $E$
+			\begin{ulist}
+				\item la m\^eme que la relation $x \sim y \Leftrightarrow y = a \bullet x$
+			\end{ulist}
+		\end{ulist}
+	\end{rappel}
+	\begin{lem}~
+
+		Si $y = a \bullet x$, alors $a^{-1} \bullet y = x$.
+		\begin{proof}~
+
+			\begin{align*}
+				y&= a \bullet x\\
+				a^{-1} \bullet y&= (a^{-1}a) \bullet x\\
+				&= x
+			\end{align*}
+		\end{proof}
+	\end{lem}
+	\begin{prop}~
+
+		Si $y=a \bullet x$, alors $\stab(y) = a \stab(x) a^{-1} = \{aha^{-1} \mid h \in \stab(x)\}$.
+
+		En particulier, si $x$ et $y$ sont dans la m\^eme orbite, alors $\stab(x) \cong \stab(y)$.
+		\begin{proof}~
+
+			\begin{subproof}{$\subseteq$:}~
+
+				Supposons $b \in \stab(y)$. Alors, $b \bullet y = y$.
+
+				\'Ecrivons $b = a(a^{-1}ba)b^{-1}$.
+
+				De plus
+				\begin{align*}
+					(a^{-1}ba) \bullet x&= a^{-1} \bullet (b \bullet (a \bullet x))\\
+					&= a^{-1} \bullet (b \bullet y)\\
+					&= a^{-1} \bullet y\\
+					&= x
+				\end{align*}
+
+				Donc, $a^{-1}ba \in \stab(x)$, alors $b \in a \stab(y) a^{-1}$.
+			\end{subproof}
+			\begin{subproof}{$\supseteq$:}~
+
+				Supposons $b \in \stab(x)$, alors $aba^{-1} \in a \stab(x) a^{-1}$.
+				\begin{align*}
+					(aba^{-1}) \bullet y&= a \bullet(b \bullet (a^{-1} \bullet y))\\
+					&= a \bullet (b \bullet x)\\
+					&= a \bullet x\\
+					&= y
+				\end{align*}
+
+				Alors, $aba^{-1} \in \stab(y)$.
+			\end{subproof}
+
+			Ainsi, $\stab(y) = a \stab(x) a^{-1}$.
+		\end{proof}
+		\begin{subproof}{De plus,}~
+
+			On d\'efinit $\begin{array}{rcl}
+				f:\stab(x)&\to&\stab(y)\\
+				h&\mapsto&aha^{-1}
+			\end{array}$.
+
+			$f$ est bijective, car son inverse est $\begin{array}{rcl}
+				g:\stab(y)&\to&\stab(x)\\
+				b&\mapsto&a^{-1}ba
+			\end{array}$.%TODO prouver
+
+			En effet,
+			\begin{align*}
+				\begin{split}
+					f(g(a))
+				\end{split}
+			\end{align*}
+
+			$f$ est un homomorphisme, car
+			\begin{align*}
+				f(h_1h_2)&= a(h_1h_2)a^{-1}\\
+				&= ah_1a^{-1}ah_2a^{-1}\\
+				&= f(h_1)f(h_2)
+			\end{align*}
+
+			Ainsi, $f$ est un isomorphisme entre $\stab(x)$ et $\stab(y)$.
+		\end{subproof}
+	\end{prop}
+	\begin{exem}~
+
+		\begin{ulist}
+			\item $G = \mathbb{D}_6$, les isom\'etries d'un hexagone r\'egulier, et $E = \{\text{diagonales de l'hexagone}\}$.
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}[scale=.75]
+					\begin{scope}[rotate=90]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (1) -- (3);
+					\end{scope}
+					\begin{scope}[rotate=90, yshift=-25mm]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (1) -- (4);
+					\end{scope}
+					\begin{scope}[rotate=90, yshift=-5cm]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (1) -- (5);
+					\end{scope}
+					\begin{scope}[rotate=90, yshift=-75mm]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (2) -- (4);
+					\end{scope}
+					\begin{scope}[rotate=90, yshift=-10cm]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (2) -- (5);
+					\end{scope}
+					\begin{scope}[rotate=90, yshift=-125mm]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (2) -- (6);
+					\end{scope}
+					\begin{scope}[rotate=90, yshift=-15cm]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (3) -- (5);
+					\end{scope}
+					\begin{scope}[rotate=90, yshift=-175mm]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (3) -- (6);
+					\end{scope}
+					\begin{scope}[rotate=90, yshift=-20cm]
+						\coordinate (1) at (0:1);
+						\coordinate (2) at (-60:1);
+						\coordinate (3) at (-120:1);
+						\coordinate (4) at (-180:1);
+						\coordinate (5) at (-240:1);
+						\coordinate (6) at (-300:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (4) -- (6);
+					\end{scope}
+					\node () at (0,-1.5) {$a$};
+					\node () at (2.5,-1.5) {$b$};
+					\node () at (5,-1.5) {$c$};
+					\node () at (7.5,-1.5) {$d$};
+					\node () at (10,-1.5) {$e$};
+					\node () at (12.5,-1.5) {$f$};
+					\node () at (15,-1.5) {$g$};
+					\node () at (17.5,-1.5) {$h$};
+					\node () at (20,-1.5) {$i$};
+				\end{tikzpicture}
+				\caption{Repr\'esentation des diagonales d'un hexagone r\'egulier}
+			\end{figure}
+
+			Calculons les orbites:
+			\begin{align*}
+				o_1&= \{a,c,d,f,g,i\}\\
+				o_2&= \{b,e,h\}
+			\end{align*}
+
+			Calculons les stabilisateurs:
+			\begin{align*}
+				\stab(a)&= \{\varepsilon, \mu\}\\
+				\stab(b)&= \{\varepsilon, \phi, \eta, \lambda\}
+			\end{align*}
+			\begin{figure}[h]%TODO
+				\centering
+				\begin{tikzpicture}
+					\coordinate (1) at (90:1);
+					\coordinate (2) at (30:1);
+					\coordinate (3) at (-30:1);
+					\coordinate (4) at (-90:1);
+					\coordinate (5) at (-150:1);
+					\coordinate (6) at (150:1);
+					\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+					\draw (30:-1.25) -- (30:1.5);
+					\draw[{To[length=3pt]}-{To[length=3pt]}] (17:1.25) -- (43:1.25);
+					\node () at (0,-2) {$\mu$};
+					\begin{scope}[xshift=4cm]
+						\coordinate (1) at (90:1);
+						\coordinate (2) at (30:1);
+						\coordinate (3) at (-30:1);
+						\coordinate (4) at (-90:1);
+						\coordinate (5) at (-150:1);
+						\coordinate (6) at (150:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw[-{To[length=5pt]}] (30:1.5) arc(30:210:1.5);
+						\node () at (0,-2) {$\phi$};
+					\end{scope}
+					\begin{scope}[xshift=8cm]
+						\coordinate (1) at (90:1);
+						\coordinate (2) at (30:1);
+						\coordinate (3) at (-30:1);
+						\coordinate (4) at (-90:1);
+						\coordinate (5) at (-150:1);
+						\coordinate (6) at (150:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (90:-1.25) -- (90:1.5);
+						\draw[{To[length=3pt]}-{To[length=3pt]}] (103:1.25) -- (77:1.25);
+						\node () at (0,-2) {$\eta$};
+					\end{scope}
+					\begin{scope}[xshift=12cm]
+						\coordinate (1) at (90:1);
+						\coordinate (2) at (30:1);
+						\coordinate (3) at (-30:1);
+						\coordinate (4) at (-90:1);
+						\coordinate (5) at (-150:1);
+						\coordinate (6) at (150:1);
+						\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+						\draw (0:-1.25) -- (0:1.5);
+						\draw[{To[length=3pt]}-{To[length=3pt]}] (-13:1.25) -- (13:1.25);
+						\node () at (0,-2) {$\lambda$};
+					\end{scope}
+				\end{tikzpicture}
+				\caption{Repr\'esentation des isom\'etries pr\'esentes dans les stabilisateurs}
+			\end{figure}
+			\item Combien un cube a-t-il de rotations?
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}[scale=2]
+					\coordinate (1) at (0,0,0);
+					\coordinate (2) at (0,0,1);
+					\coordinate (3) at (0,1,0);
+					\coordinate (4) at (0,1,1);
+					\coordinate (5) at (1,0,0);
+					\coordinate (6) at (1,0,1);
+					\coordinate (7) at (1,1,0);
+					\coordinate (8) at (1,1,1);
+					\draw (2) -- (4) -- (8) -- (6) -- (2) (6) -- (5) -- (7) -- (8) (4) -- (3) -- (7);
+					\draw[dashed] (3) -- (1) -- (2) (1) -- (5);
+					\fill[fill opacity=.6, fill=col1] (3) -- (4) -- (8) -- (7) -- cycle;
+					\draw (.5,1.5,.5) edge (.5,1,.5) (.5,1,.5) edge[dashed] (.5,-.2,.5) (.5,-.2,.5) edge (.5,-.5,.5);
+					\begin{scope}[canvas is xz plane at y=1]
+						\fill (.5,.5) circle (1.5pt);
+					\end{scope}
+					\begin{scope}[canvas is xz plane at y=0]
+						\fill (.5,.5) circle (1.5pt);
+					\end{scope}
+					\begin{scope}[canvas is xz plane at y=1.25]
+						\draw[->] (.5,.6) arc(180:-90:.1);
+					\end{scope}
+				\end{tikzpicture}
+			\end{figure}
+			\begin{ulist}
+				\item Combien de rotations pr\'eservent la face du haut?
+
+				$4$, en incluant l'identit\'e.
+				\item Il y a $6$ faces et $4$ fa\c cons d'envoyer la face du haut \`a une face quelconque, donc il y a $4 \times 6 = 24$ rotations au total.
+			\end{ulist}
+		\end{ulist}
+	\end{exem}
+	\begin{thm}[orbite-stabilisateur]~
+
+		Soit $G$ un groupe fini qui agit sur $E$ un ensemble fini. Soit $x \in E$.
+
+		Alors, $\card{G} = \card{G \bullet x} \cdot \card{\stab(x)}$.
+		\begin{proof}~
+
+			Posons $H \coloneq \stab(x)$. Notons $\sfrac{G}{H} \coloneq \{aH \mid a \in G\}$ l'ensemble des classes d'\'equivalence \`a gauche modulo $H$.
+
+			On d\'efinit $\begin{array}{rcl}
+				f:\sfrac{G}{H}&\to&G \bullet x\\
+				aH&\mapsto&a \bullet x
+			\end{array}$.
+
+			On veut montrer que $f$ est bijective.
+			\begin{subproof}{$f$ est d\'efinie sans ambigu\"it\'e}~
+
+				Supposons que $aH=bH$, avec $a,b \in G$. Alors, $a^{-1}b \in H$. Donc,
+				\begin{align*}
+					(a^{-1}b) \bullet x&= x\\
+					a^{-1} \bullet (b \bullet x)&= x\\
+					b \bullet x&= a \bullet x\\
+					f(bH)&= f(aH)
+				\end{align*}
+			\end{subproof}
+			\begin{subproof}{$f$ est bijective}~
+
+				\begin{subsubproof}{$f$ est injective}~
+
+					Soient $aH, bH \in \sfrac{G}{H}$ t.q. $f(aH) = f(bH)$. Alors
+					\begin{align*}
+						a \bullet x&= b \bullet x\\
+						x&= a^{-1} \bullet (b \bullet x)\\
+						&= (a^{-1}b) \bullet x\\
+						&\Rightarrow a^{-1}b \in \stab(x) = H\\
+						&\Rightarrow aH=bH
+					\end{align*}
+
+					Ainsi, $f$ est injective.
+				\end{subsubproof}
+				\begin{subsubproof}{$f$ est surjective}~
+
+					Soit $y \in G \bullet x$, alors, $\exists a \in G$ t.q. $a \bullet x = y$, donc $f(aH)=y$.
+
+					Ainsi, $f$ est surjective.
+				\end{subsubproof}
+
+				Comme $f$ est injective et surjective, $f$ est bijective.
+			\end{subproof}
+
+			Ainsi, $\card{\sfrac{G}{H}} = \card{G \bullet x}$, c'est-\`a-dire $\dfrac{\card{G}}{\card{H}} = \card{G \bullet x}$, donc $\card{G} = \card{G \bullet x} \cdot \card{H}$.
+		\end{proof}
+	\end{thm}
+	\begin{exem}[revenons au cube]~
+
+		$E_1 = \{\text{faces du cube}\}$. $E_2 = \{\text{sommets du cube}\}$.
+
+		$G$ agit sur $E_2$. Il n'a qu'une seule orbite et $\card{E_2} = 8$.
+
+		$\stab(a) = \{\varepsilon, \theta, \phi\}$.
+
+		$24 = \card{G} = \card{E_2} \cdot \card{\stab(a)} = 8 \times 3$.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=2]
+				%cube
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (0,0,1);
+				\coordinate (3) at (0,1,0);
+				\coordinate (4) at (0,1,1);
+				\coordinate (5) at (1,0,0);
+				\coordinate (6) at (1,0,1);
+				\coordinate (7) at (1,1,0);
+				\coordinate (8) at (1,1,1);
+				\draw (2) -- (4) -- (8) -- (6) -- (2) (6) -- (5) -- (7) -- (8) (4) -- (3) -- (7);
+				\draw[dashed] (3) -- (1) -- (2) (1) -- (5);
+
+				\fill (4) circle (1.2pt);
+				\node[font=\Large] () at (-.2,1.1,1.1) {$a$};
+			\end{tikzpicture}
+			\hspace{1.5cm}
+			\begin{tikzpicture}[scale=2]
+				%cube
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (0,0,1);
+				\coordinate (3) at (0,1,0);
+				\coordinate (4) at (0,1,1);
+				\coordinate (5) at (1,0,0);
+				\coordinate (6) at (1,0,1);
+				\coordinate (7) at (1,1,0);
+				\coordinate (8) at (1,1,1);
+				\draw (2) -- (4) -- (8) -- (6) -- (2) (6) -- (5) -- (7) -- (8) (4) -- (3) -- (7);
+				\draw[dashed] (3) -- (1) -- (2) (1) -- (5);
+
+				\draw (-.25,1.25,1.25) edge (0,1,1) (0,1,1) edge[dashed] (1,0,0) (1,0,0) edge (1.25,-.25,-.25);
+			\end{tikzpicture}
+			\hspace{1.5cm}
+			\begin{tikzpicture}[scale=1.2]
+				\coordinate (1) at (90:1);
+				\coordinate (2) at (30:1);
+				\coordinate (3) at (-30:1);
+				\coordinate (4) at (-90:1);
+				\coordinate (5) at (-150:1);
+				\coordinate (6) at (150:1);
+				\draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- cycle;
+
+				\draw (0,0) edge (2) edge (4) edge (6);
+				\draw[dashed] (0,0) edge (1) edge (3) edge (5);
+
+				\fill (0,0) circle (2pt);
+
+				\draw[-{To[length=5pt]}] (85:1.5) arc(85:-25:1.5);
+				\draw[-{To[length=5pt]}] (95:1.5) arc(95:205:1.5);
+				\node[font=\Large] () at (30:1.7) {$\theta$};
+				\node[font=\Large] () at (150:1.7) {$\phi$};
+			\end{tikzpicture}
+			\caption{Repr\'esentation du sommet $a$ et des rotations $\theta$ et $\phi$}
+		\end{figure}
+
+		$G$ agit aussi sur $A = \{\text{ar\^etes du cube}\}$.
+
+		Il y a encore une seule orbite, $A$ et $\card{A} = 12$.
+
+		$\stab\left( \overline{\alpha\beta} \right) = \{\varepsilon, \rho\}$.
+
+		$24 = \card{G} = \card{A} \cdot \card{\stab\left( \overline{\alpha\beta} \right)} = 12 \times 2$.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=2]
+				%cube
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (0,0,1);
+				\coordinate (3) at (0,1,0);
+				\coordinate (4) at (0,1,1);
+				\coordinate (5) at (1,0,0);
+				\coordinate (6) at (1,0,1);
+				\coordinate (7) at (1,1,0);
+				\coordinate (8) at (1,1,1);
+				\draw (2) -- (4) -- (8) -- (6) -- (2) (6) -- (5) -- (7) -- (8) (4) -- (3) -- (7);
+				\draw[dashed] (3) -- (1) -- (2) (1) -- (5);
+
+				\draw[ultra thick] (4) -- (3);
+
+				\node[font=\Large] () at (-.1,1.1,1.1) {$\alpha$};
+				\node[font=\Large] () at (-.1,1.1,-.1) {$\beta$};
+
+				\draw (-.2,1.2,.5) edge (0,1,.5) (0,1,.5) edge[dashed] (1,0,.5) (1,0,.5) edge (1.2,-.2,.5);
+			\end{tikzpicture}
+			\caption{Repr\'esentation de l'ar\^ete $\overline{\alpha\beta}$ et de l'axe de la rotation $\rho$}
+		\end{figure}
+	\end{exem}
+	\begin{nota}
+		Nous noterons le groupe des rotation d'un cube comme $\overset{+}{\operatorname{Isom}}(\text{cube})$.
+	\end{nota}
+	\begin{prop}~
+
+		$\overset{+}{\operatorname{Isom}}(\mathrm{cube})$ est isomorphe \`a $S_4$.
+		\begin{subsubproof}{Id\'ee de d\'emonstration}~
+
+			On regarde l'action de $\overset{+}{\operatorname{Isom}}(\mathrm{cube})$ sur $E = \{\text{paires de sommets oppos\'es}\}$.
+
+			Cette action d\'efinit un homomorphisme $\begin{array}{rcl}
+				\overset{+}{\operatorname{Isom}}(\mathrm{cube})&\to&S_4
+			\end{array}$.
+			\begin{exem}~%TODO dessins
+
+				\begin{ulist}
+					\item $\begin{pmatrix}
+						1&2&3&4\\
+						4&1&2&3
+					\end{pmatrix} = \begin{pmatrix}
+						1&4&3&2
+					\end{pmatrix}$
+					\item $\begin{pmatrix}
+						1&2&3&4\\
+						1&3&4&2
+					\end{pmatrix} = \begin{pmatrix}
+						2&3&4
+					\end{pmatrix}$
+					\item $\begin{pmatrix}
+						1&2&3&4\\
+						4&2&3&1
+					\end{pmatrix} = \begin{pmatrix}
+						1&4
+					\end{pmatrix}$
+				\end{ulist}
+			\end{exem}
+
+			Cet homomorphisme est surjectif et injectif, donc bijectif.
+		\end{subsubproof}
+	\end{prop}
+	\begin{prop}~
+
+		$\overset{+}{\operatorname{Isom}}(\mathrm{t\acute etrah\grave edre})$ est isomorphe \`a $A_4$, le sous-groupe de $S_4$ contenant seulement les permutations de signe positif.
+	\end{prop}
 \end{document}
