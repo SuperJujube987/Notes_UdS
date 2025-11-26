@@ -22,10 +22,10 @@ Julien Houle
 
 Cours donné par Jean-Philippe Burelle durant la session d'automne 2025.
 
-* Assem, I. et Leduc, P.-Y. : *Cours d'algèbre*, Presses Internationales Polytechnique (2009).
+* Assem, I. et Leduc, P.-Y. (2009). *Cours d'algèbre*. Presses Internationales Polytechnique.
 
 ### MAT346
 
 Cours donné par Mario Lambert durant la session d'automne 2025.
 
-* MORALES, Pedro : MAT228. Notes de cours, Université de Sherbrooke, 2002.
+* Morales, P (2002). *MAT228: Notes de cours*. Université de Sherbrooke.
