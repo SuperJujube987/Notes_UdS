@@ -21,6 +21,8 @@
 	colorlinks=false
 }
 
+\allowdisplaybreaks
+
 \fancyfoot{}
 \fancyhead{}
 \fancyhead[l]{MAT346 - Analyse II}
@@ -3128,5 +3130,178 @@ Donn\'e par Mario Lambert}
 			a_0 + \dsum{k}{1}{\infty}{\left( a_k \cos\dfrac{2k\pi}{T}t + b_k \sin\dfrac{2k\pi}{T}t \right)}\tag{$*$}
 		\end{equation*}
 		converge uniform\'ement vers, disons, $f$, alors la s\'erie de Fourier de $f$ est $(*)$, c'est-\`a-dire, $S(f) = (*)$.
+		\begin{proof}~
+
+			Supposons $f(t) = \alpha_0 + \dsum{k}{1}{\infty}{\left(\alpha_k\cos\dfrac{2k\pi}{T}t + \beta_k\sin\dfrac{2k\pi}{T}t\right)}$.
+
+			On a
+			\begin{align*}
+				a_0&= \dfrac{1}{T} \dint{a}{b}{f(t) dt}\\
+				&= \dfrac{1}{T} \dint{a}{b}{\alpha_0 + \dsum{k}{1}{\infty}{\left(\alpha_k\cos\dfrac{2k\pi}{T}t + \beta_k\sin\dfrac{2k\pi}{T}t\right)} dt}\\
+				\shortintertext{comme il y convergence uniforme}
+				&= \dfrac{1}{T} \dint{a}{b}{\alpha_0 dt} + \dsum{k}{1}{\infty}{\dfrac{1}{T} \underbrace{\dint{a}{b}{\alpha_k\cos\dfrac{2k\pi}{T}t dt}}_{\langle 1,\cos \rangle}} + \dsum{k}{1}{\infty}{\dfrac{1}{T} \underbrace{\dint{a}{b}{\beta_k\sin\dfrac{2k\pi}{T}t dt}}_{\langle 1,\sin \rangle}}\\
+				&= \alpha_0 + \dsum{k}{1}{\infty}{0} + \dsum{k}{1}{\infty}{0}\\
+				&= \alpha_0
+			\end{align*}
+
+			De m\^eme,
+			\begin{align*}
+				a_k&= \dfrac{2}{T} \dint{a}{b}{f(t)\cos\dfrac{2k\pi}{T}t dt}\\
+				&= \dfrac{2}{T} \dint{a}{b}{\left[ \alpha_0 + \dsum{k}{1}{\infty}{\left(\alpha_k \cos\dfrac{2k\pi}{T}t + \beta_k\sin\dfrac{2k\pi}{T}t\right)} \right] \cos\dfrac{2k\pi}{T}t dt}\\
+				\shortintertext{comme il y convergence uniforme}
+				&= \dfrac{2}{T} \underbrace{\dint{a}{b}{\alpha_0 \cos\dfrac{2k\pi}{T}t dt}}_{\langle 1,\cos \rangle} + \dsum{j}{1}{\infty}{\dfrac{2}{T} \dint{a}{b}{\alpha_k \cos\dfrac{2j\pi}{T}t \cos\dfrac{2k\pi}{T}t}} + \dsum{j}{1}{\infty}{\dfrac{2}{T} \underbrace{\dint{a}{b}{\beta_k \sin\dfrac{2j\pi}{T}t \cos\dfrac{2k\pi}{T}t}}_{\langle \sin,\cos \rangle}}\\
+				&= \dfrac{2}{T} \dint{a}{b}{\alpha_k \left(\cos\dfrac{2k\pi}{T}t\right)^2 dt}\\
+				&= \dfrac{2}{T} \dint{a}{b}{\alpha_k \cdot \dfrac{1}{2} \left[\cos\left(\dfrac{4k\pi}{T}t\right) + \cos0\right] dt}\\
+				&= \dfrac{\alpha_k}{T} \dint{a}{b}{\cos\dfrac{4k\pi}{T}t dt} + \dfrac{\alpha_k}{T} \dint{a}{b}{dt}\\
+				&= 0 + \dfrac{\alpha_k}{T} (b-a)\\
+				&= a_k
+			\end{align*}
+
+			De m\^eme, $b_k = \beta_k$.
+		\end{proof}
 	\end{prop}
+	\begin{coro}~
+
+		Si deux s\'eries trigonom\'etriques convergent uniform\'ement vers la m\^eme fonction, alors leurs coefficients sont les m\^emes.
+	\end{coro}
+	\begin{coro}~
+
+		Si $f_1,f_2:[a,b] \to \reels$ sont continues et $S(f_1) = S(f_2)$, alors $f_1=f_2$.
+	\end{coro}
+	\begin{thm}~
+
+		Soit $f:[a,b] \to \reels$ de classe $C^2$ avec $f(a)=f(b)$. Alors, la s\'erie de Fourier $T$-p\'eriodique de $f$ converge uniform\'ement vers l'extension $T$-p\'eriodique de $f$.
+		\begin{proof}~
+
+			Supposons $[a,b]=[\pi,\pi]$.
+
+			Soit $\dsum{k}{0}{\infty}{\left(a_k\cos kt + b_k\sin kt\right)}$ la s\'erie $T$-p\'eriodique de $f$.
+
+			On veut
+			\begin{enumerate}[label=\roman*)]
+				\item borner $\abs{a_k\cos kt+b_k\sin kt} \lte \dfrac{2M}{k^2}$;
+				\item m.q. $\dsum{k}{0}{\infty}{\dfrac{2M}{k^2}}$ converge.
+			\end{enumerate}
+
+			Pour i), on veut m.q. $\abs{a_k} \lte \dfrac{M}{k^2}$ et $\abs{b_k} \lte \dfrac{M}{k^2}$. On a
+			\begin{align*}
+				a_k&= \dfrac{1}{\pi} \dint{-\pi}{\pi}{f(t) \cos kt dt}\\
+				\shortintertext{posons $u=f$, $du=f'(t)dt$, $dv=\cos kt dt$, $v=\frac{1}{k}\sin kt$}
+				&= \dfrac{1}{\pi} \left[ \left. \dfrac{1}{k} f(t) \sin kt \right|_{-\pi}^{\pi} - \dfrac{1}{k} \dint{-\pi}{\pi}{f'(t) \sin kt dt} \right]\\
+				&= -\dfrac{1}{k\pi} \dint{-\pi}{\pi}{f'(t) \sin kt dt}\\
+				\shortintertext{posons $u=f'$, $du=f''(t)dt$, $dv=\sin kt dt$, $v=-\frac{1}{k} \cos kt$}
+				&= -\dfrac{1}{k\pi} \left[ \left. \dfrac{-1}{k} f'(t) \cos kt \right|_{-\pi}^{\pi} + \dfrac{1}{k} \dint{-\pi}{\pi}{f''(t) \cos kt dt} \right]\\
+				&= \dfrac{1}{k^2\pi} \left[ f'(\pi) \underbrace{\cos k\pi}_{(-1)^k} - f'(-\pi) \underbrace{\cos(-k\pi)}_{(-1)^k} \right] - \dfrac{1}{k^2\pi} \dint{-\pi}{\pi}{f''(t) \cos kt dt}\\
+				&= \dfrac{(-1)^k}{k^2\pi} (f'(\pi)-f'(-\pi)) - \dfrac{1}{k^2\pi} \dint{-\pi}{\pi}{f''(t) \cos kt dt}\\
+				\intertext{ainsi,}
+				\abs{a_k}&=\lte \dfrac{1}{k^2\pi} \abs{f'(\pi)-f'(-\pi)} + \dfrac{1}{k^2\pi} \dint{-\pi}{\pi}{\abs{f''(t) dt}}\\
+				&\lte \dfrac{1}{k^2\pi} \abs{f'(\pi)-f'(-\pi)} + \dfrac{1}{k^2\pi} \cdot 2\pi \cdot \sup\limits_{t \in [-\pi,\pi]}\abs{f''(t)}\\
+				&= \dfrac{1}{k^2} \underbrace{\left[ \dfrac{\abs{f'(\pi)-f'(-\pi)}}{\pi} + 2 \sup \abs{f''(t)} \right]}_{\coloneq M}
+			\end{align*}
+
+			Donc, $\abs{a_k} \lte \dfrac{M}{k^2}$.
+
+			De m\^eme, $\abs{b_k} \lte \dfrac{M}{k^2}$.
+
+			Donc, $\abs{a_k\cos kt+b_k\sin kt} \lte \abs{a_k} + \abs{b_k} = \dfrac{2M}{k^2}$.
+
+			Or,
+			\begin{align*}
+				\dsum{k}{1}{\infty}{\dfrac{2M}{k^2}}&= 2M \dsum{k}{1}{\infty}{\dfrac{1}{k^2}}\\
+				&= 2M \dfrac{\pi^2}{6}
+			\end{align*}
+			qui converge.
+
+			Du crtit\`ere de Weierstrass, $\dsum{k}{0}{\infty}{\left(a_k\cos kt+b_k\sin kt\right)}$ converge uniform\'ement.
+
+			Par unicit\'e de la limite, la s\'erie converge vers l'extension $T$-p\'eriodique de $f$.
+		\end{proof}
+	\end{thm}
+
+	\section{\'Egalit\'e de Parseval}
+	\begin{rapp}~
+
+		$\mathcal{B} = \left\{ \dfrac{1}{\sqrt{2\pi}}, \dfrac{\cos kt}{\sqrt{\pi}}, \dfrac{\sin kt}{\sqrt{\pi}} ~\middle|~ a \lte k \lte n \right\}$ est un ensemble de fonctions orthonormales.
+
+		\'Ecrivons $\mathcal{B} = \{v_1,v_2,\dots,v_{2n+1}\}$.
+
+		Supposons $v \in <\mathcal{B}>$.
+
+		Alors, $v = \dsum{i}{1}{2n+1}{\alpha_iv_i}$ avec $\alpha_i \in \reels$.
+
+		On a
+		\begin{align*}
+			\langle v, v_i \rangle&= \left\langle \dsum{j}{1}{2n+2}{\alpha_jv_j}, v_i \right\rangle\\
+			&= \dsum{j}{1}{2n+1}{\alpha_j \langle v_j, v_i \rangle}\\
+			&= \alpha_i \langle v_i, v_i \rangle\\
+			&= \alpha_i
+		\end{align*}
+
+		Ainsi, $v = \dsum{i}{1}{2n+1}{\alpha_i v_i} = \dsum{i}{1}{2n+1}{\langle v,v_i \rangle v_i}$.
+
+		On trouve
+		\begin{align*}
+			\langle v,v \rangle&= \left\langle v, \dsum{i}{1}{2n+1}{\langle v,v_i \rangle v_i} \right\rangle\\
+			&= \dsum{i}{1}{2n+1}{\langle v,v_i \rangle \langle v,v_i \rangle}\\
+			&= \dsum{i}{1}{2n+1}{\langle v,v_i \rangle^2}\\
+			\intertext{ainsi,}
+			\norme{v}^2 = \langle v,v \rangle&= \dsum{i}{1}{2n+1}{\alpha_1}
+		\end{align*}
+	\end{rapp}
+	\begin{prop}~
+
+		Soit $f(t) = a_0 + \dsum{k}{1}{n}{\left[a_k\cos\dfrac{2k\pi}{T}t + b_k\sin\dfrac{2k\pi}{T}t\right]}$ un polyn\^ome trigonom\'etrique de degr\'e $n$. Alors,
+		\begin{align*}
+			a_0^2 + \dfrac{1}{2} \dsum{k}{1}{n}{\left(a_k^2+b_k^2\right)}&= \dfrac{1}{T} \dint{a}{b}{(f(t))^2 dt}
+		\end{align*}
+		\begin{proof}~
+
+			Supposons $[a,b]=[-\pi,\pi]$.
+
+			On a $\langle f,f \rangle = \dsum{j}{1}{2n+1}{\langle f, v_j \rangle^2}$, avec $v_j$ les vecteurs de la base \'enonc\'ee dans le rappel
+
+			Or,
+			\begin{enumerate}[label=\alph*)]
+				\item
+				\begin{align*}
+					\left\langle f,\dfrac{1}{\sqrt{2\pi}} \right\rangle^2&= \left(\dint{-\pi}{\pi}{f(t) \dfrac{1}{\sqrt{2\pi}} dt}\right)^2\\
+					&= \dfrac{1}{2\pi} \left(\dint{-\pi}{\pi}{f(t) dt}\right)^2\\
+					&= \dfrac{1}{2\pi} (2\pi a_0)^2\\
+					&= 2\pi a_0^2
+				\end{align*}
+				\item
+				\begin{align*}
+					\left\langle f, \dfrac{\cos kt}{\sqrt{\pi}} \right\rangle^2&= \left(\dint{-\pi}{\pi}{f(t) \dfrac{\cos kt}{\sqrt{\pi}} dt}\right)^2\\
+					&= \dfrac{1}{\pi} \left(\dint{-\pi}{\pi}{f(t) \cos kt dt}\right)^2\\
+					&= \dfrac{1}{\pi} (\pi a_k)^2\\
+					&= \pi a_k^2
+				\end{align*}
+				\item De m\^eme, $\left\langle f, \dfrac{\sin kt}{\sqrt{\pi}} \right\rangle = \pi b_k^2$.
+			\end{enumerate}
+
+			Ainsi,
+			\begin{align*}
+				\dint{a}{b}{f^2(t) dt}&= \langle f,f \rangle\\
+				&= \dsum{j}{1}{2n+1}{\langle f,v_j \rangle}\\
+				&= 2\pi a_0^2 + \dsum{k}{1}{n}{\left(\pi a_k^2 + \pi b_k^2\right)}\\
+				\intertext{donc,}
+				\dfrac{1}{T} \dint{a}{b}{f^2(t) dt}&= a_0^2 + \dfrac{1}{2} \dsum{k}{1}{n}{\left( a_k^2 + b_k^2 \right)}
+			\end{align*}
+		\end{proof}
+	\end{prop}
+	\begin{defin}~
+
+		Soit $f:[-\pi,\pi] \to \reels$ continue par morceaux.
+
+		Soit $g:[-\pi,\pi] \to \reels$ un polyn\^ome trigonom\'etrique de degr\'e $n$.
+		\begin{enumerate}[label=\alph*)]
+			\item L'\emph{erreur ponctuelle} (de degr\'e $n$) est $\eps_n(t) = (f-g)(t)$;
+			\item L'\emph{erreur quadratique moyenne} est $E_n(t) = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{\eps_n^2(t) dt} = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{(f-g)^2(t) dt}$.
+
+			Dans le cas d'une fonction d\'efinie sur $[a,b]$, on a
+			\begin{equation*}
+				E_n(t) = \dfrac{1}{T} \dint{a}{b}{(f-g)^2(t) dt}
+			\end{equation*}
+		\end{enumerate}
+	\end{defin}
 \end{document}
