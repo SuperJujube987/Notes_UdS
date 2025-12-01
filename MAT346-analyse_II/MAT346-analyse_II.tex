@@ -3296,12 +3296,85 @@ Donn\'e par Mario Lambert}
 		Soit $g:[-\pi,\pi] \to \reels$ un polyn\^ome trigonom\'etrique de degr\'e $n$.
 		\begin{enumerate}[label=\alph*)]
 			\item L'\emph{erreur ponctuelle} (de degr\'e $n$) est $\eps_n(t) = (f-g)(t)$;
-			\item L'\emph{erreur quadratique moyenne} est $E_n(t) = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{\eps_n^2(t) dt} = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{(f-g)^2(t) dt}$.
+			\item L'\emph{erreur quadratique moyenne} est $E_n(t) = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{\eps_n^2(t) dt} = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{(f-g)^2(t) dt} = \dfrac{1}{2\pi} \langle f-g,f-g \rangle = \dfrac{1}{2\pi} \norme{f-g}^2$.
 
 			Dans le cas d'une fonction d\'efinie sur $[a,b]$, on a
-			\begin{equation*}
-				E_n(t) = \dfrac{1}{T} \dint{a}{b}{(f-g)^2(t) dt}
+			\begin{equation*}%TODO finir
+				E_n(t) = \dfrac{1}{T} \dint{a}{b}{\eps_n^2(t) dt} = \dfrac{1}{T} \dint{a}{b}{(f-g)^2(t) dt} = \dfrac{1}{T} \langle f-g,f-g \rangle = \dfrac{1}{T} \norme{f-g}^2
 			\end{equation*}
 		\end{enumerate}
 	\end{defin}
+	\begin{thm}~
+
+		$E_n(t)$ est minimale quand $g = S_n(f)(t)$, o\`u $S_n(f)(t)$ est la s\'erie de Fourier de $f$ tronqu\'ee \`a l'ordre $n$, c'est-\`a-dire, $S_n(f)(t) = a_0 + \dsum{k}{1}{n}{\left[a_k\cos\dfrac{2k\pi}{T}t + b_k\sin\dfrac{2k\pi}{T}t\right]}$.
+		\begin{proof}~
+
+			Supposons $g(t) = \alpha_0 + \dsum{k}{1}{n}{\left[\alpha_k\cos kt + \beta_k\sin kt\right]}$. On a
+			\begin{align*}
+				E_n(t)&= \dfrac{1}{2\pi} \dint{-\pi}{\pi}{(f-g)^2(t) dt}\\
+				&= \dfrac{1}{2\pi} \langle f-g,f-g \rangle\\
+				&= \dfrac{1}{2\pi} \left[\langle f,f \rangle - 2 \langle f,g \rangle + \langle g,g \rangle\right]
+			\end{align*}
+
+			De plus,
+			\begin{enumerate}[label=\alph*)]
+				\item
+				\begin{align*}
+					\langle f,f \rangle&= \norme{f}^2
+				\end{align*}
+				\item
+				\begin{align*}
+					\langle f,g \rangle&= \langle f, \alpha_0 + \dsum{k}{1}{n}{\left[\alpha_k\cos kt + \beta_k\sin kt\right]} \rangle\\
+					&= \alpha_0 \langle f,1 \rangle + \dsum{k}{1}{n}{\left[\alpha_k \langle f,\cos kt \rangle + \beta_k \langle f,\sin kt \rangle\right]}\\
+					&= \alpha_0 \underbrace{\dint{-\pi}{\pi}{f(t) dt}}_{2\pi a_0} + \dsum{k}{1}{n}{\alpha_k \underbrace{\dint{-\pi}{\pi}{f(t) \cos kt dt}}_{\pi a_k}} + \dsum{k}{1}{n}{\beta_k \underbrace{\dint{-\pi}{\pi}{f(t) \sin kt dt}}_{\pi b_k}}\\
+					&= 2\pi \alpha_0 a_0 + \dsum{k}{1}{n}{\pi \alpha_k a_k} + \dsum{k}{1}{n}{\pi \beta_k b_k}
+				\end{align*}
+				\item
+				\begin{align*}
+					\langle g,g \rangle&= 2\pi \alpha_0^2 + \pi \dsum{k}{1}{n}{\left(\alpha_k^2 + \beta_k^2\right)}
+				\end{align*}
+			\end{enumerate}
+
+			On obtient
+			\begin{align*}
+				E_n(t)&= \dfrac{1}{2\pi} \left[ \norme{f}^2 - 2\left( 2\pi \alpha_0 a_0 + \dsum{k}{1}{n}{\pi \alpha_k a_k} + \dsum{k}{1}{n}{\pi \beta_k b_k} \right) + 2\pi \alpha_0^2 + \pi \dsum{k}{1}{n}{\left(\alpha_k^2 + \beta_k^2\right)} \right]\\
+				&= \dfrac{1}{2\pi} \left[ \norme{f}^2 + 2\pi \left( \alpha_0^2 - 2\alpha_0 a_0 \right) + \pi \dsum{k}{1}{n}{\left( \alpha_k^2 - 2\alpha_k a_k \right)} + \pi \dsum{k}{1}{n}{\left( \beta_k^2 - 2\beta_k b_k \right)} \right]\\
+				&= \dfrac{1}{2\pi} \left[ \norme{f}^2 + 2\pi \left( [a_0-\alpha_0]^2 - a_0^2 \right) + \pi \dsum{k}{1}{n}{\left( [a_k - \alpha_k]^2 - a_k^2 \right)} + \pi \dsum{k}{1}{n}{\left( [b_k - \beta_k]^2 - b_k^2 \right)} \right]\\
+				&= \dfrac{1}{2\pi} \left[ \norme{f}^2 - \pi \left( 2a_0^2 + \dsum{k}{1}{n}{\left[ a_k^2 + b_k^2 \right]} \right) + 2\pi (a_0-\alpha_0)^2 + \pi \dsum{k}{1}{n}{(a_k-\alpha_k)^2} + \pi \dsum{k}{1}{n}{(b_k-\beta_k)^2} \right]
+			\end{align*}
+
+			Donc, $E_n(t)$ est minimale si, et seulement si, $a_0 = \alpha_0$, $a_k = \alpha_k$ et $b_k = \beta_k$, pour $k \gte 1$.
+		\end{proof}
+	\end{thm}
+	\begin{coro}
+		La valeur minimale de $E_n(t)$ est
+		\begin{equation*}
+			\dfrac{1}{2\pi} \left[ \norme{f}^2 - \pi \left( 2a_0^2 + \dsum{k}{1}{n}{\left( a_k^2+b_k^2 \right)} \right) \right]
+		\end{equation*}
+	\end{coro}
+	\begin{coro}
+		\begin{equation*}
+			\dfrac{1}{\pi} \norme{f}^2 \gte 2a_0^2 + \dsum{k}{1}{n}{\left( a_k^2+b_k^2 \right)}
+		\end{equation*}
+	\end{coro}
+	\begin{coro}
+		Soient $f$ continue par morceaux et $a_0,a_k,b_k$ les coefficients de la s\'erie de Fourier $S(f)$. Alors,
+		\begin{equation*}
+			2a_0^2 + \dsum{k}{1}{\infty}{\left( a_k^2+b_k^2 \right)} \lte \dfrac{1}{\pi} \norme{f}^2 < \infty
+		\end{equation*}
+		\begin{proof}~
+
+			Posons $s_n = 2a_0^2 + \dsum{k}{1}{n}{\left( a_k^2+b_k^2 \right)}$. On a $s_{n+1} = s_n + a_{n+1}^2 + b_{n+1}^2 \gte s_n$.
+
+			Ainsi, $\left(s_n\right)_{n \in \naturels}$ est monotone croissante et born\'ee, donc convergente.
+		\end{proof}
+	\end{coro}
+	\begin{coro}[Lemme de Riemann-Lebesgue]~
+
+		Soit $f:[-\pi,\pi] \to \reels$ continue par morceaux. Alors, $a_k,b_k \to 0$.
+		\begin{proof}~
+
+			$\dsum{n}{1}{\infty}{(a_k^2+b_k^2)}$ converge, donc $(a_k^2+b_k^2) \to 0$, donc $a_k,b_k \to 0$.
+		\end{proof}
+	\end{coro}
 \end{document}

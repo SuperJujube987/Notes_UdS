@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  28 NOV 2025 16:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  1 DEC 2025 09:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1386,7 +1386,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[54] (MAT346-analyse_II.aux)
+[54]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[55]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[56] (MAT346-analyse_II.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1400,8 +1416,8 @@ Package rerunfilecheck Info: File `MAT346-analyse_II.out' has not changed.
 (rerunfilecheck)             Checksum: D2CCFFA94ECE37C370465F6BF26B2BDE;3785.
  ) 
 Here is how much of TeX's memory you used:
- 26041 strings out of 467871
- 486035 string characters out of 5418375
+ 26046 strings out of 467871
+ 486073 string characters out of 5418375
  938731 words of memory out of 5000000
  54276 multiletter control sequences out of 15000+600000
  642683 words of font info for 104 fonts, out of 8000000 for 9000
@@ -1439,9 +1455,9 @@ jub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sym
 bols/msbm7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /rsfs/rsfs10.pfb>
-Output written on MAT346-analyse_II.pdf (56 pages, 586115 bytes).
+Output written on MAT346-analyse_II.pdf (58 pages, 592990 bytes).
 PDF statistics:
- 695 PDF objects out of 1000 (max. 8388607)
- 226 named destinations out of 1000 (max. 500000)
+ 707 PDF objects out of 1000 (max. 8388607)
+ 231 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
