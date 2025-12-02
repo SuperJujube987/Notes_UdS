@@ -22,6 +22,7 @@
 \usepackage{tikz-cd}
 \usepackage{fontawesome5}
 \usepackage{multicol}
+\usepackage{gensymb}
 
 \allowdisplaybreaks
 
@@ -5456,5 +5457,329 @@ Donn\'e par Jean-Philippe Burelle}
 	\begin{exem}[autre motivation]~
 
 		Combien y a-t-il de fa\c cons de colorer les sommets d'un hexagone avec un certain nombre de couleurs, \`a sym\'etrie pr\`es?
+	\end{exem}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item $\overset{+}{\operatorname{Isom}}(\mathrm{cube}) \cong \overset{+}{\operatorname{Isom}}(\mathrm{octah\grave edre}) \cong S_4$, ordre $24$;
+			\item $\overset{+}{\operatorname{Isom}}(\mathrm{t\acute etrah\grave edre}) \cong A_4$, ordre $12$;
+			\item $\overset{+}{\operatorname{Isom}}(\mathrm{icosah\grave edre}) \cong \overset{+}{\operatorname{Isom}}(\mathrm{dod\acute ecah\grave edre}) \cong A_5$, ordre $60$.
+		\end{ulist}
+	\end{rappel}
+	\begin{nota}
+		$\sfrac{E}{G} = \{G \bullet x \mid x \in E\}$ est l'ensemble des orbites.
+	\end{nota}
+	\begin{exem}
+		Combien de fa\c cons de colorer les faces d'un cube avec $k$ couleurs.
+
+		$G = \overset{+}{\operatorname{Isom}}(\mathrm{cube})$, $E = \{\text{cubes color\'es}\}$.
+
+		On veut compter $\card{\sfrac{E}{G}}$.
+	\end{exem}
+	\begin{nota}
+		$E^g = \{x \in E \mid g \bullet x = x\}$ est l'ensemble des \'el\'ements de $E$ \emph{invariants} par $g \in G$.
+	\end{nota}
+	\begin{exem}
+		Avec $g$ une rotation de $90\degree$ autour d'un axe passant par le centre de deux faces oppos\'ees.
+
+		Dans $E^g$, les quatre faces des c\^ot\'es sont de la m\^eme couleur et les deux autres faces sont libres.
+	\end{exem}
+	\begin{exem}
+		$G = \mathbb{D}_3$ qui agit sur $E = \{\text{les sommets d'un triangle}\}$.
+		\begin{align*}
+			E^\rho&= \emptyset\\
+			E^\varepsilon&= E\\
+			E^\alpha&= \{1\}
+		\end{align*}
+	\end{exem}
+	\phantomsection\section*{Lemme de Burnside}\addcontentsline{toc}{section}{Lemme de Burnside}
+	\begin{thm}[Lemme de Burnside]
+		\begin{equation*}
+			\card{\sfrac{E}{G}} = \dfrac{1}{\card{G}} \displaystyle\sum_{g \in G} \card{E^g}
+		\end{equation*}
+		\begin{proof}~
+
+			Consid\'erons $X = \{(g,x) \in G \times E \mid g \bullet x = x\}$.
+
+			Comptons le nombre d'\'el\'ements de $X$ de deux mani\`eres diff\'erentes.
+			\begin{nlist}
+				\item On fixe $g \in G$. On a $\card{E^g}$ \'el\'ements $x \in E$ t.q. $g \bullet x = x$. Donc
+				\begin{equation*}
+					\card{X} = \sum_{g \in G} \card{E^g}
+				\end{equation*}
+				\item On fixe $x \in E$. Les \'el\'ements $g \in G$ t.q. g $\bullet$ x = x sont exactement ceux de $\stab(x)$. Donc
+				\begin{equation*}
+					\card{X} = \sum_{x \in E} \card{\stab(x)}\tag{$*$}
+				\end{equation*}
+
+				Si deux $x,y \in E$ sont dans une m\^eme orbite, $\card{\stab(x)} = \card{\stab(y)}$.
+
+				Soit $x_1, x_2, \dots, x_m$ un ensemble de repr\'esentants des orbites, avec $m = \card{\sfrac{E}{G}}$.
+
+				On a donc
+				\begin{align*}
+					\card{X}&= \sum_{i=1}^{m} \card{\stab(x_i)} \card{G \bullet x_i}\\
+					\shortintertext{du th\'eor\`eme orbite-stabilisateur}
+					&= \sum_{i=1}^{m} \card{G}\\
+					&= m \cdot \card{G}\tag{$**$}
+				\end{align*}
+			\end{nlist}
+
+			Comme $(*)=(**)$, on a
+			\begin{align*}
+				m \card{G}&= \sum_{g \in G} \card{E^g}\\
+				\card{\sfrac{E}{G}}&= \dfrac{1}{\card{G}} \sum_{g \in G} \card{E^g}
+			\end{align*}
+		\end{proof}
+	\end{thm}
+	\begin{exem}
+		Combien peut-on faire de colliers \`a six billes avec $k$ sortes de billes?
+
+		$G = \mathbb{D}_6$, $E = \{\text{colliers \`a six billes  \emph{fixes}}\}$.
+
+		$\card{G} = 12$.
+		\begin{align*}
+			\card{\sfrac{E}{G}}&= \dfrac{1}{12} \left( \underbrace{k^6}_{\varepsilon} + \underbrace{2k}_{\pm\rho} + \underbrace{2k^2}_{\pm\rho^2} + \underbrace{k^3}_{\rho^3} + \underbrace{3k^3}_{\alpha} + \underbrace{3k^4}_{\beta} \right)\\
+			&= \dfrac{1}{12} \left( k^6 + 2k + 2k^2 + 4k^3 + 3k^4 \right)
+		\end{align*}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=1.5]
+				\coordinate (e) at (0:1);
+				\coordinate (ne) at (60:1);
+				\coordinate (nw) at (120:1);
+				\coordinate (w) at (180:1);
+				\coordinate (sw) at (240:1);
+				\coordinate (se) at (300:1);
+				\draw (e) -- (ne) -- (nw) -- (w) -- (sw) -- (se) -- cycle;
+
+				\fill (e) circle (2pt);
+				\fill (ne) circle (2pt);
+				\fill (nw) circle (2pt);
+				\fill (w) circle (2pt);
+				\fill (sw) circle (2pt);
+				\fill (se) circle (2pt);
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}[scale=1.5]
+				\coordinate (e) at (0:1);
+				\coordinate (ne) at (60:1);
+				\coordinate (nw) at (120:1);
+				\coordinate (w) at (180:1);
+				\coordinate (sw) at (240:1);
+				\coordinate (se) at (300:1);
+				\draw (e) -- (ne) -- (nw) -- (w) -- (sw) -- (se) -- cycle;
+
+				\fill (e) circle (2pt);
+				\fill (ne) circle (2pt);
+				\fill (nw) circle (2pt);
+				\fill (w) circle (2pt);
+				\fill (sw) circle (2pt);
+				\fill (se) circle (2pt);
+
+				\draw[->] (120:1.4) arc(120:60:1.4);
+				\draw[->] (120:1.2) arc(120:0:1.2);
+				\node () at (90:1.6) {$\rho$};
+				\node () at (30:1.4) {$\rho^2$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}[scale=1.5]
+				\coordinate (e) at (0:1);
+				\coordinate (ne) at (60:1);
+				\coordinate (nw) at (120:1);
+				\coordinate (w) at (180:1);
+				\coordinate (sw) at (240:1);
+				\coordinate (se) at (300:1);
+				\draw (e) -- (ne) -- (nw) -- (w) -- (sw) -- (se) -- cycle;
+
+				\fill (e) circle (2pt);
+				\fill (ne) circle (2pt);
+				\fill (nw) circle (2pt);
+				\fill (w) circle (2pt);
+				\fill (sw) circle (2pt);
+				\fill (se) circle (2pt);
+
+				\draw (90:1) -- (270:1) (30:1) -- (210:1) (330:1) -- (150:1);
+				\node () at (90:1.2) {$\alpha_1$};
+				\node () at (30:1.2) {$\alpha_2$};
+				\node () at (330:1.2) {$\alpha_3$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}[scale=1.5]
+				\coordinate (e) at (0:1);
+				\coordinate (ne) at (60:1);
+				\coordinate (nw) at (120:1);
+				\coordinate (w) at (180:1);
+				\coordinate (sw) at (240:1);
+				\coordinate (se) at (300:1);
+				\draw (e) -- (ne) -- (nw) -- (w) -- (sw) -- (se) -- cycle;
+
+				\fill (e) circle (2pt);
+				\fill (ne) circle (2pt);
+				\fill (nw) circle (2pt);
+				\fill (w) circle (2pt);
+				\fill (sw) circle (2pt);
+				\fill (se) circle (2pt);
+
+				\draw (120:1.2) -- (300:1.2) (0:1.2) -- (180:1.2) (60:1.2) -- (240:1.2);
+				\node[anchor=west] () at (300:1.2) {$\beta_1$};
+				\node[anchor=west] () at (0:1.2) {$\beta_2$};
+				\node[anchor=west] () at (60:1.2) {$\beta_3$};
+			\end{tikzpicture}
+			\caption{Repr\'esentation du collier et de ses sym\'etries}
+		\end{figure}
+	\end{exem}
+	\begin{exem}
+		Combien de coloriages possibles pour les faces d'un cube avec $k$ couleurs?
+
+		$G = \overset{+}{\operatorname{Isom}}(\mathrm{cube}) \cong S_4$, $E = \{\text{coloriages d'un cube \emph{fixe}}\}$.
+		\begin{align*}
+			\card{\sfrac{E}{G}}&= \dfrac{1}{24} \left( \underbrace{k^6}_{e} + \underbrace{6k^3}_{\alpha} + \underbrace{3k^4}_{\beta} + \underbrace{8k^2}_{\gamma} + \underbrace{6k^3}_{\delta} \right)\\
+			&= \dfrac{1}{24} \left( k^6 + 8k^2 + 12k^3 + 3k^4 \right)
+		\end{align*}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=1.5]
+				%cube
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (0,0,1);
+				\coordinate (3) at (0,1,0);
+				\coordinate (4) at (0,1,1);
+				\coordinate (5) at (1,0,0);
+				\coordinate (6) at (1,0,1);
+				\coordinate (7) at (1,1,0);
+				\coordinate (8) at (1,1,1);
+				\draw (2) -- (4) -- (8) -- (6) -- (2) (6) -- (5) -- (7) -- (8) (4) -- (3) -- (7);
+				\draw[dashed] (3) -- (1) -- (2) (1) -- (5);
+			\end{tikzpicture}
+			\qquad
+			%a:90 faces
+			\begin{tikzpicture}[scale=1.5]
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (0,0,1);
+				\coordinate (3) at (0,1,0);
+				\coordinate (4) at (0,1,1);
+				\coordinate (5) at (1,0,0);
+				\coordinate (6) at (1,0,1);
+				\coordinate (7) at (1,1,0);
+				\coordinate (8) at (1,1,1);
+				\draw (2) -- (4) -- (8) -- (6) -- (2) (6) -- (5) -- (7) -- (8) (4) -- (3) -- (7);
+				\draw[dashed] (3) -- (1) -- (2) (1) -- (5);
+				\draw (.5,1.5,.5) edge (.5,1,.5) (.5,1,.5) edge[dashed] (.5,-.2,.5) (.5,-.2,.5) edge (.5,-.5,.5);
+				\begin{scope}[canvas is xz plane at y=1]
+					\fill (.5,.5) circle (1.5pt);
+				\end{scope}
+				\begin{scope}[canvas is xz plane at y=0]
+					\fill (.5,.5) circle (1.5pt);
+				\end{scope}
+				\begin{scope}[canvas is xz plane at y=1.35]
+					\draw[->] (.5,.5)++(240:.1) arc(240:0:.1);
+				\end{scope}
+
+				\node () at (.3,-.2,1) {$\alpha:90\degree$};
+				\node () at (.3,-.5,1) {$\beta:180\degree$};
+			\end{tikzpicture}
+			%b:180 faces
+			\qquad
+			%c:120 sommets
+			\begin{tikzpicture}[scale=1.5]
+				%cube
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (0,0,1);
+				\coordinate (3) at (0,1,0);
+				\coordinate (4) at (0,1,1);
+				\coordinate (5) at (1,0,0);
+				\coordinate (6) at (1,0,1);
+				\coordinate (7) at (1,1,0);
+				\coordinate (8) at (1,1,1);
+				\draw (2) -- (4) -- (8) -- (6) -- (2) (6) -- (5) -- (7) -- (8) (4) -- (3) -- (7);
+				\draw[dashed] (3) -- (1) -- (2) (1) -- (5);
+
+				\draw (-.25,1.25,1.25) edge (0,1,1) (0,1,1) edge[dashed] (1,0,0) (1,0,0) edge (1.25,-.25,-.25);
+
+				\node[anchor=north west] () at (1,0,.5) {$\gamma:120\degree$};
+			\end{tikzpicture}
+			\qquad
+			%d:180 aretes
+			\begin{tikzpicture}[scale=1.5]
+				%cube
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (0,0,1);
+				\coordinate (3) at (0,1,0);
+				\coordinate (4) at (0,1,1);
+				\coordinate (5) at (1,0,0);
+				\coordinate (6) at (1,0,1);
+				\coordinate (7) at (1,1,0);
+				\coordinate (8) at (1,1,1);
+				\draw (2) -- (4) -- (8) -- (6) -- (2) (6) -- (5) -- (7) -- (8) (4) -- (3) -- (7);
+				\draw[dashed] (3) -- (1) -- (2) (1) -- (5);
+
+				\draw (-.2,1.2,.5) edge (0,1,.5) (0,1,.5) edge[dashed] (1,0,.5) (1,0,.5) edge (1.2,-.2,.5);
+
+				\node[anchor=north west] () at (1,0,0) {$\delta:180\degree$};
+			\end{tikzpicture}
+			\caption{Repr\'esentation du cube et de ses rotations}
+		\end{figure}
+	\end{exem}
+	\begin{exem}
+		Combien de mani\`eres y a-t-il de colorer les quatre sommets d'un t\'etra\`edre avec $k$ couleurs?
+
+		$G = \overset{+}{\operatorname{Isom}}(\mathrm{t\acute etrah\grave edre}) \cong A_4$, $E = \{\text{coloriages d'un t\'etra\`edre \emph{fixe}}\}$.
+		\begin{align*}
+			\card{\sfrac{E}{G}}&= \dfrac{1}{12} \left( \underbrace{k^4}_{e} + \underbrace{8k^2}_{\alpha} + \underbrace{3k^2}_{\beta} \right)\\
+			&= \dfrac{1}{12} \left( k^4 + 11k^2 \right)
+		\end{align*}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=2]
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (1,0,0);
+				\coordinate (3) at (.5,0,.866);
+				\coordinate (4) at (.5,.816,.289);
+				\draw (4) edge (1) edge (2) edge (3) (1) edge[dashed] (2) (3) edge (1) edge (2);
+			\end{tikzpicture}
+			\hspace{3cm}
+			\begin{tikzpicture}[scale=2]
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (1,0,0);
+				\coordinate (3) at (.5,0,.866);
+				\coordinate (4) at (.5,.816,.289);
+				\draw (4) edge (1) edge (2) edge (3) (1) edge[dashed] (2) (3) edge (1) edge (2);
+
+				\begin{scope}[canvas is xz plane at y=0]
+					\fill (.5,.289) circle (1pt);
+				\end{scope}
+
+				\draw (.5,1,.289) edge (4) (4) edge[dashed] (.5,-.14,.289) (.5,-.14,.289) edge (.5,-.2,.289);
+
+				\begin{scope}[canvas is xz plane at y=.9]
+					\draw[->] (.5,.289)++(90:.2) arc(90:290:.2);
+				\end{scope}
+
+				\node[anchor=west] () at (.6,-.2,.289) {$\alpha:120\degre$};
+			\end{tikzpicture}
+			\hspace{3cm}
+			%a:120 sommet-face
+			\begin{tikzpicture}[scale=2]
+				\coordinate (1) at (0,0,0);
+				\coordinate (2) at (1,0,0);
+				\coordinate (3) at (.5,0,.866);
+				\coordinate (4) at (.5,.816,.289);
+				\draw (4) edge (1) edge (2) edge (3) (1) edge[dashed] (2) (3) edge (1) edge (2);
+
+				\coordinate (a) at ($(1)!.5!(3)$);
+				\coordinate (b) at ($(2)!.5!(4)$);
+				\coordinate (c) at ($(a)!-.2!(b)$);
+				\coordinate (d) at ($(a)!1.2!(b)$);
+
+				\draw (c) edge (a) (a) edge[dashed] (b) (b) edge (d);
+
+				\node[anchor=north west] () at (d) {$\beta:180\degree$};
+			\end{tikzpicture}
+			%b:180 aretes
+			\caption{Repr\'esentation du t\'etrah\`edre et de ses rotations}
+		\end{figure}
 	\end{exem}
 \end{document}

@@ -18,3 +18,4 @@
 \contentsline {section}{Groupes monog\`enes}{41}{section*.14}%
 \contentsline {section}{\numberline { 8.3}Th\'eor\`eme de Cayley}{42}{section.8.3}%
 \contentsline {chapter}{Actions de groupes}{44}{chapter*.16}%
+\contentsline {section}{Lemme de Burnside}{53}{section*.17}%
