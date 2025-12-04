@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  2 DEC 2025 10:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  4 DEC 2025 10:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1692,7 +1692,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [51]
-<figs/Platonic_Solids_Transparent.svg.png, id=471, 963.6pt x 784.9325pt>
+<figs/Platonic_Solids_Transparent.svg.png, id=476, 963.6pt x 784.9325pt>
 File: figs/Platonic_Solids_Transparent.svg.png Graphic file (type png)
 <use figs/Platonic_Solids_Transparent.svg.png>
 Package pdftex.def Info: figs/Platonic_Solids_Transparent.svg.png  used on inpu
@@ -1731,13 +1731,44 @@ LaTeX Warning: Command \textdegree invalid in math mode on input line 5761.
 
 Missing character: There is no ° in font cmr10!
 
+Overfull \hbox (29.32306pt too wide) in paragraph at lines 5799--5810
+[]\OT1/cmr/m/it/10 Exemple. []$\OML/cmm/m/it/10 E \OT1/cmr/m/n/10 = \OMS/cmsy/m
+/n/10 f[]g \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 a; b; c; d; e; 
+f; g; h\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 G \OT1/cmr/m/n/10
+ = \OML/cmm/m/it/10 S[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 e;
+ [][]; [][]; [][]; [][]; [][]\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 .
+ []
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.07225pt}.
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[55] (MAT141-elements_d_algebre.aux)
+[55]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[56]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[57
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[58] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1749,13 +1780,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT141-elements_d_algebre.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: E7D8B05CD4E2DFF0749AB77C4AE0B8E8;3459.
+(rerunfilecheck)             Checksum: A4FBBE639D47C6F81589F48B332DF37B;3603.
  ) 
 Here is how much of TeX's memory you used:
- 35092 strings out of 467871
- 716399 string characters out of 5418375
+ 35125 strings out of 467871
+ 716849 string characters out of 5418375
  1172044 words of memory out of 5000000
- 63260 multiletter control sequences out of 15000+600000
+ 63286 multiletter control sequences out of 15000+600000
  647481 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,25n,107p,607b,1341s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1796,9 +1827,9 @@ ts/latxfont/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
 TeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MAT141-elements_d_algebre.pdf (57 pages, 692480 bytes).
+Output written on MAT141-elements_d_algebre.pdf (60 pages, 704531 bytes).
 PDF statistics:
- 691 PDF objects out of 1000 (max. 8388607)
- 197 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 712 PDF objects out of 1000 (max. 8388607)
+ 204 named destinations out of 1000 (max. 500000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 

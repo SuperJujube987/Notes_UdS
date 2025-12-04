@@ -5782,4 +5782,309 @@ Donn\'e par Jean-Philippe Burelle}
 			\caption{Repr\'esentation du t\'etrah\`edre et de ses rotations}
 		\end{figure}
 	\end{exem}
+
+	\cours
+	\begin{rappel}~
+
+		\begin{ulist}
+			\item $E^g = \{x \in E \mid g \bullet x = x\}$, \'el\'ements $g$-invariants
+			\item Burnside
+			\begin{ulist}
+				\item $\card{\sfrac{E}{G}} = \frac{1}{\card{G}} \sum_{g \in G} \card{E^g}$
+				\item $\sfrac{E}{G} = \{\text{orbites de $G$ sur $E$}\} = \{G \bullet x \mid x \in E\}$
+			\end{ulist}
+		\end{ulist}
+	\end{rappel}
+	\begin{exem}
+		$E = \{\text{graphes \'etiquet\'es \`a trois sommets}\} = \{a,b,c,d,e,f,g,h\}$, $G = S_3 = \{e, \begin{psmallmatrix}
+			1&2
+		\end{psmallmatrix}, \begin{psmallmatrix}
+			1&3
+		\end{psmallmatrix}, \begin{psmallmatrix}
+			2&3
+		\end{psmallmatrix}, \begin{psmallmatrix}
+			1&2&3
+		\end{psmallmatrix}, \begin{psmallmatrix}
+			1&3&2
+		\end{psmallmatrix}\}$. $G$ agit sur $E$ par permutation des sommets.
+
+		$E^e = E$, $\card{E^e} = \card{E} = 2^3 = 8$.
+
+		$E^{\begin{psmallmatrix}
+				1&2
+		\end{psmallmatrix}} = \{a, b, g, h\}$.
+
+		$E^{\begin{psmallmatrix}
+				1&2&3
+		\end{psmallmatrix}} = \{a, h\}$.
+
+		$\sfrac{E}{G} = \{\text{graphes non-\'etiquet\'es \`a trois sommets}\} = \{\{a\}, \{b,c,d\}, \{e,f,g\}, \{h\}\}$.
+
+		$\card{\sfrac{E}{G}} = 4$.
+
+		$\dfrac{1}{\card{G}} \sum_{g \in G} \card{E^g} = \dfrac{1}{6} ( \underbrace{8}_{e} + \underbrace{3 \times 4}_{\underset{\underset{\begin{psmallmatrix}
+						2&3
+				\end{psmallmatrix}}{\begin{psmallmatrix}
+						1&3
+			\end{psmallmatrix}}}{\begin{psmallmatrix}
+					1&2
+		\end{psmallmatrix}}} + \underbrace{2 \times 2}_{\underset{\begin{psmallmatrix}
+		1&3&2
+	\end{psmallmatrix}}{\begin{psmallmatrix}
+	1&2&3
+\end{psmallmatrix}}} ) = \dfrac{24}{6} = 4$.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}
+				\coordinate (1) at (60:1);
+				\coordinate (2) at (0,0);
+				\coordinate (3) at (0:1);
+				\fill (1) circle (2pt) node[above] {$1$};
+				\fill (2) circle (2pt) node[below] {$2$};
+				\fill (3) circle (2pt) node[below] {$3$};
+
+				\node () at (.5,-.5) {$a$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\coordinate (1) at (60:1);
+				\coordinate (2) at (0,0);
+				\coordinate (3) at (0:1);
+				\fill (1) circle (2pt) node[above] {$1$};
+				\fill (2) circle (2pt) node[below] {$2$};
+				\fill (3) circle (2pt) node[below] {$3$};
+
+				\node () at (.5,-.5) {$b$};
+
+				\draw (1) -- (2);
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\coordinate (1) at (60:1);
+				\coordinate (2) at (0,0);
+				\coordinate (3) at (0:1);
+				\fill (1) circle (2pt) node[above] {$1$};
+				\fill (2) circle (2pt) node[below] {$2$};
+				\fill (3) circle (2pt) node[below] {$3$};
+
+				\node () at (.5,-.5) {$c$};
+
+				\draw (1) -- (3);
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\coordinate (1) at (60:1);
+				\coordinate (2) at (0,0);
+				\coordinate (3) at (0:1);
+				\fill (1) circle (2pt) node[above] {$1$};
+				\fill (2) circle (2pt) node[below] {$2$};
+				\fill (3) circle (2pt) node[below] {$3$};
+
+				\node () at (.5,-.5) {$d$};
+
+				\draw (2) -- (3);
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\coordinate (1) at (60:1);
+				\coordinate (2) at (0,0);
+				\coordinate (3) at (0:1);
+				\fill (1) circle (2pt) node[above] {$1$};
+				\fill (2) circle (2pt) node[below] {$2$};
+				\fill (3) circle (2pt) node[below] {$3$};
+
+				\node () at (.5,-.5) {$e$};
+
+				\draw (2) -- (1) -- (3);
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\coordinate (1) at (60:1);
+				\coordinate (2) at (0,0);
+				\coordinate (3) at (0:1);
+				\fill (1) circle (2pt) node[above] {$1$};
+				\fill (2) circle (2pt) node[below] {$2$};
+				\fill (3) circle (2pt) node[below] {$3$};
+
+				\node () at (.5,-.5) {$f$};
+
+				\draw (1) -- (2) -- (3);
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\coordinate (1) at (60:1);
+				\coordinate (2) at (0,0);
+				\coordinate (3) at (0:1);
+				\fill (1) circle (2pt) node[above] {$1$};
+				\fill (2) circle (2pt) node[below] {$2$};
+				\fill (3) circle (2pt) node[below] {$3$};
+
+				\node () at (.5,-.5) {$g$};
+
+				\draw (1) -- (3) -- (2);
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\coordinate (1) at (60:1);
+				\coordinate (2) at (0,0);
+				\coordinate (3) at (0:1);
+				\fill (1) circle (2pt) node[above] {$1$};
+				\fill (2) circle (2pt) node[below] {$2$};
+				\fill (3) circle (2pt) node[below] {$3$};
+
+				\node () at (.5,-.5) {$h$};
+
+				\draw (1) -- (2) -- (3) -- cycle;
+			\end{tikzpicture}
+			\caption{Repr\'esentation de $E$}
+		\end{figure}
+	\end{exem}
+
+	\phantomsection\chapter*{Compl\'ements/rappels}\addcontentsline{toc}{chapter}{Compl\'ements/rappels}
+	Le signe d'une permutation $\sigma$:
+	\begin{equation*}
+		\signe(\sigma) = \prod_{i < j} \dfrac{\sigma(i) - \sigma(j)}{i-j}
+	\end{equation*}
+	$\begin{array}{rcl}
+		\signe:S_n&\to&\{-1,1\} = C_2
+	\end{array}$ est un homomorphisme, donc $\signe(\sigma\eta) = \signe(\sigma)\signe(\eta)$.
+	\begin{prop}
+		Toute permutation se d\'ecompose en un produit de cycles disjoints.
+	\end{prop}
+	\begin{prop}
+		Tout cycle se d\'ecompose en produit de transpositions.
+		\[
+		\begin{pmatrix}
+			a_1&a_2&a_3&\dotsb&a_l
+		\end{pmatrix} = \begin{pmatrix}
+			a_1&a_l
+		\end{pmatrix} \begin{pmatrix}
+			a_1&a_{l-1}
+		\end{pmatrix} \begin{pmatrix}
+			a_1&a_{l-2}
+		\end{pmatrix} \dotsb \begin{pmatrix}
+			a_1&a_2
+		\end{pmatrix}
+		\]
+	\end{prop}
+
+	Ainsi, tout $\sigma \in S_n$ se d\'ecompose en produit de transpositions.
+	\begin{prop}
+		$\signe\begin{psmallmatrix}
+			1&2
+		\end{psmallmatrix} = -1$, avec $\begin{psmallmatrix}
+			1&2
+		\end{psmallmatrix} \in S_n$.
+		\begin{proof}~
+
+			\begin{align*}
+				\signe\begin{psmallmatrix}
+					1&2
+				\end{psmallmatrix}&= \prod_{i < j} \dfrac{\begin{psmallmatrix}
+						1&2
+					\end{psmallmatrix}(i) - \begin{psmallmatrix}
+						1&2
+				\end{psmallmatrix}(j)}{i-j}\\
+			&= \dfrac{(12)(1) - (12)(2)}{1-2} \dfrac{(12)(1) - (12)(3)}{1-3} \dfrac{(12)(1) - (12)(4)}{1-4} \dotsb \dfrac{(12)(2) - (12)(3)}{2-3} \dotsb \dfrac{(12)(n-1) - (12)(n)}{(n-1)-n}\\
+			&= \dfrac{2-1}{1-2} \cdot \prod \dfrac{\sigma(i) - \sigma(j)}{i-j}\\
+			\intertext{avec $i<j$ et $\sigma(i)<\sigma(j)$, donc le produit vaut $1$}
+			&= -1
+			\end{align*}
+		\end{proof}
+	\end{prop}
+
+	De plus, $\signe(\eta\sigma\eta^{-1}) = \signe(\eta) \signe(\sigma) \signe(\eta)^{-1} = \signe(\sigma)$.
+
+	$\signe\begin{psmallmatrix}
+		1&j
+	\end{psmallmatrix} = \signe \left(\begin{psmallmatrix}
+		2&j
+	\end{psmallmatrix} \begin{psmallmatrix}
+		1&2
+	\end{psmallmatrix} \begin{psmallmatrix}
+		2&j
+	\end{psmallmatrix} \right) = \signe\begin{psmallmatrix}
+		1&2
+	\end{psmallmatrix} = -1$.
+
+	$\signe\begin{psmallmatrix}
+		i&j
+	\end{psmallmatrix} = \signe \left( \begin{psmallmatrix}
+		1&i
+	\end{psmallmatrix} \begin{psmallmatrix}
+		1&j
+	\end{psmallmatrix} \begin{psmallmatrix}
+		1&i
+	\end{psmallmatrix} \right) = -1$.
+
+	Ainsi, si $\sigma$ se d\'ecompose en $k$ transpositions, alors $\signe(\sigma) = (-1)^k$.
+	\begin{exem}~%TODO dessins
+
+		Un jouet compos\'e de deux roulettes avec les chiffres de $1$ \`a $9$. Les deux roulettes peuvent tourner dans n'importe quel sens. Il y a toujours un chiffre affect\'e par les deux roulettes en m\^eme temps.
+
+		Est-il possible de jouer \`a ce jeu et d'obtenir l'\'etat suivant?
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}
+				\coordinate (c1) at (0,0);
+				\coordinate (c2) at (0:2);
+				\coordinate (1) at (72:1);
+				\coordinate (2) at (0:1);
+				\coordinate (3) at (-72:1);
+				\coordinate (4) at (-144:1);
+				\coordinate (5) at (144:1);
+				\begin{scope}[xshift=2cm]
+					\coordinate (6) at (108:1);
+					\coordinate (7) at (36:1);
+					\coordinate (8) at (-108:1);
+					\coordinate (9) at (-36:1);
+				\end{scope}
+				\draw (c1) circle (1.25);
+				\draw (c1) circle (.75);
+				\draw (c2) circle (1.25);
+				\draw (c2) circle (.75);
+				\foreach \a in {1,2,...,9}
+				\node () at (\a) {$\a$};
+			\end{tikzpicture}
+			\hspace{2cm}
+			\begin{tikzpicture}
+				\coordinate (c1) at (0,0);
+				\coordinate (c2) at (0:2);
+				\coordinate (1) at (72:1);
+				\coordinate (2) at (0:1);
+				\coordinate (3) at (-72:1);
+				\coordinate (4) at (-144:1);
+				\coordinate (5) at (144:1);
+				\begin{scope}[xshift=2cm]
+					\coordinate (6) at (108:1);
+					\coordinate (7) at (36:1);
+					\coordinate (8) at (-36:1);
+					\coordinate (9) at (-108:1);
+				\end{scope}
+				\draw (c1) circle (1.25);
+				\draw (c1) circle (.75);
+				\draw (c2) circle (1.25);
+				\draw (c2) circle (.75);
+				\foreach \a in {1,2,...,9}
+				\node () at (\a) {$\a$};
+			\end{tikzpicture}
+			\caption{Repr\'esentation du jouet dans l'\'etat initial et l'\'etat final d\'esir\'e}
+		\end{figure}
+
+		On peut mod\'eliser ce jouet \`a l'aide de permutations. Soit
+		\[
+		\left\langle \underbrace{\begin{psmallmatrix}
+			1&2&3&4&5
+		\end{psmallmatrix}}_{\alpha}, \underbrace{\begin{psmallmatrix}
+			2&6&7&9&8
+		\end{psmallmatrix}}_{\beta} \right\rangle \lte S_9
+		\]
+		le plus petit sous-groupe de $S_9$ qui contient $\alpha$ et $\beta$, $\{\varepsilon, \alpha, \beta, \alpha^{-1}, \beta^{-1}, \alpha^2, \beta^2, \dotsb\}$.
+
+		On a $\signe(\alpha) = \signe(\beta) = 1$. Alors, toutes les positions du jeu sont obtenues en appliquant une permutation paire \`a $\{1,2,3,4,5,6,7,8,9\}$, mais $\begin{psmallmatrix}
+			8&9
+		\end{psmallmatrix}$ est impaire.
+
+		Ainsi, l'\'etat d\'esir\'e ne peut pas \^etre obtenu.
+	\end{exem}
 \end{document}
