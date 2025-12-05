@@ -22,3 +22,5 @@
 \contentsline {section}{\numberline { 5.1}D\'efinitions}{44}{section.5.1}%
 \contentsline {section}{\numberline { 5.2}Convergence}{49}{section.5.2}%
 \contentsline {section}{\numberline { 5.3}\'Egalit\'e de Parseval}{53}{section.5.3}%
+\contentsline {section}{\numberline { 5.4}S\'eries en sinus et en cosinus}{56}{section.5.4}%
+\contentsline {section}{\numberline { 5.5}Forme complexe de la s\'erie de Fourier}{58}{section.5.5}%

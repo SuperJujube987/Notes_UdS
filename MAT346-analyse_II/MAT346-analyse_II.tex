@@ -3295,23 +3295,23 @@ Donn\'e par Mario Lambert}
 
 		Soit $g:[-\pi,\pi] \to \reels$ un polyn\^ome trigonom\'etrique de degr\'e $n$.
 		\begin{enumerate}[label=\alph*)]
-			\item L'\emph{erreur ponctuelle} (de degr\'e $n$) est $\eps_n(t) = (f-g)(t)$;
-			\item L'\emph{erreur quadratique moyenne} est $E_n(t) = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{\eps_n^2(t) dt} = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{(f-g)^2(t) dt} = \dfrac{1}{2\pi} \langle f-g,f-g \rangle = \dfrac{1}{2\pi} \norme{f-g}^2$.
+			\item L'\emph{erreur ponctuelle} (de degr\'e $n$) est $\eps_n(g) = (f-g)(t)$;
+			\item L'\emph{erreur quadratique moyenne} est $E_n(g) = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{\eps_n^2(g) dt} = \dfrac{1}{2\pi} \dint{-\pi}{\pi}{(f-g)^2(t) dt} = \dfrac{1}{2\pi} \langle f-g,f-g \rangle = \dfrac{1}{2\pi} \norme{f-g}^2$.
 
 			Dans le cas d'une fonction d\'efinie sur $[a,b]$, on a
 			\begin{equation*}%TODO finir
-				E_n(t) = \dfrac{1}{T} \dint{a}{b}{\eps_n^2(t) dt} = \dfrac{1}{T} \dint{a}{b}{(f-g)^2(t) dt} = \dfrac{1}{T} \langle f-g,f-g \rangle = \dfrac{1}{T} \norme{f-g}^2
+				E_n(g) = \dfrac{1}{T} \dint{a}{b}{\eps_n^2(g) dt} = \dfrac{1}{T} \dint{a}{b}{(f-g)^2(t) dt} = \dfrac{1}{T} \langle f-g,f-g \rangle = \dfrac{1}{T} \norme{f-g}^2
 			\end{equation*}
 		\end{enumerate}
 	\end{defin}
 	\begin{thm}~
 
-		$E_n(t)$ est minimale quand $g = S_n(f)(t)$, o\`u $S_n(f)(t)$ est la s\'erie de Fourier de $f$ tronqu\'ee \`a l'ordre $n$, c'est-\`a-dire, $S_n(f)(t) = a_0 + \dsum{k}{1}{n}{\left[a_k\cos\dfrac{2k\pi}{T}t + b_k\sin\dfrac{2k\pi}{T}t\right]}$.
+		$E_n(g)$ est minimale quand $g = S_n(f)(t)$, o\`u $S_n(f)(t)$ est la s\'erie de Fourier de $f$ tronqu\'ee \`a l'ordre $n$, c'est-\`a-dire, $S_n(f)(t) = a_0 + \dsum{k}{1}{n}{\left[a_k\cos\dfrac{2k\pi}{T}t + b_k\sin\dfrac{2k\pi}{T}t\right]}$.
 		\begin{proof}~
 
 			Supposons $g(t) = \alpha_0 + \dsum{k}{1}{n}{\left[\alpha_k\cos kt + \beta_k\sin kt\right]}$. On a
 			\begin{align*}
-				E_n(t)&= \dfrac{1}{2\pi} \dint{-\pi}{\pi}{(f-g)^2(t) dt}\\
+				E_n(g)&= \dfrac{1}{2\pi} \dint{-\pi}{\pi}{(f-g)^2(t) dt}\\
 				&= \dfrac{1}{2\pi} \langle f-g,f-g \rangle\\
 				&= \dfrac{1}{2\pi} \left[\langle f,f \rangle - 2 \langle f,g \rangle + \langle g,g \rangle\right]
 			\end{align*}
@@ -3337,30 +3337,30 @@ Donn\'e par Mario Lambert}
 
 			On obtient
 			\begin{align*}
-				E_n(t)&= \dfrac{1}{2\pi} \left[ \norme{f}^2 - 2\left( 2\pi \alpha_0 a_0 + \dsum{k}{1}{n}{\pi \alpha_k a_k} + \dsum{k}{1}{n}{\pi \beta_k b_k} \right) + 2\pi \alpha_0^2 + \pi \dsum{k}{1}{n}{\left(\alpha_k^2 + \beta_k^2\right)} \right]\\
+				E_n(g)&= \dfrac{1}{2\pi} \left[ \norme{f}^2 - 2\left( 2\pi \alpha_0 a_0 + \dsum{k}{1}{n}{\pi \alpha_k a_k} + \dsum{k}{1}{n}{\pi \beta_k b_k} \right) + 2\pi \alpha_0^2 + \pi \dsum{k}{1}{n}{\left(\alpha_k^2 + \beta_k^2\right)} \right]\\
 				&= \dfrac{1}{2\pi} \left[ \norme{f}^2 + 2\pi \left( \alpha_0^2 - 2\alpha_0 a_0 \right) + \pi \dsum{k}{1}{n}{\left( \alpha_k^2 - 2\alpha_k a_k \right)} + \pi \dsum{k}{1}{n}{\left( \beta_k^2 - 2\beta_k b_k \right)} \right]\\
 				&= \dfrac{1}{2\pi} \left[ \norme{f}^2 + 2\pi \left( [a_0-\alpha_0]^2 - a_0^2 \right) + \pi \dsum{k}{1}{n}{\left( [a_k - \alpha_k]^2 - a_k^2 \right)} + \pi \dsum{k}{1}{n}{\left( [b_k - \beta_k]^2 - b_k^2 \right)} \right]\\
 				&= \dfrac{1}{2\pi} \left[ \norme{f}^2 - \pi \left( 2a_0^2 + \dsum{k}{1}{n}{\left[ a_k^2 + b_k^2 \right]} \right) + 2\pi (a_0-\alpha_0)^2 + \pi \dsum{k}{1}{n}{(a_k-\alpha_k)^2} + \pi \dsum{k}{1}{n}{(b_k-\beta_k)^2} \right]
 			\end{align*}
 
-			Donc, $E_n(t)$ est minimale si, et seulement si, $a_0 = \alpha_0$, $a_k = \alpha_k$ et $b_k = \beta_k$, pour $k \gte 1$.
+			Donc, $E_n(g)$ est minimale si, et seulement si, $a_0 = \alpha_0$, $a_k = \alpha_k$ et $b_k = \beta_k$, pour $k \gte 1$.
 		\end{proof}
 	\end{thm}
 	\begin{coro}
-		La valeur minimale de $E_n(t)$ est
+		La valeur minimale de $E_n(g)$ est
 		\begin{equation*}
-			\dfrac{1}{2\pi} \left[ \norme{f}^2 - \pi \left( 2a_0^2 + \dsum{k}{1}{n}{\left( a_k^2+b_k^2 \right)} \right) \right]
+			\dfrac{1}{T} \norme{f}^2 - \left( a_0^2 + \dfrac{1}{2} \dsum{k}{1}{n}{\left( a_k^2+b_k^2 \right)} \right)
 		\end{equation*}
 	\end{coro}
 	\begin{coro}
 		\begin{equation*}
-			\dfrac{1}{\pi} \norme{f}^2 \gte 2a_0^2 + \dsum{k}{1}{n}{\left( a_k^2+b_k^2 \right)}
+			\dfrac{1}{T} \norme{f}^2 \gte a_0^2 + \dfrac{1}{2} \dsum{k}{1}{n}{\left( a_k^2+b_k^2 \right)}
 		\end{equation*}
 	\end{coro}
 	\begin{coro}
 		Soient $f$ continue par morceaux et $a_0,a_k,b_k$ les coefficients de la s\'erie de Fourier $S(f)$. Alors,
 		\begin{equation*}
-			2a_0^2 + \dsum{k}{1}{\infty}{\left( a_k^2+b_k^2 \right)} \lte \dfrac{1}{\pi} \norme{f}^2 < \infty
+			a_0^2 + \dfrac{1}{2} \dsum{k}{1}{\infty}{\left( a_k^2+b_k^2 \right)} \lte \dfrac{1}{T} \norme{f}^2 < \infty
 		\end{equation*}
 		\begin{proof}~
 
@@ -3377,4 +3377,314 @@ Donn\'e par Mario Lambert}
 			$\dsum{n}{1}{\infty}{(a_k^2+b_k^2)}$ converge, donc $(a_k^2+b_k^2) \to 0$, donc $a_k,b_k \to 0$.
 		\end{proof}
 	\end{coro}
+	\begin{thm}~
+
+		Soit $f:[a,b] \to \reels$ continue par morceaux. Alors, $(\forall \eps>0)(\exists g)$ un polyn\^ome trigonom\'etrique t.q. $\norme{f-g} < \eps$.
+	\end{thm}
+	\begin{coro}[In\'egalit\'e de Parseval]
+		\begin{equation*}
+			a_0^2 + \dfrac{1}{2} \dsum{k}{1}{\infty}{\left( a_k^2+b_k^2 \right)} = \dfrac{1}{T} \norme{f}^2 = \dfrac{1}{T} \dint{a}{b}{f^2(t) dt}
+		\end{equation*}
+		\begin{proof}~
+
+			Posons $V = \bigcup\limits_{n=0}^{\infty} V_n$, o\`u $V_n$ est l'espace vectoriel des polyn\^omes trigonom\'etriques de degr\'e au plus $n$.
+
+			Comme $V_n \subseteq V_{n+1}$, si $g_n \in V_n$, alors $\operatorname{dist}(f,g_n) \gte \operatorname{dist}(f,g_{n+1})$.
+
+			On obtient
+			\begin{align*}
+				0&= \dlim{n}{\infty}{\operatorname{dist}(f,g_n)}\\
+				&= \dlim{n}{\infty}{\left[ \dfrac{1}{T} \norme{f}^2 - \left( a_0^2 + \dfrac{1}{2} \dsum{k}{1}{n}{\left( a_k^2+b_k^2 \right)} \right) \right]}\\
+				&= \dfrac{1}{T} \norme{f}^2 - a_0^2 + \dfrac{1}{2} \dsum{k}{1}{\infty}{\left( a_k^2+b_k^2 \right)}
+			\end{align*}
+		\end{proof}
+	\end{coro}
+
+	\section{S\'eries en sinus et en cosinus}
+	\begin{defin}~
+
+		Soit $f:[0,\sfrac{T}{2}] \to \reels$, avec $T \in \reels_*^+$.
+		\begin{enumerate}[label=\alph*)]
+			\item Si $f(0) = f(\sfrac{T}{2})$, alors l'\emph{extension p\'eriodique} de $f$ est
+			\begin{equation*}
+				f_{p\acute er}(t) = \left\{ \begin{array}{lll}
+					f(t)&\text{si}&0 \lte t \lte \sfrac{T}{2}\\
+					f(t+\sfrac{T}{2})&\text{sinon}
+				\end{array} \right.
+			\end{equation*}
+			\item L'\emph{extension paire} de $f$ est
+			\begin{equation*}
+				f_p(t) = \left\{\begin{array}{lll}
+					f(t)&\text{si}&0 \lte t \lte \sfrac{T}{2}\\
+					f(-t)&\text{si}&-\sfrac{T}{2} \lte t \lte 0\\
+					f_p(t+T)&\text{sinon}
+				\end{array}\right.
+			\end{equation*}
+			\item L'\emph{extension impaire} de $f$ est
+			\begin{equation*}
+				f_i(t)= \left\{\begin{array}{lll}
+					f(t)&\text{si}&0 < t \lte \sfrac{T}{2}\\
+					-f(-t)&\text{si}&-\sfrac{T}{2} \lte t < 0\\
+					0&\text{si}&t=0\\
+					f_i(t+T)&\text{sinon}
+				\end{array}\right.
+			\end{equation*}
+		\end{enumerate}
+	\end{defin}
+	\begin{exem}~
+
+		\begin{enumerate}[label=\alph*)]%TODO dessins
+			\item ~
+
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}
+					\draw[->] (-.2,0) -- (2.5,0) node[right] {$x$};
+					\draw[->] (0,-.2) -- (0,1.5) node[above] {$y$};
+
+					\draw (2,0) -- (2,-.1) node[below] {$\sfrac{T}{2}$};
+
+					\draw (0,0) -- plot[xshift=2cm, domain=-1:0] (\x,\x*\x);
+
+					\node () at (1.5,1) {$f$};
+				\end{tikzpicture}
+				\qquad
+				\begin{tikzpicture}
+					\draw[->] (-4.5,0) -- (4.5,0) node[right] {$x$};
+					\draw[->] (0,-.2) -- (0,1.5) node[above] {$y$};
+
+					\draw (2,0) -- (2,-.1) node[below] {$\sfrac{T}{2}$};
+					\draw (4,0) -- (4,-.1) node[below] {$T$};
+					\draw (-2,0) -- (-2,-.1) node[below] {$-\sfrac{T}{2}$};
+					\draw (-4,0) -- (-4,-.1) node[below] {$-T$};
+
+					\draw (-4,0) -- plot[xshift=-2cm, domain=-1:0] (\x,\x*\x) -- plot[domain=-1:0] (\x,\x*\x) -- plot[xshift=2cm, domain=-1:0] (\x,\x*\x) -- plot[xshift=4cm, domain=-1:0] (\x,\x*\x);
+
+					\node () at (2,1) {$f_{p\acute er}$};
+				\end{tikzpicture}
+
+				\begin{tikzpicture}
+					\draw[->] (-4.5,0) -- (4.5,0) node[right] {$x$};
+					\draw[->] (0,-.2) -- (0,1.5) node[above] {$y$};
+
+					\draw (2,0) -- (2,-.1) node[below] {$\sfrac{T}{2}$};
+					\draw (4,0) -- (4,-.1) node[below] {$T$};
+					\draw (-2,0) -- (-2,-.1) node[below] {$-\sfrac{T}{2}$};
+					\draw (-4,0) -- (-4,-.1) node[below] {$-T$};
+
+					\draw (-4,0) -- plot[xshift=-2cm, domain=-1:1] (\x,\x*\x) -- (0,0) -- plot[xshift=2cm, domain=-1:1] (\x,\x*\x) -- (4,0);
+
+					\node () at (2,1) {$f_p$};
+				\end{tikzpicture}
+
+				\begin{tikzpicture}
+					\draw[->] (-4.5,0) -- (4.5,0) node[right] {$x$};
+					\draw[->] (0,-.2) -- (0,1.5) node[above] {$y$};
+
+					\draw (2,0) -- (2,-.1) node[below] {$\sfrac{T}{2}$};
+					\draw (4,0) -- (4,-.1) node[below] {$T$};
+					\draw (-2,0) -- (-2,-.1) node[below] {$-\sfrac{T}{2}$};
+					\draw (-4,0) -- (-4,-.1) node[below] {$-T$};
+
+					\draw (-4.2,-.2) -- plot[xshift=-2cm, domain=-1:0] (\x,\x*\x) -- plot[xshift=-2cm, domain=0:1] (\x,-\x*\x) -- plot[xshift=2cm, domain=-1:0] (\x,\x*\x) -- plot[xshift=2cm, domain=0:1] (\x,-\x*\x) -- (4.2,.2);
+
+					\fill (-4,0) circle (2pt) (0,0) circle (2pt) (4,0) circle (2pt);
+
+					\node () at (2,1) {$f_i$};
+				\end{tikzpicture}
+				\caption{Extensions p\'eriodique, paire et impaire de $f$}
+			\end{figure}
+			\item $\begin{array}{rcl}
+				f:[0,1]&\to&\reels\\
+				t&\mapsto&1-t
+			\end{array}$.
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}
+					\draw[->] (-.2,0) -- (1.5,0) node[right] {$x$};
+					\draw[->] (0,-.2) -- (0,1.5) node[above] {$y$};
+
+					\draw (1,0) -- (1,-.1) node[below] {$\sfrac{T}{2}$};
+
+					\draw (0,1) -- (1,0);
+
+					\node () at (1,1) {$f$};
+				\end{tikzpicture}
+				\qquad
+				\begin{tikzpicture}
+					\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+					\draw[->] (0,-.2) -- (0,1.5) node[above] {$y$};
+
+					\draw (1,0) -- (1,-.1) node[below] {$\sfrac{T}{2}$};
+					\draw (2,0) -- (2,-.1) node[below] {$T$};
+					\draw (-1,0) -- (-1,-.1) node[below] {$-\sfrac{T}{2}$};
+					\draw (-2,0) -- (-2,-.1) node[below] {$-T$};
+
+					\draw (-2.2,.2) -- (-2,0) (-2,1) -- (-1,0) (-1,1) -- (0,0) (0,1) -- (1,0) (1,1) -- (2,0) (2,1) -- (2.2,.8);
+
+					\node () at (.7,1.2) {$f_{p\acute er}$};
+
+					\fill (-2,.5) circle (2pt) (-1,.5) circle (2pt) (0,.5) circle (2pt) (1,.5) circle (2pt) (2,.5) circle (2pt);
+				\end{tikzpicture}
+
+				\begin{tikzpicture}
+					\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+					\draw[->] (0,-.2) -- (0,1.5) node[above] {$y$};
+
+					\draw (1,0) -- (1,-.1) node[below] {$\sfrac{T}{2}$};
+					\draw (2,0) -- (2,-.1) node[below] {$T$};
+					\draw (-1,0) -- (-1,-.1) node[below] {$-\sfrac{T}{2}$};
+					\draw (-2,0) -- (-2,-.1) node[below] {$-T$};
+
+					\draw (-2.2,.8) -- (-2,1) -- (-1,0) -- (0,1) -- (1,0) -- (2,1) -- (2.2,.8);
+
+					\node () at (1,1) {$f_p$};
+				\end{tikzpicture}
+				\qquad
+				\begin{tikzpicture}
+					\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+					\draw[->] (0,-.2) -- (0,1.5) node[above] {$y$};
+
+					\draw (1,0) -- (1,-.1) node[below] {$\sfrac{T}{2}$};
+					\draw (2,0) -- (2,-.1) node[below] {$T$};
+					\draw (-1,0) -- (-1,-.1) node[below] {$-\sfrac{T}{2}$};
+					\draw (-2,0) -- (-2,-.1) node[below] {$-T$};
+
+					\draw (-2.2,-.8) -- (-2,-1) (-2,1) -- (0,-1) (0,1) -- (2,-1) (2,1) -- (2.2,.8);
+
+					\node () at (1.2,.7) {$f_i$};
+
+					\fill (-2,0) circle (2pt) (0,0) circle (2pt) (2,0) circle (2pt);
+				\end{tikzpicture}
+				\caption{Extensions p\'eriodique, paire et impaire de $f$}
+			\end{figure}
+
+			$S_{p\acute er}(f)(t)$:
+			\begin{align*}
+				\begin{split}
+					a_0&= \dfrac{1}{2}
+				\end{split}
+				&
+				\begin{split}
+					a_k&= 0
+				\end{split}
+				&
+				\begin{split}
+					b_k&= \dfrac{1}{k\pi}
+				\end{split}
+				&
+				\begin{split}
+					S_{p\acute er}(f)(t)&= \dfrac{1}{2} + \dsum{k}{1}{\infty}{\dfrac{1}{k\pi} \sin 2k\pi t}
+				\end{split}
+			\end{align*}
+
+			$S_p(f)(t)$:
+			\begin{align*}
+				\begin{split}
+					a_0&= \dfrac{1}{2}
+				\end{split}
+				&
+				\begin{split}
+					a_k&= \left\{\begin{array}{lll}
+						0&\text{si}&k\text{ pair}\\
+						\dfrac{4}{k^2\pi^2}&\text{si}&k\text{ impair}
+					\end{array}\right.
+				\end{split}
+				&
+				\begin{split}
+					b_k&= 0
+				\end{split}
+				&
+				\begin{split}
+					S_p(f)(t)&= \dfrac{1}{2} + \dsum{n}{0}{\infty}{\dfrac{4}{(2n+1)^2\pi^2} \cos (2n+1)\pi t}
+				\end{split}
+			\end{align*}
+
+			$S_i(f)(t)$:
+			\begin{align*}
+				\begin{split}
+					a_0&= 0
+				\end{split}
+				&
+				\begin{split}
+					a_k&= 0
+				\end{split}
+				&
+				\begin{split}
+					b_k&= \dfrac{2}{k\pi}
+				\end{split}
+				&
+				\begin{split}
+					S_i(f)(t)&= \dsum{k}{1}{\infty}{\dfrac{2}{k\pi} \sin k\pi t}
+				\end{split}
+			\end{align*}
+		\end{enumerate}
+	\end{exem}
+	\begin{prop}~
+
+		Soit $f:[0,\sfrac{T}{2}] \to \reels$. La s\'erie de Fourier de l'extension paire de $f$ est
+		\begin{equation*}
+			S_p(f)(t) = S(f_p)(t) = a_0 + \dsum{k}{1}{\infty}{\left( a_k\cos\dfrac{2k\pi}{T}t + b_k\sin\dfrac{2k\pi}{T}t \right)}
+		\end{equation*}
+		avec
+		\begin{align*}
+			\begin{split}
+				a_0&= \dfrac{1}{T} \dint{-\sfrac{T}{2}}{\sfrac{T}{2}}{f_p(t) dt}\\
+				&= \dfrac{2}{T} \dint{0}{\sfrac{T}{2}}{f(t) dt}
+			\end{split}
+			&
+			\begin{split}
+				a_k&= \dfrac{2}{T} \dint{-\sfrac{T}{2}}{\sfrac{T}{2}}{f_p(t) \cos\dfrac{2k\pi}{T}t dt}\\
+				&= \dfrac{4}{T} \dint{0}{\sfrac{T}{2}}{f(t) \cos\dfrac{2k\pi}{T}t dt}
+			\end{split}
+			&
+			\begin{split}
+				b_k&= \dfrac{2}{T} \dint{-\sfrac{T}{2}}{\sfrac{T}{2}}{f_p(t) \sin\dfrac{2k\pi}{T}t dt}\\
+				&= 0
+			\end{split}
+		\end{align*}
+	\end{prop}
+	\begin{defin}
+		La \emph{s\'erie de Fourier en cosinus} de $f:[0,\sfrac{T}{2}] \to \reels$ est la s\'erie de Fourier de l'extension paire de $f$.
+	\end{defin}
+	\begin{prop}~
+
+		La \emph{s\'erie de Fourier en sinus} de $f:[0,\sfrac{T}{2}] \to \reels$ est la s\'erie de Fourier de l'extension impaire de $f$ et vaut
+		\begin{equation*}
+			S_i(f)(t) = S(f_i)(t) = \dsum{k}{1}{\infty}{b_k\sin\dfrac{2k\pi}{T}t}
+		\end{equation*}
+		avec
+		\begin{align*}
+			b_k&= \dfrac{2}{T} \dint{-\sfrac{T}{2}}{\sfrac{T}{2}}{f_i(t) \sin\dfrac{2k\pi}{T}t dt}\\
+			&= \dfrac{4}{T} \dint{0}{\sfrac{T}{2}}{f(t) \sin\dfrac{2k\pi}{T}t dt}
+		\end{align*}
+	\end{prop}
+	\begin{prop}~
+
+		$f:[a,b] \to \reels$ continue par morceaux.
+
+		Posons $g_p = \dfrac{f(x)+f(-x)}{2}$ et $g_i = \dfrac{f(x)-f(-x)}{2}$.
+
+		On a $f = g_p+g_i$, avec $g_p$ paire et $g_i$ impaire.
+
+		Alors, $S(f)(t) = S_p(f)(t) + S_i(f)(t) = S(g_p)(t) + S(g_i)(t)$.
+	\end{prop}
+
+	\section{Forme complexe de la s\'erie de Fourier}
+	\begin{align*}
+		e^{i\theta}&= \cos\theta+i\sin\theta\\
+		e^{-i\theta}&= \cos\theta-i\sin\theta\\[1ex]
+		\dfrac{e^{i\theta}+e^{-i\theta}}{2}&= \cos\theta\\
+		\dfrac{e^{i\theta}-e^{-i\theta}}{2i}&= \sin\theta
+	\end{align*}
+
+	On a
+	\begin{align*}
+		f(t)&= a_0 + \dsum{k}{1}{\infty}{a_k \cos\dfrac{2k\pi}{T}t} + \dsum{k}{1}{\infty}{b_k \sin\dfrac{2k\pi}{T}t}\\
+		&= a_0 + \dsum{k}{1}{\infty}{a_k \dfrac{e^{i\frac{2k\pi}{T}t}+e^{-i\frac{2k\pi}{T}t}}{2}} + \dsum{k}{1}{\infty}{b_k \dfrac{e^{i\frac{2k\pi}{T}t}-e^{-i\frac{2k\pi}{T}t}}{2i}}\\
+		&= a_0 + \dsum{k}{1}{\infty}{\left( \dfrac{a_k}{2}+\dfrac{b_k}{2i} \right) e^{i\frac{2k\pi}{T}t}} + \dsum{k}{1}{\infty}{\left( \dfrac{a_k}{2}-\dfrac{b_k}{2i} \right) e^{-i\frac{2k\pi}{T}t}}\\
+		&= a_0 + \dsum{k}{1}{\infty}{\underbrace{\dfrac{a_k-ib_k}{2}}_{c_k} e^{i\frac{2k\pi}{T}t}} + \dsum{k}{1}{\infty}{\underbrace{\dfrac{a_k+ib_k}{2}}_{c_{-k}} e^{-i\frac{2k\pi}{T}t}}\\
+		&= a_0 + \dsum{k}{-\infty}{\infty}{c_k e^{i\frac{2k\pi}{T}t}}&&\text{sans $k=0$}\\
+		&= \dsum{k}{-\infty}{\infty}{c_k e^{i\frac{2k\pi}{T}t}}&&\text{en posant $c_0=a_0$}
+	\end{align*}
 \end{document}
