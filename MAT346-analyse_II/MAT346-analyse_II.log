@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  5 DEC 2025 18:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  8 DEC 2025 09:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1426,7 +1426,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[59] (MAT346-analyse_II.aux)
+[59]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[60] (MAT346-analyse_II.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1440,8 +1448,8 @@ Package rerunfilecheck Info: File `MAT346-analyse_II.out' has not changed.
 (rerunfilecheck)             Checksum: 4E50FAF60107B96D547B1D6CAD6741DC;4264.
  ) 
 Here is how much of TeX's memory you used:
- 26191 strings out of 467871
- 488907 string characters out of 5418375
+ 26195 strings out of 467871
+ 488929 string characters out of 5418375
  944731 words of memory out of 5000000
  54409 multiletter control sequences out of 15000+600000
  642683 words of font info for 104 fonts, out of 8000000 for 9000
@@ -1479,9 +1487,9 @@ jub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sym
 bols/msbm7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /rsfs/rsfs10.pfb>
-Output written on MAT346-analyse_II.pdf (61 pages, 611346 bytes).
+Output written on MAT346-analyse_II.pdf (62 pages, 618629 bytes).
 PDF statistics:
- 739 PDF objects out of 1000 (max. 8388607)
- 243 named destinations out of 1000 (max. 500000)
+ 747 PDF objects out of 1000 (max. 8388607)
+ 247 named destinations out of 1000 (max. 500000)
  213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
