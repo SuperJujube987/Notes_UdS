@@ -20,3 +20,4 @@
 \contentsline {chapter}{Actions de groupes}{44}{chapter*.16}%
 \contentsline {section}{Lemme de Burnside}{53}{section*.17}%
 \contentsline {chapter}{Compl\'ements/rappels}{57}{chapter*.22}%
+\contentsline {section}{\numberline { 8.4}Rappels finaux}{58}{section.8.4}%

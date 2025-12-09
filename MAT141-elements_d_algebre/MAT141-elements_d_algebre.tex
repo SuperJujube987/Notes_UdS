@@ -5940,7 +5940,7 @@ Donn\'e par Jean-Philippe Burelle}
 		\end{figure}
 	\end{exem}
 
-	\phantomsection\chapter*{Compl\'ements/rappels}\addcontentsline{toc}{chapter}{Compl\'ements/rappels}
+	\phantomsection\chapter*{Compl\'ements/rappels}\addcontentsline{toc}{chapter}{Compl\'ements/rappels}\renewcommand{\leftmark}{Compl\'ements/rappels}
 	Le signe d'une permutation $\sigma$:
 	\begin{equation*}
 		\signe(\sigma) = \prod_{i < j} \dfrac{\sigma(i) - \sigma(j)}{i-j}
@@ -6025,7 +6025,7 @@ Donn\'e par Jean-Philippe Burelle}
 		Est-il possible de jouer \`a ce jeu et d'obtenir l'\'etat suivant?
 		\begin{figure}[h]
 			\centering
-			\begin{tikzpicture}
+			\begin{tikzpicture}[scale=.7]
 				\coordinate (c1) at (0,0);
 				\coordinate (c2) at (0:2);
 				\coordinate (1) at (72:1);
@@ -6047,7 +6047,7 @@ Donn\'e par Jean-Philippe Burelle}
 				\node () at (\a) {$\a$};
 			\end{tikzpicture}
 			\hspace{2cm}
-			\begin{tikzpicture}
+			\begin{tikzpicture}[scale=.7]
 				\coordinate (c1) at (0,0);
 				\coordinate (c2) at (0:2);
 				\coordinate (1) at (72:1);
@@ -6087,4 +6087,251 @@ Donn\'e par Jean-Philippe Burelle}
 
 		Ainsi, l'\'etat d\'esir\'e ne peut pas \^etre obtenu.
 	\end{exem}
+
+	\cours
+	\section{Rappels finaux}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{tabularx}{.9\textwidth}[c]{>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X}
+		\multicolumn{1}{c|}{Objet}&\multicolumn{1}{c|}{Notation}&\multicolumn{1}{c}{Exemple}\\
+		\hline\hline
+		1. Ensemble&$\in$, ``\'el\'ement''&$A = \{a,b,c\}$, $a \in A$\\
+		\hline
+		\quad sous-ensemble&$B \subseteq A \Leftrightarrow \forall a \in B, a \in A$&$B = \{a,c\}$, $B \subseteq A$\\
+		\hline
+		\quad fonction
+
+		\qquad image, injective, surjective, bijective, inverse, composition, produit cart\'esien&$\begin{array}{rcl}
+			f:A&\to&B\\
+			a&\mapsto&f(a)
+		\end{array}$&$A=\entiers$, $B=\rationels$, $\begin{array}{rcl}
+		f:\entiers&\to&\rationels\\
+		n&\mapsto&\sfrac{n}{2}
+		\end{array}$\\
+		\hline\hline
+		2. Groupe: ensemble et op\'eration $(G,*)$
+
+		\quad(associativit\'e), $\exists$neutre, $\exists$inverse&op\'eration: $*,\times,+,\circ$
+
+		neutre: $e$
+
+		inverse: $a^{-1}$&$\entiers, \rationels, \reels, \mathbb{C}$ avec addition,
+
+		$\rationels_*, \reels_*, \mathbb{C}_*$ avec multiplication,
+
+		$\mathbb{D}_3, \mathbb{D}_4, \dots, \mathbb{D}_n$ les isom\'etries d'un $n$-gone r\'egulier avec la composition,
+
+		$S(E) = \{f:E \to E \mid \text{bijective}\}$ avec la composition,
+
+		$S_n$ les permutations de $n$ \'el\'ements avec la composition,
+
+		$A_n$ les permutations paires ($\signe=1$) de $S_n$ avec la composition,
+
+		$GL(n,\reels)$ matrices inversibles $n \times n$,
+
+		$SL(n,\reels)$ matrices $n \times n$ de $\det=1$,
+
+		$\{e\}$ groupe trivial,
+
+		$\entiers_2 = \{\overline0,\overline1\}$ avec addition,
+
+		${\entiers_p}_*$ avec multiplication et $p$ premier\\
+		\hline
+		\quad sous-groupe
+
+		\qquad normal/distingu\'e&$\lte$&\\
+		\hline
+		\quad homomorphisme
+
+		\qquad $\ker$, $\image$&$f:G \to H$, $f(ab)=f(a)f(b)$&\\
+		\hline\hline
+		3. $G$-ensemble (action de $G$ sur $E$)
+
+		\quad groupe $G$
+
+		\quad ensemble $E$
+
+		\quad 2 axiomes
+
+		\qquad $e \bullet x=x$
+
+		\qquad $(ab) \bullet x=a \bullet (b \bullet x)$&$g \bullet x$ action de $g \in G$ sur $x \in E$&$S_n$ agit sur $\{1,2,\dots,n\}$
+
+		$\reels_*$ agit sur $\reels^n$ par multiplication par scalaire
+
+		$G$ agit sur $G$ de plusieurs fa\c cons
+
+		\quad $a \bullet b = ab$
+
+		\quad $a \bullet b = aba^{-1}$
+
+		\quad $a \bullet b = ba^{-1}$
+	\end{tabularx}
+	\renewcommand{\arraystretch}{1}
+
+	Pour montrer qu'une fonction est ``bien d\'efinie'', il faut montrer que $f$ associe \`a chaque \'el\'ement de son domaine un unique \'el\'ement de son codomaine.
+
+	Si le domaine a des classes d'\'equivalence (une \'ecriture non unique), on doit v\'erifier que $\overline{a}=\overline{b} \Rightarrow f(\overline{a})=f(\overline{b})$.
+	\begin{exem}~
+
+		\begin{proof}[Montrons que]
+			$\begin{array}{rcl}
+				f:\entiers_5&\to&\entiers_{10}\\
+				\overline{n}&\mapsto&\widetilde{2n}
+			\end{array}$ est bien d\'efinie.
+
+			Soient $n_1, n_2 \in \entiers_5$ t.q. $\overline{n_1} = \overline{n_2}$. Alors
+			\begin{align*}
+				n_1-n_2&= 5k\\
+				2n_1-2n_2&= 2 \cdot 5k\\
+				&= 10k\\
+				\widetilde{2n_1}&= \widetilde{2n_2}
+			\end{align*}
+		\end{proof}
+	\end{exem}
+
+	Pour montrer que $G$ est un groupe, il faut v\'erifier les trois axiomes de groupes
+	\begin{itemize}
+		\item[(A)]
+		\item[(N)] Posons $e= \alpha \in G$. V\'erifions que $e$ est neutre pour $*$.
+		\item[(I)] Soit $a \in G$. V\'erifions que $b=\beta \in G$ est l'inverse de $a$.
+		\item[(C)] si ab\'elien. Faire avant (N) et (I) pour sauver du temps.
+	\end{itemize}
+
+	Pour montrer que $H$ est un sous-groupe de $G$,
+	\begin{nlist}
+		\item $H \neq \emptyset$. En v\'erifiant que $e_G \in H$.
+		\item \begin{nlist}
+			\item V\'erifier que $\forall a,b \in H$, $ab^{-1} \in H$.
+			\item V\'erifier que $\forall a \in H$, $a^{-1} \in H$ et v\'erifier que $\forall a,b \in H$, $ab \in H$.
+		\end{nlist}
+	\end{nlist}
+	\begin{exem}~
+
+		\begin{proof}[m.q.]
+			$\left\{ \begin{psmallmatrix}
+				a&0\\0&b
+			\end{psmallmatrix} ~\middle|~ a,b \in \reels_* \right\}$ est un sous-groupe de $GL(2,\reels)$.
+			\begin{ulist}
+				\item $\begin{psmallmatrix}
+					1&0\\0&1
+				\end{psmallmatrix} \in H$, en prenant $a=b=1$.
+				\item en utilisant la m\'ethode (a)
+
+				Soient $A,B \in H$. Alors $A = \begin{pmatrix}
+					a&0\\0&b
+				\end{pmatrix}$, $B = \begin{pmatrix}
+					c&0\\0&d
+				\end{pmatrix}$, $a,b,c,d \neq 0$.
+				\begin{align*}
+					AB^{-1}&= \begin{pmatrix}
+						a&0\\0&b
+					\end{pmatrix} \begin{pmatrix}
+						\sfrac{1}{c}&0\\0&\sfrac{b}{d}
+					\end{pmatrix}\\
+					&= \begin{pmatrix}
+						\sfrac{a}{c}&0\\0&\sfrac{b}{d}
+					\end{pmatrix}
+				\end{align*}
+
+				$\sfrac{a}{c}, \sfrac{b}{d} \neq 0$, car $a,b \neq 0$.
+
+				Donc, $AB^{-1} \in H$.
+			\end{ulist}
+		\end{proof}
+	\end{exem}
+
+	Pour montrer que $f:G \to H$ est un morphisme de groupes, il faut montrer que $f(ab)=f(a)f(b)$, en s'assurant d'utiliser la bonne op\'eration.
+
+	Pour montrer que $N \trianglelefteq G$ (sous-groupe normal),
+	\begin{nlist}
+		\item $\forall a \in G$, $\forall b \in N$, $aba^{-1} \in N$.
+		\item $\forall a \in G$, $aN=Na$.
+	\end{nlist}
+	\begin{exem}~
+
+		\begin{proof}[m.q.]
+			$N = \left\{ \begin{psmallmatrix}
+				1&a\\0&1
+			\end{psmallmatrix} ~\middle|~ a \in \reels \right\} \trianglelefteq G = \left\{ \begin{psmallmatrix}
+				a&b\\0&c
+			\end{psmallmatrix} ~\middle|~ a,c \neq 0 \right\}$ en supposant que $N \lte G$.
+
+			Soient $A \in G$ et $B \in N$. Alors, $A = \begin{psmallmatrix}
+				a&b\\0&c
+			\end{psmallmatrix}$ et $B = \begin{psmallmatrix}
+				1&d\\0&1
+			\end{psmallmatrix}$. On a
+			\begin{align*}
+				ABA^{-1}&= \begin{pmatrix}
+					a&b\\0&c
+				\end{pmatrix} \begin{pmatrix}
+					1&d\\0&1
+				\end{pmatrix} \begin{pmatrix}
+					\sfrac{1}{a}&\sfrac{-b}{ac}\\0&\sfrac{1}{c}
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					a&ad+b\\0&c
+				\end{pmatrix} \begin{pmatrix}
+					\sfrac{1}{a}&\sfrac{-b}{ac}\\0&\sfrac{1}{c}
+				\end{pmatrix}\\
+				&= \begin{pmatrix}
+					1&*\\0&1
+				\end{pmatrix}\\
+				&\in N
+			\end{align*}
+		\end{proof}
+	\end{exem}
+
+	\underline{Th\'eor\`eme d'isomorphisme}:
+
+	Avec $f$ un homomorphisme et $\bar{f}$ un isomorphisme, $\bar{f}(\ker(f)a) = f(a)$
+	\begin{center}
+		\begin{tikzcd}[row sep=large]
+			G \arrow[r, "f"'] \arrow[d, twoheadrightarrow, "p"']&H\\
+			\sfrac{G}{\ker(f)} \arrow[r, dashed, "\bar{f}"]&\image(f) \arrow[u, hookrightarrow, "i"']
+		\end{tikzcd}
+	\end{center}
+
+	\underline{Classes \`a droite modulo $H \lte G$}:
+
+	$a \sim b \Leftrightarrow ab^{-1} \in H$ une relation d'\'equivalence dont les classes sont $Ha$.
+
+	$Ha=Hb \Leftrightarrow a \sim b \Leftrightarrow ab^{-1} \in H$.
+
+	\underline{Th\'eor\`eme de Lagrange}:
+
+	$\card{H}$ divise $\card{G}$.
+
+	\underline{Groupes quotients}:
+
+	Si $N \trianglelefteq G$, $\sfrac{G}{N} = \{Na \mid a \in G\}$ est un groupe avec $(Na)(Nb)=N(ab)$.
+
+	\underline{Petit th\'eor\`eme de Fermat}:
+
+	$G = {\entiers_p}_*$, $H = \langle \overline{m} \rangle$.
+	\[
+	(\overline{m})^{p-1} \equiv \overline1 \pmod{p}
+	\]
+	autrement dit, si $m$ n'est pas un multiple de $p$, alors $m^{p-1} \equiv 1 \pmod{p}$.
+
+	\underline{Groupe cyclique/monog\`ene}:
+
+	$G = \langle a \rangle = \{a^n \mid n \in \entiers\}$.
+	\begin{thm}
+		$G \cong \entiers$ ou $G \cong \entiers_m$, avec $m=o(a)$.
+	\end{thm}
+
+	$G$ un groupe que agit sur $E$:
+
+	$x \in E$.
+
+	$\stab(x) = \{a \in G \mid a \bullet x=x\} \lte G$.
+
+	$G \bullet x = \{a \bullet x \in E \mid a \in G\} \subseteq E$.
+
+	Les orbites forment une partition de $E$. ($x \sim y \Leftrightarrow \exists a \in G \mid x=a \bullet y$)
+
+	\underline{Th\'eor\`eme orbite-stabilisateur}:
+
+	$\card{G} = \card{\stab(x)} \cdot \card{G \bullet x}$.
 \end{document}
