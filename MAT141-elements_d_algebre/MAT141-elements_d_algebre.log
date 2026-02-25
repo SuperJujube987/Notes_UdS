@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.12)  9 DEC 2025 10:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.9)  25 FEB 2026 15:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./MAT141-elements_d_algebre.tex
 (MAT141-elements_d_algebre.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-10-24>
+L3 programming layer <2026-01-19>
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
@@ -536,7 +536,7 @@ File: tikzlibrarytikzmark.code.tex 2022/08/24 v1.15 TikZ library for marking po
 sitions in a document
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2025-10-24 L3 programming layer (loader) 
+Package: expl3 2026-01-19 L3 programming layer (loader) 
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -585,7 +585,7 @@ z/libraries\tikzlibrary3d.code.tex
 File: tikzlibrary3d.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -618,7 +618,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -645,7 +645,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 \Hy@linkcounter=\count326
 \Hy@pagecounter=\count327
  (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
@@ -653,24 +653,24 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count328
  (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
+Package hyperref Info: Bookmarks ON on input line 4468.
 \c@Hy@tempcnt=\count329
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
+LaTeX Info: Redefining \url on input line 4807.
 \XeTeXLinkMargin=\dimen296
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
@@ -684,13 +684,13 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 \Fld@menulength=\count330
 \Field@Width=\dimen297
 \Fld@charsize=\dimen298
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
 \Hy@abspage=\count331
 \c@Item=\count332
 \c@Hfootnote=\count333
@@ -698,7 +698,7 @@ Package hyperref Info: PDF/A mode OFF on input line 6108.
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
 \Fld@listcount=\count334
 \c@bookmark@seq@number=\count335
 
@@ -773,34 +773,32 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \@temptokenb=\toks46
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2025/10/22 v25.14 The multilingual framework for LuaLaTeX, pdfLa
-TeX and XeLaTeX
+Package: babel 2026/01/26 v26.2 The multilingual framework for LuaLaTeX, pdfLaT
+eX and XeLaTeX
 \babel@savecnt=\count340
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
-ne 2050.
+ne 2078.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
-ne 2052.
+ne 2080.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
-e 2054.
+e 2082.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
-e 2055.
+e 2083.
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
-on input line 2056.
+on input line 2084.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
-on input line 2058.
+on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
-on input line 2083.
+on input line 2111.
 \U@D=\dimen309
 \l@unhyphenated=\language79
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read3
 \bbl@dirlevel=\count341
-
-
-Package babel Warning: Configuration files are deprecated, as
-(babel)                they can break document portability.
-(babel)                Reported on input line 4172.
+Package babel Info: Configuration files are deprecated, as
+(babel)             they can break document portability.
+(babel)             Reported on input line 4206.
 
 *************************************
 * Local config file bblopts.cfg used
@@ -812,7 +810,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/fr\babel
 -french.tex)
 Package babel Info: Importing font and identification data for french
-(babel)             from babel-fr.ini. Reported on input line 4295.
+(babel)             from babel-fr.ini. Reported on input line 4330.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel-french\french.l
 df
@@ -849,7 +847,7 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/nicematrix\nicematrix.s
 ty
-Package: nicematrix 2025/11/04 v7.4a Enhanced arrays with the help of PGF/TikZ
+Package: nicematrix 2026/01/05 v7.5a Enhanced arrays with the help of PGF/TikZ
 \l__nicematrix_tmpc_dim=\dimen319
 \l__nicematrix_tmpd_dim=\dimen320
 \l__nicematrix_tmpc_int=\count349
@@ -872,24 +870,25 @@ Package: nicematrix 2025/11/04 v7.4a Enhanced arrays with the help of PGF/TikZ
 \l__nicematrix_old_iRow_int=\count357
 \l__nicematrix_old_jCol_int=\count358
 \l__nicematrix_X_columns_dim=\dimen329
-\l__nicematrix_x_initial_dim=\dimen330
-\l__nicematrix_y_initial_dim=\dimen331
-\l__nicematrix_x_final_dim=\dimen332
-\l__nicematrix_y_final_dim=\dimen333
-\g__nicematrix_dp_row_zero_dim=\dimen334
-\g__nicematrix_ht_row_zero_dim=\dimen335
-\g__nicematrix_ht_row_one_dim=\dimen336
-\g__nicematrix_dp_ante_last_row_dim=\dimen337
-\g__nicematrix_ht_last_row_dim=\dimen338
-\g__nicematrix_dp_last_row_dim=\dimen339
-\g__nicematrix_width_last_col_dim=\dimen340
-\g__nicematrix_width_first_col_dim=\dimen341
+\l__nicematrix_brace_shift_dim=\dimen330
+\l__nicematrix_x_initial_dim=\dimen331
+\l__nicematrix_y_initial_dim=\dimen332
+\l__nicematrix_x_final_dim=\dimen333
+\l__nicematrix_y_final_dim=\dimen334
+\g__nicematrix_dp_row_zero_dim=\dimen335
+\g__nicematrix_ht_row_zero_dim=\dimen336
+\g__nicematrix_ht_row_one_dim=\dimen337
+\g__nicematrix_dp_ante_last_row_dim=\dimen338
+\g__nicematrix_ht_last_row_dim=\dimen339
+\g__nicematrix_dp_last_row_dim=\dimen340
+\g__nicematrix_width_last_col_dim=\dimen341
+\g__nicematrix_width_first_col_dim=\dimen342
 \g__nicematrix_ddots_int=\count359
 \g__nicematrix_iddots_int=\count360
-\g__nicematrix_delta_x_one_dim=\dimen342
-\g__nicematrix_delta_y_one_dim=\dimen343
-\g__nicematrix_delta_x_two_dim=\dimen344
-\g__nicematrix_delta_y_two_dim=\dimen345
+\g__nicematrix_delta_x_one_dim=\dimen343
+\g__nicematrix_delta_y_one_dim=\dimen344
+\g__nicematrix_delta_x_two_dim=\dimen345
+\g__nicematrix_delta_y_two_dim=\dimen346
 \l__nicematrix_row_min_int=\count361
 \l__nicematrix_row_max_int=\count362
 \l__nicematrix_col_min_int=\count363
@@ -903,14 +902,14 @@ Package: nicematrix 2025/11/04 v7.4a Enhanced arrays with the help of PGF/TikZ
 \l__nicematrix_local_start_int=\count371
 \l__nicematrix_local_end_int=\count372
 \g__nicematrix_static_num_of_col_int=\count373
-\l__nicematrix_rounded_corners_dim=\dimen346
-\l__nicematrix_tab_rounded_corners_dim=\dimen347
-\l__nicematrix_offset_dim=\dimen348
-\l__nicematrix_line_width_dim=\dimen349
+\l__nicematrix_rounded_corners_dim=\dimen347
+\l__nicematrix_tab_rounded_corners_dim=\dimen348
+\l__nicematrix_offset_dim=\dimen349
+\l__nicematrix_line_width_dim=\dimen350
 \g__nicematrix_block_box_int=\count374
-\l__nicematrix_submatrix_extra_height_dim=\dimen350
-\l__nicematrix_submatrix_left_xshift_dim=\dimen351
-\l__nicematrix_submatrix_right_xshift_dim=\dimen352
+\l__nicematrix_submatrix_extra_height_dim=\dimen351
+\l__nicematrix_submatrix_left_xshift_dim=\dimen352
+\l__nicematrix_submatrix_right_xshift_dim=\dimen353
 \l__nicematrix_first_row_int=\count375
 \l__nicematrix_first_col_int=\count376
 \l__nicematrix_last_row_int=\count377
@@ -918,20 +917,20 @@ Package: nicematrix 2025/11/04 v7.4a Enhanced arrays with the help of PGF/TikZ
 \c@tabularnote=\count379
 \g__nicematrix_tabularnote_int=\count380
 \c@nicematrix_draft=\count381
-\l__nicematrix_cell_space_top_limit_dim=\dimen353
-\l__nicematrix_cell_space_bottom_limit_dim=\dimen354
-\l__nicematrix_xdots_inter_dim=\dimen355
-\l__nicematrix_xdots_shorten_start_dim=\dimen356
-\l__nicematrix_xdots_shorten_end_dim=\dimen357
-\l__nicematrix_xdots_radius_dim=\dimen358
-\l__nicematrix_left_margin_dim=\dimen359
-\l__nicematrix_right_margin_dim=\dimen360
-\l__nicematrix_extra_left_margin_dim=\dimen361
-\l__nicematrix_extra_right_margin_dim=\dimen362
-\c__nicematrix_max_l_dim=\dimen363
+\l__nicematrix_cell_space_top_limit_dim=\dimen354
+\l__nicematrix_cell_space_bottom_limit_dim=\dimen355
+\l__nicematrix_xdots_inter_dim=\dimen356
+\l__nicematrix_xdots_shorten_start_dim=\dimen357
+\l__nicematrix_xdots_shorten_end_dim=\dimen358
+\l__nicematrix_xdots_radius_dim=\dimen359
+\l__nicematrix_left_margin_dim=\dimen360
+\l__nicematrix_right_margin_dim=\dimen361
+\l__nicematrix_extra_left_margin_dim=\dimen362
+\l__nicematrix_extra_right_margin_dim=\dimen363
+\c__nicematrix_max_l_dim=\dimen364
 \l__nicematrix_position_int=\count382
 \l__nicematrix_multiplicity_int=\count383
-\l__nicematrix_brace_yshift_dim=\dimen364
+\l__nicematrix_brace_yshift_dim=\dimen365
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
@@ -940,11 +939,11 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 Package: xfrac 2024-06-04 Split-level fractions
 \l__xfrac_slash_box=\box72
 \l__xfrac_tmp_box=\box73
-\l__xfrac_denominator_bot_sep_dim=\dimen365
-\l__xfrac_numerator_bot_sep_dim=\dimen366
-\l__xfrac_numerator_top_sep_dim=\dimen367
-\l__xfrac_slash_left_sep_dim=\dimen368
-\l__xfrac_slash_right_sep_dim=\dimen369
+\l__xfrac_denominator_bot_sep_dim=\dimen366
+\l__xfrac_numerator_bot_sep_dim=\dimen367
+\l__xfrac_numerator_top_sep_dim=\dimen368
+\l__xfrac_slash_left_sep_dim=\dimen369
+\l__xfrac_slash_right_sep_dim=\dimen370
 \l__xfrac_slash_left_muskip=\muskip19
 \l__xfrac_slash_right_muskip=\muskip20
 
@@ -989,22 +988,22 @@ e5-mapping.def)))
 Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \c@tracingmulticols=\count384
 \mult@box=\box74
-\multicol@leftmargin=\dimen370
+\multicol@leftmargin=\dimen371
 \c@unbalance=\count385
 \c@collectmore=\count386
 \doublecol@number=\count387
 \multicoltolerance=\count388
 \multicolpretolerance=\count389
-\full@width=\dimen371
-\page@free=\dimen372
-\premulticols=\dimen373
-\postmulticols=\dimen374
+\full@width=\dimen372
+\page@free=\dimen373
+\premulticols=\dimen374
+\postmulticols=\dimen375
 \multicolsep=\skip81
 \multicolbaselineskip=\skip82
 \partial@page=\box75
 \last@line=\box76
 \mc@boxedresult=\box77
-\maxbalancingoverflow=\dimen375
+\maxbalancingoverflow=\dimen376
 \mult@rightbox=\box78
 \mult@grightbox=\box79
 \mult@firstbox=\box80
@@ -1048,9 +1047,9 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \c@minrows=\count390
 \c@columnbadness=\count391
 \c@finalcolumnbadness=\count392
-\last@try=\dimen376
-\multicolovershoot=\dimen377
-\multicolundershoot=\dimen378
+\last@try=\dimen377
+\multicolovershoot=\dimen378
+\multicolundershoot=\dimen379
 \mult@nat@firstbox=\box118
 \colbreak@box=\box119
 \mc@col@check@num=\count393
@@ -1065,18 +1064,17 @@ Package hyperref Info: Option `colorlinks' set `false' on input line 31.
 \c@nlistiii=\count397
 \enitdp@nlist=\count398
 \enitdp@ulist=\count399
-\c@cours=\count400
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 134.
+(french3.ldf)             reported on input line 130.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 134.
+(french3.ldf)             reported on input line 130.
 
 
 Package french3.ldf Warning: OT1 encoding should not be used for French.
 (french3.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(french3.ldf)                of your document; reported on input line 134.
+(french3.ldf)                of your document; reported on input line 130.
 
 (MAT141-elements_d_algebre.aux
 Package babel Info: 'french' activates 'french' shorthands.
@@ -1084,24 +1082,24 @@ Package babel Info: 'french' activates 'french' shorthands.
 )
 \openout1 = `MAT141-elements_d_algebre.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1141,16 +1139,16 @@ LaTeX Font Info:    ... okay on input line 134.
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count401
-\scratchdimen=\dimen379
+\scratchcounter=\count400
+\scratchdimen=\dimen380
 \scratchbox=\box120
-\nofMPsegments=\count402
-\nofMParguments=\count403
+\nofMPsegments=\count401
+\nofMParguments=\count402
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count404
-\MPscratchDim=\dimen380
-\MPnumerator=\count405
-\makeMPintoPDFobject=\count406
+\MPscratchCnt=\count403
+\MPscratchDim=\dimen381
+\MPnumerator=\count404
+\makeMPintoPDFobject=\count405
 \everyMPtoPDFconversion=\toks49
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1163,49 +1161,49 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 134.
+Package hyperref Info: Link coloring OFF on input line 130.
  (MAT141-elements_d_algebre.out) (MAT141-elements_d_algebre.out)
 \@outlinefile=\write4
 \openout4 = `MAT141-elements_d_algebre.out'.
 
-LaTeX Info: Redefining \degres on input line 134.
-\c__nicematrix_shift_Ldots_last_row_dim=\dimen381
-\c__nicematrix_innersep_middle_dim=\dimen382
-\c@tabularnotesi=\count407
-\enitdp@tabularnotes=\count408
-\c@tabularnotes*i=\count409
-\enitdp@tabularnotes*=\count410
-LaTeX Info: Redefining \celsius on input line 134.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 134
+LaTeX Info: Redefining \degres on input line 130.
+\c__nicematrix_shift_Ldots_last_row_dim=\dimen382
+\c__nicematrix_innersep_middle_dim=\dimen383
+\c@tabularnotesi=\count406
+\enitdp@tabularnotes=\count407
+\c@tabularnotes*i=\count408
+\enitdp@tabularnotes*=\count409
+LaTeX Info: Redefining \celsius on input line 130.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 130
 .
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 134.
-Package gensymb Info: Using \Omega for \ohm on input line 134.
+LaTeX Info: Redefining \ohm on input line 130.
+Package gensymb Info: Using \Omega for \ohm on input line 130.
 
 Package gensymb Warning: Not defining \micro.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 136
+LaTeX Font Info:    Trying to load font information for U+msa on input line 132
 .
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 136
+LaTeX Font Info:    Trying to load font information for U+msb on input line 132
 .
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 13
-6.
+2.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for U+wasy on input line 13
-6.
+2.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
@@ -1221,23 +1219,23 @@ File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 
 ]
 Chapitre 1.
-(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd)
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 204.
-
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.216 	\end{defin}
-                   [1
+l.211 		\end{proof}
+                    [1
 
 ]
-Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported on input line 303.
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 2
+40.
 
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+Package babel Info: 'french' activates 'french' shorthands.
+(babel)             Reported on input line 315.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1278,6 +1276,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [6]
+Chapitre 2.
+[7
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1285,15 +1287,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[7]
-Chapitre 6.
-[8
-
-]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 873.
-
+[8]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1302,18 +1296,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [9]
-Overfull \hbox (6.07794pt too wide) in paragraph at lines 1032--1033
-[]$\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 +)\OML/cm
-m/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 Q\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 
-+)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 R\OML/cmm/m/it/10 ; \OT1/cm
-r/m/n/10 +)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\U/msb/m/n/10 Q[]\OML/cmm/m/it/1
-0 ; \OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\U
-/msb/m/n/10 R[]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 )$ sont d
-es groupes ab^^Seliens ; $\U/msb/m/n/10 Z[]\OML/cmm/m/it/10 ; \U/msb/m/n/10 D[]
-\OML/cmm/m/it/10 ; GL\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n; \U/msb/m/n/10 R\OT1/c
-mr/m/n/10 )$ sont des groupes non ab^^Seliens. 
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1370,24 +1352,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [16]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[17]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[18]
-Chapitre 2.
-[19
+Chapitre 3.
+[17
 
 ]
 
@@ -1397,7 +1363,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[20]
+[18]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1405,7 +1371,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[21]
+[19]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[20]
+Chapitre 4.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1953.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 1953.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1953.
+
+[21
+
+]
+\g__nicematrix_max_cell_width_dim=\dimen384
+\c@iRow=\count410
+\c@jCol=\count411
+\l__nicematrix_cell_box=\box121
+\l__nicematrix_left_delim_dim=\dimen385
+\l__nicematrix_right_delim_dim=\dimen386
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1422,35 +1419,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [23]
-pdfTeX warning (ext4): destination with the same identifier (name{chapter.6}) h
-as been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2186 	\chapter{Groupes (suite)}
-                                 
-Chapitre 6.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2188.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2188.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2188.
-
-[24
-
-]
-\g__nicematrix_max_cell_width_dim=\dimen383
-\c@iRow=\count411
-\c@jCol=\count412
-\l__nicematrix_cell_box=\box121
-\l__nicematrix_left_delim_dim=\dimen384
-\l__nicematrix_right_delim_dim=\dimen385
-
+[24]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1459,23 +1435,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [25]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-557.
- (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2557.
+Chapitre 5.
+[26
 
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[26]
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1485,6 +1448,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [27]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2800.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2800.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.07225pt}.
@@ -1492,10 +1463,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [28]
-Chapitre 8.
-[29
 
-]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[29]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1504,14 +1479,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [30]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3079.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3079.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1528,6 +1495,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [32]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
+391.
+ (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3391.
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1576,14 +1552,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [38]
+Chapitre 6.
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
+nput line 3977.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
+mefree0.fd)
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
+nput line 3984.
 
-[39]
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
+mefree2.fd) [39
+
+{C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5f
+ree0.enc}{C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawes
+ome5/fa5free2.enc}]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1616,20 +1599,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [43]
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 4386.
 
-(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
-mefree0.fd)
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 4393.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
-mefree2.fd) [44
+[44]
 
-{C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5f
-ree0.enc}{C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawes
-ome5/fa5free2.enc}]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1638,6 +1618,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [45]
+<figs/Platonic_Solids_Transparent.svg.png, id=449, 963.6pt x 784.9325pt>
+File: figs/Platonic_Solids_Transparent.svg.png Graphic file (type png)
+<use figs/Platonic_Solids_Transparent.svg.png>
+Package pdftex.def Info: figs/Platonic_Solids_Transparent.svg.png  used on inpu
+t line 4876.
+(pdftex.def)             Requested size: 174.64618pt x 142.26378pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1645,7 +1632,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[46]
+[46 <./figs/Platonic_Solids_Transparent.svg.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1666,72 +1653,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [48]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[49]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 5283.
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[50]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[51]
-<figs/Platonic_Solids_Transparent.svg.png, id=481, 963.6pt x 784.9325pt>
-File: figs/Platonic_Solids_Transparent.svg.png Graphic file (type png)
-<use figs/Platonic_Solids_Transparent.svg.png>
-Package pdftex.def Info: figs/Platonic_Solids_Transparent.svg.png  used on inpu
-t line 5346.
-(pdftex.def)             Requested size: 174.64618pt x 142.26378pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[52 <./figs/Platonic_Solids_Transparent.svg.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[53]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[54]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 5761.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 5761.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 5283.
 
 Missing character: There is no ° in font cmr10!
 
-Overfull \hbox (29.32306pt too wide) in paragraph at lines 5799--5810
+Overfull \hbox (29.32306pt too wide) in paragraph at lines 5310--5321
 []\OT1/cmr/m/it/10 Exemple. []$\OML/cmm/m/it/10 E \OT1/cmr/m/n/10 = \OMS/cmsy/m
 /n/10 f[]g \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 a; b; c; d; e; 
 f; g; h\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 G \OT1/cmr/m/n/10
@@ -1746,15 +1675,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[55]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[56] [57
+[49]
+Chapitre 7.
+[50
 
 ]
 
@@ -1764,7 +1687,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[58]
+[51]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1772,7 +1695,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[59]
+[52]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1780,10 +1703,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[60] (MAT141-elements_d_algebre.aux)
+[53] (MAT141-elements_d_algebre.aux)
  ***********
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-10-24>
+L3 programming layer <2026-01-19>
  ***********
 
 
@@ -1792,16 +1715,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT141-elements_d_algebre.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 6B49F162C76C066E46F97F2F7926563B;3733.
+(rerunfilecheck)             Checksum: 2210FFDAFC8CADAB43F02F7803F5650C;3660.
  ) 
 Here is how much of TeX's memory you used:
- 35177 strings out of 467871
- 717970 string characters out of 5418375
- 1172047 words of memory out of 5000000
- 63329 multiletter control sequences out of 15000+600000
+ 35162 strings out of 467866
+ 718008 string characters out of 5418326
+ 1174141 words of memory out of 5000000
+ 63333 multiletter control sequences out of 15000+600000
  647481 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,25n,107p,607b,1341s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,25n,107p,607b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
 1000.pk> <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/dpi60
 0\wasy10.pk> <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
@@ -1839,9 +1762,9 @@ ts/latxfont/line10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
 TeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MAT141-elements_d_algebre.pdf (62 pages, 717516 bytes).
+Output written on MAT141-elements_d_algebre.pdf (55 pages, 755411 bytes).
 PDF statistics:
- 734 PDF objects out of 1000 (max. 8388607)
- 213 named destinations out of 1000 (max. 500000)
+ 696 PDF objects out of 1000 (max. 8388607)
+ 199 named destinations out of 1000 (max. 500000)
  194 words of extra memory for PDF output out of 10000 (max. 10000000)
 

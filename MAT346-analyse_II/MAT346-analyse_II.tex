@@ -7,7 +7,7 @@
 \usepackage{indentfirst}
 \usepackage{dsfont}
 \usepackage{tikz}
-\usetikzlibrary{positioning,arrows.meta}
+\usetikzlibrary{positioning,arrows.meta,patterns}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
@@ -222,9 +222,9 @@ Donn\'e par Mario Lambert}
 					\node (y) at (3,.9) {};
 					\node (yi) at (4,1.2) {};
 					\node (yn) at (5,1.5) {};
-					\filldraw[fill=red, fill opacity=.3] (yi-1) rectangle (xi.north);
-					\filldraw[fill=blue, fill opacity=.3] (yi-1) rectangle (x.north);
-					\filldraw[fill=blue, fill opacity=.3] (y) rectangle (xi.north);
+					\draw[pattern=north east lines] (yi-1) rectangle (xi.north);
+					\draw[pattern=north west lines] (yi-1) rectangle (x.north);
+					\draw[pattern=north west lines] (y) rectangle (xi.north);
 				\end{tikzpicture}
 			\end{center}
 		\end{proof}
