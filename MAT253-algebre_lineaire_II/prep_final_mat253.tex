@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage[letterpaper,portrait,margin=2cm]{geometry}
+\usepackage{titlesec}
+\usepackage[french,onelanguage,ruled,lined,longend,nosemicolon]{algorithm2e}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{nicematrix}
+\usepackage{tikz}
+
+\renewcommand{\thesection}{}
+\titleformat{\section}[hang]{\LARGE\bfseries}{}{0pt}{\centering}
+\titlespacing{\section}{0pt}{1ex}{1ex}
+
+\title{Aide m\'emoire pour \'etudier pour le final de MAT253}
+\author{Julien Houle}
+\date{Hiver 2026}
+
+\begin{document}
+	\maketitle
+	\section{Diagonalisation de matrices}
+	\begin{algorithm}[H]
+		\caption{Marche \`a suivre pour diagonaliser une matrice}
+		\KwData{Matrice carr\'ee $A$}
+		\KwResult{Matrices $P$ et $D$ telles que $D=P^{-1}AP$ si $A$ est diagonalisable}
+		
+		\BlankLine
+		Calculer le polyn\^ome caract\'eristique $\chi_A(\lambda)$ de $A$:\;
+		\begin{algomathdisplay}
+			\chi_A(\lambda) = \det(A-\lambda I)
+		\end{algomathdisplay}\;
+		Factoriser $\chi_A(\lambda)$\;
+		\BlankLine
+		\eIf{$\chi_A(\lambda)$ est scind\'e sur $K$}{
+			Continuer\;
+		}{
+			$A$ n'est pas diagonalisable\;
+		}
+		\BlankLine
+		Les valeurs propres $\lambda_i$ de $A$ sont les racines de $\chi_A(\lambda)$ et leur multiplicit\'e alg\'ebrique $m_a(\lambda_i)$ correspond au nombre de fois qu'elle appara\^it dans la d\'ecomposition de $\chi_A(\lambda)$\;
+		\begin{algomathdisplay}
+			\chi_A(\lambda) = (\lambda-\lambda_0) (\lambda-\lambda_1) \dotsb (\lambda-\lambda_r)
+		\end{algomathdisplay}
+		\ForEach{valeur propre $\lambda_i$}{
+			D\'eterminer l'espace propre qui lui est associ\'e:\;
+			\Begin{
+				R\'esoudre le syst\`eme d'\'equations lin\'eaires homog\`ene:\;
+				\begin{algomathdisplay}
+					(A-\lambda_iI)X=0
+				\end{algomathdisplay}
+				L'espace-solution de ce syst\`eme donne une base du noyau de $A-\lambda_iI$\;
+				Chacun des vecteurs de cette base est un vecteur propre associ\'e \`a $\lambda_i$\;
+				Le nombre de vecteurs qui la composent est sa multiplicit\'e g\'eom\'etrique $m_g(\lambda_i)$.\;
+				\If{$m_g(\lambda_i) \lneq m_a(\lambda_i)$}{
+					$A$ n'est pas diagonalisable\;
+				}
+			}
+		}
+		La matrice $D$ est la matrice diagonale dont les termes diagonaux sont les valeurs propres de $A$\;
+		La matrice $P$ est la matrice dont chaque colonne est le vecteur propre associé à la valeur propre située
+		dans le terme diagonal correspondant de $D$\;
+	\end{algorithm}
+	
+	\newpage
+	\section{Poly\^ome minimal}
+	Un polyn\^ome $m(\lambda)$ est le \emph{polyn\^ome minimal} de $A \in M_n(K)$ si
+	\begin{enumerate}[nosep]
+		\item $m(\lambda)$ est normalis\'e, c'est-\`a-dire, le coefficient directeur est $1$,
+		\item $m(\lambda)$ est un annulateur de $A$, et
+		\item le degr\'e de $m(\lambda)$ est le plus petit parmi les degr\'es des annulateurs de $A$.
+	\end{enumerate}
+	
+	Le polyn\^ome minimal de $A$, $m_A(\lambda)$, aura comme racines exactement les valeurs propres $A$. En particulier, chacune des valeurs propres de $A$ est racine de $m_A(\lambda)$, c'est-\`a-dire, \[ m_A(\lambda) = (\lambda-\lambda_1)^{n_1} \dotsb (\lambda-\lambda_r)^{n_r} \] o\`u $\{\lambda_1, \dotsb, \lambda_r\}$ sont exactement les valeurs propres de $A$ et $n_i>0$.
+	
+	Pour d\'eterminer le polyn\^ome minimal d'une matrice $A \in M_n(K)$ dont le polyn\^ome caract\'eristique est $\chi_A(\lambda) = (\lambda-\lambda_1)^{n_1} (\lambda-\lambda_2)^{n_2} \dotsb (\lambda-\lambda_r)^{n_r}$, on v\'erifie si $(\lambda-\lambda_1) (\lambda-\lambda_2) \dotsb (\lambda-\lambda_r)$ annule $A$. Si non, on augmente les exposants des termes un \`a la fois jusqu'\`a ce que le polyn\^ome obtenu annule $A$.
+	
+	Par exemple, $\chi_A(\lambda) = (\lambda-3)^4 (\lambda+2)^3 (\lambda-1)^2$. On v\'erifie $(\lambda-3) (\lambda+2) (\lambda-1)$, puis $(\lambda-3)^2 (\lambda+2) (\lambda-1)$, puis $(\lambda-3) (\lambda+2)^2 (\lambda-1)$, puis $(\lambda-3) (\lambda+2) (\lambda-1)^2$, puis $(\lambda-3)^3 (\lambda+2) (\lambda-1)$, puis $(\lambda-3)^2 (\lambda+2)^2 (\lambda-1)$, etc.
+	
+	Il faut s'assurer que les polyn\^ome qu'on v\'erifie divise toujours $\chi_A(\lambda)$, donc ne pas augmenter les exposants au-del\`a des multiplicit\'es alg\'ebriques des valeurs propres.
+	
+	\section{Forme canonique de Jordan}
+	Soit $A \in M_n(K)$ telle que $\chi_A(\lambda) = (\lambda_1-\lambda)^{n_1} \dotsb (\lambda_r-\lambda)^{n_r}$, o\`u $\lambda_1, \dotsb, \lambda_r$ sont deux \`a deux distinctes et $n_i>0$. La forme de Jordan de $A$ est diagonale par blocs, avec comme blocs des blocs de Jordan correspondant aux valeurs propres.
+	
+	\begin{algorithm}[H]
+		\caption{Proc\'edure pour trouver les blocs de Jordan correspondant \`a $\lambda_i$}
+		\KwData{$A \in M_n(K)$ et $\lambda_i$ la valeur propre \'etudi\'ee}
+		\KwResult{Les tailles des blocs de Jordan correspondant \`a $\lambda_i$}
+		
+		\BlankLine
+		Calculer $r_j = \operatorname{rg}(A-\lambda_iI)^j$ pour $j = 0, 1, 2, \dotsb$, jusqu'\`a trouver un premier nombre $m_i$ tel que $\operatorname{rg}(A-\lambda_iI)^{m_i} = \operatorname{rg}(A-\lambda_iI)^{m_i+1}$\;
+		La taille du plus grand bloc de Jordan correspondant \`a $\lambda_i$ est $m_i$\;
+		\ForAll{$1 \leqslant j \leqslant m_i$}{
+			le nombre de blocs de Jordan de taille $j$ correspondant \`a $\lambda_i$ est $s_j(\lambda_i) = (r_{j-1}+r_{j+1}) - 2r_j$\;
+		}
+	\end{algorithm}
+	
+	Alternativement, on a
+	\begin{itemize}[nosep]
+		\item $m_g(\lambda_i)$ correspond au nombre de blocs de Jordan associ\'es \`a $\lambda_i$,
+		\item la somme des tailles des blocs de Jordan associ\'es \`a $\lambda_i$ correspond \`a $m_a(\lambda_i)$,
+		\item la multiplicit\'e de $\lambda_i$ dans le polyn\^ome minimal $m_A(\lambda)$ correspond \`a la taille du plus grand bloc de Jordan qui lui est associ\'e,
+		\item le nombre de blocs de Jordan de taille au moins $j$ est $d_j-d_{j-1}$, o\`u $d_j = \dim(\mathcal{N}((A-\lambda_iI)^j))$ pour $j = 1,2,\dotsb$.
+	\end{itemize}
+	
+	\section{Proc\'ed\'e de Gram-Schmidt}
+	Soit $E$ un espace vectoriel muni d'un produit scalaire. Soit $F \subset E$ un sous-espace ayant pour base $\{u_1,\dotsb,u_r\}$. On peut trouver une base orthogonale de $F$ comme suit.
+	
+	\begin{algorithm}[H]
+		\caption{Proc\'ed\'e de Gram-Schmidt pour orthogonaliser une base}
+		\KwData{$\{u_1,u_2,\dotsb,u_r\}$ une base de $F$}
+		\KwResult{$\{v_1,v_2,\dotsb,v_r\}$ une base orthogonale de $F$}
+		
+		\BlankLine
+		On pose $v_1 = u_1$\;
+		\For{$i \in \{2,3,\dotsb,r\}$}{
+			On pose $v_i = u_i - \displaystyle\sum_{j=1}^{i-1} \operatorname{proj}_{v_j}u_i$\;
+		}
+	\end{algorithm}
+	
+	\section{Forme bilin\'eaire d\'efinie positive}
+	\begin{itemize}[nosep]
+		\item Une forme bilin\'eaire sym\'etrique $f$ et la forme quadratique $q$ sur $E$ sont \emph{d\'efinies positives} si $q(u) = f(u,u) > 0$ pour tout vecteur non nul $u \in E$.
+		\item Une matrice sym\'etrique $A \in M_n(\mathbb{R})$ est \emph{d\'efinie positive} si $uAu^T > 0$ pour tout vecteur non nul $u \in \mathbb{R}^n$.
+		\item Une forme quadratique (ou une forme bilin\'eaire sym\'etrique) sur $E$ est d\'efinie positive si, et seulement si, sa matrice dans une base de $E$ est d\'efinie positive.
+		\item Une matrice r\'eelle sym\'etrique est d\'efinie positive si, et seulement si, tous ses mineurs principaux sont positifs.
+	\end{itemize}
+	
+	Les mineurs principaux correspondent aux d\'eterminants des sous-matrices carr\'ees qui contiennent le premier terme $a_{11}$.
+	
+	\[
+	A = \begin{bNiceMatrix}[left-margin,right-margin]
+		a_{11} & a_{12} & a_{13} & \cdots & a_{1n}\\
+		a_{21} & a_{22} & a_{23} & \cdots & a_{2n}\\
+		a_{31} & a_{32} & a_{33} & \cdots & a_{3n}\\
+		\vdots & \vdots & \vdots & \ddots & \vdots\\
+		a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn}
+		\CodeAfter
+		\tikz \draw (1-|2) |- (2-|1);
+		\tikz \draw (1-|3) |- (3-|1);
+		\tikz \draw (1-|4) |- (4-|1);
+		\tikz \draw (1-|5) |- (5-|1);
+		\tikz \draw (1-|1) rectangle (6-|6);
+	\end{bNiceMatrix}
+	\]
+\end{document}

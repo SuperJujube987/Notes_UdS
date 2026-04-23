@@ -8,6 +8,8 @@ Les liens aux fichiers PDF ci-dessous ouvrent les fichiers dans le même onglet,
 
 [MAT141 - Éléments d'algèbre](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT141-elements_d_algebre/MAT141-elements_d_algebre.pdf)
 
+[MAT253 - Algèbre linéaire II, document de préparation pour l'examen final](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT253-algebre_lineaire_II/prep_final_mat253.pdf)
+
 [MAT346 - Analyse II](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT346-analyse_II/MAT346-analyse_II.pdf)
 
 ## Auteur
@@ -23,6 +25,12 @@ Julien Houle
 Cours donné par Jean-Philippe Burelle durant la session d'automne 2025.
 
 * Assem, I. et Leduc, P.-Y. (2009). *Cours d'algèbre*. Presses Internationales Polytechnique.
+
+### MAT253
+
+Cours donné par Emily Cliff durant la session d'hiver 2026.
+
+* Liu, S. *MAT 253: Introduction à l’algèbre linéaire (II)*. Université de Sherbrooke.
 
 ### MAT346
 
