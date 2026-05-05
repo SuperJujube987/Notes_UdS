@@ -8,9 +8,11 @@ Les liens aux fichiers PDF ci-dessous ouvrent les fichiers dans le même onglet,
 
 [MAT141 - Éléments d'algèbre](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT141-elements_d_algebre/MAT141-elements_d_algebre.pdf)
 
-[MAT253 - Algèbre linéaire II, document de préparation pour l'examen final](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT253-algebre_lineaire_II/prep_final_mat253.pdf)
+[MAT253 - Algèbre linéaire, document de préparation pour l'examen final](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT253-algebre_lineaire/prep_final_mat253.pdf)
 
 [MAT346 - Analyse II](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT346-analyse_II/MAT346-analyse_II.pdf)
+
+[MAT401 - Géométrie euclidienne et non euclidienne](MAT401-geometrie_euclidienne_et_non_euclidienne)
 
 ## Auteur
 
@@ -37,3 +39,7 @@ Cours donné par Emily Cliff durant la session d'hiver 2026.
 Cours donné par Mario Lambert durant la session d'automne 2025.
 
 * Morales, P (2002). *MAT228: Notes de cours*. Université de Sherbrooke.
+
+### MAT401
+
+Cours donné par Virginie Charette durant la session d'été 2026.
