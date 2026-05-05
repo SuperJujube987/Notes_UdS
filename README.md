@@ -4,7 +4,9 @@ Ce dépôt a été créé pour permettre aux étudiants du baccalauréat en math
 
 ## Cours
 
-Les liens aux fichiers PDF ci-dessous ouvrent les fichiers dans le même onglet, en utilisant le lecteur de PDF natif du navigateur. Pour ouvrir le fichier dans un nouvel onglet, accédez à l'option avec un clic droit, utilisez CTRL+clic ou cliquez avec la roulette de votre souris.
+Les liens de MAT141, MAT253 et MAT346 ci-dessous ouvrent les fichiers PDF dans le même onglet, en utilisant le lecteur de PDF natif du navigateur. Pour ouvrir le fichier dans un nouvel onglet, accédez à l'option avec un clic droit, utilisez CTRL+clic ou cliquez avec la roulette de votre souris.
+
+Le lien de MAT401 mène vers le dossier qui contient des fichiers Geogebra. Pour télécharger ces fichiers, cliquez sur le fichier, puis sur le symbole de téléchargement situé à droite.
 
 [MAT141 - Éléments d'algèbre](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT141-elements_d_algebre/MAT141-elements_d_algebre.pdf)
 
@@ -38,8 +40,10 @@ Cours donné par Emily Cliff durant la session d'hiver 2026.
 
 Cours donné par Mario Lambert durant la session d'automne 2025.
 
-* Morales, P (2002). *MAT228: Notes de cours*. Université de Sherbrooke.
+* Morales, P. (2002). *MAT228: Notes de cours*. Université de Sherbrooke.
 
 ### MAT401
 
 Cours donné par Virginie Charette durant la session d'été 2026.
+
+* Burelle, J.P. (2025). *MAT401 : Géométrie euclidienne et non-euclidienne*. Université de Sherbrooke.
