@@ -4,13 +4,13 @@ Ce dépôt a été créé pour permettre aux étudiants du baccalauréat en math
 
 ## Cours
 
-Les liens de MAT141, MAT253 et MAT346 ci-dessous ouvrent les fichiers PDF dans le même onglet, en utilisant le lecteur de PDF natif du navigateur. Pour ouvrir le fichier dans un nouvel onglet, accédez à l'option avec un clic droit, utilisez CTRL+clic ou cliquez avec la roulette de votre souris.
+Les liens de MAT141, MAT342 et MAT346 ci-dessous ouvrent les fichiers PDF dans le même onglet, en utilisant le lecteur de PDF natif du navigateur. Pour ouvrir le fichier dans un nouvel onglet, accédez à l'option avec un clic droit, utilisez CTRL+clic ou cliquez avec la roulette de votre souris.
 
 Le lien de MAT401 mène vers le dossier qui contient des fichiers Geogebra. Pour télécharger ces fichiers, cliquez sur le fichier, puis sur le symbole de téléchargement situé à droite.
 
 [MAT141 - Éléments d'algèbre](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT141-elements_d_algebre/MAT141-elements_d_algebre.pdf)
 
-[MAT253 - Algèbre linéaire, document de préparation pour l'examen final](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT253-algebre_lineaire/prep_final_mat253.pdf)
+[MAT342 - Théorie des anneaux](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT342-theorie_anneaux\MAT342-theorie_anneaux.pdf)
 
 [MAT346 - Analyse II](https://raw.githubusercontent.com/SuperJujube987/Notes_UdS/main/MAT346-analyse_II/MAT346-analyse_II.pdf)
 
@@ -30,11 +30,11 @@ Cours donné par Jean-Philippe Burelle durant la session d'automne 2025.
 
 * Assem, I. et Leduc, P.-Y. (2009). *Cours d'algèbre*. Presses Internationales Polytechnique.
 
-### MAT253
+### MAT342
 
-Cours donné par Emily Cliff durant la session d'hiver 2026.
+Cours donné par Juan Carlos Bustamante durant la session d'automne 2026.
 
-* Liu, S. *MAT 253: Introduction à l’algèbre linéaire (II)*. Université de Sherbrooke.
+* Assem, I. et Leduc, P.-Y. (2009). *Cours d'algèbre*. Presses Internationales Polytechnique.
 
 ### MAT346
 
@@ -47,3 +47,9 @@ Cours donné par Mario Lambert durant la session d'automne 2025.
 Cours donné par Virginie Charette durant la session d'été 2026.
 
 * Burelle, J.P. (2025). *MAT401 : Géométrie euclidienne et non-euclidienne*. Université de Sherbrooke.
+
+### MAT603
+
+Cours donné par Maxence Mayrand durant la session d'automne 2026.
+
+* Shifrin, T. (2026)

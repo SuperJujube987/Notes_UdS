@@ -1,0 +1,636 @@
+\documentclass{report}
+\usepackage[letterpaper,portrait,margin=2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,dsfont,xfrac}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc, positioning, 3d}
+
+\hypersetup{
+	colorlinks=false
+}
+
+\allowdisplaybreaks
+
+\fancyfoot{}
+\fancyhead{}
+\fancyhead[l]{MAT603 - G\'eom\'etrie diff\'erentielle}
+\fancyhead[r]{\leftmark}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setcounter{tocdepth}{3}
+
+\pagestyle{fancy}
+
+\title{MAT603 - G\'eom\'etrie diff\'erentielle
+
+	Donn\'e par Maxence Mayrand}
+\author{Julien Houle}
+\date{Automne 2026}
+
+\renewcommand{\thesection}{ \arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+
+\titleformat{\chapter}[hang]{\bfseries\huge\centering}{Chapitre \arabic{chapter}}{1em}{}[]
+\titleformat{\section}[hang]{\bfseries\large}{Section\thesection}{1em}{}[]
+\titleformat{\subsection}[hang]{\bfseries\normalsize}{}{0pt}{}[]
+\titleformat{\subsubsection}[hang]{\slshape\normalsize}{}{0pt}{}[]
+
+\newtheorem*{thm}{Th\'eor\`eme}
+\newtheorem*{lem}{Lemme}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{coro}{Corollaire}
+\theoremstyle{definition}
+\newtheorem*{dfn}{D\'efinition}
+\theoremstyle{remark}
+\newtheorem*{exem}{Exemple}
+\newtheorem*{exer}{Exercice}
+\newtheorem*{nota}{Notation}
+\newtheorem*{rmq}{Remarque}
+\newtheorem*{rapp}{Rappel}
+
+\setlist{nosep}
+
+\newenvironment*{subproof}[1][D\'emonstration]
+{
+\begin{proof}[#1]
+
+}
+{
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\end{proof}
+\renewcommand{\qedsymbol}{$\square$}
+}
+
+\def\lte{\leqslant}
+\def\gte{\geqslant}
+
+\def\NN{\mathbb{N}}
+\def\ZZ{\mathbb{Z}}
+\def\QQ{\mathbb{Q}}
+\def\RR{\mathbb{R}}
+\def\CC{\mathbb{C}}
+
+\def\id{\mathds{1}}
+
+\def\sech{\operatorname{sech}}
+\def\csch{\operatorname{csch}}
+\def\coth{\operatorname{coth}}
+\def\arcsinh{\operatorname{arcsinh}}
+\def\arccosh{\operatorname{arccosh}}
+\def\arctanh{\operatorname{arctanh}}
+\def\arcsech{\operatorname{arcsech}}
+\def\arccsch{\operatorname{arccsch}}
+\def\arccoth{\operatorname{arccoth}}
+
+\newcommand*{\abs}[1]{\left|#1\right|}
+\newcommand*{\norme}[1]{\left\|#1\right\|}
+
+\begin{document}
+	\maketitle
+	\pagenumbering{roman}
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+	\phantomsection\addcontentsline{toc}{chapter}{Survol du cours}
+	\chapter*{Survol du cours}
+	\phantomsection\addcontentsline{toc}{section}{Courbes}
+	\section*{Courbes dans $\RR^3$ ou $\RR^2$}
+	La courbure est caract\'eris\'ee par $\kappa=\sfrac{1}{r}$. La torsion est caract\'eris\'ee par $\tau=\vec N \cdot \vec T$.
+
+	\begin{thm}[Th\'eor\`eme fondamental des courbes]
+		La courbure et la torsion d\'eterminent une courbe compl\`etement, \`a transformation rigide pr\`es.
+	\end{thm}
+
+	\phantomsection\addcontentsline{toc}{section}{Surfaces}
+	\section*{Surfaces dans $\RR^3$}
+	Une cr\'eature bidimensionnelle peut ``vivre'' sur une surface, se d\'eplacer dessus et mesurer des distances et des angles.
+
+	La g\'eom\'etrie intrins\`eque est d\'ecrite par un produit scalaire sur des vecteurs tangents \`a la surface.
+
+	On peut intersecter la surface avec des plans et mesurer la courbure de la courbe \`a l'intersection du plan et de la surface.
+
+	$k_1$ est le max des courbures et $k_2$ est le min des courbures. $K=k_1k_2$ est la courbure de Gauss.
+
+	\begin{thm}[Theorema egregium (Gauss)]
+		$K$ est intrins\`eque.
+	\end{thm}
+
+	\begin{thm}[Gauss-Bonnet]
+		$\alpha+\beta+\gamma = \pi + \int_{\triangle}K$.
+	\end{thm}
+
+	Une cr\'eature se d\'eplace en ligne ``droite'' sur la surface en laissant une corde le long du chemin. Quand elle revient au point de d\'epart, elle tire sur les deux c\^ot\'es de la corde. Si la corde revient, le chemin ne passe pas par un trou. Si la corde est prise, le chemin passe par un trou.
+
+	\chapter{Courbes}
+	Soit $I \subseteq \RR$ un intervalle.
+
+	Une application $f:I \to \RR^3$ d\'efinie par $f(t) = (f_1(t), f_2(t), f_3(t))$ est \emph{diff\'erentiable} si $f_1',f_2',f_3'$ existent sur $I$. $f'(t) = (f_1'(t), f_2'(t), f_3'(t))$. $F$ est $C^k$ si $f', f'', \cdots, f^{(k)}$ existent et sont continues. $F$ est \emph{lisse} si $f$ est $C^k$, $\forall k\in \NN$.
+
+	Une \emph{courbe param\'etr\'ee} est une application $\vec\alpha:I \to \RR^3$, o\`u $I$ est un intervalle et $\vec\alpha$ est $C^3$. $\vec\alpha$ est \emph{r\'eguli\`ere} si $\vec\alpha'(t)\neq0, \forall t\in I$.
+
+	\begin{exem}
+		\begin{enumerate}
+			\item Droite: $\vec P,\vec Q \in \RR^3$, $\vec\alpha(t) = \vec P + t(\vec Q-\vec P)$, $I=\RR$;
+			\item Cercle: $\vec\alpha(t) = (a\cos t,a\sin t)$, $I=[0,2\pi]$;
+			\item Ellipse: $\left\{ (x,y)\in\RR^2 ~\middle|~ \frac{x^2}{a^2}+\frac{y^2}{b^2}=1 \right\}$. $T : \RR^2\to\RR^2 : (x,y)\mapsto(ax,by)$ envoie le cercle \`a l'ellipse. $\vec\alpha(t) = T(\cos t,\sin t) = (a\cos t,b\sin t)$, $I=[0,2\pi]$;
+			\item Cyclo\"ide: La trajectoire suivie par un point sur un cercle de rayon $a$ lorsque le cercle roule sur une droite.
+
+			On a
+			\begin{itemize}
+				\item $l=at$,
+				\item le centre du cercle est \`a $(l,a)=(at,a)$,
+				\item $\vec\alpha(t) = (at,a)+(-a\sin t,-a\cos t) = (a(t-\sin t), a(1-\cos t))$.
+			\end{itemize}
+			\item H\'elice: $\vec\alpha(t) = (a\cos t, a\sin t, bt)$, $a,b>0$.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{rapp}
+		Fonctions hyperboliques.
+		\begin{align*}
+			\begin{split}
+				\cosh t&= \dfrac{e^t+e^{-t}}{2}
+			\end{split}
+			&
+			\begin{split}
+				\sinh t&= \dfrac{e^t-e^{-t}}{2}
+			\end{split}
+			\\[2ex]
+			\begin{split}
+				\tanh t&= \dfrac{\sinh t}{\cosh t}
+			\end{split}
+			&
+			\begin{split}
+				\sech t&= \dfrac{1}{\cosh t}
+			\end{split}
+		\end{align*}
+	\end{rapp}
+
+	\begin{enumerate}[start=6]
+		\item Cha\^inette: $\vec\alpha(t)=(t, c\cosh(\frac{t}{c}))$, o\`u $c>0$;
+		\item Tractrice: Points \`a distance constante d'un point sur une droite en direction d'un autre point. $\vec\alpha'(t)$ est dirig\'e du point externe vers le point associ\'e \`a $t$ sur la droite.
+
+		Soit $\theta(t)$ l'angle entre la droite et la direction du point externe.
+
+		$\vec\alpha'(t) = c (\cos\theta(t), \sin\theta(t))$, $\vec\alpha(t) = (x(t),y(t)) = (t,0) + (\cos\theta(t), \sin\theta(t))$, $x(t) = t+\cos\theta(t)$, $y(t) = \sin\theta(t)$.
+
+		$(x'(t),y'(t)) = c (\cos\theta(t), \sin\theta(t))$, donc $(1-\sin\theta(t)\theta'(t), \cos\theta(t)\theta'(t)) = c (\cos\theta(t), \sin\theta(t))$.
+
+		\begin{align*}
+			\begin{split}
+				\dfrac{y'(t)}{x'(t)}&= \dfrac{c\sin\theta(t)}{c\cos\theta(t)}\\
+				&= \tan\theta(t)
+			\end{split}
+			&
+			\begin{split}
+				\dfrac{y'(t)}{x'(t)}&= \dfrac{\cos\theta\theta'}{1-\sin\theta\theta'}
+			\end{split}
+		\end{align*}
+		donc
+		\begin{align*}
+			\cos\theta\theta'&= \dfrac{\sin\theta}{\cos\theta} - \dfrac{\sin^2\theta}{\cos\theta}\theta'\\
+			\cos^2\theta\theta'&= \sin\theta-\sin^2\theta\theta'\\
+			(\cos^2\theta+\sin^2\theta)\theta'&= \sin\theta\\
+			\theta'(t)&= \sin\theta(t)
+		\end{align*}
+
+		\begin{align*}
+			\int \dfrac{d\theta}{\sin\theta}&= \int dt
+		\end{align*}
+		or
+		\begin{align*}
+			\int \csc\theta d\theta&= \int \csc\theta \dfrac{\csc\theta+\cot\theta}{\csc\theta+\cot\theta} d\theta\\
+			&= \int \dfrac{\csc^2\theta+\csc\theta\cot\theta}{\csc\theta+\cot\theta} d\theta\\
+			&= -\int \dfrac{d(\csc\theta+\cot\theta)}{\csc\theta+\cot\theta}\\
+			&= -\ln(\csc\theta+\cot\theta)+C
+		\end{align*}
+		donc
+		\begin{align*}
+			t&= -\ln(\csc\theta+\cot\theta)+C\\
+			\shortintertext{comme $\theta(0)=\sfrac{\pi}{2}$,}
+			&= -\ln(\csc\theta+\cot\theta)\\
+			&= -\ln\left(\cot\frac{\theta}{2}\right)\\
+			&= \ln\left(\tan\frac{\theta}{2}\right)
+		\end{align*}
+
+		Donc, $\vec\alpha(t) = (t+\cos\theta(t), \sin\theta(t))$, alors $\vec\beta(\theta) = (\ln\tan\frac{\theta}{2} + \cos\theta, \sin\theta)$ est une param\'etrisation en fonction de $\theta$.
+
+		\begin{align*}
+			t&= \ln\tan\frac{\theta}{2}\\
+			e^t&= \tan\frac{\theta}{2}\\
+			\sin\theta&= 2\sin\frac{\theta}{2}\cos\frac{\theta}{2}\\
+			&= 2\tan\frac{\theta}{2}\cos^2\frac{\theta}{2}\\
+			&= \dfrac{2\tan\frac{\theta}{2}}{\frac{1}{\cos^2\frac{\theta}{2}}}\\
+			&= \dfrac{2\tan\frac{\theta}{2}}{1+\tan^2\frac{\theta}{2}}\\
+			&= \dfrac{2e^t}{1+e^{2t}}\\
+			&= \dfrac{2}{e^{-t}+e^t}\\
+			&= \sech t
+		\end{align*}
+		\begin{align*}
+			1+\cos\theta&= 2\cos^2\frac{\theta}{2}\\
+			\cos\theta&= 2\cos^2\frac{\theta}{2}-1\\
+			&= \cos^2\frac{\theta}{2}-\sin^2\frac{\theta}{2}\\
+			&= \dfrac{1-\tan^2\frac{\theta}{2}}{\frac{1}{\cos^2\frac{\theta}{2}}}\\
+			&= \dfrac{1-\tan^2\frac{\theta}{2}}{1+\tan^2\frac{\theta}{2}}\\
+			&= \dfrac{1-e^{2t}}{1+e^{2t}}\\
+			&= \tanh t
+		\end{align*}
+
+		Ainsi, $\vec\alpha(t) = (t-\tanh t, \sech t)$.
+	\end{enumerate}
+
+	\begin{dfn}
+		Soit $\vec\alpha:[a,b]\to\RR^3$ une courbe param\'etr\'ee. La \emph{longueur d'arc} de $a$ \`a $t\in[a,b]$ est $s(t) = \int_{a}^{t}\|\vec\alpha'(u)\|du$.
+
+		Soit $P = \{t_0, t_1, \cdots, t_n\}$ une partition de $[a,b]$.
+
+		$l(\vec\alpha, P) = \sum_{i=1}^{n} \norme{\vec\alpha(t_i) - \vec\alpha(t_{i-1})}$ est une approximation de la longueur de $\vec\alpha$. Plus $P$ est fine, plus l'approximation est bonne. La longueur de $\vec\alpha$ est $\sup\limits_P \sum_{i=1}^{n} \norme{\vec\alpha(t_i) - \vec\alpha(t_{i-1})}$. $\vec\alpha'(t_i) = \lim\limits_{t\to t_i} \frac{\vec\alpha(t) - \vec\alpha(t_i)}{t-t_i} \approx \frac{\vec\alpha(t_{i+1}) - \vec\alpha(t_i)}{t_{i+1}-t_i}$. La longueur de $\vec\alpha$ est approximativement $\sup\limits_P \sum_{i=1}^{n} \norme{\vec\alpha(t_{i-1})} (t_i-t_{i-1}) = \sup\limits_P \sum_{i=1}^{n} \norme{\vec\alpha'(t_{i-1})} (t_i-t_{i-1})$. Alors, la longueur de $\vec\alpha$ est $\int_{a}^{b} \norme{\vec\alpha'(u)} du$.
+
+		On dit que $\vec\alpha$ est \emph{param\'etr\'ee par la longueur d'arc} si $s(t)=t$.
+	\end{dfn}
+
+	\begin{rmq}
+		$s(t)=t \Leftrightarrow a=0$ et $\norme{\vec\alpha'(t)}=1, \forall t\in[a,b]$.
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$]
+				$t=s(t)=\int_{a}^{t}\norme{\alpha'(u)}du$. En d\'erivant de chaque c\^ot\'e, on a $1=\norme{\alpha(t)}$. En \'evaluant en $t=a$, on a $a=\int_{a}^{a}\norme{\alpha'(u)}du=0$.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$]
+				$s(t) = \int_{0}^{t} \norme{\alpha'(u)}du = \int_{0}^{t}1du = t$.
+			\end{subproof}
+		\end{proof}
+	\end{rmq}
+
+	\begin{exem}
+		$\vec\alpha(t) = (r\cos t, r\sin t)$, avec $t\in[0,2\pi]$.
+		\begin{align*}
+			\norme{\vec\alpha'(t)}&= \norme{(-r\sin t, r\cos t)}\\
+			&= \sqrt{r^2\sin^2t+r^2\cos^2t}\\
+			&= r
+		\end{align*}
+		\begin{align*}
+			s(t)&= \int_{0}^{t}\norme{\vec\alpha'(u)}du\\
+			&= \int_{0}^{t}rdu\\
+			&= rt
+		\end{align*}
+
+		Posons $\vec\beta(t) = \vec\alpha(\sfrac{t}{r}) = (r\cos\frac{t}{r}, r\sin\frac{t}{r})$. $\norme{\vec\beta'(t) = \sqrt{\cos^2\frac{t}{r} + \sin^2\frac{t}{r}}} = 1$. $\vec\beta(s) = (r\cos\frac{s}{r}, r\sin\frac{s}{r})$ est une param\'etrisation par longueur d'arc.
+	\end{exem}
+
+	Toute courbe r\'eguli\`ere peut \^etre reparam\'etr\'ee par longueur d'arc.
+	\begin{proof}[En effet]
+		$s(t) = \int_{a}^{t} \norme{\vec\alpha'(u)} du$ est strictement croissante, car $\norme{\vec\alpha'(u)}>0, \forall u$.
+
+		Donc, il existe un inverse $f:[0,L]\to[a,b]$, c'est-\`a-dire, $s(f(t))=t$ et $f(s(t))=t$.
+
+		Soit $\vec\beta(t)=\vec\alpha(f(t))$. $\vec\beta'(t) = \vec\alpha'(f(t)) f'(t)$, donc $\vec\beta(u) = \vec\alpha'(f(u))f'(u) = \frac{\vec\alpha'(f(u))}{s'(f(u))} = \frac{\vec\alpha'(f(u))}{\norme{\vec\alpha'(f(u))}}$. Ainsi, $\norme{\vec\beta'(u)}=1$ et $\vec\beta$ est param\'etr\'ee par longueur d'arc.
+	\end{proof}
+
+	\begin{exem}
+		$\vec\alpha(t) = (t, \cosh t, \sinh t)$, avec $t\in[0,1]$. Reparam\'etrisons par longueur d'arc.
+		\begin{align*}
+			s(t)&= \int_{0}^{t} \norme{\vec\alpha'(u)}du\\
+			&= \int_{0}^{t} \norme{(1, \sinh u, \cosh u)} du\\
+			&= \int_{0}^{t} \sqrt{1+\sinh^2u+\cosh^2u} du\\
+			&= \int_{0}^{t} \sqrt{2\cosh^2u} du\\
+			&= \sqrt{2} \int_{0}^{t} \cosh u du\\
+			&= \left. \sqrt{2} \sinh u \right|_{0}^{t}\\
+			s(t)&= \sqrt{2}\sinh t
+		\end{align*}
+		donc
+		\begin{align*}
+			\frac{s}{\sqrt{2}}&= \sinh t\\
+			\arcsinh\frac{s}{\sqrt{2}}&= t
+		\end{align*}
+
+		\begin{align*}
+			\vec\beta(s)&= \vec\alpha(\arcsinh\frac{s}{\sqrt{2}})\\
+			&= \left( \arcsinh\frac{s}{\sqrt{2}}, \cosh\left( \arcsinh\frac{s}{\sqrt{2}} \right), \frac{s}{\sqrt{2}} \right)\\
+			&= \left( \arcsinh\frac{s}{\sqrt{2}}, \sqrt{1+\frac{s^2}{2}}, \frac{s}{\sqrt{2}} \right)
+		\end{align*}
+	\end{exem}
+
+	\section{Rep\`ere de Frenet}
+	\begin{lem}
+		Soient $f,g: ]a,b[ \to \RR^3$ deux courbes diff\'erentiables t.q. $f(t) \cdot g(t)$ est constant $\forall t$, alors $f'(t) \cdot g(t) = -f(t) \cdot g'(t)$.
+
+		En particulier, $\norme{f(t)}$ soit constante est \'equivalent \`a $f(t) \cdot f'(t)=0$, $\forall t$.
+		\begin{proof}
+			Si $f(t) \cdot g(t)=c$, $\forall t \in ]a,b[$, alors $\frac{d}{dt}(f(t) \cdot g(t)) = 0$, donc $f'(t) \cdot g(t) + f(t) \cdot g'(t)=0$. Ainsi, $f'(t) \cdot g(t) = -f(t) \cdot g'(t)$.
+
+			\begin{align*}
+				\norme{f(t)}&= \text{const}\\
+				\norme{f(t)}^2&= \text{const}\\
+				f(t) \cdot f(t)&= const\\
+				f'(t) \cdot f(t)&= -f(t) \cdot f'(t)\\
+				2f'(t) \cdot f(t)&= 0\\
+				f'(t) \cdot f(t)&= 0
+			\end{align*}
+		\end{proof}
+	\end{lem}
+
+	Soit $\vec\alpha: I \to \RR^3$ une courbe param\'etr\'ee par longueur d'arc.
+
+	$\vec\alpha:I\to\RR^3:s\mapsto\vec\alpha(s)$.
+
+	$\vec T(s) \coloneq \vec\alpha'(s)$ est le \emph{vecteur tangent unitaire}. $\norme{\vec T(s)}=1, \forall s$.
+
+	Par le lemme, $\vec T' \cdot \vec T=0$.
+
+	\begin{dfn}[Courbure]
+		On d\'efinit la courbure de $\vec\alpha$ comme $\kappa(s) \coloneq \norme{\vec T'(s)}$.
+	\end{dfn}
+
+	\begin{dfn}[Vecteur normal principal]
+		Si $\kappa\neq0$, c'est-\`a-dire, $\vec T'\neq0$, on d\'efinit $\vec N(s) = \frac{\vec T'(s)}{\norme{\vec T'(s)}} = \frac{\vec T'(s)}{\kappa(s)}$ le \emph{vecteur normal principal}.
+	\end{dfn}
+
+	On a $\vec N \cdot \vec T=0$ et $\norme{\vec N} = \norme{\vec T} = 1$.
+
+	\begin{dfn}[Vecteur binormal]
+		$\vec B(s) = \vec T(s) \times \vec N(s)$ est le \emph{vecteur binormal}.
+	\end{dfn}
+
+	Le \emph{rep\`ere de Frenet} est la base orthonorm\'ee $\{\vec T(s), \vec N(s), \vec B(s)\}$.
+
+	\begin{dfn}[Torsion]
+		La \emph{torsion} est $\tau=\vec N' \cdot \vec B$.
+	\end{dfn}
+
+	$\vec T' = \kappa\vec N$.
+
+	$\vec N' = a\vec T+b\vec N+c\vec B$, pour certains $a,b,c$, car $\vec T,\vec N,\vec B$ est une base orthonorm\'ee. $a = \vec N'\cdot\vec T=-\vec N\cdot\vec T' = -\vec N\cdot\kappa\vec N = -\kappa$ par le lemme, car $\vec N\cdot\vec T=0$. $b=\vec N'\cdot\vec N=0$, par le lemme, car $\norme{\vec N}=1$. $c = \vec N'\cdot\vec B = \tau$. Ainsi, $\vec N' = -\kappa\vec T+\tau\vec B$.
+
+	$\vec B' = d\vec T+e\vec N+f\vec B$. $d = \vec B'\cdot\vec T = -\vec B\cdot\vec T' = -\vec B\cdot\kappa\vec N = 0$. $e=\vec B'\cdot\vec N = -\vec B\cdot\vec N' = -\vec B\cdot(-\kappa\vec T+\tau\vec B) = -\tau$. $f = \vec B'\cdot\vec B = 0$, par le lemme. Ainsi, $\vec B'=\tau\vec N$.
+
+	\begin{prop}[Formules de Frenet]
+		\begin{align}
+			\vec T'&= \kappa\vec N\\
+			\vec N'&= -\kappa\vec T+\tau\vec B\\
+			\vec B'&= -\tau\vec N
+		\end{align}
+		o\`u $\kappa=\norme{\vec T'}$ et $\tau=\vec N\cdot\vec B$.
+	\end{prop}
+
+	\begin{exem}[H\'elice]
+		$\vec\alpha(t) = (a\cos t, a\sin t ,bt)$, $\vec\alpha:[0,\infty[\to\RR^3$.
+		\begin{align*}
+			s(t)&= \int_{0}^{t} \norme{\vec\alpha'(u)} du\\
+			&= \int_{0}^{t} \sqrt{a^2+b^2} du\\
+			\shortintertext{en notant $\sqrt{a^2+b^2}=c$,}
+			&= tc
+		\end{align*}
+
+		$\vec\beta(s) = \vec\alpha(t(s)) = \vec\alpha(\sfrac{s}{c}) = (a\cos\sfrac{s}{c}, a\sin\sfrac{s}{c}, \sfrac{bs}{c})$ est une param\'etrisation par longueur d'arc.
+		\begin{align*}
+			\begin{split}
+				\vec T(s)&= \vec\beta'(s)\\
+				&= \left( -\frac{a}{c}\sin\frac{s}{c}, \frac{a}{c}\cos\frac{s}{c}, \frac{b}{c} \right)
+			\end{split}
+			&
+			\begin{split}
+				\vec T'(s)&= \left( -\frac{a}{c^2}\cos\frac{s}{c}, -\frac{a}{c^2}\sin\frac{s}{c}, 0 \right)
+			\end{split}
+			\\[1em]
+			\begin{split}
+				\kappa(s)&= \norme{\vec T'(s)}\\
+				&= \frac{a}{c^2}\\
+				&= \frac{a}{a^2+b^2}
+			\end{split}
+			&
+			\begin{split}
+				\vec N(s)&= \frac{\vec T'(s)}{\kappa(s)}\\
+				&= \left( -\cos\frac{s}{c}, -\sin\frac{s}{c}, 0 \right)
+			\end{split}
+			\\[1em]
+			\begin{split}
+				\vec B&= \vec T \times \vec N\\
+				&= \left( \frac{b}{c}\sin\frac{s}{c}, -\frac{b}{c}\cos\frac{s}{c}, \frac{a}{c} \right)
+			\end{split}
+			&
+			\begin{split}
+				\vec B'&= \left( \frac{b}{c^2}\cos\frac{s}{c}, \frac{b}{c^2}\sin\frac{s}{c}, 0 \right)\\
+				&= -\frac{b}{c^2} \left( -\cos\frac{s}{c}, -\sin\frac{s}{c}, 0 \right)\\
+				&= -\tau\vec N
+			\end{split}
+			\\[1em]
+			\begin{split}
+				\tau&= \frac{b}{c^2}\\
+				&= \frac{b}{a^2+b^2}
+			\end{split}
+			&
+			\begin{split}
+				b\to0&\Rightarrow\left\{\begin{array}{c}
+					\tau\to0\\
+					\kappa\to\frac{1}{a}
+				\end{array}\right.\\
+				b\to\infty&\Rightarrow\left\lbrace\begin{array}{c}
+					\tau\to0\\
+					\kappa\to0
+				\end{array}\right.
+			\end{split}
+		\end{align*}
+	\end{exem}
+
+	Quand $\vec\alpha$ est param\'etr\'ee par longueur d'arc (PPLA),
+	\begin{align*}
+		\vec T&= \vec\alpha'\\
+		\vec N&= \frac{\vec T'}{\kappa}\\
+		\vec B&= \vec T \times \vec \vec N
+	\end{align*}
+	o\`u $\kappa=\norme{\vec T'}$ et $\tau=\vec N' \cdot \vec B$.
+
+	Si $\vec\alpha$ n'est pas PPLA, $s(t) = \int_{a}^{t} \norme{\vec\alpha(u)}du$ est la longueur d'arc.
+	\begin{align*}
+		\vec T(t)&= \frac{\vec\alpha'(t)}{\norme{\vec\alpha'(t)}}\\
+		&= \frac{\vec\alpha'(t)}{v(t)}
+	\end{align*}
+	o\`u $v(t)=\norme{\vec\alpha'(t)}$ est la vitesse.
+	\begin{align*}
+		\kappa(t)&= \norme{\frac{d}{dt}\vec T}\\
+		&= \norme{\frac{\sfrac{d\vec T}{ds}}{\sfrac{ds}{dt}}}\\
+		&= \norme{\frac{\vec T'(t)}{\vec\alpha'(t)}}\\
+		&= \frac{\norme{\vec T'(t)}}{v(t)}
+	\end{align*}
+	\begin{align*}
+		\vec N(t)&= \dfrac{\frac{d}{ds}\vec T}{\norme{\frac{d}{ds}\vec T}}\\
+		&= \dfrac{\frac{\vec T'}{v(t)}}{\kappa(t)}\\
+		&= \frac{\vec T'(t)}{\kappa(t)v(t)}
+	\end{align*}
+	\begin{align*}
+		\vec B(t)&= \vec T(t) \times \vec N(t)
+	\end{align*}
+	\begin{align*}
+		\tau(t)&= \frac{d\vec N}{ds} \cdot \vec B\\
+		&= \frac{\vec N'(t)}{v(t)} \cdot \vec B(t)
+	\end{align*}
+
+	En g\'en\'eral,
+	\begin{align*}
+		\vec T&= \frac{\vec\alpha'}{v}\\
+		\vec N&= \frac{\vec T'}{\kappa v}\\
+		\vec B&= \vec T \times \vec N
+	\end{align*}
+	o\`u $v=\norme{\vec\alpha'}$, $\kappa=\frac{\norme{\vec T'}}{v}$ et $\tau=\frac{\vec N'\cdot\vec B}{v}$.
+
+	Les formules de Frenet g\'en\'erales sont
+	\begin{align}
+		\frac{1}{v}\vec T'&= \kappa\vec N\\
+		\frac{1}{v}\vec N'&= -\kappa\vec T+\tau\vec B\\
+		\frac{1}{v}\vec B'&= -\tau\vec N
+	\end{align}
+
+	\begin{exem}[Tractrice]
+		$\vec\alpha(\theta) = \left( \cos\theta+\ln\tan\frac{\theta}{2}, \sin\theta \right)$, avec $\theta \in [\sfrac{\pi}{2}, \pi[$. $\vec\alpha'(\theta) = \left( -\sin\theta+\csc\theta, \cos\theta \right)$. $v(\theta) = \norme{\vec\alpha'(\theta)} = \sqrt{(\sin\theta+\csc\theta)^2+\cos^2\theta} = \sqrt{1-2+\csc^2\theta} = \sqrt{\csc^2\theta-1} = -\cot\theta$.
+		\begin{align*}
+			\begin{split}
+				\vec T(\theta)&= \dfrac{\vec\alpha'(\theta)}{v(\theta)}\\
+				&= -\dfrac{\sin\theta}{\cos\theta} \left( -\sin\theta+\csc\theta, \cos\theta \right)\\
+				&= \left( \dfrac{\sin^2\theta}{\cos\theta}-\dfrac{1}{\cos\theta}, -\sin\theta \right)\\
+				&= \left( -\cos\theta, -\sin\theta \right)
+			\end{split}
+			&
+			\begin{split}
+				\kappa\vec N&= \frac{1}{v(\theta)} \vec T'(\theta)\\
+				&= -\tan\theta \left( \sin\theta, -\cos\theta \right)\\[.5em]
+				\Rightarrow\kappa&= \norme{\kappa\vec N} = -\tan\theta\\
+				\vec N&= \frac{\kappa\vec N}{\kappa} = \left( \sin\theta, -\cos\theta \right)
+			\end{split}
+		\end{align*}
+	\end{exem}
+
+	\begin{exem}
+		$\vec\alpha(t) = (3t-t^3, 3t^2, 3t+t^3)$. $\vec\alpha'(t) = (3-3t^2, 6t, 3+3t^2)$. $v(t) = \norme{\vec\alpha'(t)} = 3\sqrt{2}(1+t^2)$.
+		\begin{align*}
+			\vec T(t)&= \frac{\vec\alpha'(t)}{v(t)}\\
+			&= \frac{1}{\sqrt{2}}\left( \frac{1-t^2}{1+t^2}, \frac{2t}{1+t^2}, 1 \right)
+		\end{align*}
+		\begin{align*}
+			\kappa\vec N&= \frac{1}{v(t)} \frac{d\vec T}{dt}\\
+			&= \frac{1}{3\sqrt{2}(1+t^2)} \left( \cdots \right)\\
+			&= \frac{1}{3\sqrt{2}(1+t^2)^2} \left( \frac{-4t}{(1+t^2)^2}, \frac{2(1-t)^2}{(1+t^2)^2}, 0 \right)
+		\end{align*}
+		\begin{align*}
+			\kappa(t)&= \norme{\kappa\vec N}\\
+			&= \frac{1}{3(1+t^2)^2}
+		\end{align*}
+		\begin{align*}
+			\vec N(t)&= \frac{\kappa\vec N}{\kappa}\\
+			&= \left( -\frac{2t}{(1+t^2)^2}, \frac{1-t^2}{(1+t^2)^2}, 0 \right)
+		\end{align*}
+		\begin{align*}
+			\vec B&= \vec T \times \vec N\\
+			&= \frac{1}{\sqrt{2}} \left( -\frac{1-t^2}{1+t^2}, -\frac{2t}{1+t^2}, 1 \right)
+		\end{align*}
+		\begin{align*}
+			-\tau\vec N&= \frac{1}{v}\vec B'\\
+			&= -\frac{1}{3(1+t^2)^2} \left( -\frac{2t}{1+t^2}, \frac{1-t^2}{1+t^2}, 0 \right)\\
+			\Rightarrow\tau&= \frac{1}{3(1+t^2)^2}\\
+			&= \kappa
+		\end{align*}
+	\end{exem}
+
+	$\vec\alpha'=v\vec T \Longrightarrow \vec\alpha'' = v'\vec T+v\vec T' = v'\vec T+v(v\kappa\vec N) = v'\vec T+v^2\kappa\vec N$.
+	\begin{align*}
+		\vec\alpha' \times \vec\alpha''&= v\vec T \times (v'\vec T+v^2\kappa\vec N)\\
+		&= v^3\kappa\vec T \times \vec N\\
+		&= v^3\kappa\vec B\\
+		\shortintertext{donc,}
+		\norme{\vec\alpha' \times \vec\alpha''}&= v^3\kappa\\
+		\kappa&= \frac{\norme{\vec\alpha' \times \vec\alpha''}}{\norme{\vec\alpha'}^3}
+	\end{align*}
+
+	\begin{exer}
+		\begin{proof}[Montrer que $\vec\alpha$ est lin\'eaire si, et seulement si, $\kappa=0$]
+			\begin{align*}
+				\kappa(s)=0, \forall s&\Leftrightarrow \norme{\vec T'(s)}=0, \forall s\\
+				&\Leftrightarrow \vec T'(s)=0, \forall s\\
+				&\Leftrightarrow \vec T(s)=\vec T_0 \text{ const}, \forall s\\
+				&\Leftrightarrow \vec\alpha(s)=s\vec T_0+\vec\alpha_0
+			\end{align*} o\`u $\vec\alpha_0$ est constante.
+		\end{proof}
+	\end{exer}
+
+	\begin{exer}
+		Soit $\vec\alpha$ une courbe dont toutes les lignes tangentes ($\{\vec\alpha(s)+c\vec T(s) \mid c \in \RR\}$) passent par un m\^eme point, $\vec x_0$, fixe. Que peut-on dire \`a propos de $\vec\alpha$?
+		\begin{proof}[D\'emontrons que $\vec\alpha$ est une droite]
+			Sans perte de g\'en\'eralit\'e, supposons que $\vec\alpha$ est PPLA et $\vec x_0=0$. On peut donc r\'e\'ecrire l'hypoth\`ese comme $\vec\alpha(s)$ et $\vec T(s)$ sont colin\'eaires, c'est-\`a-dire, $\vec\alpha(s)=\lambda(s)\vec T(s)$, o\`u $\lambda(s) \in \RR$.
+			\begin{align*}
+				\vec\alpha'(s)&= \lambda'(s)\vec T(s) + \lambda(s)\vec T'(s)\\
+				\vec T&= \lambda'\vec T + \lambda\kappa\vec N\\
+				(\lambda'-1)\vec T + \lambda\kappa\vec N&= 0
+			\end{align*}
+			Puisque $\vec T$ et $\vec N$ sont lin\'eairement ind\'ependants, on a que $\lambda'=0$ et $\lambda\kappa=0$. Alors, $\lambda(s)=s+c$ et $\lambda\kappa=0$, donc $\kappa=0$. Ainsi, $\vec\alpha$ est lin\'eaire.
+		\end{proof}
+	\end{exer}
+
+	\begin{exer}
+		\begin{proof}[Montrer que]
+			une courbe est planaire (contenue dans un plan $P=\{(x,y,z)\in\RR^3 \mid ax+by+cz=d\}$ pour  $a,b,c,d\in\RR$) si, et seulement si, $\tau(s)=0$, $\forall s$. De plus, toute courbe planaire de courbure constante $\kappa>0$ est une portion de cercle de rayon $\sfrac{1}{\kappa}$.
+			\begin{subproof}[$\Rightarrow$]
+				Supposons que $\vec\alpha:I\to\RR^3$ est planaire et PPLA. Soit $P=\{(x,y,z)\in\RR^3 \mid ax+by+cz=d\} = \{\vec v\in\RR^3 \mid \vec v \cdot \vec n=d\}$ le plan qui contient $\vec\alpha$, o\`u $\vec n\in\RR^3$ et $\norme{\vec n}=1$.
+
+				On a que $\vec\alpha(s)\in P$, $\forall s$, donc
+				\begin{align*}
+					\vec\alpha(s) \cdot \vec n&= d\\
+					\vec\alpha'(s) \cdot \vec n&= 0\\
+					\vec T \cdot \vec n&= 0\\
+					\vec T' \cdot \vec n&= 0\\
+					\shortintertext{par les formules de Frenet}
+					\kappa\vec N \cdot \vec n&= 0
+				\end{align*}
+				Comme $\vec n$ est orthogonale \`a $\vec T$ et $\vec N$, $\vec n$ est colin\'eaire \`a $\vec B$. Comme $\norme{\vec n}=1$, $\vec n = \pm\vec B$.
+
+				Puisque $\vec n$ est constant, on a que $\vec B'=0$, donc par Frenet, $\vec B'=-\tau\vec N=0$, alors $\tau=0$.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$]
+				Supposons que $\tau(s)=0, \forall s$. Alors, $\vec B'=-\tau\vec N=0$, donc $\vec B=B_0$ constant.
+
+				Soit $\vec n=\vec B_0$. Soit $f(s)=\vec\alpha(s) \cdot \vec n$. Alors
+				\begin{align*}
+					f'(s)&= \vec\alpha'(s) \cdot \vec n\\
+					&= \vec T \cdot \vec n\\
+					&= \vec T \cdot \vec B_0\\
+					&= \vec T \cdot \vec B\\
+					&= 0
+				\end{align*}
+				Donc, $f(s)=d$, pour une constante $d$. Alors, $\vec\alpha(s) \cdot \vec n=d, \forall s$, c'est-\`a-dire, $\vec\alpha(s)\in P=\{\vec v\in\RR^3 \mid \vec v \cdot \vec n=d\}$.
+			\end{subproof}
+
+			Supposons que $\vec\alpha$ est planaire et que $\kappa(s)=\kappa_0$, $\forall s$, o\`u $\kappa_0 \in \RR$ est constante.
+
+			Soit $\vec\beta(s) = \vec\alpha(s)+\frac{1}{\kappa_0}\vec N(s)$.
+			\begin{align*}
+				\vec\beta'(s)&= \vec\alpha'(s) + \frac{1}{\kappa_0} \vec N'(s)\\
+				&= \vec T + \frac{1}{\kappa_0} \left( -\kappa\vec T + \tau\vec B \right)\\
+				&= \vec T - \vec T\\
+				&= 0
+			\end{align*}
+			Alors, $\vec\beta(s)=\vec P_0$, $\forall s$, o\`u $\vec P_0\in\RR^3$ est constant.
+			\begin{align*}
+				\norme{\vec\alpha(s) - \vec P_0}&= \norme{\vec\alpha(s) - \vec\beta(s)}\\
+				&= \norme{-\frac{1}{\kappa_0} \vec N(s)}\\
+				&= \frac{1}{\kappa_0}
+			\end{align*}
+			Ainsi, $\vec\alpha(s) \subseteq \left\{ \vec v\in\RR^3  ~\middle|~ \begin{array}{l}
+				\vec v \cdot \vec n=d\\
+				\norme{\vec v-\vec P_0}=\frac{1}{\kappa_0}
+			\end{array}\right\}$, c'est-\`a-dire, $\vec\alpha(s)$ est dans le cercle de rayon $\sfrac{1}{\kappa_0}$ centr\'e en $\vec P_0$ dans le plan $P$.
+		\end{proof}
+	\end{exer}
+
+	\begin{exem}[H\'elice]
+		$\vec\alpha(s) = \left( a\cos\frac{s}{c}, a\sin\frac{s}{c}, \frac{bs}{c} \right)$, avec $a,b\in\RR$. $\kappa=\frac{a}{c^2}$. $\tau=\frac{b}{c^2}$.
+
+		Soit $\vec A=(0,0,1)\in\RR^3$. $\vec T \cdot \vec A = \left( -\frac{a}{c}\sin\frac{s}{c}, \frac{a}{c}\cos\frac{s}{c}, \frac{b}{c} \right) \cdot (0,0,1) = \frac{b}{c}$, constant.
+
+		Une \emph{h\'elice g\'en\'eralis\'ee} est une courbe $\vec\alpha$ t.q. $\kappa\neq0$ et $\vec T$ fait un angle constant avec un vecteur fixe $\vec A$ de norme $1$.
+	\end{exem}
+\end{document}

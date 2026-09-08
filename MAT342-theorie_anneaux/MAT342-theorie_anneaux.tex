@@ -1,0 +1,635 @@
+\documentclass{report}
+\usepackage[letterpaper,portrait,margin=2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,dsfont,xfrac}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc, automata}
+
+\hypersetup{
+	colorlinks=false
+}
+
+\allowdisplaybreaks
+
+\fancyfoot{}
+\fancyhead{}
+\fancyhead[l]{MAT342 - Th\'eorie des anneaux}
+\fancyhead[r]{\leftmark}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setcounter{tocdepth}{3}
+
+\pagestyle{fancy}
+
+\title{MAT342 - Th\'eorie des anneaux
+
+	Donn\'e par Juan Carlos Bustamante}
+\author{Julien Houle}
+\date{Automne 2026}
+
+\renewcommand{\thesection}{ \arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+
+\titleformat{\chapter}[hang]{\bfseries\huge\centering}{Chapitre \arabic{chapter}}{1em}{}[]
+\titleformat{\section}[hang]{\bfseries\large}{Section\thesection}{1em}{}[]
+\titleformat{\subsection}[hang]{\bfseries\normalsize}{}{0pt}{}[]
+\titleformat{\subsubsection}[hang]{\slshape\normalsize}{}{0pt}{}[]
+
+\newtheorem*{thm}{Th\'eor\`eme}
+\newtheorem*{lem}{Lemme}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{coro}{Corollaire}
+\theoremstyle{definition}
+\newtheorem*{dfn}{D\'efinition}
+\theoremstyle{remark}
+\newtheorem*{exem}{Exemple}
+\newtheorem*{exer}{Exercice}
+\newtheorem*{nota}{Notation}
+\newtheorem*{rmq}{Remarque}
+\newtheorem*{rapp}{Rappel}
+
+\setlist{nosep}
+
+\newenvironment*{subproof}[1][D\'emonstration]
+{
+\begin{proof}[#1]
+
+}
+{
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\end{proof}
+\renewcommand{\qedsymbol}{$\square$}
+}
+
+\def\lte{\leqslant}
+\def\gte{\geqslant}
+
+\def\ZZ{\mathbb{Z}}
+\def\QQ{\mathbb{Q}}
+\def\RR{\mathbb{R}}
+\def\CC{\mathbb{C}}
+
+\def\id{\mathds{1}}
+
+\newcommand*{\abs}[1]{\left|#1\right|}
+
+\begin{document}
+	\maketitle
+	\pagenumbering{roman}
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+	\chapter{Anneaux}
+	\phantomsection\addcontentsline{toc}{section}{Rappel}
+	\section*{Rappel}
+	Un groupe est un ensemble avec une op\'eration $(G,\cdot)$ qui v\'erifient
+	\begin{itemize}
+		\item associativit\'e: $(xy)z=x(yz)$,
+		\item $\exists$ neutre: $e_G$ t.q. $xe=ex=x$,
+		\item Tout \'el\'ement est inversible: $\forall x, \exists x'$ t.q. $xx'=x'x=e$.
+	\end{itemize}
+
+	De plus, $G$ est ab\'elien si
+	\begin{itemize}
+		\item commutatif: $xy=yx$.
+	\end{itemize}
+
+	\begin{dfn}
+		Un anneau est un ensemble muni de 2 op\'erations $(A,+,\cdot)$, t.q.
+		\begin{enumerate}
+			\item $(A,+)$ un groupe ab\'elien (neutre $0_A$),
+			\item $(A,\cdot)$ un mono\"ide: assoc, neutre ($1_A$),
+			\item Relation de compatibilit\'e
+			\begin{itemize}
+				\item Distributivit\'e: $x(y+z)=xy+xz$ et $(x+y)z=xz+yz$.
+			\end{itemize}
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{rmq}
+		\begin{enumerate}
+			\item Certains textes ne n\'ecessite pas l'existence de neutre multiplicatif,
+			\item $A$ est ``commutatif'' si l'op\'eration $\cdot$ l'est.
+		\end{enumerate}
+	\end{rmq}
+
+	\begin{exem}
+		\begin{enumerate}[label=\alph*)]
+			\item $\ZZ$, $\QQ$, $\RR$, $\CC$ avec op\'erations usuelles;
+			\item $\ZZ[x]$, $\QQ[x]$, $\RR[x]$, $\CC[x]$, $\ZZ[x,y]$, \dots: polyn\^omes;
+			\item $M_n(\ZZ) = \ZZ^{n \times n}$: matrices carr\'ees $n \times n$ avec coefficients dans $\ZZ$, $M_n(\QQ)$, $M_n(\RR)$, $M_n(\CC)$, $M_n(\RR[x])$, \dots;
+			\item $\ZZ_n = \sfrac{\ZZ}{n\ZZ}$ est un anneau commutatif,
+			\item supposons $G$ un groupe ab\'elien: $\operatorname{end}(G) = \left\{ G \xrightarrow{f} G ~\middle|~ f\text{ homomorphisme de groupes} \right\}$, $f+g: G \to G, x \mapsto (f+g)(x) = f(x)+g(x)$, neutre $0$: la fonction constante \'egale \`a $0_G$, associativit\'e: h\'erit\'ee de $G$, ``oppos\'e'': $-f:x \mapsto -f(x) \in G$, alors $(\operatorname{end}(G), +)$ est un groupe ab\'elien. La composition est une autre op\'eration dans $\operatorname{end}(G)$,
+			\begin{itemize}
+				\item associativit\'e: oui,
+				\item neutre: $\id_G: x \mapsto x$,
+				\item distributivit\'e: pour $x \in G$ arbitraire,
+				\begin{align*}
+					(f\circ (g+h))(x)&= f((g+h)(x))\\
+					&= f(g(x)+h(x))\\
+					\shortintertext{comme $f$ est un homomorphisme de groupes}
+					&= f(g(x))+f(h(x))\\
+					&= (f \circ g)(x) + (f \circ h)(x)
+				\end{align*}
+				Ceci \'etant vrai pour tout $x \in G$, on a bien $f \circ (g+h) = f \circ g + f \circ h$ dans $\operatorname{end}(G)$. De m\^eme, on a la distributivit\'e de l'autre c\^ot\'e.
+			\end{itemize}
+			Ainsi, $\operatorname{end}(G)$ est un anneau, g\'en\'eralement non commutatif.
+			\item Si $A,B$ sont des anneaux, $A \times B$ est un anneau avec $(a,b)+(a',b') \coloneq (a+a',b+b')$, $(a,b)\cdot(a',b') \coloneq (aa',bb')$, $\id_{A \times B} \coloneq (\id_A,\id_B)$;
+			\item $X$ un ensemble, $A = \RR^{(X)}$: $\left\{ f:X \to \RR ~\middle|~ f\text{ est de support fini} \right\}$, c'est-\`a-dire $f(x)=0$ sauf pour un ensemble fini d'\'el\'ements.
+			\begin{itemize}
+				\item addition dans $A$: $f+g : X \to \RR : x \mapsto f(x)+g(x)$ fait de $(A,+)$ un groupe ab\'elien;
+				\item multiplication dans $A$: $f \cdot g : X \to \RR : x \mapsto f(x) \cdot g(x)$ est associative et commutative. Les distributivit\'es tiennent. Le neutre multiplicatif serait la fonction constante $x \mapsto \id_\RR$ qui n'est pas \`a support fini.
+			\end{itemize}
+		\end{enumerate}
+	\end{exem}
+
+	\begin{prop}
+		\begin{enumerate}
+			\item Dans un anneau, le neutre multiplicatif est unique,
+			\item Si un \'el\'ement poss\`ede un inverse multiplicatif, alors cet inverse est unique. L'inverse de $a$ est not\'e $a^{-1}$.
+		\end{enumerate}
+		\begin{proof}
+			\begin{enumerate}
+				\item Supposons $\id,\id'$ sont deux neutres multiplicatifs.
+				\begin{align*}
+					\id&= \id\id'\\
+					\shortintertext{puisque $\id'$ est neutre}
+					&= \id'\\
+					\shortintertext{puisque $\id$ est neutre}
+				\end{align*}
+				\item Soit $a \in A$, $a',a''$ deux inverses.
+				\begin{align*}
+					a'&= a'\id\\
+					\shortintertext{puisque $a''$ est inverse,}
+					&= a'(aa'')\\
+					\shortintertext{par associativit\'e,}
+					&= (a'a)a''\\
+					\shortintertext{puisque $a'$ est inverse,}
+					&= \id a''\\
+					&= a''
+				\end{align*}
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+
+	\begin{prop}[R\`egles de calcul]
+		Soit $(A,+,\cdot)$ un anneau.
+
+		Pour tous $a,b,c \in A$, $m,n \in \ZZ$, on a
+		\begin{enumerate}[label=\roman*)]
+			\item $-(-a)=a$,
+			\item $-(a+b)=-a-b$,
+			\item $a+x=b+x \Rightarrow a=b$,
+			\item \begin{align*}
+				(m+n)a&= ma+na\\
+				m(a+b)&= ma+mb\\
+				m(na)&= (mn)a
+			\end{align*}
+			\item $a0=0a=0$,
+			\item $a(-b)=(-a)b=-(ab)$,
+			\item \begin{align*}
+				a(b-c)&= ab-ac\\
+				(a-b)c&= ac-bc
+			\end{align*}
+			\item $(-a)(-b)=ab$,
+			\item \begin{align*}
+				a\sum_{i=1}^{n} b_i&= \sum_{i=1}^{n} ab_i\\
+				\left( \sum_{i=1}^{n} a_i \right)b&= \sum_{i=1}^{n} a_ib
+			\end{align*}
+			\item $(a^m)^n = a^{mn}$, $m,n \in \mathbb{N}$.
+		\end{enumerate}
+
+		\begin{subproof}[id\'ee de d\'emo]
+			i) \`a iv): \c Ca se passe dans le groupe ab\'elien $(A,+)$, voir MAT141
+
+			v): exercice
+
+			vi): \begin{align*}
+				a(-b)+ab&= a(-b+b)\\
+				&= a0\\
+				&= 0
+			\end{align*}
+			Il s'en suit que $a(-b)=-(ab)$. Idem pour l'autre \'egalit\'e.
+
+			vii): exercice
+
+			viii): \begin{align*}
+				(-a)(-b)&= -((-a)b)\\
+				&= -(-(ab))\\
+				&= ab
+			\end{align*}
+			ix),x): r\'ecurrences.
+		\end{subproof}
+	\end{prop}
+
+	\begin{dfn}
+		$A$ un anneau donn\'e. Un sous-anneau de $A$ est un sous-ensemble $B$ de $A$ qui est un anneau pour les m\^emes op\'erations, et avec le m\^eme neutre multiplicatif: $\id_B=\id_A$. On \'ecrit $B \lte A$
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\QQ \lte \RR \lte \CC$.
+			\item $A=\left\{ \begin{bsmallmatrix}
+				a&0\\0&0
+			\end{bsmallmatrix} ~\middle|~ a \in \RR \right\}$ est un anneau dont le neutre multiplicatif est $\begin{bsmallmatrix}
+				1&0\\0&0
+			\end{bsmallmatrix}$. Ce n'est pas un sous anneau de $\RR^{2 \times 2}$, car $\id_{\RR^{2\times2}} = \begin{bsmallmatrix}
+				1&0\\0&1
+			\end{bsmallmatrix} \notin A$.
+			\item $\ZZ[i] = \left\{ a+bi ~\middle|~ a,b \in \ZZ \right\} \lte \CC$. Ce sont les entiers de Gauss, avec les m\^emes op\'erations que $\CC$.
+			\item $d \in \ZZ$ pas divisible par un carr\'e. $\ZZ[\sqrt{d}] = \left\{ a+b\sqrt{d} ~\middle|~ a,b \in \ZZ \right\}$ avec les op\'erations induites par celles de $\RR$. $\ZZ[\sqrt{d}] \lte \QQ[\sqrt{d}] \lte \RR \lte \CC$.
+			\item $T_n(\RR) \lte M_n(\RR)$, les matrices triangulaires inf\'erieures.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{prop}
+		Soient $A$ un anneau et $B \subseteq A$. Alors, $B \lte A$ si, et seulement si,
+		\begin{enumerate}
+			\item $B$ est un sous-groupe ab\'elien de $A$,
+			\item $a,b \in B \Rightarrow ab \in B$,
+			\item $\id_A \in B$.
+		\end{enumerate}
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$:]
+				directe.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				La multiplication est associative dans $A$, donc dans $B$ aussi. De m\^eme, on a les distributivit\'es. Le neutre $\id_A$ est neutre dans $A$, donc dans $B$ aussi.
+			\end{subproof}
+		\end{proof}
+	\end{prop}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item Sous-anneaux (propres) de $\ZZ$: il n'y en a pas.
+
+			$\ZZ_n$ n'est m\^eme pas un sous-ensemble de $\ZZ$.
+			\item sous-anneaux de $\ZZ_m$: uniquement $\ZZ_m$.
+			\item $A$ un anneau donn\'e, $Z(A)$ est $Z(A) = \left\{ a \in A ~\middle|~ ax=xa, \forall x \in A \right\}$. Voyons que $Z(A) \lte A$.
+			\begin{itemize}
+				\item $Z(A)$ est un sous-groupe additif de $A$. $0_A \in Z(A)$. De plus, si $a,a' \in Z(A)$ alors pour $x \in A$ on a
+				\begin{align*}
+					(a-a')x&= ax-a'x\\
+					&= xa-xa'\\
+					&= x(a-a')
+				\end{align*}
+
+				Donc, $Z(A)$ est un sous-groupe additif de $A$.
+				\item $a,a' \in Z(A)$.
+				\begin{align*}
+					(aa')x&= a(a'x)\\
+					&= a(xa')\\
+					&= (ax)a'\\
+					&= (xa)a'\\
+					&= x(aa')
+				\end{align*}
+
+				Donc, $a,a' \in Z(A) \Rightarrow aa' \in Z(A)$.
+				\item $\id_A \in Z(A)$, directement.
+			\end{itemize}
+			\begin{enumerate}
+				\item $A$ commutatif $\Leftrightarrow Z(A)=A$.
+				\item $A=\RR^{2\times2}$. Clairement, $\left\{ \lambda I = \begin{bsmallmatrix}
+					\lambda&0\\0&\lambda
+				\end{bsmallmatrix} ~\middle|~ \lambda\in\RR \right\} \in Z(A)$. Voyons que c'est tout. Si $\begin{bsmallmatrix}
+					0&0\\\mu&0
+				\end{bsmallmatrix} \in Z(A)$, alors
+				\begin{align*}
+					\begin{bsmallmatrix}
+						0&0\\\mu&0
+					\end{bsmallmatrix} \begin{bsmallmatrix}
+						a&b\\c&d
+					\end{bsmallmatrix} &= \begin{bsmallmatrix}
+						a&b\\c&d
+					\end{bsmallmatrix} \begin{bsmallmatrix}
+						0&0\\\mu&0
+					\end{bsmallmatrix}\\
+					\begin{bsmallmatrix}
+						0&0\\\mu a&\mu b
+					\end{bsmallmatrix} &= \begin{bsmallmatrix}
+						\mu b&0\\\mu d&0
+					\end{bsmallmatrix}
+				\end{align*}
+
+				De m\^eme, aucune matrice $\begin{bsmallmatrix}
+					0&\mu\\0&0
+				\end{bsmallmatrix}$ avec $\mu\neq0$ ne se trouve dans $Z(A)$.
+
+				Par ailleurs, $\begin{bsmallmatrix}
+					\lambda&0\\0&\mu
+				\end{bsmallmatrix} \notin Z(A) \Leftrightarrow \lambda\neq\mu$.
+			\end{enumerate}
+		\end{enumerate}
+	\end{exem}
+
+	\section{L'anneau de groupe}
+	Soient $A$ un anneau commutatif et $G$ un groupe.
+
+	\begin{rapp}
+		$A^G = \left\{ f:G \to A \right\}$ toutes les fonctions est un anneau pour
+		\begin{align*}
+			(f_1+f_2)(x)&= f_1(x)+f_2(x)\\
+			(f_1f_2)(x)&= f_1(x)f_2(x)
+		\end{align*}
+		avec les op\'erations induites par $A$.
+
+		$A^{(G)} = \left\{ f:G \to A ~\middle|~ f\text{ est \`a support fini} \right\}$.
+	\end{rapp}
+
+	\begin{dfn}
+		Pour $x \in G$, on pose $\delta_x : G \to A : y \mapsto \delta_x(y) = \left\{ \begin{array}{lll}
+			\id_A&\text{si}&x=y\\
+			0_A&\text{si}&x\neq y
+		\end{array} \right.$. Si $f \in A^{(G)}$, alors $f(*) = \sum_{x \in G} f(x) \delta_x(*)$. En effet, pour $g_0 \in G$, $\sum_{x \in G} f(x) \delta_x(g_0) = f(g_0)\delta_{g_0}(g_0) = f(g_0)$.
+	\end{dfn}
+
+	\begin{rmq}
+		$\left\{ \delta_x ~\middle|~ x \in G \right\}$ est une ``base'' pour l'ensemble $A^{(G)}$.
+	\end{rmq}
+
+	\begin{rmq}
+		On a une injection $G \to A^{(G)} : x \mapsto \delta_x$ de sorte qu'on peut identifier $\delta_x$ de $A^{(G)}$ \`a $x$.
+	\end{rmq}
+
+	$A^{(G)}$ est un groupe ab\'elien pour l'addition induite par celle de $A$. Posons $\delta_x\bullet\delta_y \coloneq \delta_{xy}$ et on prolonge par distributivit\'e \`a $A^{(G)}$.
+	\begin{align*}
+		\left( \sum_{x \in G} a_xx \right) \left( \sum_{y \in G} b_yy \right)&= \sum_{x,y \in G} a_xb_y(xy)
+	\end{align*}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $A=\ZZ$, $G=\mathbb{D}_3 = \{\varepsilon, \rho, \sigma, \alpha, \beta, \gamma\}$, dont la table est pr\'esent\'ee ci-bas.
+			\begin{table}[h]
+				\centering
+				$\begin{array}{c||c|c|c|c|c|c}
+					\circ&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\hline\hline
+					\varepsilon&\varepsilon&\alpha&\beta&\gamma&\rho&\sigma\\
+					\hline
+					\alpha&\alpha&\varepsilon&\rho&\sigma&\beta&\gamma\\
+					\hline
+					\beta&\beta&\sigma&\varepsilon&\rho&\gamma&\alpha\\
+					\hline
+					\gamma&\gamma&\rho&\sigma&\varepsilon&\alpha&\beta\\
+					\hline
+					\rho&\rho&\gamma&\alpha&\beta&\sigma&\varepsilon\\
+					\hline
+					\sigma&\sigma&\beta&\gamma&\alpha&\varepsilon&\rho
+				\end{array}$
+				\caption{Table de $\mathbb{D}_3$}
+			\end{table}
+			\begin{align*}
+				\underbrace{\left( \rho+\sigma-\varepsilon \right)}_{\in \ZZ^{\mathbb{D}_3}} \underbrace{\left( 2\alpha-\beta \right)}_{\in \ZZ^{\mathbb{D}_3}}&= 2\rho\alpha + 2\sigma\alpha - 2\varepsilon\alpha - \rho\beta - \sigma\beta + \varepsilon\beta\\
+				&= 2\gamma + 2\beta - 2\alpha - \alpha - \gamma + \beta\\
+				&= \gamma + \beta - 3\alpha
+			\end{align*}
+
+			L'\'el\'ement neutre de $A^{(G)}$ est $\delta_e$, o\`u $e$ est le neutre de $G$.
+			\item $A = \RR$, $G=\left\langle x \right\rangle = \left\langle x^n ~\middle|~ n \in \ZZ \right\rangle \cong \ZZ$. Les \'el\'ements de $A^{(G)}$ sont $\sum a_nx^n$, o\`u la somme est finie. Les polyn\^omes en $x$ et $x^{-1}$, par exemple $3x^{-7}+x^{-1}+4+\pi x^{25}$. Le produit: $x^nx^m=x^{n+m}$ donne lieu au produit traditionnel des polyn\^omes. En fait, $\RR[x] \lte A^{(G)}$.
+			\item $A=\RR$, $G=\left\{ z \in \CC ~\middle|~ z^n=1 \right\} = \langle\omega\rangle = \{1,\omega,\omega^2,\cdots,\omega^{n-1}\}$, o\`u $\omega=e^{i\sfrac{2\pi}{n}}$. $\RR^{(G)}$ contient des \'el\'ements de la forme $a_0 + a_1\omega + a_2\omega^2 + \cdots a_{n-1}\omega^{n-1}$.
+			\begin{align*}
+				(1-\omega)(1+\omega+\omega^2+\cdots+\omega^{n-1})&= (1+\omega+\omega^2+\cdots+\omega^{n-1}) - (\omega+\omega^2+\cdots+\omega^n)\\
+				&= 1-\omega^n\\
+				&= 0
+			\end{align*}
+		\end{enumerate}
+	\end{exem}
+
+	\phantomsection\addcontentsline{toc}{section}{Alg\`ebre de chemins}
+	\section*{Alg\`ebre de chemins}
+	\begin{dfn}
+		Un \emph{carquois} Q est un quadruplet $Q = (Q_0, Q_1, s, b)$, o\`u $Q_0,Q_1$ sont des ensembles, points et fl\`eches respectivement, et $s,b: Q_1 \to Q_0$ sont les applications ``source'' et ``but''.
+
+		Si $\alpha\in Q_1$, on dessine $s(\alpha) \xrightarrow{\alpha} b(\alpha)$.
+	\end{dfn}
+
+	\begin{exem}
+		\begin{figure}[h]
+			\centering
+			\label{figQ}
+			\begin{tikzpicture}
+				\node[state] (1) at (0,0) {1};
+				\path[->] (1) edge[loop above] node {$\alpha$} (1);
+				\node () [below=of 1] {$Q^1$};
+			\end{tikzpicture}
+			\hspace{15mm}
+			\begin{tikzpicture}
+				\node[state] (1) at (0,0) {1};
+				\node[state] (2) [left=of 1] {2};
+				\node[state] (3) [left=of 2] {3};
+				\path[->]	(3) edge[bend left] node[above] {$\beta$} (2)
+				(3) edge[bend right] node[below] {$\gamma$} (2)
+				(2) edge node[above] {$\alpha$} (1);
+				\node () [below=of 2] {$Q^2$};
+			\end{tikzpicture}
+			\hspace{15mm}
+			\begin{tikzpicture}
+				\node[state] (1) at (0,0) {1};
+				\path[->] (1) edge[loop above] node[above] {$\alpha$} (1)
+				(1) edge[loop below] node[below] {$\beta$} (1);
+				\node () [below=of 1] {$Q^3$};
+			\end{tikzpicture}
+			\hspace{15mm}
+			\begin{tikzpicture}
+				\node[state] (1) at (0,0) {1};
+				\node[state] (2) [right=of 1] {2};
+				\node[state] (3) [right=of 2] {3};
+				\path[->] (3) edge node[above] {$\beta$} (2)
+				(2) edge node[above] {$\alpha$} (1);
+				\node () [below=of 2] {$Q^4$};
+			\end{tikzpicture}
+			\caption{4 exemples de carquois}
+		\end{figure}
+	\end{exem}
+
+	\begin{dfn}
+		Un \emph{chemin} dans $Q$ est:
+		\begin{itemize}
+			\item un chemin stationnaire $\varepsilon_i$ pour chaque $i \in Q_0$,
+			\item une suite de fl\`eches $\alpha_1\alpha_2\cdots\alpha_t$ t.q. $b(\alpha_j) = s(\alpha_{j+1})$, pour $j \in \{1,2,\cdots,t-1\}$.
+		\end{itemize}
+	\end{dfn}
+
+	\begin{exem}
+		Avec les carquois de l'exemple pr\'ec\'edant,
+		\begin{enumerate}
+			\item $\alpha, \alpha^2, \cdots$ sont des chemins dans $Q^1$,
+			\item $\alpha, \beta, \gamma, \beta\alpha, \gamma\alpha$ sont des chemins dans $Q^2$.
+		\end{enumerate}
+	\end{exem}
+
+	Soit $K$ un corps. $KQ$ est le $K$-espace vectoriel ayant pour base l'ensemble des chemins dans $Q$.
+
+	\begin{exem}
+		Avec les carquois de l'exemple pr\'ec\'edant,
+		\begin{enumerate}
+			\item La base de $KQ^1$ est $\{\varepsilon_1, \alpha, \alpha^2, \cdots\}$,
+
+			$\varepsilon_1+3\alpha^2$ et $27\alpha^{28}-\alpha$ sont des \'el\'ements de $KQ^1$;
+			\item La base de $KQ^2$ est $\{\varepsilon_1, \varepsilon_2, \varepsilon_3, \alpha, \beta, \gamma, \beta\alpha, \gamma\alpha\}$,
+
+			$\alpha-\beta\alpha$ et $\varepsilon_1+\gamma+\alpha$ sont des \'el\'ements de $KQ^2$,
+
+			$(\alpha-\beta\alpha) + (\varepsilon_1+\gamma+\alpha) = 2\alpha - \beta\alpha + \varepsilon_1 + \gamma$.
+		\end{enumerate}
+	\end{exem}
+
+	La multiplication dans $KQ$ est d\'efinie comme suit
+
+	Si $\alpha_1,\alpha_2,\cdots,\alpha_t, \beta_1,\beta_2,\cdots,\beta_s$ sont des chemins, alors on pose \[ (\alpha_1\alpha_2\cdots,\alpha_t) (\beta_1\beta_2\cdots\beta_s) = \left\{\begin{array}{lll}
+		\alpha_1\cdots\alpha_t\beta_1\cdots\beta_s&\text{si}&b(\alpha_t) = s(\beta_1)\\
+		0&\text{sinon}
+	\end{array}\right\} \]
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $Q=Q^1$, $KQ = k[\alpha]$,
+			\item $Q=Q^3$, la base de $KQ$ est $\{\varepsilon_1, \alpha, \alpha^2, \cdots, \beta, \beta^2, \cdots, \alpha\beta, \beta\alpha, \cdots\}$. Dans $KQ$, $\alpha\beta \neq \beta\alpha$, donc $KQ$ n'est pas $K[\alpha,\beta]$,
+			\item $Q=Q^4$, la base de $KQ$ est $\{\varepsilon_1, \varepsilon_2, \varepsilon_3, \alpha, \beta, \beta\alpha\}$. $\varepsilon_1+\varepsilon_2+\varepsilon_3$ est neutre multiplicatif. En effet,
+			\begin{align*}
+				(\varepsilon_1+\varepsilon_2+\varepsilon_3)(\alpha+\beta)&= \varepsilon_1\alpha + \varepsilon_2\alpha + \varepsilon_3\alpha + \varepsilon_1\beta + \varepsilon_2\beta + \varepsilon_3\beta\\
+				&= 0 + \alpha + 0 + 0 + 0 + \beta\\
+				&= \alpha+\beta
+			\end{align*}
+
+			\[ \begin{bmatrix}
+				K&0&0\\
+				K&K&0\\
+				K&K&K
+			\end{bmatrix} = \left\{ \begin{bmatrix}
+				e_1&0&0\\
+				a&e_2&0\\
+				c&b&e_3
+			\end{bmatrix} ~\middle|~ e_1,e_2,e_3,a,b,c \in K \right\} \]
+
+			On a une bijection \[ \begin{array}{rcl}
+				\begin{bmatrix}
+					K&0&0\\
+					K&K&0\\
+					K&K&K
+				\end{bmatrix} &\to& KQ\\
+				E_1=\begin{bmatrix}
+					e_1&0&0\\
+					0&0&0\\
+					0&0&0
+				\end{bmatrix} &\mapsto& \varepsilon_1\\
+				&\vdots\\
+				A=\begin{bmatrix}
+					0&0&0\\
+					1&0&0\\
+					0&0&0
+				\end{bmatrix} &\mapsto& \alpha\\
+				B=\begin{bmatrix}
+					0&0&0\\
+					0&0&0\\
+					0&1&0
+				\end{bmatrix} &\mapsto& \beta\\
+				C=\begin{bmatrix}
+					0&0&0\\
+					0&0&0\\
+					1&0&0
+				\end{bmatrix} &\mapsto& \beta\alpha
+			\end{array} \] qui se comporte bien avec les produits
+			\begin{align*}
+				BA&= \begin{bmatrix}
+					0&0&0\\
+					0&0&0\\
+					0&1&0
+				\end{bmatrix} \begin{bmatrix}
+					0&0&0\\
+					1&0&0\\
+					0&0&0
+				\end{bmatrix}\\
+				&= \begin{bmatrix}
+					0&0&0\\
+					0&0&0\\
+					1&0&0
+				\end{bmatrix}\\
+				&= C
+			\end{align*}
+		\end{enumerate}
+	\end{exem}
+
+	\begin{dfn}
+		Soit $A$ un anneau.
+		\begin{enumerate}
+			\item $a \in A_* = A \setminus \{0\}$ est un \emph{diviseur de $0$} s'il existe un autre \'el\'ement $b \in A_*$ t.q. $ab=0$,
+			\item $A$ est dit \emph{int\`egre} s'il est commutatif et n'a pas de diviseur de $0$.
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\ZZ, \QQ, \RR, \ZZ[x], \QQ[x], \RR[x], \RR[x,y], \cdots$ sont tous int\`egres,
+			\item $\ZZ_n$ est int\`egre si, et seulement si, $n$ est premier.
+
+			En g\'en\'eral, les diviseurs de $0$ dans $\ZZ_n$ sont les $\overline{b}$ o\`u $\operatorname{pgcd}(b,n)>1$.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{rmq}
+		Dans un anneau non int\`egre, la ``loi de simplification'' ne tient pas.
+	\end{rmq}
+
+	\begin{exem}
+		Dans $\ZZ$,
+		\begin{align*}
+			x^2-3x+2&= 0\\
+			(x-2)(x-1)&= 0\\
+			x-2=0 \text{ ou } x-1=0\\
+			x=2 \text{ ou } x=1
+		\end{align*}
+
+		Dans $\ZZ_6$,
+		\begin{align*}
+			x^2-\overline3x+\overline2&= 0\\
+			(x-\overline2)(x-\overline1)&= 0
+		\end{align*}
+		On a des solutions: $x=\overline1, x=\overline2, x=\overline4, x=\overline5$.
+	\end{exem}
+
+	\begin{prop}
+		Soit $A$ un anneau commutatif. Alors, $A$ est int\`egre si, et seulement si, la loi de simplification tient, c'est-\`a-dire, $ab=ac, a\neq0$ implique $b=c$.
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$:]
+				Supposons que $A$ est int\`egre et soient $a,b,c \in A$ t.q. $a\neq0$ et $ab=ac$. On a alors $ab-ac=0$, donc $a(b-c)=0$. Comme $A$ est int\`egre et $a\neq0$, on a que $b-c=0$, donc $b=c$.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				Supposons que $a\neq0$ et $a$ est un diviseur de $0$. Alors, $\exists b\neq0 \in A$ t.q. $ab=0$. Donc, $ab=a0$, alors $b=0$, une contradiction.
+			\end{subproof}
+		\end{proof}
+	\end{prop}
+
+	\begin{dfn}
+		Soit $A$ un anneau. $a \in A$ est une \emph{unit\'e} s'il est inversible, c'est-\`a-dire, $\exists a'\in A$ t.q. $aa'=a'a=\id_A$. L'ensemble des unit\'es de $A$ est not\'e $\mathcal{U}(A)$.
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\mathcal{U}(\ZZ) = \{1,-1\}$,
+			\item $\mathcal{U}(\QQ) = \QQ_*$,
+			\item $\mathcal{U}(\RR[x]) = \RR_*$, les polyn\^omes de degr\'e $0$ non nuls,
+			\item Soit $G$ un groupe et $A=K^{(G)}$, alors les \'el\'ements du groupe sont des unit\'es de $A$, $G \subseteq \mathcal{U}(A)$,
+			\item $\mathcal{U}(\ZZ[i]) = ?$. $1,i,-1,-i \in \mathcal{U}(\ZZ[i])$. Supposons que $a+bi \in \mathcal{U}(\ZZ[i])$ et $c+di$ sont inverse. Alors, $(a+bi)(c+di)=1$, alors $\abs{a+bi} \abs{c+di}=1$, donc $(a^2+b^2)(c^2+d^2)=1$, d'o\`u $a^2+b^2=1$, donc $a^2=1$ ou $b^2=1$, ainsi $a=\pm1$ ou $b=\pm1$.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{dfn}
+		Un corps est un anneau commutatif t.q. tout \'el\'ement non nul est une unit\'e.
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\QQ, \RR, \CC$ sont des corps,
+			\item $\QQ[\sqrt{d}] = \left\{ x+y\sqrt{d} ~\middle|~ x,y \in \QQ \right\}$ est un anneau. Voyons que c'est un corps. Soit $x+y\sqrt{d} \in \QQ[\sqrt{d}]_*$. Dans $\CC$, on a $\dfrac{1}{x+y\sqrt{d}} = \dfrac{x-y\sqrt{d}}{x^2-dy^2} = \dfrac{x}{x^2-dy^2} + \left(\dfrac{-y}{x^2-dy^2}\right)\sqrt{d} \in \QQ[\sqrt{d}]$.
+			\item $\ZZ_n$ est un corps si, et seulement si, $n$ est premier.
+		\end{enumerate}
+	\end{exem}
+\end{document}
