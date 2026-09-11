@@ -71,6 +71,7 @@
 \def\lte{\leqslant}
 \def\gte{\geqslant}
 
+\def\NN{\mathbb{N}}
 \def\ZZ{\mathbb{Z}}
 \def\QQ{\mathbb{Q}}
 \def\RR{\mathbb{R}}
@@ -79,6 +80,7 @@
 \def\id{\mathds{1}}
 
 \newcommand*{\abs}[1]{\left|#1\right|}
+\newcommand*{\caract}[1]{\operatorname{car}\left(#1\right)}
 
 \begin{document}
 	\maketitle
@@ -622,14 +624,119 @@
 	\end{exem}
 
 	\begin{dfn}
-		Un corps est un anneau commutatif t.q. tout \'el\'ement non nul est une unit\'e.
+		Un corps est un anneau commutatif dont tout \'el\'ement non nul est une unit\'e.
 	\end{dfn}
 
 	\begin{exem}
 		\begin{enumerate}
-			\item $\QQ, \RR, \CC$ sont des corps,
-			\item $\QQ[\sqrt{d}] = \left\{ x+y\sqrt{d} ~\middle|~ x,y \in \QQ \right\}$ est un anneau. Voyons que c'est un corps. Soit $x+y\sqrt{d} \in \QQ[\sqrt{d}]_*$. Dans $\CC$, on a $\dfrac{1}{x+y\sqrt{d}} = \dfrac{x-y\sqrt{d}}{x^2-dy^2} = \dfrac{x}{x^2-dy^2} + \left(\dfrac{-y}{x^2-dy^2}\right)\sqrt{d} \in \QQ[\sqrt{d}]$.
-			\item $\ZZ_n$ est un corps si, et seulement si, $n$ est premier.
+			\item $\QQ, \RR, \CC$ sont des corps;
+			\item $\QQ[\sqrt{d}] = \left\{ x+y\sqrt{d} ~\middle|~ x,y \in \QQ \right\}$ est un anneau. Voyons que c'est un corps. Soit $x+y\sqrt{d} \in \QQ[\sqrt{d}]_*$. Dans $\CC$, on a $\dfrac{1}{x+y\sqrt{d}} = \dfrac{x-y\sqrt{d}}{x^2-dy^2} = \dfrac{x}{x^2-dy^2} + \left(\dfrac{-y}{x^2-dy^2}\right)\sqrt{d} \in \QQ[\sqrt{d}]$;
+			\item $\ZZ_n$ est un corps si, et seulement si, $n$ est premier;
+			\item Un corps non commutatif. Le corps des quaternions: $\mathbb{H} = \left\{ \begin{bsmallmatrix}
+				a&b\\-\overline{b}&\overline{a}
+			\end{bsmallmatrix} ~\middle|~ a,b\in\CC \right\}$. En effet,
+			\begin{itemize}
+				\item il s'agit d'un sous-anneau $\mathbb{H}\lte M_2(\CC)$
+				\begin{itemize}
+					\item Clairement un sous-groupe additif.
+					\item $\begin{bsmallmatrix}
+						1&0\\0&1
+					\end{bsmallmatrix}\in\mathbb{H}$, car $\overline0=0$.
+					\item Soient $\begin{bsmallmatrix}
+						a&b\\-\overline{b}&\overline{a}
+					\end{bsmallmatrix}, \begin{bsmallmatrix}
+						c&d\\-\overline{d}&\overline{c}
+					\end{bsmallmatrix}\in\mathbb{H}$. Alors
+					\begin{align*}
+						\begin{bmatrix}
+							a&b\\-\overline{b}&\overline{a}
+						\end{bmatrix} \begin{bmatrix}
+							c&d\\-\overline{d}&\overline{c}
+						\end{bmatrix}&= \begin{bmatrix}
+							ac-b\overline{d}&ad+b\overline{c}\\
+							-c\overline{b}-\overline{a}\overline{d}&-d\overline{b}+\overline{a}\overline{c}
+						\end{bmatrix}\\
+						&= \begin{bmatrix}
+							ac-b\overline{d}&ad+b\overline{c}\\
+							-\overline{(ad+b\overline{c})}&\overline{a}\overline{c}-b\overline{d}
+						\end{bmatrix}
+					\end{align*}
+
+					De plus, $\det\begin{bsmallmatrix}
+						a&b\\-\overline{b}&\overline{a}
+					\end{bsmallmatrix} = a\overline{a}+b\overline{b} = \abs{a}^2+\abs{b}^2\neq0$, donc $\begin{bsmallmatrix}
+						a&b\\-\overline{b}&\overline{a}
+					\end{bsmallmatrix}$ est inversible dans $M_2(\CC)$. Or, \[ \begin{bmatrix}
+					a&b\\-\overline{b}&\overline{a}
+					\end{bmatrix}^{-1} = \frac{1}{\abs{a}^2+\abs{b}^2} \begin{bmatrix}
+					\overline{a}&-b\\\overline{b}&a
+					\end{bmatrix} \in \mathbb{H} \]
+				\end{itemize}
+			\end{itemize}
 		\end{enumerate}
 	\end{exem}
+
+	\begin{rapp}[Inverses dans $\ZZ_p$]
+		$p$ est premier.
+
+		Soit $a \in \{0,1,\cdots,p-1\}$. Par le th\'eor\`eme de B\'ezout, $\exists s,t$ t.q. $as+bp=1$, donc $\overline{a} \overline{s} + \overline{b} \overline{p}=1$, c'est-\`a-dire $\overline{a} \overline{s}=1$. Ensuite, on utilise l'algorithme d'Euclide pour trouver $s$.
+	\end{rapp}
+
+	\begin{thm}
+		Tout anneau int\`egre fini est un corps.
+		\begin{proof}
+			Soit $a \in A_*$ fix\'e. On veut montrer que $a$ est inversible.
+
+			Posons $f_a:A \to A:t \mapsto at$. Si $t_1 \neq t_2$, on a $t_1-t_2\neq0$, d'o\`u $a(t_1-t_2)\neq0$, donc $f_a(t_1) \neq f_a(t_2)$, c'est-\`a-dire, $f_a$ est une injection.
+
+			Comme $A$ est fini, $f_a$ est une surjection. Donc, $\exists x \in A$ t.q. $f_a(x)=\id$, c'est-\`a-dire, $ax=\id$.
+
+			De m\^eme, $\exists x' \in A$ t.q. $x'a=\id$. $x' = x'\id = x'(ax) = (x'a)a = \id x = x$.
+		\end{proof}
+	\end{thm}
+
+	\begin{rmq}
+		On sait que $\forall n\in\NN$, il existe un anneau de cardinalit\'e $n$, notamment $\ZZ_n$ qui est un corps quand $n$ est premier.
+
+		On peut se demander s'il existe des corps finis de cardinalit\'e arbitraire.
+
+		$K$ un corps fini $\Longrightarrow \abs{K}=p^d$. De plus, $\forall p$ premier et $d\in\NN$, il existe un unique corps de cardinalit\'e $p^d$.
+	\end{rmq}
+
+	\begin{dfn}
+		Soit $A$ un anneau. Sa \emph{caract\'eristique} est $\caract{A} = o(\id)$, l'ordre additif de $\id$.
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\caract{\ZZ} = 0 = \caract{\QQ} = \caract{\RR} = \caract{\CC}$;
+			\item $\caract{\ZZ_n}=n$;
+			\item $\caract{\ZZ_4\times\ZZ_6} = \operatorname{ppcm}(4,6) = 12$;
+			\item en g\'en\'eral, $\caract{\ZZ_a\times\ZZ_b} = \operatorname{ppcm}(a,b)$.
+			\begin{proof}[En effet]
+				Soit $m=\operatorname{ppcm}(a,b)$, donc $m=aa'=bb'$. Notons $\overline{\id}$ l'identit\'e de $\ZZ_a$ et $\widetilde{\id}$ l'identit\'e de $\ZZ_b$,
+				\begin{align*}
+					m(\overline{\id}, \widetilde{\id})&= (m\overline{\id}, m\widetilde{\id})\\
+					&= (aa'\overline{\id}, bb'\widetilde{\id})\\
+					&= (a'\overline{a\id}, b'\widetilde{b\id})\\
+					&= (\overline{0}, \widetilde{0})
+				\end{align*}
+
+				Si $m' \mid m$ est t.q. $m'(\overline{\id}, \widetilde{\id}) = (\overline{0}, \widetilde{0})$, c'est-\`a-dire $a \mid m'$ et $b \mid m'$ et donc $m \mid m'$.
+			\end{proof}
+		\end{enumerate}
+	\end{exem}
+
+	\begin{prop}
+		Si $B \lte A$, alors $\caract{B} = \caract{A}$.
+	\end{prop}
+
+	\begin{thm}
+		$A$ int\`egre, alors $\caract{A}=0$ ou $\caract{A}=p$ avec $p$ premier.
+		\begin{proof}
+			Soit $A$ int\`egre. Supposons $\caract{A}\neq0$.
+
+			Si $\caract{A}=ab$, avec $a\neq1,b\neq1$, alors $0 = (ab)\id = (a\id) (b\id)$. L'int\'egrit\'e de $A$ donne une contradiction.
+		\end{proof}
+	\end{thm}
 \end{document}
