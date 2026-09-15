@@ -1,6 +1,6 @@
 \documentclass{report}
 \usepackage[letterpaper,portrait,margin=2cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools,dsfont,xfrac}
+\usepackage{amsmath,amssymb,amsthm,mathtools,dsfont,xfrac,mathrsfs}
 \usepackage{enumitem}
 \usepackage[french]{babel}
 \usepackage{titlesec}
@@ -739,4 +739,192 @@
 			Si $\caract{A}=ab$, avec $a\neq1,b\neq1$, alors $0 = (ab)\id = (a\id) (b\id)$. L'int\'egrit\'e de $A$ donne une contradiction.
 		\end{proof}
 	\end{thm}
+
+	\chapter{Id\'eaux et anneaux quotient}
+	L'objectif est de transposer ``en anneaux'' la construction de groupe quotient, (homo)morphismes et isomorphismes.
+
+	\begin{rapp}
+		Soit $G$ un groupe et soit $H \lte G$ un sous-groupe.
+
+		Dans $G$, on d\'efinit la congruence$\mod H$ par $g \equiv_H h \Leftrightarrow gh^{-1} \in H$ et $g \prescript{}{H}{\equiv} h \Leftrightarrow g^{-1}h \in H$.
+
+		Les relations co\"incident si $H \trianglelefteq G$ est un sous-groupe normal de $G$, $ghg^{-1} \in H$, $\forall g \in G$, $\forall h \in H$.
+
+		La classe de $g$ pour la congruence$\mod H$ est $gH = \left\{ gh ~\middle|~ h \in H \right\} = \overline{g}$.
+
+		L'ensemble quotient $\sfrac{G}{\equiv_H}$ est not\'e $\sfrac{G}{H}$.
+
+		Il s'agit d'un groupe pour $\overline{g_1} \; \overline{g_2} \coloneq \overline{g_1g_2}$.
+	\end{rapp}
+
+	Soit $(A,+,\cdot)$ un anneau. $(A,+)$ est un groupe ab\'elien additif. Alors, tout sous-groupe de $(A,+)$ est \emph{normal}.
+
+	Si $I$ est un sous-groupe de $(A,+)$, on peut former sans probl\`eme le groupe quotient $\sfrac{A}{I}$ pour $(a+I)+(b+I) = (a+b)+I$.
+
+	Pour ajouter une ``multiplication'', on pose $(a+I)(b+I) \coloneq (ab+I)$.
+
+	Est-ce bien d\'efini? \[ \left. \begin{array}{rcl}
+		a-a'&\in&I\\
+		b-b'&\in&I
+	\end{array}\right\} \overset{?}{\Rightarrow} ab-a'b' \in I \]
+
+	\begin{exem}
+		$(A,+,\cdot) = (\RR,+,\cdot)$, $(I,+,\cdot) = (\ZZ,+,\cdot)$. Le groupe quotient $\sfrac{\RR}{\ZZ}$ est connu. Voyons pour le produit: $a=\sqrt{2}, a'=1+\sqrt{2}, b=\sqrt{3}, b'=2+\sqrt{3}$. $a-a' \in \ZZ, b-b' \in \ZZ$.
+		\begin{align*}
+			ab-a'b'&= \sqrt{2}\sqrt{3}-(1+\sqrt{2})(2+\sqrt{3})\\
+			&= -2-2\sqrt{2}-\sqrt{3}\\
+			&\notin\ZZ
+		\end{align*}
+
+		Le probl\`eme est que le produit d'un \'el\'ement de $A$ par un \'el\'ement de $I$ n'appartient pas n\'ecessairement \`a $I$.
+	\end{exem}
+
+	\begin{lem}
+		Soient $A$ un anneau et $I$ un sous-groupe additif de $A$. La congruence$\mod I$ est compatible avec le produit si, et seulement si, $x \in I, a \in A \Rightarrow ax,xa \in I$.
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$:]
+				Supposons que $x \in I$, de sorte que $x-0 \in I$. Par ailleurs, pour $a \in A$, $a-a \in I$. D'o\`u $xa-0a \in I$, c'est-\`-dire $xa \in I$. De m\^eme, $ax \in I$.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				Supposons que $a-a', b-b' \in I$. Alors,
+				\begin{align*}
+					a(b-b') + (a-a')b'&=  ab-ab'+ab'-a'b'\\
+					&= ab-a'b'\\
+					&\in I
+				\end{align*}
+			\end{subproof}
+		\end{proof}
+	\end{lem}
+
+	\begin{dfn}[Id\'eal]
+		Soient $A$ un anneau et $I \subseteq A$. On dit que $I$ est un \emph{id\'eal} de $A$, not\'e $I \trianglelefteq A$, si
+		\begin{enumerate}
+			\item $I$ est un sous-groupe additif de $A$,
+			\item $x \in I, a \in A \Rightarrow ax,xa \in I$.
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item Soit $A$ un anneau, $0$ et $A$ sont des id\'eaux.
+			\item Soit $I$ un id\'eal, $\id_A \in I \Rightarrow I=A$.
+
+			En effet, pour $a \in A$, on a $a=\underbrace{a}_{\in A} \cdot \underbrace{\id_A}_{\in I} \in I$.
+
+			De m\^eme, si $u \in \mathcal{U}(A)$ et $u \in I$, alors $I=A$.
+
+			En effet, $\id_A=\underbrace{u}_{\in I} \cdot \underbrace{u^{-1}}_{\in A} \in I$.
+			\item Quels sont les id\'eaux de $\ZZ$? Les sous-groupes de $\ZZ$ sont de la forme $n\ZZ$. Ce sont tous des id\'eaux.
+			\item Quels sont les id\'eaux de $\ZZ_n$? $m\ZZ_n$.
+			\begin{rapp}
+				Les sous-groupes de $\ZZ_n = \sfrac{\ZZ}{n\ZZ}$ sont de la forme $\sfrac{G}{n\ZZ}$, o\`u $G \lte \ZZ$ t.q. $n\ZZ \subseteq G$.
+			\end{rapp}
+
+			$G = k\ZZ$, puis $n\ZZ \subseteq k\ZZ \Leftrightarrow k \mid n$.
+
+			Les id\'eaux de $\ZZ_n$ sont donc de la forme $\sfrac{k\ZZ}{n\ZZ} = k\left(\sfrac{\ZZ}{n\ZZ}\right) = k\ZZ_n$ avec $k \mid n$.
+
+			Concr\`etement, avec $n=6$. $A = \{\overline0, \overline1, \overline2, \overline3, \overline4, \overline5\}$. Si $k=1$, on a $A$. Si $k=2$, on a $2\ZZ_6 = \{\overline0, \overline2, \overline4\}$. Si $k=3$, on a $3\ZZ_6 = \{\overline0, \overline3\}$. Si $k=6$, on a $6\ZZ_6 = \{\overline0\}$.
+			\item Soit $K$ un corps. Les seuls id\'eaux sont $0,K$.
+			\item $A = T_2(\ZZ) = \left\{ \begin{bsmallmatrix}
+				a&0\\b&c
+			\end{bsmallmatrix} ~\middle|~ a,b,c\in\ZZ \right\}$ est un sous-anneau de $M_2(\ZZ)$. $I = \left\{ \begin{bsmallmatrix}
+				0&0\\b&0
+			\end{bsmallmatrix} ~\middle|~ b\in\ZZ \right\}$ est un sous-groupe additif de $T_2(\ZZ)$. Voyons que c'est un id\'eal.
+			\begin{align*}
+				\begin{bmatrix}
+					a&0\\b&c
+				\end{bmatrix} \begin{bmatrix}
+					0&0\\x&0
+				\end{bmatrix}&= \begin{bmatrix}
+					0&0\\cx&0
+				\end{bmatrix}\\
+				&\in I\\
+				\shortintertext{de m\^eme,}
+				\begin{bmatrix}
+					0&0\\x&0
+				\end{bmatrix} \begin{bmatrix}
+					a&0\\b&c
+				\end{bmatrix}&\in I
+			\end{align*}
+
+			$I \trianglelefteq T_2(\ZZ)$.
+
+			\begin{rmq}
+				$I$ n'est pas un id\'eal de $M_2(\ZZ)$. En effet, $\begin{bsmallmatrix}
+					a&b\\c&d
+				\end{bsmallmatrix}\begin{bsmallmatrix}
+					0&0\\x&0
+				\end{bsmallmatrix} = \begin{bsmallmatrix}
+					bx&*\\ *&*
+				\end{bsmallmatrix} \notin I$.
+			\end{rmq}
+			\item $A=M_2(\QQ)$ n'a aucun id\'eal propre. En effet, supposons $M = \begin{bsmallmatrix}
+				a&b\\c&d
+			\end{bsmallmatrix} \in I \trianglelefteq A$, $M\neq0$. On peut supposer, sans perte de g\'en\'eralit\'e, que $a\neq0$.En effectuant des op\'erations \'el\'ementaires de lignes et de colonnes, on obtient $\begin{bsmallmatrix}
+				1&0\\0&*
+			\end{bsmallmatrix} \in I$. Si $\begin{bsmallmatrix}
+				1&0\\0&1
+			\end{bsmallmatrix} \in I$, alors $I=A$. Si $\begin{bsmallmatrix}
+				1&0\\0&0
+			\end{bsmallmatrix} \in I$, alors $\begin{bsmallmatrix}
+				0&0\\0&1
+			\end{bsmallmatrix} \in I$, et donc $\begin{bsmallmatrix}
+				1&0\\0&1
+			\end{bsmallmatrix} \in I$.
+
+			En g\'en\'eral, $M_n(K)$ n'a aucun id\'eal propre.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{thm}
+		Soient $A$ un anneau, $(I_i)_{i \in I}$ une famille arbitraire d'id\'eaux de $A$. Alors, $\bigcap\limits_{i \in I} I_i$ est un id\'eal de $A$.
+		\begin{proof}
+			Exercice
+		\end{proof}
+	\end{thm}
+
+	\begin{prop}[et d\'efinition]
+		Soient $A$ un anneau, $X \subseteq A$ une partie de $A$ et $\mathscr{F}_X = \{I \trianglelefteq A \mid X \subseteq I\}$.
+
+		Alors, l'id\'eal $\bigcap\limits_{I \in \mathscr{F}_X}I$, not\'e $\langle X \rangle$, v\'erifie
+		\begin{itemize}
+			\item $X \subseteq \langle X \rangle$,
+			\item si $X \subseteq J$ et $J \trianglelefteq A$, alors $\langle X \rangle \subseteq J$.
+		\end{itemize}
+		C'est l'\emph{id\'eal de $A$ engendr\'e par $X$}.
+		\begin{proof}
+			$\mathscr{F}_X\neq\emptyset$, car $A \in \mathscr{F}_X$. Par le th\'eor\`eme pr\'ec\'edent, $\bigcap\limits_{I \in \mathscr{F}_X}I \trianglelefteq A$.
+
+			Pour $I \in \mathscr{F}_X$, on a $X \subseteq I$, d'o\`u $X \subseteq \bigcap\limits_{I \in \mathscr{F}_X}I$.
+
+			Si $X \subseteq J$, $J \trianglelefteq A$, on a $J \in \mathscr{F}_X$, donc $\bigcap\limits_{I \in \mathscr{F}_X}I \subseteq J$.
+		\end{proof}
+	\end{prop}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\langle \emptyset \rangle = 0 = \langle 0 \rangle$.
+			\item $\langle \id_A \rangle = A$.
+			\item Dans $A=\ZZ$, $X=\{a,b\}$. $\langle a,b \rangle = d\ZZ$, o\`u $d=\operatorname{pgcd}(a,b)$.
+
+			En effet, $\langle a,b \rangle$ est un id\'eal de $\ZZ$, donc de la forme $k\ZZ$, pour un $k\in\ZZ$. $\langle a,b \rangle \supseteq \langle a \rangle = a\ZZ$. $\langle a,b \rangle \supseteq \langle b \rangle = b\ZZ$. Donc, $a\ZZ \subseteq k\ZZ$ et $b\ZZ \subseteq k\ZZ$. Alors, $k \mid a$ et $k \mid b$.
+			\begin{rapp}
+				$d$ est un $\operatorname{pgcd}$ de $a,b$ si
+				\begin{enumerate}
+					\item $d \mid a$ et $d \mid b$,
+					\item si $d' \mid a$ et $d' \mid b$, alors $d' \mid d$.
+				\end{enumerate}
+			\end{rapp}
+
+			De plus, si $k' \mid a$ et $k' \mid b$, alors $a=k$ et $b=k'b'$ et donc on a $a,b \in k'\ZZ$, d'o\`u $k\ZZ \subseteq k'\ZZ$. Ainsi, $k' \mid k$ et $k$ est $\operatorname{pgcd}(a,b)$.
+		\end{enumerate}
+	\end{exem}
+
+	Si $I_1,I_2 \trianglelefteq A$, que peut-on dire de $I_1 \cup I_2$?
+	\begin{exem}
+		$A=\ZZ, I_1=3\ZZ, I_2=4\ZZ$. Alors, $1=4-3 \in \langle 3\ZZ \cup 4\ZZ \rangle$, mais $1 \notin 3\ZZ \cup 4\ZZ$.
+
+		En g\'en\'eral, $I_1 \cup I_2$ n'est pas un id\'eal de $A$.
+	\end{exem}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.1)  11 SEP 2026 10:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.1)  15 SEP 2026 10:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -218,6 +218,10 @@ LaTeX template Info: Declaring instance 'cmss' of type xfrac on line 392.
 
 LaTeX template Info: Declaring instance 'cmtt' of type xfrac on line 392.
 
+)
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
@@ -942,6 +946,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
+
+
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ))
 \tf@toc=\write5
 \openout5 = `MAT342-theorie_anneaux.toc'.
@@ -967,7 +977,26 @@ l.161 			\begin
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 220.
  [2] [3] [4] [5] [6] [7] [8]
-(MAT342-theorie_anneaux.aux)
+Chapitre 2.
+[9
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[10]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[11] (MAT342-theorie_anneaux.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -979,14 +1008,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT342-theorie_anneaux.out' has not changed.
 
-(rerunfilecheck)             Checksum: B3145557483E741D6ECAA5E07C0EC682;463.
+(rerunfilecheck)             Checksum: 1F6B7D5F9C0D62D8B37F8CD8D8E5EDC4;648.
  ) 
 Here is how much of TeX's memory you used:
- 25712 strings out of 467441
- 495968 string characters out of 5407592
- 934330 words of memory out of 5000000
- 54537 multiletter control sequences out of 15000+600000
- 636320 words of font info for 82 fonts, out of 8000000 for 9000
+ 25780 strings out of 467441
+ 497263 string characters out of 5407592
+ 935485 words of memory out of 5000000
+ 54577 multiletter control sequences out of 15000+600000
+ 636815 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,15n,104p,561b,989s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
@@ -1012,10 +1041,12 @@ ujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.p
 fb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sy
 mbols/msbm10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/symbols/msbm5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MAT342-theorie_anneaux.pdf (10 pages, 288363 bytes).
+ts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/jujub/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/jujub/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/rsfs/rsfs7.pfb>
+Output written on MAT342-theorie_anneaux.pdf (13 pages, 315066 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 101 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
