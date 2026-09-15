@@ -1,6 +1,6 @@
 \documentclass{report}
 \usepackage[letterpaper,portrait,margin=2cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools,dsfont,xfrac}
+\usepackage{amsmath,amssymb,amsthm,mathtools,dsfont,xfrac,gensymb}
 \usepackage{enumitem}
 \usepackage[french]{babel}
 \usepackage{titlesec}
@@ -631,6 +631,245 @@
 
 		Soit $\vec A=(0,0,1)\in\RR^3$. $\vec T \cdot \vec A = \left( -\frac{a}{c}\sin\frac{s}{c}, \frac{a}{c}\cos\frac{s}{c}, \frac{b}{c} \right) \cdot (0,0,1) = \frac{b}{c}$, constant.
 
-		Une \emph{h\'elice g\'en\'eralis\'ee} est une courbe $\vec\alpha$ t.q. $\kappa\neq0$ et $\vec T$ fait un angle constant avec un vecteur fixe $\vec A$ de norme $1$.
+		Une \emph{h\'elice g\'en\'eralis\'ee} est une courbe $\vec\alpha$ avec $\kappa\neq0$ o\`u $\vec T$ fait un angle constant avec une direction fixe. C'est-\`a-dire, $\exists\vec A\in\RR^3$ unitaire t.q. $\frac{\vec T \cdot \vec A}{\norme{\vec T} \norme{\vec A}}=\cos\theta$, o\`u $\theta$ est constant. C'est-\`a-dire, $\vec T \cdot \vec A$ est constant.
+
+		Soit $P = \left\{ \vec v\in\RR^3 ~\middle|~ \vec v \cdot \vec A=0 \right\}$ le plan d\'etermin\'e par $\vec A$.
+
+		Soient $\vec X, \vec Y \in P$ une base orthonorm\'ee. Donc $\vec X, \vec Y, \vec A$ est une base orthonorm\'ee de $\RR^3$. Alors, $\vec\alpha(s) = u(s)\vec X+v(s)\vec Y+w(s)\vec A$ pour des fonctions $u,v,w$. $\vec T(s) = u'(s)\vec X+v'(s)\vec Y+w'(s)\vec A$. $\vec T(s) \cdot \vec A=w'(s)$ constant, alors $w(s)=a+bs$ pour $a,b\in\RR$. $\vec\alpha(s) = \underbrace{u(s)\vec X+v(s)\vec Y}_{\text{courbe planaire dans $P$}} + \underbrace{(a+bs)\vec A}_{\text{partie lin\'eaire}}$.
 	\end{exem}
+
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}[samples=50, domain=-3:3, variable=\t]
+			\begin{scope}[canvas is xz plane at y=0]
+				\fill[lightgray, fill opacity=.3] (-4,-2) rectangle (4,2);
+			\end{scope}
+			\draw[thick, red] plot (\t,0,{sin(\t r)});
+			\foreach \x in {-3,-2,...,3}{
+				\draw[help lines] (\x,0,{sin(\x r)}) -- (\x,3,{sin(\x r)});
+			}
+			\foreach \y in {0,1,2,3}{
+				\draw[help lines] plot (\t,\y,{sin(\t r)});
+			}
+			\draw[thick, blue] plot (\t,{(\t+3)/2},{sin(\t r)});
+			\node[blue] () at (3.2,3.1,{sin(3.2 r)}) {$\vec\alpha$};
+			\draw[-latex, thick] (-3,0,{sin(-3 r)}) -- ++(0,1,0) node[above left] {$\vec A$};
+			\draw (-3,.4,{sin(-3 r)}) -- (-2.8,.1,{sin(-2.8 r)});
+			\node () at (-2.8,.4,{sin(-2.8 r)}) {$\theta$};
+		\end{tikzpicture}
+		\caption{Exemple d'une h\'elice g\'en\'eralis\'ee}
+	\end{figure}
+
+	\begin{prop}
+		Une courbe $\vec\alpha$ avec $\kappa\neq0$ est une h\'elice g\'en\'eralis\'ee si, et seulement si, $\frac{\tau}{\kappa}$ est constant.
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$:]
+				Soit $\vec\alpha$ une h\'elice g\'en\'eralis\'ee PPLA. Soit $\vec A\in\RR^3$ un vecteur unitaire t.q. $\vec T \cdot \vec A=\cos\theta$ pour $\theta$ constant.
+				\begin{align*}
+					\vec T' \cdot \vec A&= 0\\
+					\shortintertext{par les formules de Frenet,}
+					\kappa\vec N \cdot \vec A&= 0\\
+					\shortintertext{comme $\kappa\neq0$,}
+					\vec N \cdot \vec A&= 0\tag{1}\\
+					\vec N' \cdot \vec A&= 0\\
+					\shortintertext{par les formules de Frenet,}
+					(-\kappa\vec T+\tau\vec B) \cdot \vec A&= 0\tag{2}
+				\end{align*}
+
+				De (1), on a $\vec A$ est dans le plan g\'en\'er\'e par $\vec T$ et $\vec B$. Comme l'angle entre $\vec T$ et $\vec A$ est $\theta$, $\vec A = \cos\theta\vec T \pm \sin\theta\vec B$.
+
+				De (2), on a $(-\kappa\vec T+\tau\vec B) \cdot (\cos\theta\vec T \pm \sin\theta\vec B)=0$, alors $-\kappa\cos\theta\pm\tau\sin\theta=0$, donc $\frac{\tau}{\kappa}=\pm\cot\theta$, qui est constant.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				Supposons que $\frac{\tau}{\kappa}$ est constant. Soit $\theta\in\RR$ t.q. $\frac{\tau}{\kappa}=\cot\theta$. Soit $\vec A=\cos\theta\vec T\pm\sin\theta\vec B$. On a que $\vec A \cdot \vec T=\cos\theta$. Il suffit de montrer que $\vec A$ est constant.
+				\begin{align*}
+					\vec A'&= \cos\theta\vec T' + \sin\theta\vec B'\\
+					\shortintertext{par les formules de Frenet,}
+					&= \cos\theta\kappa\vec N + \sin\theta(-\tau\vec N)\\
+					&= \left( \cos\theta\kappa-\sin\theta\tau \right) \vec N\\
+					&= \kappa\sin\theta \left( \cot\theta-\frac{\tau}{\kappa} \right) \vec N\\
+					&= 0
+				\end{align*}
+			\end{subproof}
+		\end{proof}
+	\end{prop}
+
+	\begin{exem}
+		$\vec\alpha(t) = \left( 3t-t^3, 3t^2, 3t+t^3 \right)$. $\kappa(t) = \tau(t) = \frac{1}{3(1+t^2)^2}$. Alors, $\frac{\tau}{\kappa} = 1 = \cot\frac{\pi}{4}$ est constant. $\theta=\frac{\pi}{4}$, alors $\vec A=\cos\theta\vec T+\sin\theta\vec B = \frac{1}{\sqrt{2}} \frac{1}{\sqrt{2}}\left( \frac{1-t^2}{1+t^2}, \frac{2t}{1+t^2}, 1 \right) + \frac{1}{\sqrt{2}} \frac{1}{\sqrt{2}} \left( -\frac{1-t^2}{1+t^2}, \frac{-2t}{1+t^2}, 1 \right) = (0,0,1)$. $\vec\alpha$ fait un angle de $\frac{\pi}{4}$ avec $(0,0,1)$.
+	\end{exem}
+
+	\section{Forme locale canonique}
+	Soit $\vec\alpha$ une courbe PPLA. Sans perte de g\'en\'eralit\'e, $\vec\alpha(0)=\vec0\in\RR^3$.
+
+	Par la formule de Taylor,
+	\begin{align*}
+		\vec\alpha(s)&= \vec\alpha(0) + s\vec\alpha'(0) + \frac{s^2}{2}\vec\alpha''(0) + \frac{s^3}{6}\vec\alpha'''(0) + \cdots\\
+		&= s\vec T(0) + \frac{s^2}{2}\vec T'(0) + \frac{s^3}{6}\vec T''(0) + \cdots\\
+		&= s\vec T_0 + \frac{s^2}{2}\kappa(0)\vec N(0) + \frac{s^3}{6} \left(\kappa\vec N \right)'(0) + \cdots\\
+		&= s\vec T_0 + \frac{s^2}{2}\kappa_0\vec N_0 + \frac{s^3}{6} \left(\kappa'_0\vec N_0 + \kappa_0\vec N'_0 \right) + \cdots\\
+		&= s\vec T_0 + \frac{s^2}{2} \kappa_0\vec N_0 + \frac{s^3}{6} \left( \kappa'_0\vec N_0 + \kappa_0(-\kappa_0\vec T_0+\tau_0\vec B_0) \right) + \cdots\\
+		&= \vec T_0 \left( s-\frac{\kappa_0^2}{6}s^3+\cdots \right) + \vec N_0 \left( \frac{\kappa_0}{2}s^2 + \frac{\kappa'_0}{6}s^3+\cdots \right) + \vec B_0 \left( \frac{\kappa_0\tau_0}{6}s^3+\cdots \right)
+	\end{align*}
+
+	\begin{dfn}[Plan osculateur]
+		Le \emph{plan osculateur} est le plan g\'en\'er\'e par $\vec T$ et $\vec N$.
+
+		La projection de $\vec\alpha$ sur le plan osculateur est $\left( s-\frac{\kappa_0^2}{6}s^3+\cdots, \frac{\kappa_0}{2}s^2+\frac{\kappa'_0}{6}s^3+\cdots \right)$.
+	\end{dfn}
+
+	On cherche $r$ t.q. le cercle de rayon $r$ passant par $(0,0)$ \`a $s=0$ centr\'e en $(0,r)$ soit la meilleure approximation de $\vec\alpha$. $(0,r)+(r\sin t, -r\cos t) = (r\sin t, r-r\cos t)$. En reparam\'etrisant par longueur d'arc, $\vec\beta(s) = \left( r \sin\frac{s}{r}, r\left( 1-\cos\frac{s}{r} \right) \right)$. Soit $\vec\beta(s) = r\sin\frac{s}{r}\vec T_0 + r\left( 1-\cos\frac{s}{r} \right)\vec N_0$, $\vec\beta(0)=0=\vec\alpha(0)$.
+
+	Par Taylor,
+	\begin{align*}
+	\vec\beta(s)&= r\left( \frac{s}{r} - \frac{s^3}{6r^3} - \cdots \right)\vec T_0 + r\left( 1-\left( 1 - \frac{s^2}{2r^2} + \cdots \right) \right)\vec N_0\\
+	&= \vec T_0\left( s-\frac{\sfrac{1}{r^2}}{6}s^3+\cdots \right) + \vec N_0 \left( \frac{\sfrac{1}{r}}{2}s^2+\cdots \right)
+	\end{align*}
+
+	$r=\sfrac{1}{\kappa_0}$ est le rayon pour lequel $\vec\beta(s)$ approxime le mieux la courbe $\vec\alpha(s)$ pr\`es de $s=0$.
+
+	Donc $\kappa(0)=\sfrac{1}{r}$, o\`u $r$ est le rayon du cercle qui approxime le mieux $\vec\alpha$ pr\`es de $s=0$.
+
+	$\vec\beta(s)$ est l'unique cercle t.q.
+	\begin{align*}
+	\vec\beta(0)&= \vec\alpha(0)\\
+	\vec\beta'(0)&= \vec\alpha'(0)\\
+	\vec\beta''(0)&= \vec\alpha''(0)
+	\end{align*}
+
+	On peut interpr\'eter ce r\'esultat comme $\kappa(s)$ est l'inverse du rayon de l'unique cercle $\vec\beta$ dans $\RR^3$ t.q.
+	\begin{align*}
+	\vec\beta(s)&= \vec\alpha(s)\\
+	\vec\beta'(s)&= \vec\alpha'(s)\\
+	\vec\beta''(s)&= \vec\alpha''(s)
+	\end{align*}
+
+	\begin{dfn}
+		Une \emph{transformation rigide} (ou euclidienne) est la composition d'une rotation et d'une translation. \[ \Psi : \RR^3\to\RR^3, \Psi(\vec x) = A\vec x+\vec b \] o\`u $A$ est une matrice de rotation, c'est-\`a-dire, $A^TA=I$ et $\det A=1$, et $\vec b\in\RR^3$ est constant.
+
+		Deux courbes PPLA $\vec\alpha$ et $\vec\alpha^*$ sont \emph{congruentes} si $\exists \Psi$ une transformation rigide t.q. $\vec\alpha^*(s)=\Psi(\vec\alpha(s))$, $\forall s$.
+	\end{dfn}
+
+	\begin{thm}[Th\'eor\`eme fondamental des courbes]~
+
+		\begin{enumerate}
+			\item Soient $\vec\alpha$ et $\vec\alpha^*$ deux courbes PPLA avec $\kappa\neq0$ et $\kappa^*\neq0$. Alors, $\vec\alpha$ et $\vec\alpha^*$ sont congruentes si, et seulement si, $\kappa=\kappa^*$ et $\tau=\tau^*$;
+			\item Soit $\kappa,\tau:[0,L]\to\RR$ des fonctions continues avec $\kappa>0$. Alors, il existe une courbe $\vec\alpha$ PPLA avec $\kappa$ comme courbure et $\tau$ comme torsion.
+		\end{enumerate}
+		\begin{subproof}[Id\'ee de la d\'emonstration]
+			\begin{align*}
+				\begin{split}
+					\vec T'&= \kappa\vec N\\
+					\vec N'&= -\kappa\vec T+\tau\vec B\\
+					\vec B'&= -\tau\vec N
+				\end{split}\tag{$*$}
+			\end{align*}
+
+			Soit $\vec X = \begin{pmatrix}
+				T_1&T_2&T_3&N_1&N_2&N_3&B_1&B_2&B_3
+			\end{pmatrix}^T$, o\`u $\vec T=\begin{pmatrix}
+				T_1&T_2&T_3
+			\end{pmatrix}$, \dots. $\vec X'=A\vec X$, o\`u \[ A = \left[\begin{array}{ccc|ccc|ccc}
+				&&&\kappa&&&&&\\
+				&&&&\kappa&&&&\\
+				&&&&&\kappa\\\hline
+				-\kappa&&&&&&\tau\\
+				&-\kappa&&&&&&\tau\\
+				&&-\kappa&&&&&&\tau\\\hline
+				&&&-\tau&&&&&\\
+				&&&&-\tau&&&&\\
+				&&&&&-\tau&&&
+			\end{array}\right] \in \RR^{9\times9} \]
+			un syst\`eme d'\'equations diff\'erentielles du premier ordre. Par le th\'eor\`eme fondamental d'existence et d'unicit\'e, les \'equations $(*)$ ont une unique solution pour chaque condition initiale $\vec T_0, \vec N_0, \vec B_0$.
+
+			Choisir une base orthonorm\'ee $\vec T_0, \vec N_0, \vec B_0$. Soit $\vec T, \vec N, \vec B$ la solution. Soit $\vec\alpha(s)=\int_{0}^{s}\vec T(u)du$.
+		\end{subproof}
+	\end{thm}
+
+	\begin{exem}
+		Trouver une courbe avec $\kappa(s) = \frac{1}{1+s}$ et $\tau(s)=0$.
+		\begin{align*}
+			\vec T'&= \frac{1}{1+s}\vec N\\
+			\vec N'&= -\frac{1}{1+s}\vec T\\
+			\vec B'&= 0
+		\end{align*}
+
+		Soit $u=\ln(1+s)$, c'est-\`a-dire, $1+s=e^u$.
+		\begin{align*}
+			\begin{split}
+				\frac{d\vec T}{du}&= \frac{\sfrac{d\vec T}{ds}}{\sfrac{du}{ds}}\\
+				&= \frac{\frac{1}{1+s}\vec N}{\frac{1}{1+s}}\\
+				&= \vec N
+			\end{split}\\
+			\begin{split}
+				\frac{d\vec N}{du}&= \frac{\sfrac{d\vec N}{ds}}{\sfrac{du}{ds}}\\
+				&= \frac{-\frac{1}{1+s}\vec T}{\frac{1}{1+s}}\\
+				&= -\vec T
+			\end{split}\\
+			\begin{split}
+				\frac{d\vec B}{du}&= 0
+			\end{split}
+		\end{align*}
+
+		Alors,
+		\begin{align*}
+			\vec T&= \cos u\vec c_1+\sin u\vec c_2\\
+			\vec N&= -\sin u\vec c_1+\cos u\vec c_2\\
+			\vec B&= \vec c_3
+		\end{align*}
+		o\`u $\vec c_1, \vec c_2, \vec c_3 \in \RR^3$ orthonorm\'es.
+
+		Posons $\vec c_1=(1,0,0)$, $\vec c_2=(0,1,0)$, $\vec c_3=(0,0,1)$. $\vec T(u)=(\cos u,\sin u,0) = (\cos(\ln(1+s)), \sin(\ln(1+s)), 0)$.
+
+		\begin{align*}
+			\vec\alpha(s)&= \int_{0}^{s} \vec T(x)dx\\
+			&= \int_{0}^{s} \left( \cos(\ln(1+x)), \sin(\ln(1+x)), 0 \right) dx\\
+			&= \left( \int_{0}^{s}\cos(\ln(1+x))dx, \int_{0}^{s}\sin(\ln(1+x))dx, 0 \right)\\
+			&= \left( \frac{1}{2}(-1+(1+s)(\cos\ln(1+s))+\sin(\ln(1+s))), \frac{1}{2}(1-(1+s)(\cos(\ln(1+s))-\sin(\ln(1+s)))), 0 \right)
+		\end{align*}
+	\end{exem}
+
+	\section{Courbes planaires}
+	Soit $\vec\alpha:[0,L]\to\RR^2$ une courbe planaire PPLA.
+	\begin{align*}
+		\vec\alpha(s)&= (x(s), y(s))\\
+		\vec T(s)&= (x'(s), y'(s))
+	\end{align*}
+	$\norme{\vec T(s)}=1$, donc $\vec T(s)$ est un point sur le cercle unitaire.
+
+	\begin{dfn}
+		$\vec N(s)$ est l'unique vecteur unitaire dans $\RR^2$ t.q. $\vec N(s) \cdot \vec T(s)$ et $\{\vec T(s), \vec N(s)\}$ est orient\'ee positivement, c'est-\`a-dire,
+		\begin{itemize}
+			\item $\vec T \times \vec N=(0,0,1)$;
+			\item $\vec N(s)$ est la rotation de $\vec T(s)$ de 90\degree\ dans le sens trigonom\'etrique;
+			\item si $\vec T=(a,b)$, alors $\vec N=(-b,a)$.
+		\end{itemize}
+	\end{dfn}
+
+	\begin{rmq}
+		On n'a pas besoin de supposer que $\vec T'\neq0$ pour d\'efinir $\vec N$ dans ce cas.
+	\end{rmq}
+
+	\begin{dfn}
+		$\kappa=\vec T' \cdot \vec N$.
+	\end{dfn}
+
+	\begin{rmq}
+		$\vec T'=\kappa\vec N$, car
+		\begin{align*}
+			\vec T'&= (\vec T' \cdot \vec T)\vec T + (\vec T' \cdot \vec N)\vec N\\
+			\shortintertext{comme $\norme{\vec T}=1$ et $\vec T' \cdot \vec N=\kappa$,}
+			&= \kappa\vec N
+		\end{align*}
+	\end{rmq}
+
+	$\kappa$ peut \^etre $>0$, $=0$ ou $<0$. Si $\kappa>0$, alors $\vec T$ tourne dans le sens trigonom\'etrique. Si $\kappa<0$, alors $\vec T$ tourne dans le sens horaire. Si $\kappa=0$, alors $\vec T$ ne tourne pas, la courbe peut \^etre une droite ou il s'agit d'un point critique.
+
+	\begin{dfn}
+		On a que $\vec T(s) = (\cos\theta(s), \sin\theta(s))$, o\`u $\theta:[0,L]\to\RR$ est continue.
+
+		$\vec T' = (-\theta'\sin\theta, \theta'\cos\theta) = \theta'(-\sin\theta, \cos\theta) = \theta'\vec N$.
+
+		Alors, $\kappa = \vec T' \cdot \vec N = \theta'\vec N \cdot \vec N = \theta'$.
+		\[ \kappa(s) = \theta'(s) \quad\Longrightarrow\quad \int_{0}^{L}\kappa(s) ds = \theta(L)-\theta(0)\]
+	\end{dfn}
 \end{document}

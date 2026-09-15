@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.1)  8 SEP 2026 16:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  15 SEP 2026 17:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -219,6 +219,9 @@ LaTeX template Info: Declaring instance 'cmss' of type xfrac on line 392.
 LaTeX template Info: Declaring instance 'cmtt' of type xfrac on line 392.
 
 )
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/gensymb\gensymb.sty
+Package: gensymb 2022/10/17 v1.0.2 (KJH)
+)
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip61
@@ -229,23 +232,23 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enitdp@description=\count305
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2026/08/21 v26.11 The multilingual framework for LuaLaTeX, pdfLa
+Package: babel 2026/09/09 v26.12 The multilingual framework for LuaLaTeX, pdfLa
 TeX and XeLaTeX
 \babel@savecnt=\count306
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
-ne 2105.
+ne 2095.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
-ne 2107.
+ne 2097.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
-e 2109.
+e 2099.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
-e 2110.
+e 2100.
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
-on input line 2111.
+on input line 2101.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
-on input line 2113.
+on input line 2103.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
-on input line 2138.
+on input line 2128.
 \U@D=\dimen186
 \l@unhyphenated=\language79
 
@@ -254,7 +257,7 @@ on input line 2138.
 \bbl@dirlevel=\count307
 Package babel Info: Configuration files are deprecated, as
 (babel)             they can break document portability.
-(babel)             Reported on input line 4332.
+(babel)             Reported on input line 4331.
 
 *************************************
 * Local config file bblopts.cfg used
@@ -266,7 +269,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/fr\babel
 -french.tex)
 Package babel Info: Importing font and identification data for 'french'
-(babel)             from babel-fr.ini. Reported on input line 4460.
+(babel)             from babel-fr.ini. Reported on input line 4459.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel-french\french.l
 df
@@ -894,14 +897,27 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+LaTeX Info: Redefining \celsius on input line 95.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 95.
+
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 95.
+Package gensymb Info: Using \Omega for \ohm on input line 95.
+
+Package gensymb Warning: Not defining \micro.
+
 LaTeX Info: Redefining \degres on input line 95.
 Package hyperref Info: Link coloring OFF on input line 95.
- (MAT603-geometrie_differentielle.out) (MAT603-geometrie_differentielle.out)
+(MAT603-geometrie_differentielle.out) (MAT603-geometrie_differentielle.out)
 \@outlinefile=\write4
 \openout4 = `MAT603-geometrie_differentielle.out'.
 
 Package babel Info: Main language set to 'french'.
- [1
+
+[1
 
 {C:/Users/jujub/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 (MAT603-geometrie_differentielle.toc
@@ -936,7 +952,16 @@ Chapitre 1.
 ]
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 244.
- [3] [4] [5] [6] [7] [8] [9] [10] (MAT603-geometrie_differentielle.aux)
+ [3] [4] [5] [6] [7] [8] [9] [10]
+Overfull \hbox (1.00165pt too wide) in paragraph at lines 720--721
+[]$\OT1/cmr/m/n/10 . $(0\OML/cmm/m/it/10 ; r\OT1/cmr/m/n/10 ) + (\OML/cmm/m/it/
+10 r [] t; \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 r [] t\OT1/cmr/m/n/10 ) = (\OML
+/cmm/m/it/10 r [] t; r \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 r [] t\OT1/cmr/m/n
+/10 )$. En re-pa-ram^^Setrisant par lon-gueur d'arc, $[](\OML/cmm/m/it/10 s\OT1
+/cmr/m/n/10 ) = []$.
+ []
+
+[11] [12] [13] [14] (MAT603-geometrie_differentielle.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -948,41 +973,42 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT603-geometrie_differentielle.out' has not
  changed.
-(rerunfilecheck)             Checksum: 17FE8C1D520317CD17E57FAC916C92C1;529.
+(rerunfilecheck)             Checksum: C346B698FA586F3869E9F92BC02114F6;841.
  ) 
 Here is how much of TeX's memory you used:
- 24948 strings out of 467441
- 472280 string characters out of 5407592
- 907770 words of memory out of 5000000
- 53829 multiletter control sequences out of 15000+600000
- 639502 words of font info for 89 fonts, out of 8000000 for 9000
+ 25334 strings out of 467441
+ 480288 string characters out of 5407591
+ 909210 words of memory out of 5000000
+ 54198 multiletter control sequences out of 15000+600000
+ 639803 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,20n,104p,793b,684s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,25n,104p,793b,689s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmex10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jujub/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/jujub/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/jujub/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jujub/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users
-/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><
-C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/j
-ujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb>
-Output written on MAT603-geometrie_differentielle.pdf (12 pages, 263771 bytes).
+ublic/amsfonts/cm/cmcsc10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jujub/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jujub/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/jujub/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/jujub
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Use
+rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb
+><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mr17.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmr8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jujub/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><
+C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb>
+Output written on MAT603-geometrie_differentielle.pdf (16 pages, 305742 bytes).
 
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 238 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 
