@@ -927,4 +927,113 @@
 
 		En g\'en\'eral, $I_1 \cup I_2$ n'est pas un id\'eal de $A$.
 	\end{exem}
+
+	\begin{dfn}
+		Soient $A$ un anneau et ,$I,J \trianglelefteq A$ des id\'eaux. On d\'efinit $I+J \coloneq \left\{ x+y ~\middle| x\in I, y\in J \right\}$.
+	\end{dfn}
+
+	\begin{lem}
+		Soient $A$ un anneau et $I,J \trianglelefteq A$ des id\'eaux.
+
+		\begin{enumerate}
+			\item $I+J \trianglelefteq A$,
+			\item $I+J = \langle I \cup J \rangle$.
+		\end{enumerate}
+		\begin{proof}
+			\begin{enumerate}
+				\item $I+J \neq \emptyset$, car $0=\underbrace{0}_{\in I}+\underbrace{0}_{\in J}$.
+
+				Supposons que $a=x+y$, $b=x'+y'$ avec $x,x'\in I$ et $y,y'\in J$. Alors
+				\begin{align*}
+					a-b&= (x+y)-(x'+y')\\
+					&= \underbrace{(x-x')}_{\in I}+\underbrace{(y-y')}_{\in J}\\
+					&\in I+J
+				\end{align*}
+
+				Soient $a=x+y\in I+J$ et $\alpha\in A$.
+				\begin{align*}
+					\begin{split}
+						\alpha a&= \alpha(x+y)\\
+						&= \underbrace{\alpha x}_{\in I}+\underbrace{\alpha y}_{\in J}\\
+						&\in I+J
+					\end{split}
+					&
+					\begin{split}
+						a\alpha&= (x+y)\alpha\\
+						&= x\alpha+y\alpha\\
+						&\in I+J
+					\end{split}
+				\end{align*}
+				\item Si $x\in I$, alors $x=x+\underbrace{0}_{\in J}\in I+J$ de sorte que $I\subseteq I+J$. De m\^eme, $J\subseteq I+J$. D'o\`u, $I \cup J \subseteq I+J$.
+
+				Supposons que $K \trianglelefteq A$ t.q. $I\cup J\subseteq K$. Alors, un \'el\'ement $z=x+y\in I+J$ v\'erifie $z\in K$ puisque $x\in I\subseteq K$ et $y\in J\subseteq K$.
+
+				Ainsi, $I+J\subseteq K$.
+			\end{enumerate}
+		\end{proof}
+	\end{lem}
+
+	On peut se demander comment d\'ecrire explicitement $\langle X \rangle$ en g\'en\'eral, avec $X \subseteq A$.
+
+	\begin{lem}
+		Soient $A$ un anneau et $X\subseteq A$ une partie. Alors, \[\langle X \rangle = AXA = \left\{ \sum_{i=1}^{n}a_ix_ib_i ~\middle|~ a_i,b_i\in A, x_i\in X \right\} \]
+		\begin{proof}
+			\begin{itemize}
+				\item $AXA\neq\emptyset$.
+
+				Supposons que $\sum_i a_ix_ib_i, \sum_i c_iy_id_i \in AXA$. Alors, $\sum_i a_ix_ib_i - \sum_i c_iy_id_i \in AXA$.
+
+				Supposons que $\sum_i a_ix_ib_i \in AXA$, $\alpha \in A$. Alors,
+				\begin{align*}
+					\alpha\left(\sum_i a_ix_ib_i\right)&= \sum_i (\alpha a_i)x_ib_i\\
+					&\in AXA
+				\end{align*}
+				De m\^eme, $\left(\sum_ia_ix_ib_i\right)\alpha\in AXA$.
+
+				Ainsi, $AXA\trianglelefteq A$.
+
+				De plus, si $x\in X$, $x=\id x\id\in AXA$, d'o\`u $X\subseteq AXA$.
+				\item Supposons que $J\trianglelefteq A$ t.q. $X\subseteq J$. Tout \'el\'ement de la forme $a_ix_ib_i$ avec $a_i,b_i\in A$, $x_i\in X$ se trouve dans $J$, car $J$ est un id\'eal. Comme $J$ est aussi un sous-groupe additif de $A$, on a que $AXA \subseteq J$.
+			\end{itemize}
+		\end{proof}
+	\end{lem}
+
+	\begin{rmq}
+		Si $A$ est commutatif, alors $\langle X \rangle = AX = XA$. Il s'agit de l'ensemble des combinaisons lin\'eaires d'\'el\'ements de $X$ \`a coefficients dans $A$.
+	\end{rmq}
+
+	\begin{exer}
+		Soit $A$ un anneau commutatif. $a \in A$.
+		\begin{proof}[m.q.]
+			$\langle a \rangle = A \Longleftrightarrow a\in \mathcal{U}(A)$.
+			\begin{subproof}[$\Rightarrow$:]
+				Si $\langle a \rangle = A$, alors $\id\in\langle a\rangle=Aa$. D'o\`u l'existence de $u\in A$ t.q. $\id=ua$, c'est-\`a-dire, $a\in\mathcal{U}(A)$.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				Si $a\in\mathcal{U}(A)$, alors $a^{-1}\in A$ et donc $\id=aa^{-1}\in\langle a\rangle$. D'o\`u $\langle a\rangle=A$.
+			\end{subproof}
+		\end{proof}
+	\end{exer}
+
+	\begin{rmq}
+		Dans $\ZZ$, $\langle3,11\rangle = \langle\operatorname{pgcd}(3,11)\rangle = \langle1\rangle = \ZZ$.
+
+		$\langle3,11\rangle$ est engendr\'e par un unique \'el\'ement.
+	\end{rmq}
+
+	\begin{dfn}
+		Soit $A$ un anneau commutatif. Un id\'eal $I\trianglelefteq A$ est dit \emph{principal} s'il est de la forme $I=Ax=\langle x\rangle$. On dit que $x$ est \emph{g\'en\'erateur}.
+	\end{dfn}
+
+	\begin{prop}
+		Soit $A$ un anneau commutatif. Alors, $A$ est un corps si, et seulement si, ses seuls id\'eaux sont $0$ et $A$.
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$:]
+				D\'ej\`a fait.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				Si $x\neq0\in A$, alors $\langle x\rangle=A$, d'o\`u $x$ est inversible.
+			\end{subproof}
+		\end{proof}
+	\end{prop}
 \end{document}

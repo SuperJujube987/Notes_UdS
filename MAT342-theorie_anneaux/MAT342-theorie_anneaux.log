@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.1)  15 SEP 2026 10:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  18 SEP 2026 10:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -233,23 +233,23 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enitdp@description=\count305
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2026/08/21 v26.11 The multilingual framework for LuaLaTeX, pdfLa
+Package: babel 2026/09/09 v26.12 The multilingual framework for LuaLaTeX, pdfLa
 TeX and XeLaTeX
 \babel@savecnt=\count306
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
-ne 2105.
+ne 2095.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
-ne 2107.
+ne 2097.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
-e 2109.
+e 2099.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
-e 2110.
+e 2100.
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
-on input line 2111.
+on input line 2101.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
-on input line 2113.
+on input line 2103.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
-on input line 2138.
+on input line 2128.
 \U@D=\dimen186
 \l@unhyphenated=\language79
 
@@ -258,7 +258,7 @@ on input line 2138.
 \bbl@dirlevel=\count307
 Package babel Info: Configuration files are deprecated, as
 (babel)             they can break document portability.
-(babel)             Reported on input line 4332.
+(babel)             Reported on input line 4331.
 
 *************************************
 * Local config file bblopts.cfg used
@@ -270,7 +270,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/fr\babel
 -french.tex)
 Package babel Info: Importing font and identification data for 'french'
-(babel)             from babel-fr.ini. Reported on input line 4460.
+(babel)             from babel-fr.ini. Reported on input line 4459.
 
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/babel-french\french.l
 df
@@ -996,7 +996,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[11] (MAT342-theorie_anneaux.aux)
+[11]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[12] (MAT342-theorie_anneaux.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -1011,13 +1019,13 @@ Package rerunfilecheck Info: File `MAT342-theorie_anneaux.out' has not changed.
 (rerunfilecheck)             Checksum: 1F6B7D5F9C0D62D8B37F8CD8D8E5EDC4;648.
  ) 
 Here is how much of TeX's memory you used:
- 25780 strings out of 467441
- 497263 string characters out of 5407592
+ 25787 strings out of 467441
+ 497370 string characters out of 5407591
  935485 words of memory out of 5000000
- 54577 multiletter control sequences out of 15000+600000
+ 54579 multiletter control sequences out of 15000+600000
  636815 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,15n,104p,561b,989s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,21n,104p,561b,989s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1044,9 +1052,9 @@ ic/amsfonts/symbols/msbm5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/jujub/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/jujub/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on MAT342-theorie_anneaux.pdf (13 pages, 315066 bytes).
+Output written on MAT342-theorie_anneaux.pdf (14 pages, 320946 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
- 101 named destinations out of 1000 (max. 500000)
+ 317 PDF objects out of 1000 (max. 8388607)
+ 106 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
