@@ -7,7 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{tikz}
-\usetikzlibrary{calc, positioning, 3d}
+\usetikzlibrary{calc, positioning, 3d, decorations.markings}
 
 \hypersetup{
 	colorlinks=false
@@ -872,4 +872,199 @@
 		Alors, $\kappa = \vec T' \cdot \vec N = \theta'\vec N \cdot \vec N = \theta'$.
 		\[ \kappa(s) = \theta'(s) \quad\Longrightarrow\quad \int_{0}^{L}\kappa(s) ds = \theta(L)-\theta(0)\]
 	\end{dfn}
+
+	Supposons que $\vec\alpha$ est \emph{ferm\'ee}, c'est-\`a-dire, $\vec\alpha(0)=\vec\alpha(L)$, $\vec\alpha'(0)=\vec\alpha'(L)$, $\vec\alpha''(0)=\vec\alpha''(L)$ et $\vec\alpha'''(0)=\vec\alpha'''(L)$. Comme $\vec T(0)=\vec T(L)$, $\theta(L)-\theta(0)=2\pi I$, o\`u $I=\frac{\theta(L)-\theta(0)}{2\pi}\in\ZZ$ est appel\'e \emph{indice de rotation}.
+
+	\begin{exem}~
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[samples=25, domain=0:6.28, variable=\t, smooth cycle, decoration={markings, mark=at position 0.3 with {\arrow{stealth}}}, thick]
+				\draw[->] (-1.2,0) -- (1.2,0);
+				\draw[->] (0,-1.2) -- (0,1.2);
+				\draw[postaction={decorate}] plot ({cos(\t r)}, {sin(\t r)});
+				\node () at (0,-1.5) {$I=1$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}[smooth cycle, decoration={markings, mark=at position 0.3 with {\arrow{stealth}}}, x=.5pt, y=-.5pt, thick]
+				\draw[postaction={decorate}] plot file {figs/fig_indice_1.txt};
+				\node () at (150,180) {$I=1$};
+			\end{tikzpicture}
+			\\
+			\begin{tikzpicture}[smooth cycle, decoration={markings, mark=at position 0.3 with {\arrow{stealth}}}, x=.5pt, y=-.5pt, thick]
+				\draw[postaction={decorate}] plot file {figs/fig_indice_2.txt};
+				\node () at (80,160) {$I=2$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}[samples=25, domain=0:6.28, variable=\t, smooth cycle, decoration={markings, mark=at position 0.3 with {\arrow{stealth}}}, thick]
+				\draw[->] (-1.2,0) -- (1.2,0);
+				\draw[->] (0,-1.2) -- (0,1.2);
+				\draw[postaction={decorate}] plot ({-cos(\t r)}, {sin(\t r)});
+				\node () at (0,-1.5) {$I=-1$};
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}[smooth cycle, decoration={markings, mark=at position 0.3 with {\arrow{stealth}}}, x=.5pt, y=-.5pt, thick]
+				\draw[postaction={decorate}] plot file {figs/fig_indice_3.txt};
+				\node () at (130,160) {$I=3$};
+			\end{tikzpicture}
+			\caption{Quelques exemples de courbes avec leur indice de rotation}
+		\end{figure}
+	\end{exem}
+
+	\begin{dfn}
+		Une courbe est \emph{simple} si elle ne se recoupe pas elle-m\^eme, c'est-\`a-dire, $\vec\alpha(s_1) \neq \vec\alpha(s_2)$ si $s_1 \neq s_2$.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[smooth cycle, x=.25pt, y=-.25pt, thick]
+				\draw plot file {figs/fig_courbe_simple.txt};
+			\end{tikzpicture}
+			\hspace{2cm}
+			\begin{tikzpicture}[smooth cycle, x=.25pt, y=-.25pt, thick]
+				\draw plot file {figs/fig_courbe_non_simple.txt};
+			\end{tikzpicture}
+			\caption{Un exemple d'une courbe simple et d'une courbe non simple}
+		\end{figure}
+	\end{dfn}
+
+	\begin{thm}[Hopf Umlaufsatz]
+		L'indice de rotation d'une courbe simple est $\pm1$.
+	\end{thm}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\vec\alpha:[0,2\pi r]\to\RR^2$, $\vec\alpha(s)=\left(r\cos\frac{s}{r}, r\sin\frac{s}{r}\right)$.
+
+			$\vec T(s) = \vec\alpha'(s) = \left(-\sin\frac{s}{r}, \cos\frac{s}{r}\right) = \left(\cos\left(\frac{s}{r}+\frac{\pi}{2}\right), \sin\left(\frac{s}{r}+\frac{\pi}{2}\right)\right)$. $\theta(s)=\frac{s}{r}+\frac{\pi}{2}$.
+			\begin{align*}
+				\int_{0}^{L}\kappa(s)ds&= \int_{0}^{2\pi r}\theta'(s)ds\\
+				&= \int_{0}^{2\pi r} \frac{1}{r}ds\\
+				&= \frac{2\pi r}{r}\\
+				&= 2\pi
+			\end{align*}
+			d'o\`u $I=1$.
+			\item $\vec\alpha:[0,\pi]\to\RR^2$, $\vec\alpha(t)=(\cos3t\cos t, \cos3t\sin t)$.
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}[samples=50, domain=0:6.28, variable=\t, smooth cycle, thick]
+					\draw[->] (-1.2,0) -- (1.2,0);
+					\draw[->] (0,-1.2) -- (0,1.2);
+					\draw plot (\t r:{cos(3*\t r)});
+				\end{tikzpicture}
+			\end{figure}
+
+			\begin{align*}
+				\frac{d\vec\alpha}{dt}&= (-3\sin3t\cos t-\cos3t\sin t, -3\sin3t\sin t+\cos3t\cos t)\\
+				v(t)&= \sqrt{1+8\sin^23t}\\
+				\vec T&= \frac{1}{v(t)}\frac{d\vec\alpha}{dt}\\
+				\vec N&= \frac{1}{\sqrt{1+8\sin^23t}}(3\sin3t\sin t-\cos3t\cos t, -3\sin3t\cos t-\cos3t\sin t)\\
+				\frac{d\vec T}{dt}\cdot\vec N&= 1+\frac{9}{1+8\sin^23t}
+			\end{align*}
+
+			On a $\frac{ds}{dt}=\norme{\vec\alpha'(t)}=v(t)$.
+			\begin{align*}
+				\int_{0}^{L}\kappa(s)ds&= \int_{0}^{\pi}\kappa(t)vdt\\
+				\shortintertext{comme $\kappa=\frac{d\vec T}{ds}\cdot\vec N=\frac{1}{v}\frac{d\vec T}{dt}\cdot\vec N$,}
+				&= \int_{0}^{\pi} \frac{d\vec T}{dt}\cdot\vec N dt\\
+				&= \int_{0}^{\pi}1+\frac{9}{1+8\sin^23t}dt\\
+				&= \pi + 3\int_{0}^{\pi}\frac{3}{1+8\sin^23t}dt
+			\end{align*}
+
+			On peut voir g\'eom\'etriquement que $I=2$, donc $\int_{0}^{L}\kappa(s)ds=4\pi$, d'o\`u $\int_{0}^{\pi}\frac{3}{1+8\sin^23t}dt=\pi$. En effet, en posant $u=3t$,
+			\begin{align*}
+				\int_{0}^{\pi}\frac{3}{1+8\sin^23t}dt&= \int_{0}^{3\pi}\frac{du}{1+8\sin^2u}\\
+				&= 3\int_{0}^{\pi}\frac{du}{1+8\sin^2u}\\
+				&= 6\int_{0}^{\sfrac{\pi}{2}}\frac{du}{1+8\sin^2u}\\
+				\shortintertext{en posant $x=\tan u$,}
+				&= 6\int_{0}^{\infty}\frac{1}{1+8\frac{x^2}{1+x^2}} \frac{dx}{1+x^2}\\
+				&= 6\int_{0}^{\infty}\frac{dx}{1+9x^2}\\
+				&= \left.6 \frac{1}{3} \arctan\frac{x}{3}\right|_{0}^{\infty}\\
+				&= 6 \frac{1}{3} \frac{\pi}{2}
+			\end{align*}
+		\end{enumerate}
+	\end{exem}
+
+	\chapter{Surfaces (th\'eorie locale)}
+	\section{Notions de topologie}
+	\begin{dfn}
+		Un ensemble de $\RR^n$ est \emph{ouvert} s'il est d\'efini par un nombre fini de conditions de la forme $f(x)<g(x)$ ou $f(x)\neq g(x)$, o\`u $f,g$ sont continues, combin\'ees avec des ``et'' ou des ``ou'', ou une union d'ensembles de cette forme.
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $U=\{(x,y)\in\RR^2 \mid x^2+y^2<1\}$.
+			\item $U=\{(x,y)\in\RR^2 \mid 2<x<3 \text{ et } y\neq1\}$.
+			\item $U=\{(x,y)\in\RR^2 \mid y>x^2 \text{ ou } y<-1\}$.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{exer}[pour les math\'ematiciens]
+		V\'erifier que cette d\'efinition est \'equivalent \`a celle qu'on conna\^it.
+	\end{exer}
+
+	\begin{dfn}
+		Un ensemble est  \emph{ferm\'e} s'il est d\'efini par un nombre fini de conditions de la forme $f(x)\lte g(x)$ ou $f(x)=g(x)$, o\`u $f,g$ sont continues, combin\'ees avec des ``et'' ou des ``ou'', ou une intersection d'ensembles de cette forme.
+	\end{dfn}
+
+	\begin{exem}
+		$C=\{(x,y)\in\RR^2 \mid y\gte x^2\}$.
+	\end{exem}
+
+	\begin{rmq}
+		$E\subseteq\RR^n$ est ferm\'e si, et seulement si, $\RR^n\setminus E$ est ouvert.
+	\end{rmq}
+
+	\begin{exem}
+		$E=\{(x,y,z)\in\RR^3 \mid y=0 \text{ et } x\gte0\}$ est ferm\'e. $\RR^3\setminus E=\{(x,y,z)\in\RR^3 \mid 7\neq0 \text{ ou } x<0\}$.
+	\end{exem}
+
+	\begin{dfn}
+		Soient $U\in\RR^2$ un ouvert et $\vec f:U\to\RR^m$ une fonction, $(u,v)\mapsto\vec f(u,v)$. $\vec f$ est de classe $C^1$ si $\vec f_u=\frac{\partial f}{\partial u}$ et $\vec f_v=\frac{\partial f}{\partial v}$ existent et sont continues.
+
+		$\vec f$ est de classe $C^2$ si $\vec f_{uu}=\frac{\partial^2f}{\partial u^2}$, $\vec f_{uv}=\frac{\partial^2f}{\partial u\partial v}$, $\vec f_{vu}=\frac{\partial^2f}{\partial v\partial u}$ et $\vec f_{vv}=\frac{\partial^2f}{\partial v^2}$ existent et sont continues.
+
+		De m\^eme, $f$ est de classe $C^k$ si toutes ses d\'eriv\'ees partielles d'ordre $k$ existent et sont continues.
+
+		Quand $f$ est de classe $C^2$, on a que $\vec f_{uv}=\vec f_{vu}$.
+	\end{dfn}
+
+	\begin{dfn}
+		Une \emph{param\'etrisation r\'eguli\`ere} d'un ensemble $M\subseteq\RR^3$ est une bijection, c'est-\`a-dire une application inversible, $\vec X:U \to M$ de classe $C^3$, o\`u $U\subseteq\RR^2$ est un ouvert, t.q. $\vec X_u \times \vec X_v\neq\vec0$.
+	\end{dfn}
+
+	\begin{dfn}
+		Une \emph{surface} est un ensemble $M\subseteq\RR^3$ t.q. pour chaque point $p\in M$, $\exists V\subseteq\RR^3$ un ouvert t.q. $p\in V$ et $M \cap V\subseteq\RR^3$ admet une param\'etrisation r\'eguli\`ere.
+	\end{dfn}
+
+	$\vec X_u|_{(u_0,v_0)} = \frac{\partial\vec X}{\partial u}|_{(u_0,v_0)} = \lim\limits_{h\to0}\frac{\vec X(u_0+h,v_0)}{h}$ est le vecteur vitesse de la courbe en $u$ $u \mapsto \vec X(u,v_0)$ au temps $u=u_0$.
+
+	$\vec X_v|_{(u_0,v_0)} = \frac{\partial\vec X}{\partial v}|_{(u_0,v_0)} = \lim\limits_{h\to0}\frac{\vec X(u_0,v_0+h)}{h}$ est le vecteur vitesse de la courbe en $v$ $v \mapsto \vec X(u_0,v)$ au temps $u=v_0$.
+
+	$\vec X_u \times \vec X_v \neq 0 \Longleftrightarrow \vec X_u,\vec X_v$ sont lin\'eairement ind\'ependants, $\Longleftrightarrow \vec X_u,\vec X_v$ g\'en\`erent un espace vectoriel de dimension $2$ appel\'e le \emph{plan tangent}.
+
+	\begin{exem}
+		Une sph\`ere ne peut pas \^etre param\'etr\'ee r\'eguli\`erement, mais on peut param\'etrer chaque h\'emisph\`ere s\'epar\'ement, puis prendre l'union.
+	\end{exem}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item Graphes
+
+			$\vec f:U\subseteq\RR^2\to\RR$ une fonction de classe $C^3$. $M=\{(x,y,f(x,y))\in\RR^3 \mid (x,y)\in U\}$. Soit $\vec X:U\to M$, $\vec X(u,v)=(u,v,f(u,v))$. Alors, $\vec X$ est une bijection.
+			\begin{align*}
+				\begin{split}
+					\vec X_u&= (1,0,f_u)
+				\end{split}
+				&
+				\begin{split}
+					\vec X_v&= (0,1,f_v)
+				\end{split}
+				&
+				\begin{split}
+					\vec X_u \times \vec X_v&= (-f_u,-f_v,1) \neq \vec0
+				\end{split}
+			\end{align*}
+			donc $\vec X$ est une param\'etrisation r\'eguli\`ere. Ainsi, $M$ est une surface.
+		\end{enumerate}
+	\end{exem}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  15 SEP 2026 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  22 SEP 2026 16:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -794,6 +794,25 @@ File: tikzlibrarypositioning.code.tex 2026-08-01 v3.1.12 (3.1.12)
 z/libraries\tikzlibrary3d.code.tex
 File: tikzlibrary3d.code.tex 2026-08-01 v3.1.12 (3.1.12)
 )
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.markings.code.tex
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+decorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen310
+\pgfdecoratedremainingdistance=\dimen311
+\pgfdecoratedinputsegmentcompleteddistance=\dimen312
+\pgfdecoratedinputsegmentremainingdistance=\dimen313
+\pgf@decorate@distancetomove=\dimen314
+\pgf@decorate@repeatstate=\count348
+\pgfdecorationsegmentamplitude=\dimen315
+\pgfdecorationsegmentlength=\dimen316
+)
+\tikz@lib@dec@box=\box71
+)
+(C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorat
+ions\pgflibrarydecorations.markings.code.tex))
 Package hyperref Info: Option `colorlinks' set `false' on input line 14.
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
@@ -811,7 +830,7 @@ Package french3.ldf Warning: OT1 encoding should not be used for French.
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\l3backend-pdft
 ex.def
 File: l3backend-pdftex.def 2026-08-10 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count348
+\l__color_backend_stack_int=\count349
 ) (MAT603-geometrie_differentielle.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 11.
@@ -875,16 +894,16 @@ LaTeX Font Info:    ... okay on input line 95.
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count349
-\scratchdimen=\dimen310
-\scratchbox=\box71
-\nofMPsegments=\count350
-\nofMParguments=\count351
+\scratchcounter=\count350
+\scratchdimen=\dimen317
+\scratchbox=\box72
+\nofMPsegments=\count351
+\nofMParguments=\count352
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count352
-\MPscratchDim=\dimen311
-\MPnumerator=\count353
-\makeMPintoPDFobject=\count354
+\MPscratchCnt=\count353
+\MPscratchDim=\dimen318
+\MPnumerator=\count354
+\makeMPintoPDFobject=\count355
 \everyMPtoPDFconversion=\toks47
 )
 (C:\Users\jujub\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -961,7 +980,11 @@ Overfull \hbox (1.00165pt too wide) in paragraph at lines 720--721
 /cmr/m/n/10 ) = []$.
  []
 
-[11] [12] [13] [14] (MAT603-geometrie_differentielle.aux)
+[11] [12] [13] [14] [15] [16]
+Chapitre 2.
+[17
+
+] (MAT603-geometrie_differentielle.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -973,16 +996,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT603-geometrie_differentielle.out' has not
  changed.
-(rerunfilecheck)             Checksum: C346B698FA586F3869E9F92BC02114F6;841.
+(rerunfilecheck)             Checksum: 62CC8671B06FC0AE2F10825EA421D0B6;1184.
  ) 
 Here is how much of TeX's memory you used:
- 25334 strings out of 467441
- 480288 string characters out of 5407591
- 909210 words of memory out of 5000000
- 54198 multiletter control sequences out of 15000+600000
+ 26123 strings out of 467441
+ 502980 string characters out of 5407591
+ 924083 words of memory out of 5000000
+ 54955 multiletter control sequences out of 15000+600000
  639803 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,25n,104p,793b,689s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,25n,104p,793b,1039s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1005,10 +1028,10 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><
 C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb>
-Output written on MAT603-geometrie_differentielle.pdf (16 pages, 305742 bytes).
+Output written on MAT603-geometrie_differentielle.pdf (19 pages, 333821 bytes).
 
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
 
