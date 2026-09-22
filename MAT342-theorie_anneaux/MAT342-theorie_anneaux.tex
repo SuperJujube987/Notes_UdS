@@ -56,6 +56,9 @@
 \newtheorem*{rapp}{Rappel}
 
 \setlist{nosep}
+\setlist[itemize, 1]{label=\textbullet}
+\setlist[itemize, 2]{label=|}
+\setlist[itemize, 3]{label=\textperiodcentered}
 
 \newenvironment*{subproof}[1][D\'emonstration]
 {
@@ -64,6 +67,17 @@
 }
 {
 \renewcommand{\qedsymbol}{$\blacksquare$}
+\end{proof}
+\renewcommand{\qedsymbol}{$\square$}
+}
+
+\newenvironment*{subsubproof}[1][D\'emonstration]
+{
+\begin{proof}[#1]
+
+}
+{
+\renewcommand{\qedsymbol}{\#}
 \end{proof}
 \renewcommand{\qedsymbol}{$\square$}
 }
@@ -78,6 +92,9 @@
 \def\CC{\mathbb{C}}
 
 \def\id{\mathds{1}}
+
+\def\im{\operatorname{Im}}
+\def\noyau{\operatorname{Ker}}
 
 \newcommand*{\abs}[1]{\left|#1\right|}
 \newcommand*{\caract}[1]{\operatorname{car}\left(#1\right)}
@@ -1036,4 +1053,294 @@
 			\end{subproof}
 		\end{proof}
 	\end{prop}
+
+	\begin{rapp}
+		Dans $\sfrac{A}{I}$, l'op\'eration $(a+I)(b+I) \coloneq ab+I$ est bien d\'efinie si $I\trianglelefteq A$.
+	\end{rapp}
+
+	\begin{thm}
+		Soient $A$ un anneau et $I\trianglelefteq A$. Alors, $\sfrac{A}{I}$ est un anneau pour
+		\begin{itemize}
+			\item $(a+I)+(b+I)=(a+b)+I$,
+			\item $(a+I)(b+I)=ab+I$.
+		\end{itemize}
+
+		$\sfrac{A}{I}$ est commutatif si $A$ l'est.
+
+		\begin{subsubproof}[id\'ee de la d\'emonstration]~
+
+			\begin{itemize}
+				\item MAT141 : $\sfrac{A}{I}$ est un groupe ab\'elien,
+				\item On a vu que le produit est bien d\'efini,
+				\item Reste \`a voir
+				\begin{itemize}
+					\item Associativit\'e du produit,
+					\item Neutre pour le produit: $\id_{\sfrac{A}{I}}=\id_A+I$,
+					\item Distributivit\'es,
+					\item Commutativit\'e de $\sfrac{A}{I}$ si $A$ est commutatif.
+				\end{itemize}
+			\end{itemize}
+
+			\'Ecrivons, pour un \'el\'ement $a\in A$, $\overline{a} \coloneq a+I$. Soient $\overline{a}, \overline{b}, \overline{c} \in \sfrac{A}{I}$.
+			\begin{align*}
+				\overline{a}(\overline{b}\,\overline{c})&= \overline{a}(\overline{bc})\\
+				&= \overline{a(bc)}\\
+				&= \overline{(ab)c}\\
+				&= \overline{ab}\,\overline{c}\\
+				&= (\overline{a}\,\overline{b})\overline{c}
+			\end{align*}
+
+			On v\'erifie les distributivit\'es.
+		\end{subsubproof}
+	\end{thm}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $A=\ZZ$, $I=n\ZZ$. Alors, $\sfrac{A}{I}=\sfrac{\ZZ}{n\ZZ}=\ZZ_n$.
+			\item $A=\ZZ[x]$, $I=\langle x \rangle = x\ZZ[x]$. $p(x)\in I \Longleftrightarrow x \mid p(x) \Longleftrightarrow p(x)=xq(x) \Longleftrightarrow p(0)=0$.
+
+			$\overline{f(x)} = f(x)+\langle x \rangle = \left\{ f(x)+xq(x) ~\middle|~ q(x)\in\ZZ[x] \right\}$.
+
+			Si $f(x) = \sum_{j=0}^{n}a_jx^j = a_0+\sum_{j=1}^{n}a_jx^j = a_0+x\left(\sum_{j=1}^{n}a_jx^{j-1}\right)$, d'o\`u $f(x)-a_0\in I$. Donc, $\overline{f(x)}=\overline{a_0}$.
+			\item $A=T_2(\ZZ) = \begin{bsmallmatrix}
+				\ZZ&0\\\ZZ&\ZZ
+			\end{bsmallmatrix}$. On sait que $I=\begin{bsmallmatrix}
+				0&0\\\ZZ&0
+			\end{bsmallmatrix}\trianglelefteq A$. La classe de $\begin{bsmallmatrix}
+				a&0\\b&c
+			\end{bsmallmatrix}\in A$.
+			\begin{align*}
+				\overline{\begin{bmatrix}
+						a&0\\b&c
+				\end{bmatrix}}&= \begin{bmatrix}
+					a&0\\b&c
+			\end{bmatrix}+I\\
+			&= \left(\begin{bmatrix}
+				a&0\\0&c
+			\end{bmatrix}+\begin{bmatrix}
+				0&0\\b&0
+			\end{bmatrix}\right)+I\\
+			&= \left(\begin{bmatrix}
+				a&0\\0&c
+			\end{bmatrix}+I\right)+\left(\begin{bmatrix}
+				0&0\\b&0
+			\end{bmatrix}+I\right)\\
+			\shortintertext{comme $\begin{bsmallmatrix}
+					0&0\\b&0
+				\end{bsmallmatrix}\in I$,}
+			&= \begin{bmatrix}
+				a&0\\0&c
+			\end{bmatrix}+I
+			\end{align*}
+
+			De plus,
+			\begin{align*}
+				\left(\begin{bmatrix}
+					a&0\\0&c
+				\end{bmatrix}+I\right)\left(\begin{bmatrix}
+					a'&0\\0&c'
+				\end{bmatrix}+I\right)&= \left(\begin{bmatrix}
+					a&0\\0&c
+				\end{bmatrix}\begin{bmatrix}
+					a'&0\\0&c'
+				\end{bmatrix}\right)+I\\
+				&= \begin{bmatrix}
+					aa'&0\\0&cc'
+				\end{bmatrix}+I\\
+				&= \begin{bmatrix}
+					a'a&0\\0&c'c
+				\end{bmatrix}+I\\
+				&= \left(\begin{bmatrix}
+					a'&0\\0&c'
+				\end{bmatrix}+I\right)\left(\begin{bmatrix}
+					a&0\\0&c
+				\end{bmatrix}+I\right)
+			\end{align*}
+			\item Soient $A$ un anneau quelconque et $I=\left\langle ab-ba ~\middle|~ a,b\in A \right\rangle$. Alors, $\sfrac{A}{I}$ est commutatif.
+			\begin{proof}[En effet,]
+				si $\overline{x},\overline{y}\in \sfrac{A}{I}$,
+				\begin{align*}
+					\overline{x}\,\overline{y}-\overline{y}\,\overline{x}&= \overline{xy}-\overline{yx}\\
+					&= \overline{xy-yx}\\
+					&= \overline{0}
+				\end{align*}
+				d'o\`u $\overline{x}\,\overline{y}=\overline{y}\,\overline{x}$, pour tout $x,y\in A$.
+			\end{proof}
+		\end{enumerate}
+	\end{exem}
+
+	\begin{rmq}
+		$\sfrac{A}{I}$ peut \^etre commutatif, m\^eme si $A$ ne l'est pas.
+	\end{rmq}
+
+	On peut se demander les choses suivantes, pour un anneau $A$:
+	\begin{itemize}
+		\item $A$ int\`egre $\Longrightarrow \sfrac{A}{I}$ int\`egre,
+
+		$\ZZ$ est int\`egre, mais $\sfrac{\ZZ}{6\ZZ}$ ne l'est pas.
+		\item peut-on (toujours) obtenir un quotient int\`egre? (corps?)
+	\end{itemize}
+
+	\chapter{(Homo)morphismes d'anneaux}
+	\begin{dfn}
+		Soient $A,B$ deux anneaux. Un \emph{morphisme d'anneaux} $f:A\to B$ est une application t.q.
+		\begin{enumerate}
+			\item $f(a_1+a_2)=f(a_1)+f(a_2)$,
+			\item $f(a_1a_2)=f(a_1)f(a_2)$,
+			\item $f(\id_A)=\id_B$.
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $p : \ZZ\to\ZZ_n=\sfrac{\ZZ}{n\ZZ} : a\mapsto\overline{a}=a+n\ZZ$.
+			\item Soient $A$ un anneau et $I\trianglelefteq A$. $p : A\to\sfrac{A}{I} : a\mapsto\overline{a}=a+I$.
+			\item $f : \ZZ_m\to\ZZ_n : \overline{a}\mapsto\widetilde{a}$. $f$ est un morphisme d'anneau si, et seulement si, $n \mid m$. En fait, $n \mid m$ est n\'ecessaire (et suffisant) pour que $f$ soit bien d\'efinie.
+			\begin{proof}[En effet,]~
+
+				Supposons que $n \mid m$.
+				\begin{align*}
+					&\overline{a} = \overline{a'}\\
+					\Longleftrightarrow& a-a'\in m\ZZ\\
+					\Longleftrightarrow& m \mid a-a'\\
+					\Longrightarrow& n \mid a-a'\\
+					\Longleftrightarrow& a-a'\in n\ZZ\\
+					\Longrightarrow& \widetilde{a}=\widetilde{a'}\\
+					\Longrightarrow& f(\overline{a})=f(\overline{a'})
+				\end{align*}
+
+				De plus,
+				\begin{align*}
+					\begin{split}
+						f(\overline{a}+\overline{b})&= f(\overline{a+b})\\
+						&= \widetilde{a+b}\\
+						&= \widetilde{a}+\widetilde{b}\\
+						&= f(\overline{a})+f(\overline{b})
+					\end{split}
+					&
+					\begin{split}
+						f(\overline{a}\,\overline{b})&= f(\overline{ab})\\
+						&= \widetilde{ab}\\
+						&= \widetilde{a}\,\widetilde{b}\\
+						&= f(\overline{a})f(\overline{b})
+					\end{split}
+					&
+					\begin{split}
+						f(\overline{\id})&= \widetilde{\id}\\
+						&= \id+n\ZZ
+					\end{split}
+				\end{align*}
+			\end{proof}
+			\item $\varepsilon_0 : \RR[x]\to\RR : p=\sum_{j=0}^{n}a_jx^j\mapsto a_0$.
+			\begin{align*}
+				\begin{split}
+					\varepsilon_0(p+q)&= \varepsilon_0\left(\sum_{j=0}^{n}a_jx^j+\sum_{i=0}^{m}b_ix^i\right)\\
+					&= \varepsilon_0\left(\sum_{j=0}^{\max\{n,m\}}\left(a_jb_j\right)x^j\right)\\
+					&= a_0+b_0\\
+					&= \varepsilon_0(p)+\varepsilon_0(q)
+				\end{split}
+				&
+				\begin{split}
+					\varepsilon_0(pq)&= a_0b_0\\
+					&= \varepsilon_0(p)\varepsilon_0(q)
+				\end{split}
+				&
+				\begin{split}
+					\varepsilon_0(\id)&= \id
+				\end{split}
+			\end{align*}
+			\item Soit $G = \{g_0,\dots,g_{n-1}\}$ un groupe fini. $A=\RR^G = \left\{ \sum_{i=0}^{n-1}a_ig_i ~\middle|~ a_i\in\RR \right\}$. $f : \RR^G\to\RR : \sum_{i=0}^{n-1}a_ig_i \mapsto \sum_{i=0}^{n-1}a_i$. $f$ est un homomorphisme de groupe ab\'elien.
+
+			On v\'erifie que $f$ pr\'eserve le produit sur les \'el\'ements de la base $\{g_0,\dots,g_{n-1}\}$ de $A$.
+			\begin{align*}
+				f(g_ig_j)&= f(g_k)\\
+				\shortintertext{o\`u $g_ig_j=g_k\in G$}
+				&= \id\\
+				\intertext{or,}
+				\id&= \id\id\\
+				&= f(g_i)f(g_j)
+			\end{align*}
+
+			Clairement, $f(\id_A)=\id_\RR$.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{rmq}
+		Il existe toujours au moins un morphisme entre deux groupes ab\'eliens/deux espaces vectoriels, l'application nulle.
+	\end{rmq}
+
+	\'Etant donn\'e deux anneaux $A,B$, on peut se demander s'il existe toujours un morphisme $f:A\to B$.
+
+	\begin{prop}[R\`egles de calcul]
+		Soit $f:A\to B$ un morphisme d'anneaux. Alors,
+		\begin{enumerate}
+			\item $f(0_A)=0_B$;
+			\item $f(-a)=-f(a)$, $\forall a\in A$;
+			\item $f(na)=nf(a)$, $\forall n\in\ZZ,\forall a\in A$;
+			\item $f(a^n)=f(a)^n$, $\forall n\in\NN$;
+			\item si $u\in\mathcal{U}(A)$, alors $f(u)\in\mathcal{U}(B)$ et $f(u)^{-1}=f(u^{-1})$.
+		\end{enumerate}
+		\begin{proof}~
+
+			\begin{enumerate}[start=4]
+				\item r\'ecurrence
+				\item Soit $u\in\mathcal{U}(A)$, $\exists v\in A$ t.q. $uv=vu=\id_A$.
+				\begin{align*}
+					\id_B&= f(\id_A)\\
+					&= f(uv)\\
+					&= f(u)f(v)
+				\end{align*}
+				De m\^eme, $\id_B=f(v)f(u)$.
+
+				Donc, $f(u)$ est inversible d'inverse $f(v)$.
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+
+	\begin{prop}
+		Si $f:A\to B$ et $g:B\to C$ sont des morphismes d'anneaux, alors $g\circ f:A\to C$ l'est aussi.
+		\begin{proof}~
+
+			\begin{itemize}
+				\item De MAT141, $f,g$ sont des morphismes de groupes ab\'eliens, donc $g\circ f$ aussi;
+				\item $g\circ f(a_1a_2) = g(f(a_1a_2)) = g(f(a_1)f(a_2)) = g(f(a_1))g(f(a_2)) = g\circ f(a_1)g\circ f(a_2)$;
+				\item $g\circ f(\id_A) = g(f(\id_A)) = g(\id_B) = \id_C$.
+			\end{itemize}
+		\end{proof}
+	\end{prop}
+
+	\begin{prop}
+		Soient $A,B$ deux anneaux, $f:A\to B$ un morphisme d'anneaux.
+		\begin{enumerate}
+			\item $\im(f)\lte B$;
+			\item $\noyau(f)\trianglelefteq A$;
+			\item $\im(f)=B \Longleftrightarrow f$ surjectif;
+			\item $\noyau(f)=0 \Longleftrightarrow f$ injectif.
+		\end{enumerate}
+		\begin{proof}~
+
+			\begin{enumerate}
+				\item De MAT141, $\im(f)$ est un sous-groupe additif de $B$.
+
+				Supposons $y_1,y_2\in\im(f)$, on veut $y_1y_2\in\im(f)$.
+
+				On a $y_1=f(x_1)$ et $y_2=f(x_2)$, pour certains $x_1,x_2\in A$. $y_1y_2=f(x_1)f(x_2)=f(x_1x_2)\in\im(f)$.
+
+				De plus, $\id_B=f(\id_A)\in\im(f)$.
+				\item De MAT141, $\noyau(f)$ est un sous-groupe additif de $A$.
+
+				Soient $x\in\noyau(f)$, $a\in A$. Alors,
+				\begin{align*}
+					f(ax)&= f(a)f(x)\\
+					&= f(a)0_B\\
+					&= 0_B
+				\end{align*}
+				d'o\`u $ax\in\noyau(f)$. De m\^eme, $xa\in\noyau(f)$.
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+
+	\begin{rmq}
+		$\im(f)$ n'est pas un id\'eal de $B$. En fait, elle n'a pas besoin d'\^etre ``absorbant''.
+	\end{rmq}
 \end{document}
