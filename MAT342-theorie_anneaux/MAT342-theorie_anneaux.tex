@@ -1181,7 +1181,24 @@
 		\item peut-on (toujours) obtenir un quotient int\`egre? (corps?)
 	\end{itemize}
 
-	\chapter{(Homo)morphismes d'anneaux}
+	\begin{exer}[p.282, \#9]~
+
+	\begin{rapp}
+		$R$ est un anneau \emph{bool\'een} si, et seulement si, $x^2=x$, $\forall x\in R$.
+	\end{rapp}
+
+	\begin{proof}[m.q.]
+		$\sfrac{A}{I}$ est bool\'een si, et seulement si, $a^2-a\in A$, $\forall a\in A$.
+
+		\begin{align*}
+			\sfrac{A}{I}\text{ est bool\'een}&\Leftrightarrow \overline{a}^2=\overline{a}&\forall\overline{a}\in \sfrac{A}{I}\\
+			&\Leftrightarrow a^2+I=a+I&\forall a\in A\\
+			&\Leftrightarrow a^2-a\in I&\forall a\in A
+		\end{align*}
+	\end{proof}
+	\end{exer}
+
+	\chapter[Morphismes d'anneaux]{(Homo)morphismes d'anneaux}
 	\begin{dfn}
 		Soient $A,B$ deux anneaux. Un \emph{morphisme d'anneaux} $f:A\to B$ est une application t.q.
 		\begin{enumerate}
@@ -1343,4 +1360,118 @@
 	\begin{rmq}
 		$\im(f)$ n'est pas un id\'eal de $B$. En fait, elle n'a pas besoin d'\^etre ``absorbant''.
 	\end{rmq}
+
+	\begin{rmq}
+		$I\subseteq A$. Alors, $I\trianglelefteq A$ si, et seulement si, $\exists f:A\to?$ un morphisme d'anneau t.q. $I=\noyau(f)$.
+		\begin{proof}[En effet,]
+			\begin{subproof}[$\Leftarrow$:]
+				D\'ej\`a fait.
+			\end{subproof}
+			\begin{subproof}[$\Rightarrow$:]
+				Il suffit de poser $f:A\to\sfrac{A}{I} : a\mapsto a+I$ pour avoir $\noyau(f)=I$.
+			\end{subproof}
+		\end{proof}
+	\end{rmq}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $f:\ZZ\to\ZZ_m : a\mapsto a+m\ZZ$. $\noyau(f)=m\ZZ$, $\im(f)=\ZZ_m$.
+			\item $f:\ZZ_m\to\ZZ_n : \overline{a}\mapsto\widetilde{a}$, o\`u $n \mid m$. $\widetilde{1}=f(\overline{1})$ et $\widetilde{a}=f(\overline{a})$, donc $\ZZ_n=\im(f)$. $\overline{a}\in\noyau(f) \Longleftrightarrow \widetilde{a}=\widetilde{0} \Longleftrightarrow a\in n\ZZ \Longleftrightarrow \overline{a}\in n\ZZ_m$. Donc, $\noyau(f)=n\ZZ_m$.
+			\item $f:\ZZ\to A$ est unique, car $f(1)=\id_A$, puis $f(2)=f(1+1)=f(1)+f(1)=\id_A+\id_A=2\cdot\id_A$.
+
+			$\im(f)\lte A$: \checkmark
+
+			Il s'agit du plus petit sous-anneau non trivial de $A$.
+			\begin{proof}[En effet,]
+				si $B\lte A$, $\id_A\in B$, donc $n\cdot\id_A=f(n\cdot\id_\ZZ)\in\im(f)$ de sorte que $\im(f)\subseteq B$.
+			\end{proof}
+
+			Pour d\'eterminer $\noyau(f)$, on regarde $\caract{A}$.
+			\begin{itemize}
+				\item Si $\caract{A}=0$, $\noyau(f)=0$.
+				\item Si $\caract{A}=n$, $\noyau(f)=n\ZZ$.
+			\end{itemize}
+		\end{enumerate}
+	\end{exem}
+
+	\begin{dfn}
+		Un morphisme d'anneaux $f:A\to B$ est un \emph{isomorphisme} d'anneaux s'il existe un morphisme d'anneaux $g:B\to A$ t.q. $f\circ g=\operatorname{id}_B$ et $g\circ f=\operatorname{id}_A$.
+
+		Un isomorphisme $f:A\to A$ est un automorphisme.
+	\end{dfn}
+
+	\begin{rmq}
+		Si $f$ un isomorphisme, alors $f$ est une bijection.
+
+		De plus, si $f$ est un morphisme bijectif, alors $f^{-1}$ est une application qui existe (car $f$ est bijectif), donc $f^{-1}$ est aussi un morphisme d'anneaux (car $f$ est un morphisme).
+	\end{rmq}
+
+	\begin{lem}
+		Si $f:A\to B$ est un morphisme d'anneaux, alors $f$ est un isomorphisme si, et seulement si, $f$ est bijectif.
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$:]
+				\checkmark
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				Il faut que $f^{-1}$ soit un morphisme d'anneaux.
+			\end{subproof}
+		\end{proof}
+	\end{lem}
+
+	Voyons que $f^{-1}(b_1b_2)=f^{-1}(b_1)f^{-1}(b_2)$ pour $b_1,b_2\in B$.
+
+	Comme $f$ est surjective, il existe $a_1,a_2\in A$ t.q. $f(a_1)=b_1$ et $f(a_2)=b_2$.
+	\begin{align*}
+		f^{-1}(b_1b_2)&= f^{-1}(f(a_1)f(a_2))\\
+		&= f^{-1}(f(a_1a_2))\\
+		&= a_1a_2\\
+		&= f^{-1}(b_1)f^{-1}(b_2)
+	\end{align*}
+
+	\begin{rmq}
+		\begin{itemize}
+			\item La composition de deux isomorphismes est un isomorphisme,
+			\item L'inverse d'un isomorphisme est un isomorphisme.
+		\end{itemize}
+
+		$(f\circ g)^{-1}=g^{-1}\circ f^{-1}$.
+	\end{rmq}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\operatorname{id}_A:A\to A : a\mapsto a$ est toujours un isomorphisme.
+			\item $\varphi:\ZZ[\sqrt{2}]\to\ZZ[\sqrt{2}] : a+b\sqrt{2}\mapsto a-b\sqrt{2}$ est un automorphisme.
+			\begin{proof}[En effet,]
+				\begin{itemize}
+					\item $\varphi$ est additif: \checkmark
+					\item $\varphi(\id)=\id$: \checkmark
+					\item $\varphi \circ \varphi = \operatorname{id}_{\ZZ[\sqrt{2}]}$, donc $\varphi$ est une bijection.
+					\item $\varphi$ est multiplicatif:
+					\begin{align*}
+						\varphi\left\lgroup(a_1+b_1\sqrt{2})(a_2+b_2\sqrt{2})\right\rgroup&= \varphi\left\lgroup(a_1a_2+2b_1b_2) + (a_1b_2+a_2b_1)\sqrt{2}\right\rgroup\\
+						&= (a_1a_2+2b_1b_2) - (a_1b_2+a_2b_1)\sqrt{2}\\
+						\intertext{par ailleurs,}
+						\varphi(a_1+b_1\sqrt{2})\varphi(a_2+b_2\sqrt{2})&= (a_1-b_1\sqrt{2})(a_2-b_2\sqrt{2})\\
+						&= (a_1a_2+2b_1b_2) - (a_1b_2+a_2b_1)\sqrt{2}
+					\end{align*}
+				\end{itemize}
+			\end{proof}
+			\item $A=\left\{\begin{bsmallmatrix}
+				a&-b\\b&a
+			\end{bsmallmatrix}\in M_2(\RR)\right\}$. On pose $f:A\to \CC : \begin{bsmallmatrix}
+				a&-b\\b&a
+			\end{bsmallmatrix}\mapsto a+bi$. $f$ est un isomorphisme.
+			\begin{itemize}
+				\item $f$ est additif: \checkmark
+				\item $f$ est multiplicatif: exercice
+				\item $f(\id_A)=\id_\CC$: \checkmark
+				\item On pose $g:\CC\to A : a+bi\mapsto\begin{bsmallmatrix}
+					a&-b\\b&a
+				\end{bsmallmatrix}$. Il faut montrer que $f\circ g=\operatorname{id}_\CC$ et $g\circ f=\operatorname{id}_A$.
+			\end{itemize}
+			\begin{rmq}
+				$A=\im(g)$ est un sous-anneau de $M_2(\RR)$ qui est commutatif et c'est un corps.
+			\end{rmq}
+		\end{enumerate}
+	\end{exem}
 \end{document}

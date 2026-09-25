@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  22 SEP 2026 10:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  25 SEP 2026 10:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1016,7 +1016,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Chapitre 3.
 [14
 
-] [15] [16] (MAT342-theorie_anneaux.aux)
+] [15] [16] [17] (MAT342-theorie_anneaux.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -1028,11 +1028,11 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT342-theorie_anneaux.out' has not changed.
 
-(rerunfilecheck)             Checksum: 05F3659E62A112684A22072875C88C06;830.
+(rerunfilecheck)             Checksum: A1474C73C59AFFEB2E09D6DF1E3F8E1A;794.
  ) 
 Here is how much of TeX's memory you used:
- 25839 strings out of 467441
- 497901 string characters out of 5407591
+ 25846 strings out of 467441
+ 497956 string characters out of 5407591
  935600 words of memory out of 5000000
  54598 multiletter control sequences out of 15000+600000
  638225 words of font info for 89 fonts, out of 8000000 for 9000
@@ -1066,9 +1066,9 @@ s/type1/public/amsfonts/symbols/msbm5.pfb><C:/Users/jujub/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/jujub/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/jujub/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on MAT342-theorie_anneaux.pdf (18 pages, 346514 bytes).
+Output written on MAT342-theorie_anneaux.pdf (19 pages, 354193 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 136 named destinations out of 1000 (max. 500000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 143 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
