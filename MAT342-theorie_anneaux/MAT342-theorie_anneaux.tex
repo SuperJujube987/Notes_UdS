@@ -8,6 +8,8 @@
 \usepackage{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{positioning, calc, automata}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
 
 \hypersetup{
 	colorlinks=false
@@ -1472,6 +1474,325 @@
 			\begin{rmq}
 				$A=\im(g)$ est un sous-anneau de $M_2(\RR)$ qui est commutatif et c'est un corps.
 			\end{rmq}
+			\item Est-ce que $\ZZ[\sqrt{2}]$ et $\ZZ[\sqrt{3}]$ sont isomorphes?
+
+			L'application $\varphi : \ZZ[\sqrt{2}]\to\ZZ[\sqrt{3}] : a+b\sqrt{2} \mapsto a+b\sqrt{3}$ est un isomorphisme de groupes ab\'eliens. Ce n'est pas un morphisme d'anneaux.
+
+			Voyons, par contradiction, qu'il n'en existe aucun.
+
+			Supposons, au contraire, que $\psi : \ZZ[\sqrt{2}] \xrightarrow{\sim} \ZZ[\sqrt{3}]$. Dans $\ZZ[\sqrt{2}]$, l'\'equation $x^2-2=0$ admet des solutions.
+			\begin{align*}
+				\left(\sqrt{2}\right)^2-2=0&\Rightarrow \left[\psi(\sqrt{2})\right]^2-\psi(2)=\psi(0)\\
+				&\Leftrightarrow \left[\psi(\sqrt{2})\right]^2-2=0
+			\end{align*}
+			Mais l'\'equation $x^2-2=0$ n'admet aucune solution dans $\ZZ[\sqrt{3}]$.
+			\begin{align*}
+				(a+b\sqrt{3})^2=2&\Leftrightarrow a^2+2ab\sqrt{3}+3b^2=2\\
+				&\Rightarrow \sqrt{3}=\dfrac{2-a^2-3b^2}{2ab} \in \QQ
+			\end{align*}
 		\end{enumerate}
 	\end{exem}
+
+	\begin{rapp}
+		\begin{enumerate}
+			\item Si $f:G\to H$ est un morphisme de groupes, alors $\sfrac{G}{\noyau(f)} \simeq \im(f) \subseteq H$,
+			\item $\sfrac{\sfrac{G}{H}}{\sfrac{K}{H}} \simeq \sfrac{G}{K}$ avec des hypoth\`eses de normalit\'e.
+		\end{enumerate}
+	\end{rapp}
+
+	\begin{thm}
+		Soit $f:A\to B$ un morphisme d'anneaux. Soient $I=\noyau(f)$, $p:A\to\sfrac{A}{I}$ la projection canonique. Alors, $\exists!\overline{f}:\sfrac{A}{I}\to B$ t.q. $f=\overline{f}\circ p$ et $f$ est un morphisme d'anneaux. De plus, $\overline{f}$ est injectif.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[rr, "f"] \ar[rd, "p"] && B\\
+				&\sfrac{A}{I} \ar[dashed, ur, "\overline{f}"']
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+
+		\begin{proof}
+			Soit $a+I\in\sfrac{A}{I}$. On veut d\'efinir $\overline{f}(a+I)$.
+
+			On a $a+I=p(a)$. Donc, $\overline{f}(a+I) = \overline{f}\circ p(a) = f(a)$.
+
+			Voyons que $\overline{f}$ est un morphisme d'anneaux.
+			\begin{align*}
+				\overline{f}((a+I)+(b+I))&= \overline{((a+b)+I)}\\
+				&= f(a+b)\\
+				\shortintertext{comme $f$ est un morphisme d'anneaux,}
+				&= f(a)+f(b)\\
+				&= \overline{f}(a+I)+\overline{f}(b+I)
+			\end{align*}
+
+			De m\^eme, $\overline{f}$ pr\'eserve le produit et $\overline{f}(\id_A+I)=f(\id_A)=\id_B$.
+
+			V\'erifions que $\overline{f}$ est d\'efinie sans ambigu\"it\'e.
+
+			Soient $a+I=a'+I$. C'est-\`a-dire, $a-a'\in I$. Alors, $0=f(a-a') \Longrightarrow f(a)=f(a')$. Donc, $\overline{f}(a+I)=\overline{f}(a'+I)$.
+
+			V\'erifions l'injectivit\'e de $\overline{f}$.
+			\begin{align*}
+				&\overline{f}(a+I)=0\\
+				\Longleftrightarrow&f(a)=0\\
+				\Longleftrightarrow&a\in \noyau(f)\\
+				\Longleftrightarrow&a+I=0+I
+			\end{align*}
+		\end{proof}
+	\end{thm}
+
+	\begin{coro}
+		Soient $A \xrightarrow{f} B$ un morphisme d'anneaux, $p:A\to\sfrac{A}{\noyau(f)}$ et $j:\im(f)\hookrightarrow B$. Alors, $\exists!\widetilde{f}:\sfrac{A}{\noyau(f)}\to\im(f)$ t.q. $f=j\circ \widetilde{f}\circ p$ et $\widetilde{f}$ est un isomorphisme.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[r, "f"] \ar[d, "p"', two heads] & B\\
+				\sfrac{A}{\noyau(f)} \ar[r, dashed, "\overline{f}"] & \im(f) \ar[u, hook', "j"']
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+
+		\begin{proof}
+			On a d\'ej\`a $\overline{f}:\sfrac{A}{\noyau(f)}\to B$ t.q. $\overline{f}\circ p=f$. Ceci donne $\im(\overline{f}) \subseteq \im(f)$.
+
+			Il suffit de poser $\widetilde{f} : \sfrac{A}{\noyau(f)}\to\im(f) : a+\noyau(f)\mapsto \overline{f}(a+\noyau(f))=f(a)$. Il s'agit d'un changement du codomaine de $\overline{f}$.
+
+			De plus, si $\widetilde{f}_1$ et $\widetilde{f}_2$ fonctionnent, alors
+			\begin{align*}
+				j\circ \widetilde{f}_1\circ p = f\circ \widetilde{f}_2\circ p&\Rightarrow \widetilde{f}_1\circ p = \widetilde{f}_2\circ p\\
+				&\Rightarrow \widetilde{f}_1 = \widetilde{f}_2
+			\end{align*}
+
+			On a $\overline{f}=j\circ \widetilde{f}$ qui est injective, donc $\widetilde{f}$ est injective. Puis, $\widetilde{f}$ est surjective par construction.
+		\end{proof}
+	\end{coro}
+
+	\begin{coro}
+		Soit $f:A\to B$ un morphisme d'anneaux. Alors,
+		\begin{enumerate}
+			\item $\sfrac{A}{\noyau(f)} \simeq \im(f)$,
+			\item Si $f$ est surjectif, alors $\sfrac{A}{\noyau(f)} \simeq B$.
+		\end{enumerate}
+	\end{coro}
+
+	\begin{rmq}
+		Si $\varphi:X\to Y$ est une application, alors la relation $\equiv_\varphi$ d\'efinie par $x_1\equiv_\varphi x_2 \Longleftrightarrow \varphi(x_1)=\varphi(x_2)$ est une \'equivalence.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				X \ar[r, "\varphi"] \ar[d, "p"'] & Y\\
+				\sfrac{X}{\equiv_\varphi} \ar[r, "\widetilde{\varphi}"'] & \im(\varphi) \ar[u, hook', "j"']
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+	\end{rmq}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $f:\ZZ\to\ZZ_m:a\mapsto a+m\ZZ$ est un morphisme d'anneaux. $a\in\noyau(f) \Longleftrightarrow a\in m\ZZ$, d'o\`u $\sfrac{\ZZ}{m\ZZ} \simeq \ZZ_m$.
+			\item $f:T_2(\ZZ)\to\ZZ\times\ZZ : \begin{bsmallmatrix}
+				a&0\\b&c
+			\end{bsmallmatrix} \mapsto (a,c)$.
+			\begin{align*}
+				f\left\lgroup \begin{bmatrix}
+					a&0\\b&c
+				\end{bmatrix}+\begin{bmatrix}
+					a'&0\\b'&c'
+				\end{bmatrix} \right\rgroup&= f\begin{bmatrix}
+					a+a'&0\\b+b'&c+c'
+				\end{bmatrix}\\
+				&= (a+a',c+c')\\
+				&= (a,c)+(a',c')\\
+				&= f\begin{bmatrix}
+					a&0\\b&c
+				\end{bmatrix}+f\begin{bmatrix}
+					a'&0\\b'&c'
+				\end{bmatrix}
+			\end{align*}
+			\[ f\begin{bmatrix}
+				1&0\\0&1
+			\end{bmatrix} = (1,1) = \id_{\ZZ\times\ZZ} \]
+			\[ f\left\lgroup \begin{bmatrix}
+				a&0\\b&c
+			\end{bmatrix} \begin{bmatrix}
+				a'&0\\b'&c'
+			\end{bmatrix} \right\rgroup = f\begin{bmatrix}
+				aa'&0\\ *&cc'
+			\end{bmatrix} = (aa',cc') = (a,c)(a',c') = f\begin{bmatrix}
+				a&0\\b&c
+			\end{bmatrix} f\begin{bmatrix}
+				a'&0\\b'&c'
+			\end{bmatrix} \]
+
+			$f$ est surjectif.
+			\[ \noyau(f) = \left\{ \begin{bmatrix}
+				0&0\\b&0
+			\end{bmatrix} ~\middle|~ m\in\ZZ \right\} = \begin{bmatrix}
+				0&0\\\ZZ&0
+			\end{bmatrix} \]
+			D'o\`u $\sfrac{\begin{bsmallmatrix}
+					\ZZ&0\\\ZZ&\ZZ
+			\end{bsmallmatrix}}{\begin{bsmallmatrix}
+				0&0\\\ZZ&0
+			\end{bsmallmatrix}} \simeq \ZZ\times\ZZ$.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{coro}
+		Soient $A$ un anneau, $B\lte A$ et $I\trianglelefteq A$.
+		\begin{enumerate}
+			\item $B+I \coloneq \left\{ b+x ~\middle|~ b\in B, x\in I \right\} \lte A$.
+			\item $I\trianglelefteq B+I$.
+			\item $B\cap I\trianglelefteq B$.
+			\item $\sfrac{B}{B\cap I} \simeq \sfrac{B+I}{I}$.
+		\end{enumerate}
+
+		\begin{proof}
+			\begin{enumerate}
+				\item Crit\`ere ``sous-anneau''.
+				\item V\'erification directe.
+				\item V\'erification directe.
+				\item On construit $f:B\to \sfrac{B+I}{I}$ surjectif de noyau $B\cap I$.
+
+				Posons $f:b\mapsto b+I$. Voyons que $f$ est un morphisme d'anneaux.
+				\begin{align*}
+					\begin{split}
+						f(b_1+b_2)&= (b_1+b_2)+I\\
+						&= (b_1+I)+(b_2+I)\\
+						&= f(b_1)+f(b_2)
+					\end{split}
+					&
+					\begin{split}
+						f(b_1b_2)&= b_1b_2+I\\
+						&= (b_1+I)(b_2+I)\\
+						&= f(b_1)f(b_2)
+					\end{split}
+					&
+					\begin{split}
+						f(\id_B)&= \id_B+I\\
+						&= \id_{\sfrac{B+I}{I}}
+					\end{split}
+				\end{align*}
+
+				$f$ est surjectif. Soit $(b+x)+I\in \sfrac{B+I}{I}$. Alors, $b+x+I=b+I=f(b)$.
+
+				Soit $b\in B$. Alors,
+				\begin{align*}
+					b\in \noyau(f)&\Longleftrightarrow f(b)=0+I\\
+					&\Longleftrightarrow b+I=0+I\\
+					&\Longleftrightarrow b\in I
+				\end{align*}
+				D'o\`u $\noyau(f)=B\cap I$.
+			\end{enumerate}
+		\end{proof}
+	\end{coro}
+
+	\begin{prop}
+		Soient $A$ un anneau, $I\trianglelefteq A$ et $p:A\to\sfrac{A}{I}$. Alors, l'application \[ \begin{array}{rcl}
+			\left\{ J ~\middle|~ J\trianglelefteq A, I\subseteq J \right\} &\to& \left\{ X ~\middle|~ X\trianglelefteq\sfrac{A}{I} \right\}\\
+			J &\mapsto& p(J)
+		\end{array} \] est une bijection t.q. $J_1\subseteq J_2 \Longrightarrow p(J_1)\subseteq p(J_2)$ et dont l'inverse pr\'eserve l'ordre.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}
+				\draw (0,0) ellipse (15mm and 25mm);
+				\draw (5,0) ellipse (1cm and 2cm);
+				\draw[->] (2,0) -- (3.5,0);
+				\node () at (-1,2.5) {$A$};
+				\node () at (5.8,2) {$\sfrac{A}{I}$};
+				\begin{scope}
+					\clip (0,0) ellipse (15mm and 25mm);
+					\draw[blue] (.3,-3) circle (25mm);
+					\draw[red] (-.7,-2.6) circle (3cm);
+					\draw[green] (1.4,-2.7) circle (35mm);
+				\end{scope}
+				\begin{scope}
+					\clip (5,0) ellipse (1cm and 2cm);
+					\draw[red] (4.7,-2.6) circle (2cm);
+					\draw[green] (6.7,-1) circle (15mm);
+				\end{scope}
+				\fill[blue] (4.47,-1.7) circle (2pt);
+				\node[blue] () at (0,-2) {$I$};
+				\node[red] () at (-1,-.5) {$J$};
+				\node[green] () at (0,1.8) {$p^{-1}(X)$};
+				\node[blue] () at (4.2,-2) {$\overline{0}$};
+				\node[red] () at (4.8,-1.3) {$p(J)$};
+				\node[green] () at (5.7,-.5) {$X$};
+			\end{tikzpicture}
+			\caption{Repr\'esentation ensembliste de la situation}
+		\end{figure}
+
+		$X\trianglelefteq\sfrac{A}{I} \mapsto p^{-1}(X)$.
+
+		\begin{rmq}
+			Il faut montrer que $X\trianglelefteq\sfrac{A}{I} \Rightarrow p^{-1}(X)$ est un id\'eal de $A$ qui contient $I$.
+		\end{rmq}
+
+		\begin{proof}
+			Soit $X\trianglelefteq\sfrac{A}{I}$. $x_1,x_2\in p^{-1}(X)$ donne $p(x_1),p(x_2)\in X$, d'o\`u $p(x_1-x_2)\in X$, d'o\`u $x_1-x_2\in X$. Donc, $p^{-1}(X)$ est un sous-groupe additif de $A$.
+
+			Supposons que $x\in p^{-1}(X)$ et $a\in A$. Alors, $p(x)\in X, p(a)\in A \xRightarrow{X\trianglelefteq\sfrac{A}{I}} p(x)p(a),p(a)p(x) \in X$, d'o\`u $p(xa),p(ax)\in X \Longrightarrow xa,ax\in p^{-1}(X)$.
+
+			De plus, $p(I)=0+I=0_{\sfrac{A}{I}}$ donne $0+I \subseteq X$, d'o\`u $I \subseteq p^{-1}(X)$.
+		\end{proof}
+	\end{prop}
+
+	\begin{coro}
+		Soient $A$ un anneaux et $I,J\trianglelefteq A$ des id\'eaux. $I\subseteq J$, $p_I,p_J$ les projections canoniques. Alors, $\exists!f:\sfrac{A}{I}\to\sfrac{A}{J}$ t.q. $f\circ p_I=p_J$ et $f$ est surjectif de noyau $\sfrac{J}{I}$.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				& A \ar[dl, "p_I"'] \ar[dr, "p_J"]\\
+				\sfrac{A}{I} \ar[rr, dashed, two heads, "f"'] && \sfrac{A}{J}
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+
+		\begin{proof}
+			$f\circ p_I=p_J$ impose, pour $a+I\in\sfrac{A}{I}$, \[ a+J = p_J(a) = f\circ p_I(a) = f(a+I) \]
+
+			Il faut voir que ceci est une application. Si $a+I=a'+I$, on aura $a-a'\in I$ et donc $a-a'\in J$, d'o\`u $a+J=a'+J$, c'est-\`a-dire, $f(a+I)=f(a'+I)$.
+
+			Voyons que $f$ est un morphisme d'anneaux.
+			\begin{align*}
+				f((a+I)+(a'+I))&= f((a+a')+I)\\
+				&= (a+a')+J\\
+				&= (a+J)+(a'+J)\\
+				&= f(a+I)+f(a'+I)
+			\end{align*}
+
+			Les deux autres conditions sont laiss\'ees en exercice.
+
+			V\'erifions que $f$ est surjectif. Soit $a+J\in \sfrac{A}{J}$. Alors, $a+J = f(a+I)$.
+
+			$a+I\in\noyau(f) \Longleftrightarrow f(a+I) = 0_{\sfrac{A}{J}} \Longleftrightarrow a+J=0+J \Longleftrightarrow a\in J \Longleftrightarrow a+I\in\sfrac{J}{I}$.
+		\end{proof}
+	\end{coro}
+
+	\begin{rmq}
+		$\sfrac{\sfrac{A}{I}}{\sfrac{J}{I}} \simeq \sfrac{A}{J}$.
+	\end{rmq}
+
+	\begin{exer}
+		D\'eterminer \`a quel anneau connu est isomorphe $\sfrac{\RR[x]}{\langle x^2+1 \rangle}$.
+
+		Il faut trouver $f:\RR[x] \twoheadrightarrow ?$ t.q. $\noyau(f)=\langle x^2+1 \rangle$.
+
+		Posons $f:\RR[x]\to\CC:p(x)\mapsto p(i)$.
+
+		$f(x^2+1) = i^2+1 = 0$, donc $x^2+1\in\noyau(f)$, alors $\langle x^2+1 \rangle\subseteq\noyau(f)$.
+
+		Par ailleurs, si $p\in\noyau(f)$, on a $p(x)=(x^2+1)q(x)+r(x)$, o\`u $q(x),r(x)\in\RR[x]$ t.q. $r(x)=0$ ou $\delta(r(x))\in\{0,1\}$.
+
+		Mais, $0=p(i)=(i^2+1)q(i)+r(i)$ donne $0=r(i)$ et donc $i\in\RR$, \lightning.
+
+		Donc, $p(x)=(x^2+1)q(x)+r(x)\in\langle x^2+1 \rangle$.
+
+		De plus, $f$ est surjective, d'o\`u $\sfrac{\RR[x]}{\langle x^2+1 \rangle} \simeq \CC$.
+	\end{exer}
 \end{document}
