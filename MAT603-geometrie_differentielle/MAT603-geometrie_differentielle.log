@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  22 SEP 2026 16:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  29 SEP 2026 21:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -984,7 +984,39 @@ Overfull \hbox (1.00165pt too wide) in paragraph at lines 720--721
 Chapitre 2.
 [17
 
-] (MAT603-geometrie_differentielle.aux)
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[18]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[19]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[20]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[21] (MAT603-geometrie_differentielle.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -999,10 +1031,10 @@ Package rerunfilecheck Info: File `MAT603-geometrie_differentielle.out' has not
 (rerunfilecheck)             Checksum: 62CC8671B06FC0AE2F10825EA421D0B6;1184.
  ) 
 Here is how much of TeX's memory you used:
- 26123 strings out of 467441
- 502980 string characters out of 5407591
- 924083 words of memory out of 5000000
- 54955 multiletter control sequences out of 15000+600000
+ 26509 strings out of 467441
+ 510893 string characters out of 5407591
+ 1226969 words of memory out of 5000000
+ 55327 multiletter control sequences out of 15000+600000
  639803 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,25n,104p,793b,1039s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1028,10 +1060,10 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><
 C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb>
-Output written on MAT603-geometrie_differentielle.pdf (19 pages, 333821 bytes).
+Output written on MAT603-geometrie_differentielle.pdf (23 pages, 479463 bytes).
 
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
+ 299 PDF objects out of 1000 (max. 8388607)
+ 71 named destinations out of 1000 (max. 500000)
  85 words of extra memory for PDF output out of 10000 (max. 10000000)
 

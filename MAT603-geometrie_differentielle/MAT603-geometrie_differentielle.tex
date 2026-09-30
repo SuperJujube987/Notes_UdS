@@ -1065,6 +1065,309 @@
 				\end{split}
 			\end{align*}
 			donc $\vec X$ est une param\'etrisation r\'eguli\`ere. Ainsi, $M$ est une surface.
+			\item H\'elico\"ide
+
+			On sait qu'une h\'elice se param\'etrise par $\vec\alpha(t) = (\cos t, \sin t, bt)$.
+
+			Posons $\vec X: \{(u,v) \in \RR^2 \mid u>0\} \to \RR^3$ d\'efini par $\vec X(u,v) = (u\cos v, u\sin v, bv)$.
+
+			L'h\'elico\"ide est $M=\{\vec X(u,v) \in \RR^3 \mid u>0, v\in\RR\}$.
+
+			$\vec X$ est de classe $C^3$ et bijective sur $M$.
+			\[ \vec X_u = (\cos v, \sin v, 0) \qquad \vec X_v = (-u\sin v, u\cos v, b) \] \[ \vec X_u \times \vec X_v = (b\sin v, -b\cos v, u) \neq \vec 0 \]
+			Donc, $\vec X$ est une param\'etrisation r\'eguli\`ere et $M$ est une surface.
+			\item Tore
+			\[ \vec X(u,v) = \begin{pmatrix}
+				(a+b\cos u)\cos v\\
+				(a+b\cos u)\sin v\\
+				b\sin u
+			\end{pmatrix} \]
+			On suppose que $a>b$.
+
+			Le tore est $M = \{\vec X(u,v) \mid u,v\in\RR\}$.
+			\[ \vec X_u = (-b\sin u\cos v, -b\sin u\sin v, b\cos u) \qquad \vec X_v = (-(a+b\cos u)\sin v, (a+b\cos u)\cos v, 0) \] \[ \vec X_u\times\vec X_v = -b(a+b\cos u) (\cos u\cos v, \cos u\sin v, \sin u) \]
+
+			Le produit vectoriel est non nul, puisque $a>b \Longrightarrow a+b\cos u>0$. De plus, il faudrait que $\sin u=0$, donc $u=n\pi, u\in\ZZ$, donc $\cos u=\pm1$. Il faudrait donc que $\cos v=\sin v=0$, qui ne peut arriver pour un $v$ unique.
+
+			$\vec X_1:]0,2\pi[\times]0,2\pi[ \to M$ est une param\'etrisation r\'eguli\`ere dans son image.
+
+			$\vec X_2:]-\pi,\pi[\times]-\pi,\pi[ \to M$ est aussi une autre param\'etrisation r\'eguli\`ere dans son image.
+
+			Puisque chaque point de $M$ est dans l'image de $\vec X_1$ ou de $\vec X_2$, on a que $M$ est une surface.
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}
+					\begin{scope}[canvas is xz plane at y=0]
+						\draw[thick] (0,0) circle (1);
+						\draw[thick, blue] (0,0) circle (1.5);
+						\draw[thick] (0,0) circle (2);
+						\draw[thick, blue] (0,0) -- (210:1.5);
+						\draw[green] (0,1.5) -- (0,0) -- (1.5,0);
+						\draw[green] (0,.3) arc[start angle=90, end angle=0, radius=.3];
+					\end{scope}
+					\begin{scope}[canvas is zy plane at x=0]
+						\draw[thick, red] (1.5,0) circle (.5);
+						\draw[thick, red] (1.5,0) -- (1,0);
+					\end{scope}
+					\begin{scope}[canvas is xy plane at z=0]
+						\draw[red] (1.5,0) circle (.5);
+						\draw[green] (2,0) -- (1.5,0) -- ++(60:.5);
+						\draw[green] (1.7,0) arc[start angle=0, end angle=60, radius=.2];
+					\end{scope}
+				\end{tikzpicture}\\
+				Le rayon du cercle bleu est $a$ et le rayon du cercle rouge est $b$.\\
+				L'angle dans le cercle rouge est $u$ et l'angle dans le cercle bleu est $v$.
+				\caption{Construction du tore}
+			\end{figure}
+			\item Sph\`ere unitaire
+			\[ \Sigma = \left\{ (x,y,z)\in\RR^3 ~\middle|~ x^2+y^2+z^2=1 \right\} \]
+
+			Nous utiliserons les coordonn\'ees sph\'eriques comme suit
+			\begin{align*}
+				\begin{split}
+					x&= r\sin\phi\cos\theta
+				\end{split}
+				&
+				\begin{split}
+					y&= r\sin\phi\sin\theta
+				\end{split}
+				&
+				\begin{split}
+					z&= r\cos\phi
+				\end{split}
+			\end{align*}
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}
+					\draw[->] (-1.5,0,0) -- (1.5,0,0) node[right] {$y$};
+					\draw[->] (0,-1.5,0) -- (0,1.5,0) node[above] {$z$};
+					\draw[->] (0,0,-1.5) -- (0,0,1.5) node[below left] {$x$};
+					\fill (1,.7,-.3) circle (2pt) node[right] {$(x,y,z)$};
+					\draw (0,0,0) -- (1,0,-.3) -- (1,.7,-.3) -- cycle;
+					\begin{scope}[canvas is zx plane at y=0]
+						\draw (.3,0) arc[start angle=0, delta angle=106.7, radius=.3];
+						\node () at (40:1) {$\theta$};
+					\end{scope}
+					\begin{scope}[plane origin={(0,0,0)}, plane x={(.92,-.39,0)}, plane y={(0,1,0)}, canvas is plane]
+						\draw (0,.3) arc[start angle=90, delta angle=-45, radius=.3];
+						\node () at (70:.6) {$\phi$};
+					\end{scope}
+				\end{tikzpicture}
+				\caption{Coordonn\'ees sph\'eriques}
+			\end{figure}
+
+			Nous utiliserons $u=\phi$ et $v=\theta$ comme param\`etres, avec $r=1$, $0<u<\pi$ et $v\in\RR$.
+			\[ \vec X(u,v) = (\sin u\cos v, \sin u\sin v, \cos u) \] \[ \vec X_u\times\vec X_v = \sin u(\sin u\cos v, \sin u\sin v, \cos u) \neq 0 \]
+
+			$\vec X_1:]0,\pi[\times]0,2\pi[\to\Sigma$ est une param\'etrisation r\'eguli\`ere.
+
+			$\vec X_2:]0,\pi[\times]-\pi,\pi[\to\Sigma$ est une param\'etrisation r\'eguli\`ere.
+
+			Chaque point de $\Sigma\setminus\{(0,0,\pm1)\}$ est dans l'image de $\vec X_1$ ou de $\vec X_2$, donc $\Sigma\setminus\{(0,0,\pm1)\}$ est une surface.
+
+			En permutant $(x,y,z)$, c'est-\`a-dire, utiliser les coordonn\'ees sph\'eriques comme $x=r\sin\phi\sin\theta$, $y=r\cos\phi$ et $z=r\sin\phi\cos\theta$, on peut effectuer la m\^eme analyse pour trouver des param\'etrisations r\'eguli\`eres pour $\Sigma\setminus\{(0,\pm1,0)\}$.
+
+			Ainsi, chaque point de $\Sigma$ se retrouve dans l'image d'une de ces param\'etrisations, d'o\`u $\Sigma$ est une surface.
+			\item Projection st\'er\'eographique
+
+			Soit $\Sigma$ et le plan $\RR^2$. On peut relier chaque point $(x,y,z)$ de la sph\`ere au p\^ole nord au moyen d'une droite et l'associer au point $(u,v,0)$ o\`u cette droite intersecte le plan. Il s'agit d'une bijection entre $\Sigma\setminus\{(0,0,1)\}$ et le plan $\RR^2$.
+			\[ \vec X(u,v) = \begin{pmatrix}
+				\dfrac{2u}{u^2+v^2+1}\\
+				\dfrac{2v}{u^2+v^2+1}\\
+				\dfrac{u^2+v^2-1}{u^2+v^2+1}
+			\end{pmatrix} \]
+			Le point $(x,y,z)$ est l'unique point d'intersection entre la droite passant par $(0,0,1)$ et $(u,v,0)$ et la sph\`ere $\Sigma$.
+
+			Soit \[ \begin{array}{rcl}
+				\vec X:\RR^2&\to&\Sigma\setminus\{(0,0,1)\}\\
+				(u,v)&\mapsto&\left( \dfrac{2u}{u^2+v^2+1}, \dfrac{2v}{u^2+v^2+1}, \dfrac{u^2+v^2-1}{u^2+v^2+1} \right)
+			\end{array} \] $\vec X$ est une bijection de classe $C^3$.
+
+			La v\'erification que $\vec X_u\times\vec X_v\neq\vec0$, $\forall u,v$ et que $\vec X$ est donc une param\'etrisation r\'eguli\`ere est laiss\'e en exercice.
+		\end{enumerate}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[smooth, samples=50]
+				\foreach \u in {1,2}{
+					\draw[domain=0:4*3.14, variable=\v, thin] plot ({.5*\u*cos(\v r)}, .2*\v, {.5*\u*sin(\v r)});
+				}
+				\foreach \u in {0,3}{
+					\draw[domain=0:4*3.14, variable=\v, thick] plot ({.5*\u*cos(\v r)}, .2*\v, {.5*\u*sin(\v r)});
+				}
+				\foreach \v in {.7,1.4,...,12}{
+					\draw[domain=0:3, variable=\u, thin] plot ({.5*\u*cos(\v r)}, .2*\v, {.5*\u*sin(\v r)});
+				}
+				\foreach \v in {0,4*3.14}{
+					\draw[domain=0:3, variable=\u, thick] plot ({.5*\u*cos(\v r)}, .2*\v, {.5*\u*sin(\v r)});
+				}
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}[smooth cycle, samples=50, domain=0:6.28, thin, scale=1.2]
+				\foreach \u in {0,.5,...,6,6.28}{
+					\draw[variable=\v] plot ({(1.5+.5*cos(\u r))*cos(\v r)},{.5*sin(\u r)},{(1.5+.5*cos(\u r))*sin(\v r)});
+				}
+				\foreach \v in {0,.5,...,6,6.28}{
+					\draw[variable=\u] plot ({(1.5+.5*cos(\u r))*cos(\v r)},{.5*sin(\u r)},{(1.5+.5*cos(\u r))*sin(\v r)});
+				}
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}[smooth, samples=50, thin, scale=1.2]
+				\foreach \v in {0,.5,...,6,6.28}{
+					\draw[domain=0:3.14, variable=\u] plot ({sin(\u r)*cos(\v r)},{cos(\u r)},{sin(\u r)*sin(\v r)});
+				}
+				\foreach \u in {0,.5,...,3,3.14}{
+					\draw[domain=0:6.28, variable=\v] plot ({sin(\u r)*cos(\v r)},{cos(\u r)},{sin(\u r)*sin(\v r)});
+				}
+			\end{tikzpicture}\\[5ex]
+			\begin{tikzpicture}
+				\foreach \t in {-3,-2.5,...,3}{
+					\draw[help lines] (\t,0,-3) -- (\t,0,3);
+					\draw[help lines] (-3,0,\t) -- (3,0,\t);
+				}
+				\draw[->] (-3.2,0,0) -- (3.2,0,0);
+				\draw[->] (0,-1.5,0) -- (0,1.5,0);
+				\draw[->] (0,0,-3.2) -- (0,0,3.2);
+				\begin{scope}[canvas is xy plane at z=0]
+					\draw[fill=white, fill opacity=.5] (0,0) circle (1cm);
+				\end{scope}
+				\begin{scope}[canvas is xz plane at y=0]
+					\draw (0,0) circle (1cm);
+				\end{scope}
+				\begin{scope}[canvas is yz plane at x=0]
+					\draw (0,0) circle (1cm);
+				\end{scope}
+				\draw (0,1,0) -- (1,0,1);
+				\fill (0,1,0) circle (2pt);
+				\fill (1,0,1) circle (2pt);
+				\fill (.66,.34,.66) circle (2pt);
+			\end{tikzpicture}
+			\qquad
+			\begin{tikzpicture}
+				\draw[->] (-1.5,0) -- (2,0);
+				\draw[->] (0,-1.5) -- (0,1.5);
+				\draw[fill=white, fill opacity=.5] (0,0) circle (1);
+				\draw (0,1) -- (1.7,0);
+				\fill (0,1) circle (2pt);
+				\fill (1.7,0) circle (2pt);
+				\fill (.87,.49) circle (2pt);
+			\end{tikzpicture}
+			\caption{H\'elico\"ide, tore, sph\`ere et visualisation de la projection st\'er\'eographique}
+		\end{figure}
+	\end{exem}
+
+	\begin{exem}[Surfaces de r\'evolution]
+		Soit $\vec\alpha:I\to\RR^3$ une courbe simple et r\'eguli\`ere dans le plan $xz$ avec $\vec\alpha(u) = (f(u),0,g(u))$ o\`u $f(u)>0$.
+
+		La \emph{surface de r\'evolution} est la surface param\'etr\'ee par \[ \vec X(u,v) = (f(u)\cos v, f(u)\sin v, g(u)) \] \[ M = \left\{ \vec X(u,v) ~\middle|~ u\in I, v\in\RR \right\} \] \[ \vec X_u = (f'(u)\cos v, f'(u)\sin v, g'(u)) \qquad \vec X_v = (-f(u)\sin v, f(u)\cos v, 0) \] \[ \vec X_u\times\vec X_v = (-g'(u)f(u)\cos v, -g'(u)f(u)\sin v, f'(u)f(u)) \neq\vec0 \] Donc, $M$ est une surface.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[samples=50, smooth, thin, scale=.8]
+				\foreach \u in {0,.5,...,5}{
+					\draw[domain=0:6.28, variable=\v] plot ({(2+cos(2*\u r))*cos(\v r)}, \u, {(2+cos(2*\u r))*sin(\v r)});
+				}
+				\foreach \v in {0,.5,...,6,6.28}{
+					\draw[domain=0:5, variable=\u] plot ({(2+cos(2*\u r))*cos(\v r)}, \u, {(2+cos(2*\u r))*sin(\v r)});
+				}
+				\draw[thick, domain=0:5, variable=\u] plot ({2+cos(2*\u r)},\u,0);
+			\end{tikzpicture}
+			\caption{Exemple de surface de r\'evolution}
+		\end{figure}
+	\end{exem}
+
+	\begin{rmq}
+		$\vec X$ n'est pas une bijection, mais on peut faire les restrictions $\vec X_1:I\times]0,2\pi[ \to M$ et $\vec X_2:I\times]-\pi,\pi[ \to M$ et reproduire l'argument du tore ou de la sph\`ere.
+	\end{rmq}
+
+	\begin{exem}[Surface r\'egl\'ee]
+		Soit $\vec\alpha:I\to\RR^3$ une courbe simple et  r\'eguli\`ere (la \emph{courbe directrice}) et $\vec\beta:I\to\RR^3$ t.q. $\vec\beta(u)\neq0$ $\forall u$ (le \emph{vecteur directeur}).
+
+		Soit $\vec X(u,v) = \vec\alpha(u) + v\vec\beta(u)$, pour $u\in I$ et $v$ suffisamment petit pour \'eviter toute intersection de la surface avec elle-m\^eme.
+
+		Si $\vec X_u\times\vec X_v = \left(\vec\alpha'(u) + v\vec\beta'(u)\right) \times \vec\beta(u) \neq \vec0$, alors l'image de $\vec X$ est une surface.
+		\begin{enumerate}
+			\item Cylindre \`a base arbitraire
+
+			$\vec\alpha(u) = (f(u),g(u),0)$ une courbe simple dans le plan $xy$ et $\vec\beta(u)=(0,0,1)$.
+			\item C\^one
+
+			$\vec\alpha:I\to\RR^3$ une courbe r\'eguli\`ere et $\vec\beta=-\vec\alpha$.
+			\[ \vec X(u,v) = \vec\alpha(u)-v\vec\alpha(u) = (1-v)\vec\alpha(u) \] avec $u\in I$ et $v<1$.
+			\[ \vec X_u\times\vec X_v = (v-1)\vec\alpha'(u) \times \vec\alpha(u) \] Si $\vec\alpha'(u) \times \vec\alpha(u) \neq \vec0$, alors on a un surface.
 		\end{enumerate}
 	\end{exem}
+
+	\begin{dfn}[Plan tangent]
+		Soit $M$ une surface et $p\in M$.
+
+		Soit $\vec X:U\to M\cap V$ une param\'etrisation r\'eguli\`eret.q. $p\in M\cap V$. Soit $(u_0,v_0)\in U$ t.q. $p=\vec X(u_0,v_0)$.
+
+		Le \emph{plan tangent} au point $p$ est $T_pM\coloneq \left\{ a\vec X_u(u_0,v_0) + b\vec X_v(u_0,v_0) ~\middle|~ (a,b)\in\RR^2 \right\}$. Puisque $\vec X_u\times\vec X_v\neq\vec0$, on a que $\dim T_pM=2$.
+	\end{dfn}
+
+	\begin{exer}
+		$T_pM$ est ind\'ependant du choix de param\'etrisation $\vec X$.
+	\end{exer}
+
+	\begin{dfn}
+		Le \emph{vecteur normal unitaire} est $\vec n \coloneq \frac{\vec X_u\times\vec X_v}{\norme{\vec X_u\times\vec X_v}}$.
+	\end{dfn}
+
+	\begin{exem}
+		Pour l'h\'elico\"ide, on a \[ \vec X = (u\cos v, u\sin v, bv) \] \[ \vec X_u \times \vec X_v = (b\sin v, -b\cos v, u) \] \[ \vec n = \dfrac{(b\sin v, -b\cos v, u)}{\sqrt{b^2+u^2}} \] \[ \vec n \xrightarrow{u\to\infty} (0,0,1) \hspace{2cm} \vec n \xrightarrow{u\to0} (\sin v, -\cos v, 0) \]
+	\end{exem}
+
+	\begin{dfn}
+		La \emph{premi\`ere forme fondamentale} est le produit scalaire \[ \begin{array}{rcl}
+			\mathrm{I}_p:T_pM \times T_pM&\to&\RR\\
+			(\vec U,\vec V)&\mapsto&\vec U \cdot \vec V
+		\end{array} \] o\`u $\cdot$ est le produit scalaire euclidien de $\RR^3$.
+
+		Ce qu'on appelle ``g\'eom\'etrie intrins\`eque'' est la premi\`ere forme fondamentale.
+	\end{dfn}
+
+	Soit $\vec X:U \to M\cap V$ une param\'etrisation r\'eguli\`ere avec $p\in M\cap V$. On a la base $\{\vec X_u, \vec X_v\}$ de $T_pM$. En termes de cette base, $\mathrm{I}_p$ est d\'etermin\'ee par
+	\begin{align*}
+		\begin{split}
+			\mathrm{E}&= \mathrm{I}_p(\vec X_u, \vec X_u)\\
+			&= \vec X_u \cdot \vec X_u
+		\end{split}
+		&
+		\begin{split}
+			\mathrm{F}&= \mathrm{I}_p(\vec X_u, \vec X_v)\\
+			&= \mathrm{I}(\vec X_v, \vec X_u)\\
+			&= \vec X_u \cdot \vec X_v
+		\end{split}
+		&
+		\begin{split}
+			\mathrm{G}&= \mathrm{I}_p(\vec X_v, \vec X_v)\\
+			&= \vec X_v \cdot \vec X_v
+		\end{split}
+	\end{align*}
+	trois applications $U\to\RR$.
+
+	$\vec\alpha(t) = (u(t),v(t))$. $\vec\alpha'(t) = (u'(t),v'(t))$. $\vec\alpha'(t_0) = (u'(t_0),v'(t_0)) = (a,b)\in\RR^2$.
+	\[ \left. \frac{d}{dt} \right|_{t=t_0} \vec X(\vec\alpha(t)) = \vec X_u(u_0,v_0)u'(t_0) + \vec X_v(u_0,v_0)v'(t_0) = a\vec X(u_0,v_0) + b\vec X_v(u_0,v_0) \in T_pM \]
+	\[ \begin{array}{rcl}
+		D\vec X:\RR^2&\to& T_pM\\
+		(a,b)&\mapsto&a\vec X(u_0,v_0) + b\vec X_v(u_0,v_0)
+	\end{array} \]
+	On obtient un produit scalaire sur $\RR^2$ donn\'e par
+	\begin{multline*}
+		\mathrm{I}_{\vec X}((a_1,b_1),(a_2,b_2)) = \mathrm{I}_p(D\vec X(a_1,b_1), d\vec X(a_2,b_2)) = \mathrm{I}_p(a_1\vec X_u+b_1\vec X_v, a_2\vec X_u+b_2\vec X_v)\\
+		= a_1a_2\mathrm{E} + (a_1b_2+b_1a_2)\mathrm{F} + b_1b_2\mathrm{G} = \begin{bmatrix}
+			a_1&b_1
+		\end{bmatrix} \begin{bmatrix}
+			\mathrm{E}&\mathrm{F}\\\mathrm{F}&\mathrm{G}
+		\end{bmatrix} \begin{bmatrix}
+			a_2\\b_2
+		\end{bmatrix}
+	\end{multline*}
+
+	On note donc $\mathrm{I}_{\vec X} = \begin{bmatrix}
+		\mathrm{E}&\mathrm{F}\\\mathrm{F}&\mathrm{G}
+	\end{bmatrix}$.
+
+	\begin{dfn}
+		Une quantit\'e est \emph{intrins\`eque} si elle ne d\'epend que de $\mathrm{E}, \mathrm{F}, \mathrm{G}$.
+	\end{dfn}
 \end{document}
