@@ -10,6 +10,7 @@
 \usetikzlibrary{positioning, calc, automata}
 \usepackage{tikz-cd}
 \usepackage{wasysym}
+\usepackage[dvipsnames]{xcolor}
 
 \hypersetup{
 	colorlinks=false
@@ -1708,20 +1709,20 @@
 					\clip (0,0) ellipse (15mm and 25mm);
 					\draw[blue] (.3,-3) circle (25mm);
 					\draw[red] (-.7,-2.6) circle (3cm);
-					\draw[green] (1.4,-2.7) circle (35mm);
+					\draw[ForestGreen] (1.4,-2.7) circle (35mm);
 				\end{scope}
 				\begin{scope}
 					\clip (5,0) ellipse (1cm and 2cm);
 					\draw[red] (4.7,-2.6) circle (2cm);
-					\draw[green] (6.7,-1) circle (15mm);
+					\draw[ForestGreen] (6.7,-1) circle (15mm);
 				\end{scope}
 				\fill[blue] (4.47,-1.7) circle (2pt);
 				\node[blue] () at (0,-2) {$I$};
 				\node[red] () at (-1,-.5) {$J$};
-				\node[green] () at (0,1.8) {$p^{-1}(X)$};
+				\node[ForestGreen] () at (0,1.8) {$p^{-1}(X)$};
 				\node[blue] () at (4.2,-2) {$\overline{0}$};
 				\node[red] () at (4.8,-1.3) {$p(J)$};
-				\node[green] () at (5.7,-.5) {$X$};
+				\node[ForestGreen] () at (5.7,-.5) {$X$};
 			\end{tikzpicture}
 			\caption{Repr\'esentation ensembliste de la situation}
 		\end{figure}
@@ -1795,4 +1796,114 @@
 
 		De plus, $f$ est surjective, d'o\`u $\sfrac{\RR[x]}{\langle x^2+1 \rangle} \simeq \CC$.
 	\end{exer}
+
+	\begin{exer}[p.306, \#9]
+		Soit $f:A\to B$ un homomorphisme surjectif d'anneaux, o\`u $B$ est un anneau commutatif. Soit $I$ l'id\'eal engendr\'e par les \'el\'ements de la forme $aa'-a'a$, avec $a,a'\in A$.
+		\begin{enumerate}[label=\alph*)]
+			\item \begin{proof}[Montrer que]
+				$I\subseteq\noyau(f)$.
+
+				Pour un g\'en\'erateur $aa'-a'a$ de $I$, on a
+				\begin{align*}
+					f(aa'-a'a)&= f(a)f(a')-f(a')f(a)\\
+					\shortintertext{comme $B$ est commutatif,}
+					&= f(a)f(a')-f(a)f(a')\\
+					&= 0
+				\end{align*}
+
+				Donc, $aa'-a'a \in \noyau(f)$. Alors, $I = \langle aa'-a'a \mid a,a'\in A \rangle \subseteq \noyau(f)$, puisque $I$ est le plus petit id\'eal contenant $aa'-a'a$.
+			\end{proof}
+			\item \begin{proof}[Montrer que]
+				$I=\noyau(f)$ si, et seulement si, la surjection canonique $\sfrac{A}{I} \xrightarrow{\varphi} \sfrac{A}{\noyau(f)} \xrightarrow{\sim} B$ est un isomorphisme.
+
+				La surjection est $\varphi : \sfrac{A}{I} \twoheadrightarrow \sfrac{A}{\noyau(f)} : a+I \mapsto a+\noyau(f)$
+
+				Si $I=\noyau(f)$, c'est le premier th\'eor\`eme d'isomorphismes.
+
+				Si $\varphi : a+I \mapsto a+\noyau(f)$ est un isomorphisme, elle est bijective. Alors, elle est injective, donc son noyau est nul.
+				\begin{align*}
+					\varphi(a+I)&= 0+\noyau(f)\\
+					a+\noyau(f)&= 0+\noyau(f)\\
+					a&\in \noyau(f)
+				\end{align*}
+			\end{proof}
+		\end{enumerate}
+	\end{exer}
+
+	\section{Id\'eaux maximaux et premiers}
+	\begin{dfn}
+		$I\trianglelefteq A$ est un \emph{id\'eal maximal} de $A$ si $I \subseteq J \subseteq A$, $J\trianglelefteq A$ $\Longrightarrow$ $J=A$ ou $I=J$.
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $p\ZZ\trianglelefteq\ZZ$ est un id\'eal maximal lorsque $p$ est premier.
+			\begin{proof}[En effet,]
+				supposons $J\trianglelefteq\ZZ$ t.q. $p\ZZ\subseteq J\subseteq\ZZ$. Donc, $J=m\ZZ$, puis $p\ZZ\subseteq m\ZZ \Longrightarrow m \mid p$, alors $m=\pm1$ ou $m=\pm p$, d'o\`u $J=\ZZ$ ou $J=p\ZZ$.
+			\end{proof}
+			\item $p^2\ZZ$ n'est pas maximal dans $\ZZ$, car $p^2\ZZ\subseteq p\ZZ\subseteq \ZZ$.
+			\item $\langle x \rangle$ est maximal dans $\RR[x]$.
+			\begin{proof}[En effet,]
+				supposons $J\trianglelefteq\RR[x]$ t.q. $\langle x \rangle \subseteq J \subseteq \RR[x]$. Si $J\neq\langle x \rangle$, $\exists p\in J\setminus\langle x \rangle$. Alors, $p=qx+r$, avec $q,r\in\RR[x]$ t.q. $\delta(r)<\delta(x)=1$, c'est-\`a-dire, $\delta(r)=0$. Donc, $r=p-qx$, o\`u $p\in J$ et $qx\in\langle x \rangle\subseteq J$, d'o\`u $r\in J$.
+
+				Si $r=0$, on aurait $p=qr\in\langle x \rangle$, \lightning.
+
+				Donc, $r\neq0$. Comme $r\in\RR_*$, on a que $1=rr^{-1}\in J$, d'o\`u $J=\RR[x]$.
+			\end{proof}
+			\begin{rmq}
+				Que peut-on dire au sujet de $\langle x \rangle$ dans $\ZZ[x]$? La m\^eme construction de fonctionne pas, donc on ne peut pas conclure que $\langle x \rangle$ est maximal.
+			\end{rmq}
+		\end{enumerate}
+	\end{exem}
+
+	\begin{thm}
+		Soit $A$ un anneau commutatif non trivial. Un id\'eal $I\trianglelefteq A$ est maximal si, et seulement si, $\sfrac{A}{I}$ est nu corps.
+		\begin{proof}
+			$\sfrac{A}{I}$ est un corps si, et seulement si, $\sfrac{A}{I}$ est non trivial et n'admet aucun id\'eal propre. Ceci est \'equivalent \`a ce qu'il n'existe pas d'id\'eal $\overline{J}\trianglelefteq\sfrac{A}{I}$, c'est-\`a-dire, $\nexists J\trianglelefteq A$ t.q. $I\lte J$, d'o\`u $I$ est maximal dans $A$.
+		\end{proof}
+	\end{thm}
+
+	\begin{lem}
+		Soient $A$ un anneau commutatif et $I \triangleleft A$. Alors, $I$ est maximal si, et seulement si, $A=I+Aa$ $\forall a\in A\setminus I$.
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$:]
+				$I\subseteq I+Aa$, puis la maximalit\'e de $I$ donne $I+Aa=A$.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				Supposons que $I$ n'est pas maximal. Alors, $\exists J\trianglelefteq A$ t.q. $I \subsetneq J \subsetneq A$.
+
+				Soit $a\in J\setminus I$. Alors, $I\cup \{a\}\subseteq J$, donc $\langle I\cup\{a\} \rangle \subseteq J$, c'est-\`a-dire, $I+Aa\subseteq J \subsetneq A$.
+			\end{subproof}
+		\end{proof}
+	\end{lem}
+
+	\begin{exem}
+		Soit $\mathscr{F} = \{f:\RR\to\RR\}$. Soit $I = \{f\in\mathscr{F} \mid f(0)=0\}$.
+		\begin{proof}[m.q.]
+			$I\trianglelefteq\mathscr{F}$ est maximal.
+
+			$I\trianglelefteq\mathscr{F}$: \checkmark.
+
+			Voyons deux m\'ethodes pour v\'erifier la maximalit\'e.
+			\begin{enumerate}
+				\item Posons $\varepsilon : \mathscr{F}\to\RR : f\mapsto f(0)$. $\varepsilon$ est un morphisme d'anneaux.
+				\begin{align*}
+					\varepsilon(f+g)&= (f+g)(0)\\
+					&= f(0)+g(0)\\
+					&= \varepsilon(f)+\varepsilon(g)
+				\end{align*}
+
+				De m\^eme, $\varepsilon(fg)=\varepsilon(f)\varepsilon(g)$.
+
+				De plus, $\varepsilon(\id_\mathscr{F})=\id_\mathscr{F}(0)=\id_\RR$.
+
+				$\varepsilon$ est clairement surjectif.
+
+				$f\in\noyau(\varepsilon) \Leftrightarrow \varepsilon(f)=0 \Leftrightarrow f(0)=0 \Leftrightarrow f\in I$.
+
+				On a donc $\sfrac{\mathscr{F}}{I} \simeq \im(\varepsilon) = \RR$ qui est un corps.
+				\item On montre que $\forall f\in\mathscr{F}$, on aura $I+\langle f \rangle=\mathscr{F}$.
+			\end{enumerate}
+		\end{proof}
+	\end{exem}
 \end{document}
