@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  29 SEP 2026 21:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  1 OCT 2026 09:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1033,7 +1033,7 @@ Package rerunfilecheck Info: File `MAT603-geometrie_differentielle.out' has not
 Here is how much of TeX's memory you used:
  26509 strings out of 467441
  510893 string characters out of 5407591
- 1226969 words of memory out of 5000000
+ 1228116 words of memory out of 5000000
  55327 multiletter control sequences out of 15000+600000
  639803 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1060,7 +1060,7 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><
 C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb>
-Output written on MAT603-geometrie_differentielle.pdf (23 pages, 479463 bytes).
+Output written on MAT603-geometrie_differentielle.pdf (23 pages, 479478 bytes).
 
 PDF statistics:
  299 PDF objects out of 1000 (max. 8388607)

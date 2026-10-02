@@ -1268,7 +1268,7 @@
 				\foreach \v in {0,.5,...,6,6.28}{
 					\draw[domain=0:5, variable=\u] plot ({(2+cos(2*\u r))*cos(\v r)}, \u, {(2+cos(2*\u r))*sin(\v r)});
 				}
-				\draw[thick, domain=0:5, variable=\u] plot ({2+cos(2*\u r)},\u,0);
+				\draw[thick, domain=0:5, variable=\u, red] plot ({2+cos(2*\u r)},\u,0);
 			\end{tikzpicture}
 			\caption{Exemple de surface de r\'evolution}
 		\end{figure}
