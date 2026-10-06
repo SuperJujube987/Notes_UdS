@@ -1262,7 +1262,7 @@
 		\begin{figure}[h]
 			\centering
 			\begin{tikzpicture}[samples=50, smooth, thin, scale=.8]
-				\foreach \u in {0,.5,...,5}{
+				\foreach \u in {0,1.25,...,5}{
 					\draw[domain=0:6.28, variable=\v] plot ({(2+cos(2*\u r))*cos(\v r)}, \u, {(2+cos(2*\u r))*sin(\v r)});
 				}
 				\foreach \v in {0,.5,...,6,6.28}{
@@ -1318,28 +1318,28 @@
 
 	\begin{dfn}
 		La \emph{premi\`ere forme fondamentale} est le produit scalaire \[ \begin{array}{rcl}
-			\mathrm{I}_p:T_pM \times T_pM&\to&\RR\\
+			I_p:T_pM \times T_pM&\to&\RR\\
 			(\vec U,\vec V)&\mapsto&\vec U \cdot \vec V
 		\end{array} \] o\`u $\cdot$ est le produit scalaire euclidien de $\RR^3$.
 
 		Ce qu'on appelle ``g\'eom\'etrie intrins\`eque'' est la premi\`ere forme fondamentale.
 	\end{dfn}
 
-	Soit $\vec X:U \to M\cap V$ une param\'etrisation r\'eguli\`ere avec $p\in M\cap V$. On a la base $\{\vec X_u, \vec X_v\}$ de $T_pM$. En termes de cette base, $\mathrm{I}_p$ est d\'etermin\'ee par
+	Soit $\vec X:U \to M\cap V$ une param\'etrisation r\'eguli\`ere avec $p\in M\cap V$. On a la base $\{\vec X_u, \vec X_v\}$ de $T_pM$. En termes de cette base, $I_p$ est d\'etermin\'ee par
 	\begin{align*}
 		\begin{split}
-			\mathrm{E}&= \mathrm{I}_p(\vec X_u, \vec X_u)\\
+			E&= I_p(\vec X_u, \vec X_u)\\
 			&= \vec X_u \cdot \vec X_u
 		\end{split}
 		&
 		\begin{split}
-			\mathrm{F}&= \mathrm{I}_p(\vec X_u, \vec X_v)\\
-			&= \mathrm{I}(\vec X_v, \vec X_u)\\
+			F&= I_p(\vec X_u, \vec X_v)\\
+			&= I_p(\vec X_v, \vec X_u)\\
 			&= \vec X_u \cdot \vec X_v
 		\end{split}
 		&
 		\begin{split}
-			\mathrm{G}&= \mathrm{I}_p(\vec X_v, \vec X_v)\\
+			G&= I_p(\vec X_v, \vec X_v)\\
 			&= \vec X_v \cdot \vec X_v
 		\end{split}
 	\end{align*}
@@ -1353,21 +1353,300 @@
 	\end{array} \]
 	On obtient un produit scalaire sur $\RR^2$ donn\'e par
 	\begin{multline*}
-		\mathrm{I}_{\vec X}((a_1,b_1),(a_2,b_2)) = \mathrm{I}_p(D\vec X(a_1,b_1), d\vec X(a_2,b_2)) = \mathrm{I}_p(a_1\vec X_u+b_1\vec X_v, a_2\vec X_u+b_2\vec X_v)\\
-		= a_1a_2\mathrm{E} + (a_1b_2+b_1a_2)\mathrm{F} + b_1b_2\mathrm{G} = \begin{bmatrix}
+		I_{\vec X}((a_1,b_1),(a_2,b_2)) = I_p(D\vec X(a_1,b_1), d\vec X(a_2,b_2)) = I_p(a_1\vec X_u+b_1\vec X_v, a_2\vec X_u+b_2\vec X_v)\\
+		= a_1a_2E + (a_1b_2+b_1a_2)F + b_1b_2G = \begin{bmatrix}
 			a_1&b_1
 		\end{bmatrix} \begin{bmatrix}
-			\mathrm{E}&\mathrm{F}\\\mathrm{F}&\mathrm{G}
+			E&F\\F&G
 		\end{bmatrix} \begin{bmatrix}
 			a_2\\b_2
 		\end{bmatrix}
 	\end{multline*}
 
-	On note donc $\mathrm{I}_{\vec X} = \begin{bmatrix}
-		\mathrm{E}&\mathrm{F}\\\mathrm{F}&\mathrm{G}
+	On note donc $I_{\vec X} = \begin{bmatrix}
+		E&F\\F&G
 	\end{bmatrix}$.
 
 	\begin{dfn}
-		Une quantit\'e est \emph{intrins\`eque} si elle ne d\'epend que de $\mathrm{E}, \mathrm{F}, \mathrm{G}$.
+		Une quantit\'e est \emph{intrins\`eque} si elle ne d\'epend que de $E, F, G$.
+	\end{dfn}
+
+	\begin{dfn}
+		Deux surfaces $M$ et $M^*$ sont \emph{localement isom\'etriques} si $\forall p_0\in M$, il existe deux param\'etrisations r\'eguli\`ere $\vec X:U\to M$ et $\vec X^*:U\to M^*$ o\`u $\vec X(U_0,V_0)=p_0$ t.q. $\forall p=\vec X(u,v)$ et $p^*=\vec X^*(u,v)$ on a $I_{\vec X}=I_{\vec X^*}$. C'est-\`a-dire, $E=E^*$, $F=F^*$ et $G=G^*$.
+
+		Dans ce cas, on a $f=\vec X^* \circ \vec X^{-1}$ une bijection pr\'eservant les distances et les angles.
+	\end{dfn}
+
+	\begin{exer}
+		Montrons que $M=\left\{ (x,y,z)\in\RR^3 ~\middle|~ z=0 \right\}$ et $M^*=\left\{ (x,y,z)\in\RR^3 ~\middle|~ x^2+y^2=1 \right\}$ sont localement isom\'etriques.
+
+		Soient \[ \vec X(u,v)=(u,v,0) \qquad \vec X^*(u,v)=(\cos u,\sin u,v) \] Alors, $\vec X$ et $\vec X^*$ sont des param\'etrisations r\'eguli\`eres.
+		\begin{align*}
+			\begin{split}
+				E&= \vec X_u \cdot \vec X_u\\
+				&= (1,0,0)\cdot(1,0,0)\\
+				&= 1
+			\end{split}
+			&
+			\begin{split}
+				E^*&= \vec X_u^* \cdot \vec X_u^*\\
+				&= (-\sin u,\cos u,0)\cdot(\sin u,\cos u,0)\\
+				&= 1
+			\end{split}
+			\\
+			\begin{split}
+				F&= \vec X_u \cdot \vec X_v\\
+				&= (1,0,0)\cdot(0,1,0)\\
+				&= 0
+			\end{split}
+			&
+			\begin{split}
+				F^*&= \vec X_u^* \cdot \vec X_v^*\\
+				&= (-\sin u,\cos u,0)\cdot(0,0,1)\\
+				&= 0
+			\end{split}
+			\\
+			\begin{split}
+				G&= \vec X_v \cdot \vec X_v\\
+				&= (0,1,0)\cdot(0,1,0)\\
+				&= 1
+			\end{split}
+			&
+			\begin{split}
+				G^*&= \vec X_v^* \cdot \vec X_v^*\\
+				&= (0,0,1)\cdot(0,0,1)\\
+				&= 1
+			\end{split}
+		\end{align*}
+	\end{exer}
+
+	\section{Aire des surfaces}
+	\begin{rapp}
+		Soit $\vec X:U\to M$ une param\'etrisation r\'eguli\`ere. L'aire de la surface $M$ est donn\'ee par \[ \iint_U \norme{\vec X_u \times \vec X_v}dudv \]
+	\end{rapp}
+
+	\begin{exer}
+		\begin{proof}[m.q.]
+			l'aire de $M$ est intrins\`eque.
+			\begin{align*}
+				I_{\vec X}&= \begin{bmatrix}
+					E&F\\F&G
+				\end{bmatrix}\\
+				&= \begin{bmatrix}
+					\vec X_u\vec X_u&\vec X_u\vec X_v\\
+					\vec X_v\vec X_u&\vec X_v\vec X_v
+				\end{bmatrix}\\
+				&= \begin{bmatrix}
+					-&\vec X_u&-\\
+					-&\vec X_v&-
+				\end{bmatrix} \begin{bmatrix}
+					|&|\\
+					\vec X_u&\vec X_v\\
+					|&|
+				\end{bmatrix}\\
+				&= \begin{bmatrix}
+					|&|\\
+					\vec X_u&\vec X_v\\
+					|&|
+				\end{bmatrix}^T \begin{bmatrix}
+					|&|\\
+					\vec X_u&\vec X_v\\
+					|&|
+				\end{bmatrix}
+			\end{align*}
+
+			\begin{align*}
+				\begin{bmatrix}
+					E&F&0\\
+					F&G&0\\
+					0&0&1
+				\end{bmatrix}&= \begin{bmatrix}
+					|&|&|\\
+					\vec X_u&\vec X_v&\vec n\\
+					|&|&|
+				\end{bmatrix}^T \begin{bmatrix}
+					|&|&|\\
+					\vec X_u&\vec X_v&\vec n\\
+					|&|&|
+				\end{bmatrix}\\
+				EG-F^2&= \det\begin{bmatrix}
+					|&|&|\\
+					\vec X_u&\vec X_v&\vec n\\
+					|&|&|
+				\end{bmatrix} \det\begin{bmatrix}
+					|&|&|\\
+					\vec X_u&\vec X_v&\vec n\\
+					|&|&|
+				\end{bmatrix}\\
+				&= \left(\det\begin{bmatrix}
+					|&|&|\\
+					\vec X_u&\vec X_v&\vec n\\
+					|&|&|
+				\end{bmatrix}\right)^2\\
+				&= \left( (\vec X_u\times \vec X_v)\cdot \vec n \right)^2\\
+				&= \left( (\vec X_u\times \vec X_v) \cdot \frac{\vec X_u\times \vec X_v}{\norme{\vec X_u\times \vec X_v}} \right)^2\\
+				&= \norme{\vec X_u\times \vec X_v}^2
+			\end{align*}
+
+			Alors, $\norme{\vec X_u\times \vec X_v}=\sqrt{EG-F^2}$. Donc, l'aire de $M$ est $\iint_U\sqrt{EG-F^2}dudv$. Ainsi, l'aire de $M$ est intrins\`eque.
+		\end{proof}
+	\end{exer}
+
+	\begin{dfn}
+		Une param\'etrisation r\'eguli\`ere est \emph{conforme} si elle pr\'eserve les angles. C'est-\`a-dire, \[ \vec X:U\subseteq\RR^2\to M \quad,\qquad D\vec X:\RR^2\to T_pM:(a,b)\mapsto a\vec X_u+b\vec X_v \] \[ \frac{\vec U\cdot\vec V}{\norme{\vec U}\norme{\vec V}} = \frac{D\vec X(\vec U)\cdot D\vec X(\vec V)}{\norme{D\vec X(\vec U)} \norme{D\vec X(\vec V)}} \quad,\qquad \forall \vec U,\vec V\in\RR^2 \]
+	\end{dfn}
+
+	\begin{exer}
+		Montrer que $\vec X$ est conforme si, et seulement si, $E=G$ et $F=0$. C'est-\`a-dire $I=\begin{bsmallmatrix}
+			E&0\\0&E
+		\end{bsmallmatrix}$.
+	\end{exer}
+
+	\begin{dfn}
+		Soit $\vec X:U\to M$ une param\'etrisation r\'eguli\`ere. L'\emph{application de Gauss} est \[ \vec n : M\to\Sigma : p\mapsto\vec n(p)=\frac{\vec X_u\times\vec X_v}{\norme{\vec X_u\times\vec X_v}}(p) \]
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item Si $M$ est un plan, $\vec n$ est constant.
+			\item Si $M$ est un cylindre g\'en\'eralis\'e, $\vec n$ est toujours sur l'\'equateur.
+			\item Si $M=\Sigma$, $\vec n=\operatorname{id}$.
+			\item Si $M$ est un parabolo\"ide hyperbolique (en forme de selle), $\vec n$ tourne dans le sens oppos\'e \`a $\vec p$.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{rapp}[de calcul vectoriel]
+		Soient $f:\RR^n\to\RR$ et $\vec v\in\RR^n$. La \emph{d\'eriv\'ee directionnelle} de $f$ vers $\vec v$ est $D_{\vec v}:\RR^n\to\RR$, $(D_{\vec v}f)(\vec p) = \lim\limits_{t\to0}\dfrac{f(\vec p+t\vec v)-f(\vec p)}{t} = \left.\frac{d}{dt}\right|_{t=0} f(\vec p+t\vec v)$.
+
+		\begin{exem}
+			$\vec v=(1,0,\dots,0)$, $D_{\vec v}f=\frac{\partial f}{\partial x_1}$.
+		\end{exem}
+
+		En g\'en\'eral, $\vec v=(v_1,v_2,\dots,v_n)$ et $(D_{\vec v}f)(p) = \frac{\partial f}{\partial x_1}v_1 + \frac{\partial f}{\partial x_2}v_2 + \cdots + \frac{\partial f}{\partial x_n}v_n = (\vec\nabla f)\cdot\vec v$, o\`u $\vec\nabla f=\begin{pmatrix}
+			\frac{\partial f}{\partial x_1}&\frac{\partial f}{\partial x_2}&\cdots&\frac{\partial f}{\partial x_n}
+		\end{pmatrix}$.
+
+		\begin{prop}
+			Soit $\vec\alpha:I\to\RR^n$ une courbe t.q. $\vec\alpha(0)=p$ et $\vec\alpha'(0)=v$. Alors, $D_{\vec v}(p) = \left.\frac{d}{dt}\right|_{t=0} f(\vec\alpha(t))$.
+			\begin{proof}
+				\begin{align*}
+					\left.\frac{d}{dt}\right|_{t=0} f(\vec\alpha(t))&= \frac{\partial f}{x_1}\vec\alpha'_1(0) + \cdots + \frac{\partial f}{\partial x_n}\vec\alpha'_n(0)\\
+					&= \vec\nabla f \cdot \vec\alpha'(0)\\
+					&= \vec\nabla f \cdot \vec v\\
+					&= (D_{\vec v}f)(p)
+				\end{align*}
+			\end{proof}
+		\end{prop}
+	\end{rapp}
+
+	Soit $\vec X:U\to M$ une param\'etrisation r\'eguli\`ere. Soit $f:M\to\RR$ une fonction. Soit $\vec v\in T_pM$.
+
+	Comment d\'efinir $D_{\vec v}f(p)$ comme le taux de variation de $f$ dans la direction $\vec v$.
+	\[ (D_{\vec v}f)(\vec p) \coloneq \left.\frac{d}{dt}\right|_{t=0}f(\vec\alpha(t)) \] o\`u $\vec\alpha$ est une courbe t.q. $\vec\alpha(0)=\vec p$ et $\vec\alpha'(0)=\vec v$.
+
+	Soit $\vec X:U\to M$ une param\'etrisation r\'eguli\`ere. Soit $\vec v=a\vec X_u+b\vec X_v$, avec $a,b\in\RR$.
+	\[ f \circ \vec X:U\subseteq\RR^2\to\RR \] o\`u $\vec p=\vec X(u_0,v_0)$.
+
+	\begin{prop}
+		$(D_{\vec v}f)(p) = (D_{(a,b)}(f\circ\vec X))(u_0,v_0) = (\vec\nabla(f\circ\vec X))\cdot(a,b)$.
+		\begin{proof}
+			Soit $\vec\beta:I\to U\subseteq\RR^2$ t.q. $\vec\alpha(t)=\vec X(\vec\beta(t)) = \vec X(\beta_1(t), \beta_2(t))$.
+			\begin{align*}
+				\vec v&= a\vec X_u+b\vec X_v\\
+				&= \alpha'(0)\\
+				&= \left.\frac{d}{dt}\right|_{t=0}\vec X(\vec\beta(t))\\
+				&= \vec X_u\beta_1'(0)+\vec X_v\beta_2'(0)
+			\end{align*}
+			Donc $a=\beta_1'(0)$ et $b=\beta_2'(0)$. Alors,
+			\begin{align*}
+				(D_{\vec v}f)(\vec p)&= \left.\frac{d}{dt}\right|_{t=0} f(\vec\alpha(t))\\
+				&= \left.\frac{d}{dt}\right|_{t=0} f(\vec X(\beta(t)))\\
+				&= \frac{\partial}{\partial u}(f\circ\vec X)\beta_1'(0) + \frac{\partial}{\partial v}(f\circ\vec X)\beta_2'(0)\\
+				&= \vec\nabla(f\circ\vec X)\cdot(a,b)
+			\end{align*}
+		\end{proof}
+	\end{prop}
+
+	\begin{rmq}
+		L'application $T_pM\to\RR : \vec v\mapsto(D_{\vec v}f)(p)$ est lin\'eaire.
+
+		La d\'efinition se g\'en\'eralise pour $f:M\to\RR^n$ composante par composante.
+
+		En particulier $\vec n:M\to\Sigma\subseteq\RR^3$. Si $\vec v\in T_pM$, on a $(D_{\vec v}\vec n)(p)\in\RR^3$.
+	\end{rmq}
+
+	\begin{dfn}
+		La \emph{tranche normale} dans la direction de $\vec v$ est l'intersection de $M$ avec le plan qui passe par $\vec p$ et qui est engendr\'e par $\vec n$ et $\vec v$.
+
+		Soit $\vec\alpha:I\to M$ une param\'etrisation de la tranche normale, PPLA, avec $\vec\alpha(0)=\vec p$ et $\vec\alpha'(0)=\vec v$, o\`u $\vec v$ est unitaire.
+
+		$\kappa_{\vec\alpha}(0)$ mesure la courbure de $M$ dans la direction $\vec v$.
+
+		$\vec N_{\vec\alpha}(s)=\pm\vec n(\vec\alpha(s))$, $\forall s$. Alors, $\vec n(\vec\alpha(s)) \cdot \vec T_{\vec\alpha}(s)=0$, $\forall s$. Donc,
+		\begin{align*}
+			\left.\frac{d}{ds}\right|_{s=0}\left(\vec n(\vec\alpha(s))\cdot\vec T_{\vec\alpha}(s)\right)&=0\\
+			(D_{\vec v}\vec n)(\vec p) \cdot \vec T_{\vec\alpha}(0) + \vec n(\vec\alpha(0)) \cdot \kappa_{\vec\alpha}(0)\vec N_{\vec\alpha}(0)&= 0\\
+			(D_{\vec v}\vec n)(\vec p) \cdot \vec V&= \pm\kappa_{\vec\alpha}(0)
+		\end{align*}
+		D'o\`u $\kappa_{\vec\alpha}(0) = \abs{(D_{\vec v}\vec n)(\vec p) \cdot \vec V}$.
+
+		$D_{\vec v}\vec n$ contient l'information de la courbure de la tranche normale dans la direction $\vec v$.
+	\end{dfn}
+
+	\begin{prop}
+		$\forall\vec v\in T_pM$, $D_{\vec v}\vec n(p) \in T_pM$.
+
+		De plus, l'application $S_p : T_pM \to T_pM : \vec v\mapsto-D_{\vec v}\vec n(p)$ est sym\'etrique, c'est-\`a-dire, $S_p(\vec U)\cdot\vec V=S_p(\vec V)\cdot\vec U$, $\forall\vec U,\vec V \in T_pM$.
+		\begin{proof}
+			Soit $\vec\alpha:I\to M$ une courbe t.q. $\vec\alpha(0)=\vec p$ et $\vec\alpha'(0)=\vec v$.
+
+			$\norme{\vec n(\vec\alpha(t))}=1$, $\forall t$. Alors, $\left(\left.\frac{d}{dt}\right|_{t=0}\vec n(\vec\alpha(t))\right) \cdot \vec n(\vec\alpha(t))=0$. Donc, $(D_{\vec v}\vec n(\vec p)) \cdot \vec n(\vec p)=0$. C'est-\`a-dire,
+			\begin{equation}
+				D_{\vec v}\vec n(\vec p)\in T_pM
+				\tag{$*$}
+				\label{eqsp}
+			\end{equation}
+
+			Montrons \eqref{eqsp} pour $\vec U=\vec X_u$ et $\vec V=\vec X_v$.
+
+			Soient $\vec n_u=D_{\vec X_u}\vec n = \frac{\partial}{\partial u}(\vec n\circ\vec X)$ et $\vec n_v=D_{\vec X_v}\vec n = \frac{\partial}{\partial v}(\vec n\circ\vec X)$.
+			\begin{align*}
+				\vec n\cdot\vec X_v&= 0\\
+				0&= \frac{\partial}{\partial u}(\vec n\cdot\vec X_v)\\
+				&= \vec n_u\cdot\vec X_v + \vec n\cdot\vec X_{uv}\\
+				S_p(\vec X_u)\cdot\vec X_v&= -D_{\vec X_u}\vec n\cdot\vec X_v\\
+				&= -\vec n_u\cdot \vec X_v\\
+				&= \vec n\cdot\vec X_{uv}\\
+				&= \vec n\cdot\vec X_{vu}\\
+				&= -\vec n_v\cdot\vec X_u\\
+				&= -D_{\vec X_v}\vec n\cdot\vec X_u\\
+				&= S_p(\vec X_v)\cdot\vec X_u
+			\end{align*}
+
+			En g\'en\'eral, $\vec U=a\vec X_u+b\vec X_v$ et $\vec V=c\vec X_u+d\vec X_v$. $S_p(\vec U)\cdot\vec V = S_p(a\vec X_u+b\vec X_v) \cdot (c\vec X_u+d\vec X_v) = \cdots = S_p(\vec V)\cdot\vec U$.
+		\end{proof}
+	\end{prop}
+
+	\begin{dfn}
+		$S_p$ est appel\'e l'\emph{op\'erateur de forme}.
+	\end{dfn}
+
+	\begin{prop}
+		Si $S_p=0$ $\forall p\in M$, alors $M$ est une portion de plan.
+		\begin{proof}
+			$0=S_p(\vec X_u)=-\vec n_u$ et $0=S_p(\vec X_v)=-\vec n_v$.
+
+			Donc, $\frac{\partial\vec n}{\partial u}=0$ et $\frac{\partial\vec n}{\partial v}=0$. C'est-\`a-dire, $\vec n$ est constant. Alors, $M$ est dans un plan.
+		\end{proof}
+	\end{prop}
+
+	\begin{exem}
+		$M$ la sph\`ere de rayon $a>0$. $M=\{\vec x\in\RR^3 \mid \norme{\vec x}=a\}$. $\vec n(\vec x)=\frac{\vec x}{a}$. $S_p(\vec x_u)=-\vec n_u=-\frac{1}{a}x_u$. $S_p(\vec x_v)=-\vec n_v=-\frac{1}{a}x_v$. $S_p=-\frac{1}{a}\operatorname{id}$.
+	\end{exem}
+
+	\begin{dfn}
+		La \emph{deuxi\`eme forme fondamentale} est $II_p : T_pM\times T_pM\to\RR : (\vec U,\vec V)\mapsto S_p(\vec U)\cdot\vec V$. $II_p(\vec U,\vec V)=II_p(\vec V,\vec U)$.
+
+		La courbure de la tranche normale est $\kappa_{\vec\alpha}(0) = \abs{D_{\vec v}\vec n(\vec p) \cdot \vec v} = \abs{II_p(\vec V,\vec V)}$.
 	\end{dfn}
 \end{document}
