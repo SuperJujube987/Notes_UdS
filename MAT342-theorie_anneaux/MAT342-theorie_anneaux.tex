@@ -1184,7 +1184,7 @@
 		\item peut-on (toujours) obtenir un quotient int\`egre? (corps?)
 	\end{itemize}
 
-	\begin{exer}[p.282, \#9]~
+	\begin{exer}[p.282, \#9\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'algèbre}. Presses Internationales Polytechnique.}]~
 
 	\begin{rapp}
 		$R$ est un anneau \emph{bool\'een} si, et seulement si, $x^2=x$, $\forall x\in R$.
@@ -1797,7 +1797,7 @@
 		De plus, $f$ est surjective, d'o\`u $\sfrac{\RR[x]}{\langle x^2+1 \rangle} \simeq \CC$.
 	\end{exer}
 
-	\begin{exer}[p.306, \#9]
+	\begin{exer}[p.306, \#9\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'algèbre}. Presses Internationales Polytechnique.}]
 		Soit $f:A\to B$ un homomorphisme surjectif d'anneaux, o\`u $B$ est un anneau commutatif. Soit $I$ l'id\'eal engendr\'e par les \'el\'ements de la forme $aa'-a'a$, avec $a,a'\in A$.
 		\begin{enumerate}[label=\alph*)]
 			\item \begin{proof}[Montrer que]
@@ -1857,7 +1857,7 @@
 	\end{exem}
 
 	\begin{thm}
-		Soit $A$ un anneau commutatif non trivial. Un id\'eal $I\trianglelefteq A$ est maximal si, et seulement si, $\sfrac{A}{I}$ est nu corps.
+		Soit $A$ un anneau commutatif non trivial. Un id\'eal $I\trianglelefteq A$ est maximal si, et seulement si, $\sfrac{A}{I}$ est un corps.
 		\begin{proof}
 			$\sfrac{A}{I}$ est un corps si, et seulement si, $\sfrac{A}{I}$ est non trivial et n'admet aucun id\'eal propre. Ceci est \'equivalent \`a ce qu'il n'existe pas d'id\'eal $\overline{J}\trianglelefteq\sfrac{A}{I}$, c'est-\`a-dire, $\nexists J\trianglelefteq A$ t.q. $I\lte J$, d'o\`u $I$ est maximal dans $A$.
 		\end{proof}
@@ -1902,8 +1902,237 @@
 				$f\in\noyau(\varepsilon) \Leftrightarrow \varepsilon(f)=0 \Leftrightarrow f(0)=0 \Leftrightarrow f\in I$.
 
 				On a donc $\sfrac{\mathscr{F}}{I} \simeq \im(\varepsilon) = \RR$ qui est un corps.
-				\item On montre que $\forall f\in\mathscr{F}$, on aura $I+\langle f \rangle=\mathscr{F}$.
+				\item Soit $f\in\mathscr{F}\setminus I$. Alors $(\operatorname{id}_\RR^2+f^2)(x) = x^2+f(x)^2 \neq 0$, $\forall x\in\RR$. Donc, $\operatorname{id}_\RR^2+f^2\in\mathcal{U}(\mathscr{F})$.
+
+				Alors, $\langle I\cup\{f\} \rangle$ contient une unit\'e de $\mathscr{F}$, donc $\langle I\cup\{f\} \rangle = \mathscr{F}$.
 			\end{enumerate}
 		\end{proof}
 	\end{exem}
+
+	\begin{rmq}
+		On peut montrer que si $A$ est commutatif, alors $A$ poss\`ede un id\'eal maximal.
+
+		Alors, tout anneau commutatif a un quotient qui est un corps.
+
+		La preuve utilise le ``lemme de Zorn'', qui est aussi utilis\'e pour montrer que tout espace vectoriel a une base.
+	\end{rmq}
+
+	\begin{dfn}
+		Un id\'eal propre $I$ d'un anneau commutatif $A$ est dit \emph{premier} si $ab\in I$ $\Longrightarrow$ $a\in I$ ou $b\in I$.
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $n\ZZ\trianglelefteq\ZZ$ est premier $\Longleftrightarrow$ $n$ est un nombre premier.
+			\item Dans $\ZZ$, $0$ est premier.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{thm}
+		Soit $A$ un anneau commutatif. $I\trianglelefteq A$ est premier si, et seulement si, $\sfrac{A}{I}$ est int\`egre.
+		\begin{proof}
+			\begin{align*}
+				I \text{ est premier}&\Longleftrightarrow a\notin I,b\notin I \Longrightarrow ab\notin I\\
+				&\Longleftrightarrow a+I\neq0_{\sfrac{A}{I}} \text{ et } b+I\neq0_{\sfrac{A}{I}} \Longrightarrow ab+I\neq0_{\sfrac{A}{I}}\\
+				&\Longleftrightarrow \sfrac{A}{I} \text{ ne poss\`ede pas de diviseur de z\'ero}
+			\end{align*}
+		\end{proof}
+	\end{thm}
+
+	\begin{coro}
+		Si $I$ est maximal, alors $I$ est premier.
+		\begin{proof}
+			Si $I$ est maximal, $\sfrac{A}{I}$ est un corps. Comme $\sfrac{A}{I}$ est un corps, $\sfrac{A}{I}$ est int\`egre. Comme $\sfrac{A}{I}$ est int\`egre, $I$ est premier.
+		\end{proof}
+	\end{coro}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\RR[x] \simeq \sfrac{A}{I}$. Par exemple, $A=\RR[x,y]$, $I=\langle y \rangle$.
+
+			Posons $\varphi : \RR[x,y]\to\RR[x] : p(x,y)\mapsto p(x,0)$ est un morphisme surjectif. $\noyau(\varphi)=\langle y \rangle$, donc $\RR[x] \simeq \sfrac{\RR[x,y]}{\langle y \rangle}$.
+
+			Alors, $\langle y \rangle$ est premier, car $\RR[x]$ est int\`egre, mais pas maximal, car $\RR[x]$ n'est pas un corps.
+			\item $\langle x \rangle$ dans $\ZZ[x]$. Prenons $\sfrac{\ZZ[x]}{\langle x \rangle} \simeq \ZZ$.
+
+			Posons $\varepsilon : \ZZ[x]\to\ZZ : p(x)\mapsto p(0)$ est un morphisme surjectif. $\noyau(\varepsilon)=\langle x \rangle$.
+
+			Alors, $\langle x \rangle$ est premier dans $\ZZ[x]$, car $\ZZ$ est int\`egre, mais pas maximal, car $\ZZ$ n'est pas un corps.
+			\item $\langle x \rangle$ dans $\RR[x]$ est maximal, car $\sfrac{\RR[x]}{\langle x \rangle} \simeq \RR$ qui est un corps.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{exer}
+		Trouvons $J\trianglelefteq\ZZ[x]$ t.q. $\langle x \rangle \subsetneq J \subsetneq \ZZ[x]$.
+
+		Prenons $\langle x \rangle + 2\ZZ$. On a les bonnes inclusions:
+		\begin{itemize}
+			\item $\langle x \rangle \subsetneq J$: \checkmark
+			\item $\langle x \rangle + 2\ZZ \subsetneq \ZZ[x]$: En effet, si $1\in \langle x \rangle + 2\ZZ$, $1=xq(x)+2n$, pour un $n\in\ZZ$. Alors, $0=(2n-1)+xq(x)$.
+
+			Le coefficient de degr\'e 0 \`a droite est $2n-1$. Il faut donc que $2n-1=0$, \lightning.
+		\end{itemize}
+
+		Est-ce que $J$ est maximal?
+
+		Posons $\varphi : \ZZ[x]\to\ZZ_2 : \sum_{j=0}^{n} a_jx^j\mapsto a_0+2\ZZ$. $\varphi$ est un morphisme surjectif d'anneaux, car $\varphi = (\ZZ[x] \xrightarrow{\varepsilon} \ZZ \xrightarrow{p} \ZZ_2)$, de noyau $J$.
+	\end{exer}
+
+	\section{Corps de fractions}
+	L'id\'ee est la suivante.
+
+	On a une construction qui permet d'associer un anneau int\`egre \`a un corps commutatif.
+	\[ \ZZ \leadsto \QQ \]
+	$\QQ$ est le plus petit corps qui contient $\ZZ$.
+
+	On veut pouvoir construire un corps \`a partir d'un anneau int\`egre.
+	\[ A \leadsto Q(A) \]
+
+	\begin{dfn}
+		Soit $A$ un anneau int\`egre. Un corps commutatif $Q$ est dit \^etre un \emph{corps de fractions} pour $A$ si
+		\begin{itemize}
+			\item $\exists j:A\to Q$ un morphisme injectif d'anneaux.
+			\item Pour tout autre corps commutatif $\Bbbk$ et tout morphisme injectif $f:A\to\Bbbk$.
+		\end{itemize}
+
+		$\exists!\widetilde{f}:Q\to\Bbbk$ t.q. $\widetilde{f}\circ j=f$.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[r, hook, "j"] \ar[rd, "f"'] & Q \ar[d, dashed, "\widetilde{f}"]\\
+				& \Bbbk
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+	\end{dfn}
+
+	\begin{rmq}
+		\begin{enumerate}
+			\item On montre l'existence de $Q$ et son unicit\'e \`a isomorphisme pr\`es.
+			\item Dans la premi\`ere condition, $\im(j) \simeq \sfrac{A}{\noyau(j)} \simeq A$, donc $Q$ contient un sous-anneau isomorphe \`a $A$.
+			\item $\noyau(\widetilde{f}) \trianglelefteq \Bbbk$, alors $\noyau(\widetilde{f})=0$ ou $\noyau(\widetilde{f})=\Bbbk$. Si $\noyau(\widetilde{f})=\Bbbk$, on a $\widetilde{f}=0$ et donc $0=\widetilde{f}\circ j=f$, qui est absurde.
+
+			Ainsi, $\widetilde{f}$ est une injection.
+		\end{enumerate}
+	\end{rmq}
+
+	\begin{lem}
+		S'il existe, un corps de fractions associ\'e \`a un anneau est unique \`a isomorphisme pr\`es.
+		\begin{proof}
+			Supposons deux corps de fractions $Q,Q'$ avec $j:A\to Q,j':A\to Q'$ deux morphismes injectifs.
+
+			Comme $Q$ est un corps de fractions, $\exists!\widetilde{j'}:Q\to Q'$. De m\^eme, $\exists!\widetilde{j}:Q'\to Q$.
+
+			Alors, $j = \widetilde{j} j' = \widetilde{j} (\widetilde{j'} j) = (\widetilde{j} \widetilde{j'}) j$.
+
+			Comme $\operatorname{id}_Q \circ j = j = \widetilde{j} \widetilde{j'} j$. On a, par unicit\'e, $\widetilde{j} \widetilde{j'} = \operatorname{id}_Q$.
+
+			De m\^eme, $\widetilde{j'} \widetilde{j} = \operatorname{id}_Q$.
+
+			Donc, $\widetilde{j}$ et $\widetilde{j'}$ sont des isomorphismes mutuellement inverses.
+		\end{proof}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[r, hook, "j"] \ar[rd, hook, "j'"'] & Q \ar[d, dashed, "\exists!\widetilde{j'}"]\\
+				& Q'
+			\end{tikzcd}
+			\hspace{2cm}
+			\begin{tikzcd}
+				A \ar[r, hook, "j"] \ar[rd, hook, "j"'] & Q' \ar[d, dashed, "\exists!\widetilde{j}"]\\
+				& Q
+			\end{tikzcd}
+			\hspace{2cm}
+			\begin{tikzcd}
+				A \ar[r, hook, "j"] \ar[rd, hook, "\widetilde{j}\widetilde{j'}"'] & Q \ar[d, dashed, "\exists!*"]\\
+				& Q
+			\end{tikzcd}
+			\caption{Diagrammes repr\'esentant la situation}
+		\end{figure}
+	\end{lem}
+
+	\begin{lem}
+		Soit $A$ un anneau int\`egre. Dans $A\times A_*$, on pose $(a,b) \sim (c,d) \xLeftrightarrow{\operatorname{def}} ad=bc$. Cette relation est une \'equivalence.
+		\begin{proof}~
+
+			\begin{itemize}
+				\item R\'eflexivit\'e:
+
+				$(a,b)$ donn\'e, on a bien $ab=ba$, d'o\`u $(a,b) \sim (a,b)$.
+				\item Sym\'etrie
+				\begin{align*}
+				(a,b) \sim (c,d)&\Leftrightarrow ad=bc\\
+				&\Leftrightarrow cb=da\\
+				&\Leftrightarrow (c,d) \sim (a,b)
+				\end{align*}
+				\item Transitivit\'e
+
+				$(a,b) \sim (c,d)$ et $(c,d) \sim (e,f)$. Alors, $ad=bc$ et $cf=de$. Donc, $adf=bcf=bde$. Comme $A$ est commutatif et int\`egre, on obtient $af=be$, c'est-\`a-dire, $(a,b) \sim (e,f)$.
+			\end{itemize}
+		\end{proof}
+	\end{lem}
+
+	\begin{nota}
+		On note $\frac{a}{b}$ la classe de $(a,b)$ dans $\sfrac{A\times A_*}{\sim}$. On l'appelle une fraction.
+	\end{nota}
+
+	\begin{lem}
+		L'ensemble $Q(A) \coloneq \sfrac{A\times A_*}{\sim}$ muni des op\'erations
+		\[ \frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd} \qquad \frac{a}{b} \cdot \frac{c}{d}=\frac{ac}{bd} \]
+		est un corps commutatif.
+		\begin{proof}[D\'emonstration partielle]~
+
+			\begin{enumerate}
+				\item Les op\'erations sont correctement d\'efinies.
+
+				$\frac{a}{b}=\frac{a'}{b'}$ et $\frac{c}{d}=\frac{c'}{d'}$. On veut que $\frac{a}{b}+\frac{c}{d}=\frac{a'}{b'}+\frac{c'}{d'}$.
+				\begin{align*}
+					\begin{split}
+						\frac{a}{b}+\frac{c}{d}&= \frac{ad+bc}{bd}
+					\end{split}
+					&
+					\begin{split}
+						\frac{a'}{b'}+\frac{c'}{d'}&= \frac{a'd'+b'c'}{b'd'}
+					\end{split}
+				\end{align*}
+
+				De plus,
+				\begin{align*}
+					(ad+bc)(b'd')&= adb'd'+bcb'd'\\
+					&= a'dbd'+bc'd'd\\
+					&= db(a'd'+c'b')
+				\end{align*}
+
+				De m\^eme, on peut montrer que $\frac{a}{b}\frac{c}{d} = \frac{a'}{b'}\frac{c'}{d'}$.
+				\item $(Q(A),+)$ est un groupe ab\'elien.
+				\begin{itemize}
+					\item Associativit\'e: \checkmark
+					\item Commutativit\'e: \checkmark
+					\item Neutre: $\frac{0}{x}$, $\forall x\in A_*$. En effet, $\frac{0}{x}+\frac{a}{b} = \frac{0b+ax}{bx} = \frac{ax}{bx}$, mais $(ax,bx) \sim (a,b)$ $\forall a,b$. Donc, $\frac{ax}{bx}=\frac{a}{b}$.
+					\item Oppos\'e: $-\frac{a}{b} = \frac{-a}{b} = \frac{a}{-b}$.
+				\end{itemize}
+				\item $(Q(A), \cdot)$ est un mono\"ide.
+				\begin{itemize}
+					\item Associativit\'e: \checkmark
+					\item Commutativit\'e: \checkmark
+					\item Neutre: $\id_{Q(A)}=\frac{x}{x}$, $\forall x\in A$.
+				\end{itemize}
+				\item Les \'el\'ements non nuls de $Q(A)$ sont inversibles.
+				\begin{align*}
+					\left(\frac{a}{b}\right)^{-1}&= \frac{b}{a}
+				\end{align*}
+				En effet,
+				\begin{align*}
+					\frac{a}{b}\frac{b}{a}&= \frac{ab}{ab}\\
+					\shortintertext{comme $A$ est int\`egre, $a\neq0$, $b\neq0$, alors $ab\neq0$}
+					&= \id_{Q(A)}
+				\end{align*}
+				\item Distributivit\'e: \checkmark
+			\end{enumerate}
+		\end{proof}
+	\end{lem}
+
+	\begin{thm}
+		Si $A$ est un anneau int\`egre, alors $Q(A)$ est un corps de fractions pour $A$.
+	\end{thm}
 \end{document}

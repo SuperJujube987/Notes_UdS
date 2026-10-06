@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  2 OCT 2026 10:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  6 OCT 2026 10:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1056,7 +1056,7 @@ Chapitre 3.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19] [20] [21] [22] (MAT342-theorie_anneaux.aux)
+[19] [20] [21] [22] [23] [24] (MAT342-theorie_anneaux.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -1068,14 +1068,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT342-theorie_anneaux.out' has not changed.
 
-(rerunfilecheck)             Checksum: 4133017D368612DBDFD25EC590CC8405;995.
+(rerunfilecheck)             Checksum: E999830FACA9B26F023442C757054B76;1145.
  ) 
 Here is how much of TeX's memory you used:
- 27335 strings out of 467441
- 536783 string characters out of 5407591
+ 27504 strings out of 467441
+ 540500 string characters out of 5407591
  982161 words of memory out of 5000000
- 56025 multiletter control sequences out of 15000+600000
- 642588 words of font info for 112 fonts, out of 8000000 for 9000
+ 56172 multiletter control sequences out of 15000+600000
+ 643239 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,25n,104p,561b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/dpi600\wasy
@@ -1096,23 +1096,25 @@ amsfonts/cm/cmr10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1
 ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jujub/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/jujub/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jujub/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/
-jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
-:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti
-10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/doubles
-troke/dsrom10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jujub/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm5.pfb><C:/Use
-rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm
-7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsf
-s10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/r
-sfs7.pfb>
-Output written on MAT342-theorie_anneaux.pdf (24 pages, 410170 bytes).
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jujub/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/j
+ujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:
+/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmti10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmti8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/doublestroke/dsrom10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jujub/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/jujub/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/U
+sers/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
+bm5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/symbols/msbm7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/rsfs/rsfs10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/rsfs/rsfs7.pfb>
+Output written on MAT342-theorie_anneaux.pdf (26 pages, 454470 bytes).
 PDF statistics:
- 465 PDF objects out of 1000 (max. 8388607)
- 176 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 513 PDF objects out of 1000 (max. 8388607)
+ 196 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
