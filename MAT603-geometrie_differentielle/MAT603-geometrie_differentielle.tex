@@ -78,6 +78,9 @@
 \def\CC{\mathbb{C}}
 
 \def\id{\mathds{1}}
+\def\iden{\operatorname{id}}
+\def\pff{\operatorname{I}}
+\def\dff{\operatorname{II}}
 
 \def\sech{\operatorname{sech}}
 \def\csch{\operatorname{csch}}
@@ -1318,28 +1321,28 @@
 
 	\begin{dfn}
 		La \emph{premi\`ere forme fondamentale} est le produit scalaire \[ \begin{array}{rcl}
-			I_p:T_pM \times T_pM&\to&\RR\\
+			\pff_p:T_pM \times T_pM&\to&\RR\\
 			(\vec U,\vec V)&\mapsto&\vec U \cdot \vec V
 		\end{array} \] o\`u $\cdot$ est le produit scalaire euclidien de $\RR^3$.
 
 		Ce qu'on appelle ``g\'eom\'etrie intrins\`eque'' est la premi\`ere forme fondamentale.
 	\end{dfn}
 
-	Soit $\vec X:U \to M\cap V$ une param\'etrisation r\'eguli\`ere avec $p\in M\cap V$. On a la base $\{\vec X_u, \vec X_v\}$ de $T_pM$. En termes de cette base, $I_p$ est d\'etermin\'ee par
+	Soit $\vec X:U \to M\cap V$ une param\'etrisation r\'eguli\`ere avec $p\in M\cap V$. On a la base $\{\vec X_u, \vec X_v\}$ de $T_pM$. En termes de cette base, $\pff_p$ est d\'etermin\'ee par
 	\begin{align*}
 		\begin{split}
-			E&= I_p(\vec X_u, \vec X_u)\\
+			E&= \pff_p(\vec X_u, \vec X_u)\\
 			&= \vec X_u \cdot \vec X_u
 		\end{split}
 		&
 		\begin{split}
-			F&= I_p(\vec X_u, \vec X_v)\\
-			&= I_p(\vec X_v, \vec X_u)\\
+			F&= \pff_p(\vec X_u, \vec X_v)\\
+			&= \pff_p(\vec X_v, \vec X_u)\\
 			&= \vec X_u \cdot \vec X_v
 		\end{split}
 		&
 		\begin{split}
-			G&= I_p(\vec X_v, \vec X_v)\\
+			G&= \pff_p(\vec X_v, \vec X_v)\\
 			&= \vec X_v \cdot \vec X_v
 		\end{split}
 	\end{align*}
@@ -1353,7 +1356,7 @@
 	\end{array} \]
 	On obtient un produit scalaire sur $\RR^2$ donn\'e par
 	\begin{multline*}
-		I_{\vec X}((a_1,b_1),(a_2,b_2)) = I_p(D\vec X(a_1,b_1), d\vec X(a_2,b_2)) = I_p(a_1\vec X_u+b_1\vec X_v, a_2\vec X_u+b_2\vec X_v)\\
+		\pff_{\vec X}((a_1,b_1),(a_2,b_2)) = \pff_p(D\vec X(a_1,b_1), d\vec X(a_2,b_2)) = \pff_p(a_1\vec X_u+b_1\vec X_v, a_2\vec X_u+b_2\vec X_v)\\
 		= a_1a_2E + (a_1b_2+b_1a_2)F + b_1b_2G = \begin{bmatrix}
 			a_1&b_1
 		\end{bmatrix} \begin{bmatrix}
@@ -1363,7 +1366,7 @@
 		\end{bmatrix}
 	\end{multline*}
 
-	On note donc $I_{\vec X} = \begin{bmatrix}
+	On note donc $\pff_{\vec X} = \begin{bmatrix}
 		E&F\\F&G
 	\end{bmatrix}$.
 
@@ -1372,7 +1375,7 @@
 	\end{dfn}
 
 	\begin{dfn}
-		Deux surfaces $M$ et $M^*$ sont \emph{localement isom\'etriques} si $\forall p_0\in M$, il existe deux param\'etrisations r\'eguli\`ere $\vec X:U\to M$ et $\vec X^*:U\to M^*$ o\`u $\vec X(U_0,V_0)=p_0$ t.q. $\forall p=\vec X(u,v)$ et $p^*=\vec X^*(u,v)$ on a $I_{\vec X}=I_{\vec X^*}$. C'est-\`a-dire, $E=E^*$, $F=F^*$ et $G=G^*$.
+		Deux surfaces $M$ et $M^*$ sont \emph{localement isom\'etriques} si $\forall p_0\in M$, il existe deux param\'etrisations r\'eguli\`ere $\vec X:U\to M$ et $\vec X^*:U\to M^*$ o\`u $\vec X(U_0,V_0)=p_0$ t.q. $\forall p=\vec X(u,v)$ et $p^*=\vec X^*(u,v)$ on a $\pff_{\vec X}=\pff_{\vec X^*}$. C'est-\`a-dire, $E=E^*$, $F=F^*$ et $G=G^*$.
 
 		Dans ce cas, on a $f=\vec X^* \circ \vec X^{-1}$ une bijection pr\'eservant les distances et les angles.
 	\end{dfn}
@@ -1429,7 +1432,7 @@
 		\begin{proof}[m.q.]
 			l'aire de $M$ est intrins\`eque.
 			\begin{align*}
-				I_{\vec X}&= \begin{bmatrix}
+				\pff_{\vec X}&= \begin{bmatrix}
 					E&F\\F&G
 				\end{bmatrix}\\
 				&= \begin{bmatrix}
@@ -1497,7 +1500,7 @@
 	\end{dfn}
 
 	\begin{exer}
-		Montrer que $\vec X$ est conforme si, et seulement si, $E=G$ et $F=0$. C'est-\`a-dire $I=\begin{bsmallmatrix}
+		Montrer que $\vec X$ est conforme si, et seulement si, $E=G$ et $F=0$. C'est-\`a-dire $\pff=\begin{bsmallmatrix}
 			E&0\\0&E
 		\end{bsmallmatrix}$.
 	\end{exer}
@@ -1645,8 +1648,8 @@
 	\end{exem}
 
 	\begin{dfn}
-		La \emph{deuxi\`eme forme fondamentale} est $II_p : T_pM\times T_pM\to\RR : (\vec U,\vec V)\mapsto S_p(\vec U)\cdot\vec V$. $II_p(\vec U,\vec V)=II_p(\vec V,\vec U)$.
+		La \emph{deuxi\`eme forme fondamentale} est $\dff_p : T_pM\times T_pM\to\RR : (\vec U,\vec V)\mapsto S_p(\vec U)\cdot\vec V$. $\dff_p(\vec U,\vec V)=\dff_p(\vec V,\vec U)$.
 
-		La courbure de la tranche normale est $\kappa_{\vec\alpha}(0) = \abs{D_{\vec v}\vec n(\vec p) \cdot \vec v} = \abs{II_p(\vec V,\vec V)}$.
+		La courbure de la tranche normale est $\kappa_{\vec\alpha}(0) = \abs{D_{\vec v}\vec n(\vec p) \cdot \vec v} = \abs{\dff_p(\vec V,\vec V)}$.
 	\end{dfn}
 \end{document}
