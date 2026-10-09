@@ -9,6 +9,7 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning, calc, automata}
 \usepackage{tikz-cd}
+\usepackage{stmaryrd}
 \usepackage{wasysym}
 \usepackage[dvipsnames]{xcolor}
 
@@ -1999,7 +2000,7 @@
 		\begin{figure}[h]
 			\centering
 			\begin{tikzcd}
-				A \ar[r, hook, "j"] \ar[rd, "f"'] & Q \ar[d, dashed, "\widetilde{f}"]\\
+				A \ar[r, hook, "j"] \ar[rd, hook, "f"'] & Q \ar[d, dashed, "\widetilde{f}"]\\
 				& \Bbbk
 			\end{tikzcd}
 			\caption{Diagramme repr\'esentant la situation}
@@ -2134,5 +2135,68 @@
 
 	\begin{thm}
 		Si $A$ est un anneau int\`egre, alors $Q(A)$ est un corps de fractions pour $A$.
+		\begin{proof}
+			Il faut montrer la propri\'et\'e universelle.
+
+			Posons $j : A\to Q(A) : a\mapsto\frac{a}{\id_A}$ un morphisme d'anneaux.
+			\begin{align*}
+				\begin{split}
+					j(a+b)&= \frac{a+b}{\id_A}\\
+					&= \frac{a}{\id_A}+\frac{b}{\id_A}\\
+					&= j(a)+j(b)
+				\end{split}
+				&
+				\begin{split}
+					j(ab)&= \frac{ab}{\id_A}\\
+					&= \frac{a}{\id_A}\frac{b}{\id_A}\\
+					&= j(a)j(b)
+				\end{split}
+				&
+				\begin{split}
+					j(\id_A)&= \frac{\id_A}{\id_A}\\
+					&= \id_{Q(A)}
+				\end{split}
+			\end{align*}
+
+			Si $j(a)=0$, alors $0=\frac{a}{\id_A}$, c'est-\`a-dire, $\frac{0}{\id_A}=\frac{a}{\id_A}$, d'o\`u $(0,\id_A)\sim(a,\id_A)$. Donc, $0\id_A=\id_A a$. Ainsi, $0=a$.
+
+			Supposons que $f:A\hookrightarrow\Bbbk$, avec $\Bbbk$ un corps. On veut $\widetilde{f}\left(\frac{a}{b}\right)$ pour $\frac{a}{b}\in Q(A)$.
+			\[ \widetilde{f}\left(\frac{a}{\id_A}\right) = \widetilde{f}\circ j(a) = f(a) \]
+			\[ \id_\Bbbk = \widetilde{f}\left(\id_{Q(A)}\right) = \widetilde{f}\left(\frac{b}{\id_A}\frac{\id_A}{b}\right) = \widetilde{f}\left(\frac{b}{\id_A}\right) \widetilde{f}\left(\frac{\id_A}{b}\right) = f(b)\widetilde{f}\left(\frac{\id_A}{b}\right) \]
+
+			Comme $f$ est injectif, $f(b)\neq0$ quand $b\neq0$. Alors, $\widetilde{f}\left(\frac{\id_A}{b}\right)=f(b)^{-1}$ dans $\Bbbk$.
+
+			Par ailleurs, \[ \widetilde{f}\left(\frac{a}{b}\right) = \widetilde{f}\left(\frac{a}{\id_A}\frac{\id_A}{b}\right) = \widetilde{f}\left(\frac{a}{\id_A}\right) \widetilde{f}\left(\frac{\id_A}{b}\right) = f(a)f(b)^{-1} \]
+
+			Il faut voir que cette formule d\'efinit correctement une application.
+
+			Si $\frac{a}{b}=\frac{a'}{b'}$ dans $Q(A)$, $\widetilde{f}\left(\frac{a}{b}\right) = f(a)f(b)^{-1}$ et $\widetilde{f}\left(\frac{a'}{b'}\right) = f(a')f(b')^{-1}$. Or, $ab'=a'b$ dans $A$, d'o\`u $f(ab') = f(a'b)$, c'est-\`a-dire, $f(a)f(b') = f(a')f(b)$. Comme $\Bbbk$ est un corps, $f$ est injective et $b\neq0$, on a directement $f(a)f(b)^{-1}=f(a')f(b')^{-1}$, c'est-\`a-dire, $\widetilde{f}\left(\frac{a}{b}\right) = \widetilde{f}\left(\frac{a'}{b'}\right)$.
+
+			Voyons que $\widetilde{f}$ est un morphisme injectif d'anneaux.
+			\begin{align*}
+				\widetilde{f}\left(\frac{a}{b}+\frac{a'}{b'}\right)&= \widetilde{f}\left(\frac{ab'+a'b}{bb'}\right)\\
+				&= f(ab'+a'b)f(bb')^{-1}\\
+				&= \left\lgroup f(a)f(b')+f(a')f(b) \right\rgroup f(b)^{-1} f(b')^{-1}\\
+				&= f(a)f(b)^{-1} + f(a')f(b')^{-1}\\
+				&= \widetilde{f}\left(\frac{a}{b}\right) + \widetilde{f}\left(\frac{a'}{b'}\right)
+			\end{align*}
+
+			La v\'erification de la multiplicativit\'e et que les neutres sont associ\'es est laiss\'ee en exercice.
+		\end{proof}
 	\end{thm}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $Q(\ZZ)$ est $\QQ$.
+			\item $Q(\ZZ[x])$ est $\left\{ \frac{p(x)}{q(x)} ~\middle|~ p(x),q(x) \in \ZZ[x] \right\}$. $\QQ[x]\subseteq Q(\ZZ[x])$. On a que $Q(\ZZ[x])$ est le plus petit corps qui contient $\ZZ[x]$. Or, $\QQ[x]$ n'est pas un corps.
+			\item $Q(\QQ[x]) = Q(\ZZ[x])$. $Q(\QQ[x]) = \left\{ \frac{\alpha(x)}{\beta(x)} ~\middle|~ \alpha(x),\beta(x)\in\QQ[x] \right\}$.
+			\item $Q(\ZZ[i])=\QQ[i]$. \[ \frac{1}{a+bi} \frac{a-bi}{a-bi} = \frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}i \] Comme $a,b\in\ZZ$, les coefficients obtenus sont dans $\QQ$.
+			\item $Q(\ZZ[\sqrt{2}])=\QQ[\sqrt{2}]$.
+
+			$Q(\QQ[\sqrt{2}])=\QQ[\sqrt{2}]$.
+			\item $Q(\RR\llbracket x \rrbracket)$. Par exemple, $x\in\RR\llbracket x\rrbracket$ n'est pas inversible dans $\RR\llbracket x\rrbracket$. Dans $Q(\RR\llbracket x\rrbracket)$, on a $\frac{1}{x}, \frac{1}{x^2}, \dots$, leurs sommes \emph{finies} et leurs produits.
+			\[ Q(\RR\llbracket x\rrbracket) = \left\{ \sum_{j=-N}^{\infty} a_jx^j ~\middle|~ a_j\in\RR \right\} \]
+			Il s'agit de polyn\^ome en $x^{-1}$ additionn\'e \`a une s\'erie formelle en $x$.
+		\end{enumerate}
+	\end{exem}
 \end{document}
