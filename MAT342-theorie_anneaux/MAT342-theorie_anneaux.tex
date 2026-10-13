@@ -97,6 +97,7 @@
 
 \def\id{\mathds{1}}
 
+\def\iden{\operatorname{id}}
 \def\im{\operatorname{Im}}
 \def\noyau{\operatorname{Ker}}
 
@@ -2199,4 +2200,287 @@
 			Il s'agit de polyn\^ome en $x^{-1}$ additionn\'e \`a une s\'erie formelle en $x$.
 		\end{enumerate}
 	\end{exem}
+
+	\chapter{Polyn\^omes}
+	Soit $A$ un anneau commutatif.
+
+	\begin{dfn}
+		$A^{(\NN)} = \left\{ a:\NN\to A ~\middle|~ a \text{ est de support fini} \right\}$.
+
+		On \'ecrit, pour $p\in A^{(\NN)}$, $p=(a(0), a(1), \dots)$ ou $p=(a_0,a_1,\dots)$.
+
+		Les $a_i$ sont les \emph{coefficients} de $p$. Le \emph{degr\'e} de $p$, $\partial p = \left\{ \begin{array}{rcl}
+			\max\left\{ j ~\middle|~ a_j\neq0 \right\}&\text{si}&\text{l'ensemble est non vide}\\
+			-\infty&\text{si}&a_j=0\forall j
+		\end{array} \right.$.
+
+		\begin{itemize}
+			\item L'addition dans $A^{(\NN)}$ se fait composante \`a composante.
+
+			$p=(a_i)_{i\in\NN}, q=(b_j)_{j\in\NN}$, alors $p+q \coloneq (a_j+b_j)_{j\in\NN}$.
+			\item Le produit dans $A^{(\NN)}$ est de convolution.
+
+			Donn\'es $p=(a_j)_{j\in\NN}$ et $q=(b_j)_{j\in\NN}$. On pose $r=pq=(c_j)_{j\in\NN}$, o\`u $c_k = \sum_{j=0}^{k}a_jb_{k-j}$.
+		\end{itemize}
+	\end{dfn}
+
+	\begin{rmq}
+		\begin{itemize}
+			\item L'addition est induite par l'addition de $A$.
+			\item Le produit est commutatif.
+		\end{itemize}
+	\end{rmq}
+
+	\begin{exem}[Une repr\'esentation plus famili\`ere]
+		$p_0=(1,0,\dots)$, $p_1=(0,1,0,\dots)$, $p_j=(0,0,\dots,\underbrace{1}_{\text{pos }j},0,\dots)$.
+
+		Alors, $\{p_j \mid j\in\NN\}$ engendre $A^{(\NN)}$ par combinaison $A$-lin\'eaire. Il s'agit d'une famille qui est $A$-lin\'eairement ind\'ependante. Alors, $p\in A^{(\NN)}$ s'\'ecrit $p = \sum_{j\in\NN}a_jp_j = \sum_{j=0}^{\partial p}a_jp_j$.
+
+		$p_ip_j = p_{i+j}$. $p_0$ est le neutre multiplicatif. $p_1$ engendre tous les autres $p_j$.
+
+		Il est commun d'\'ecrire $x=p_1$ et donc $p=\sum_{j=0}^{\partial p}a_jx^j$, et aussi on note $A^{(\NN)} \coloneq A[x]$.
+	\end{exem}
+
+	\begin{rmq}
+		Un polyn\^ome est $p$, pas $p(x)$.
+	\end{rmq}
+
+	\begin{lem}
+		Soient $p,q\in A[x]$. Alors, $\partial(pq) \lte \partial p+\partial q$. Si $A$ est int\`egre, on a l'\'egalit\'e.
+
+		\begin{proof}
+			On a $p=\sum_{i\in\NN}a_ix^i$ et $q=\sum_{j=\in\NN}b_jx^j$.
+
+			$a_i=0$ pour $i>\partial p$ et $b_j=0$ pour $j>\partial q$.
+
+			Soit $r=\sum_{j\in\NN}c_jx^j$. Alors, en vertu de la ligne pr\'ec\'edente, pour $k>\partial p+\partial q$, on aura $c_k=0$.
+
+			Donc, $\partial r \lte \partial p+\partial q$.
+
+			Le coefficient de $x^{\partial p+\partial q}$ dans $r$ est $a_{\partial p}b_{\partial q}$ qui est non nul si $A$ est int\`egre.
+		\end{proof}
+	\end{lem}
+
+	\begin{exem}
+		Dans $\ZZ_6[x]$, $p=1+2x$, $q=1+5x+3x^2$.
+		\begin{align*}
+			pq&= (1+2x)(1+5x+3x^2)\\
+			&= 1+x+x^2
+		\end{align*}
+		$\partial pq=2<\partial p+\partial q=3$.
+	\end{exem}
+
+	\begin{thm}
+		$A[x]$ est un anneau commutatif. Si $A$ est int\`egre, $A[x]$ l'est aussi.
+
+		\begin{subproof}[Id\'ee de la d\'emonstration]~
+
+			\begin{itemize}
+				\item $(A[x],+)$ est un groupe ab\'elien: \checkmark
+
+				Ce sont des fonctions qui arrivent dans $A$.
+				\item $(A[x],\cdot)$ est un mono\"ide commutatif
+				\begin{itemize}
+					\item neutre: $p_0=x^0$;
+					\item commutativit\'e: \checkmark, car $A$ l'est;
+					\item associativit\'e: calcul avec une gestion d'indices.
+				\end{itemize}
+				\item Distributivit\'e: \checkmark
+			\end{itemize}
+
+			Supposons que $A$ est int\`egre. Soient $p,q\in A[x]$ non nuls de degr\'es $d,e$ respectivement. Le coefficient de $x^{d+e}$ dans $pq$ est $a_db_e$. Comme $A$ est int\`egre et $a_d\neq0,b_e\neq0$, on a que $pq\neq0$.
+		\end{subproof}
+	\end{thm}
+
+	\begin{rmq}
+		On identifie $A$ \`a un sous-anneau de $A[x]$. Les polyn\^omes de degr\'e $\lte 0$.
+
+		On a $j : A\to A[x] : a\mapsto ax^0+0x^1+\cdots$.
+
+		Le morphisme $j$ est injectif, donc $\im(j)\simeq A$.
+	\end{rmq}
+
+	\begin{thm}[Propri\'et\'e universelle]
+		Soit $A$ un anneau commutatif. Alors, $A[x]$ v\'erifie
+		\begin{enumerate}
+			\item $\exists j:A\to A[x]$ un morphisme d'anneaux injectif.
+			\item $\forall f:A\to B$ morphisme d'anneaux avec $B$ commutatif et tout $b\in B$, $\exists!\widetilde{f}:A[x]\to B$ t.q. $\widetilde{f}\circ j=f$ et $\widetilde{f}(x)=b$.
+		\end{enumerate}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[r, hook, "j"] \ar[rd, "f"'] & A[x] \ar[d, dashed, "\widetilde{f}"]\\
+				& B
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+
+		\begin{proof}
+			\begin{enumerate}
+				\item \checkmark
+				\item Pour $p=\sum_{i=0}^{d}a_ix^i\in A[x]$.
+				\begin{align*}
+					\widetilde{f}(p)&= \widetilde{f}\left( \sum_{i=0}^{d}a_ix^i \right)\\
+					\shortintertext{comme $\widetilde{f}$ est un morphisme d'anneaux,}
+					&= \sum_{i=0}^{d}\widetilde{f}(a_i) \widetilde{f}(x^i)\\
+					&= \sum_{i=0}^{d}\widetilde{f}(j(a_i)) \widetilde{f}(x)^i\\
+					&= \sum_{i=0}^{d}f(a_i)b^i
+				\end{align*}
+
+				Il faut v\'erifier que $\widetilde{f}$ est un morphisme d'anneaux.
+				\begin{align*}
+					\begin{split}
+						\widetilde{f}(p+q)&= \widetilde{f}(p)+\widetilde{f}(q)
+					\end{split}
+					&
+					\begin{split}
+						\widetilde{f}(pq)&= \widetilde{f}(p)\widetilde{f}(q)
+					\end{split}
+					&
+					\begin{split}
+						\widetilde{f}(\id_{A[x]})&= \id_B
+					\end{split}
+				\end{align*}
+
+				Si $p=\sum \alpha_jx^j$ et $q=\sum \beta_jx^j$. Alors,
+				\begin{align*}
+					\widetilde{f}(p+q)&= \widetilde{f}\left(\sum_j(\alpha_j+\beta_j)x^j\right)\\
+					&= \sum_jf(\alpha_j+\beta_j)b^j\\
+					&= \sum_j(f(\alpha_j)+f(\beta_j))b^j\\
+					&= \sum_jf(\alpha_j)c^j+\sum_jf(\beta_j)x^j\\
+					&= \widetilde{f}(p)+\widetilde{f}(q)
+				\end{align*}
+				La v\'erification que $\widetilde{f}(pq) = \widetilde{f}(p)\widetilde{f}(q)$ est similaire.
+				\begin{align*}
+					\widetilde{f}(\id_{A[x]})&= \widetilde{f}(j(\id_A))\\
+					&= f(\id_A)\\
+					&= \id_B
+				\end{align*}
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
+	\begin{coro}
+		On sp\'ecialise \`a $B=A$ et $f=\iden_A$.
+
+		Soit $A$ un anneau commutatif, $c\in A$ fix\'e. Alors, $\exists!\varepsilon_c:A[x]\to A$ t.q. $\varepsilon_c\circ j=\iden_A$ et $\varepsilon_c(x)=c$.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[r,hook] \ar[rd,"\iden_A"'] & A[x] \ar[d,dashed]\\
+				& A
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+	\end{coro}
+
+	\begin{rmq}
+		\begin{enumerate}
+			\item $\varepsilon\left(\sum_ja_jx^j\right) = \sum_j\varepsilon_c(a_j)c^j = \sum_ja_jc^j$.
+
+			On pense \`a $p(c)$.
+			\item $\varepsilon_c$ est toujours surjectif.
+			\item On a, pour $p\in A[x]$, une ``fonction polynomiale'' $\varphi_p : A\to A : c\mapsto\varepsilon_c(p)$.
+
+			Il ne faut pas confondre un polyn\^ome $p\in A[x]$ avec la fonction polynomiale $\varphi_p:A\to A$ qu'il induit.
+		\end{enumerate}
+	\end{rmq}
+
+	\begin{exem}
+		$A=\ZZ_3$. Dans $\ZZ_3[x]$, $p=x+x^2$ et $q=2x+x^2+2x^3$. On a bien que $p\neq q$ dans $\ZZ_3[x]$. Pourtant, $\varphi_p=\varphi_q$. En effet,
+		\begin{align*}
+			\begin{split}
+				\varphi_p(0)&= 0\\
+				\varphi_p(1)&= 2\\
+				\varphi_p(2)&= 0
+			\end{split}
+			&
+			\begin{split}
+				\varphi_q(0)&= 0\\
+				\varphi_q(1)&= 2\\
+				\varphi_q(2)&= 0
+			\end{split}
+		\end{align*}
+	\end{exem}
+
+	\begin{rapp}
+		$\ZZ[i]$, $\ZZ[\sqrt{3}]$.
+
+		Comment peut-on les comparer \`a $\ZZ[x]$.
+	\end{rapp}
+
+	\begin{coro}
+		Soit $A$ un anneau commutatif. Soit $B$ un anneau qui contient $A$. Soit $b\in B$ fixe. Soit $\iota:A \hookrightarrow B$. Alors, $\exists!\widetilde{\iota}:A[x]\to B$ t.q. $\widetilde{\iota}\circ j=\iota$ et $\widetilde{\iota}(x)=b$.
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[r,hook,"j"] \ar[rd,hook,"\iota"'] & A[x] \ar[d,dashed,"\widetilde{\iota}"]\\
+				& B
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+	\end{coro}
+
+	\begin{rmq}
+		$\widetilde{\iota}\left(\sum a_kx^k\right) = \sum_k\widetilde{\iota}(a_k)b^k = \sum_k a_kb^k$.
+
+		$\im(\widetilde{\iota})$ est un sous-anneau de $B$ qui contient $A$ et $b$. C'est le plus petit tel anneau.
+
+		On le note $A[b]$. Voyons la minimalit\'e.
+
+		Supposons $C$ un anneau t.q. $A\lte C$, $b\in C$. Alors, $\sum_ka_kb^k\in C$. C'est-\`a-dire, $\widetilde{\iota}\left(\sum_ka_kx^k\right)\in C$.
+
+		Ceci est vrai pour tout $\sum_ka_kx^k$.
+	\end{rmq}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item \begin{tikzcd}
+				A=\ZZ \ar[r,hook,"j"] \ar[rd,hook,"\iota"'] & \ZZ[x] \ar[d,dashed,"\widetilde{\iota}"] & x \ar[d,mapsto]\\
+				& \CC & i
+			\end{tikzcd}
+
+			\begin{align*}
+				\ZZ[i]&= \im(\widetilde{\iota})\\
+				&= \left\{\sum_ka_ki^k ~\middle|~ a_k\in\ZZ\right\}\\
+				&= \left\{ (a_0-a_2+a_4+\cdots) + (a_1-a_3+a_5+\cdots)i ~\middle|~ a_k\in\ZZ \right\}\\
+				&= \left\{ A+Bi ~\middle|~ A,B\in\ZZ \right\}
+			\end{align*}
+
+			\begin{align*}
+				\noyau(\widetilde{\iota})&= \langle 1+x^2 \rangle
+			\end{align*}
+			\item $\omega$ une racine cinqui\`eme de $1$. $\omega=e^{\sfrac{2\pi i}{5}}\in\CC$.
+			\begin{tikzcd}
+				A=\ZZ \ar[r,hook,"j"] \ar[rd,hook,"\iota"'] & \ZZ[i] \ar[d,dashed,"\widetilde{\iota}"] & x \ar[d,mapsto]\\
+				& \CC & \omega
+			\end{tikzcd}
+
+			\begin{align*}
+				\ZZ[\omega]&= \im(\widetilde{\iota})\\
+				&= \left\{ a_0+a_1\omega+a_2\omega^2+a_3\omega^3+a_4\omega^4 ~\middle|~ a_j\in\ZZ \right\}
+			\end{align*}
+
+			\begin{align*}
+				\noyau(\widetilde{\iota})&= \langle x^5-1 \rangle
+			\end{align*}
+			\item \begin{tikzcd}
+				A=\ZZ \ar[r,hook,"j"] \ar[rd,hook,"\iota"'] & \ZZ[x] \ar[d,dashed,"\widetilde{\iota}"] & x \ar[d,mapsto]\\
+				& \RR & \pi
+			\end{tikzcd}
+			\begin{align*}
+				\ZZ[\pi]&= \left\{ \sum_ka_k\pi^k ~\middle|~ a_k\in\ZZ \right\}
+			\end{align*}
+
+			\begin{align*}
+				\noyau(\widetilde{\iota})&= 0
+			\end{align*}
+
+			Alors, $\ZZ[\pi] \simeq \ZZ[x] \simeq \ZZ[e] \simeq \ZZ[\sqrt{e}] \simeq \cdots$.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{rmq}
+		$\ZZ[\sqrt{2}] \not\simeq \ZZ[\sqrt{3}]$, puisque ce sont des solutions d'\'equations \`a coefficients dans $\ZZ$.
+	\end{rmq}
 \end{document}
