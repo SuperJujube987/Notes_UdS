@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  8 OCT 2026 09:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  13 OCT 2026 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1057,7 +1057,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[25] (MAT603-geometrie_differentielle.aux)
+[25]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[26]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[27]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[28] (MAT603-geometrie_differentielle.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -1072,11 +1096,11 @@ Package rerunfilecheck Info: File `MAT603-geometrie_differentielle.out' has not
 (rerunfilecheck)             Checksum: 8A649D47F4A67F91484D3F962039908C;1330.
  ) 
 Here is how much of TeX's memory you used:
- 26532 strings out of 467441
- 511187 string characters out of 5407591
+ 26542 strings out of 467441
+ 511307 string characters out of 5407591
  1209130 words of memory out of 5000000
- 55339 multiletter control sequences out of 15000+600000
- 639803 words of font info for 90 fonts, out of 8000000 for 9000
+ 55343 multiletter control sequences out of 15000+600000
+ 640501 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,25n,104p,793b,1039s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
@@ -1101,10 +1125,10 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><
 C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb>
-Output written on MAT603-geometrie_differentielle.pdf (27 pages, 492821 bytes).
+Output written on MAT603-geometrie_differentielle.pdf (30 pages, 506692 bytes).
 
 PDF statistics:
- 331 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
+ 346 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

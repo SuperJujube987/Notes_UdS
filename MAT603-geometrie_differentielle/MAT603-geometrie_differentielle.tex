@@ -1648,8 +1648,258 @@
 	\end{exem}
 
 	\begin{dfn}
-		La \emph{deuxi\`eme forme fondamentale} est $\dff_p : T_pM\times T_pM\to\RR : (\vec U,\vec V)\mapsto S_p(\vec U)\cdot\vec V$. $\dff_p(\vec U,\vec V)=\dff_p(\vec V,\vec U)$.
+		La \emph{deuxi\`eme forme fondamentale} est $\dff_p : T_pM\times T_pM\to\RR : (\vec U,\vec V)\mapsto S_p(\vec U)\cdot\vec V = S_p(\vec V)\cdot\vec U$. $\dff_p(\vec U,\vec V)=\dff_p(\vec V,\vec U)$.
 
 		La courbure de la tranche normale est $\kappa_{\vec\alpha}(0) = \abs{D_{\vec v}\vec n(\vec p) \cdot \vec v} = \abs{\dff_p(\vec V,\vec V)}$.
+
+		$l \coloneq \dff(\vec X_u,\vec X_u)$, $m=\dff(\vec X_u,\vec X_v)=\dff(\vec X_v,\vec X_u)$, $n=\dff(\vec X_v,\vec X_v)$.
+
+		Donc $\dff$ est repr\'esent\'ee par \[ \begin{bmatrix}
+			l&m\\m&n
+		\end{bmatrix} \] dans le sens que si $\vec U=a\vec X_u+b\vec X_v$ et $\vec V=c\vec X_u+d\vec X_v$, alors \[ \dff(\vec U,\vec V)=\begin{bmatrix}
+			a&b
+		\end{bmatrix} \begin{bmatrix}
+			l&m\\m&n
+		\end{bmatrix} \begin{bmatrix}
+			c\\d
+		\end{bmatrix} \]
 	\end{dfn}
+
+	\begin{prop}
+		La matrice qui repr\'esente $S_p$ selon la base $\vec X_u,\vec X_v$ est \[ \begin{bmatrix}
+			E&F\\F&G
+		\end{bmatrix}^{-1} \begin{bmatrix}
+			l&m\\m&n
+		\end{bmatrix} \]
+
+		\begin{proof}
+			Soit $\begin{bsmallmatrix}
+				a&b\\c&d
+			\end{bsmallmatrix}$ la matrice qui repr\'esente $S_p$. C'est-\`a-dire, \[ S_p\vec X_u = a\vec X_u+c\vec X_v \qquad S_p\vec X_v = b\vec X_u+d\vec X_v \]
+			\[ \begin{array}{lclcl}
+				l&=&S_p(\vec X_u)\cdot\vec X_u&=&aE+cF\\
+				m&=&S_p(\vec X_u)\cdot\vec X_v&=&aF+cG\\
+				m&=&S_p(\vec X_v)\cdot\vec X_u&=&bE+dF\\
+				n&=&S_p(\vec X_v)\cdot\vec X_v&=&bF+dG
+			\end{array} \]
+			D'o\`u
+			\[ \begin{bmatrix}
+				l&m\\m&n
+			\end{bmatrix} = \begin{bmatrix}
+				E&F\\F&G
+			\end{bmatrix} \begin{bmatrix}
+				a&b\\c&d
+			\end{bmatrix} \]
+			Donc
+			\[ \begin{bmatrix}
+				a&b\\c&d
+			\end{bmatrix} = \begin{bmatrix}
+				E&F\\F&G
+			\end{bmatrix}^{-1} \begin{bmatrix}
+				l&m\\m&n
+			\end{bmatrix} \]
+		\end{proof}
+
+		On note donc
+		\begin{align*}
+			\pff&= \begin{bmatrix}
+				E&F\\F&G
+			\end{bmatrix}\\
+			\dff&= \begin{bmatrix}
+				l&m\\m&n
+			\end{bmatrix}\\
+			S&= \pff^{-1}\dff
+		\end{align*}
+	\end{prop}
+
+	\begin{thm}[Th\'eor\`eme spectral]
+		Une matrice sym\'etrique $A=\begin{bsmallmatrix}
+			a&b\\b&c
+		\end{bsmallmatrix}\in\RR^{2\times2}$ a exactement deux valeurs propres r\'eelles. Si $\lambda_1\neq\lambda_2$, alors les vecteurs propres correspondants sont orthogonaux.
+
+		Donc, on peut trouver une base orthonorm\'ee $(\vec e_1,\vec e_2)$ t.q. $\vec e_1\cdot\vec e_2=0$ et $\norme{\vec e_1} = \norme{\vec e_2} = 1$ de vecteurs propres de $A$, de valeurs propres r\'eelles.
+	\end{thm}
+
+	\begin{coro}
+		$S_p : T_pM\to T_pM$ est sym\'etrique, $S_p(\vec U)\cdot\vec V = S_p(\vec V)\cdot\vec U$, donc il peut \^etre repr\'esent\'e par une matrice sym\'etrique.
+
+		\begin{proof}
+			Soit $\vec V_1,\vec V_2$ une base orthonorm\'ee et $\begin{bsmallmatrix}
+				a&b\\c&d
+			\end{bsmallmatrix}$ la matrice qui repr\'esente $S_p$ selon cette base.
+			\begin{align*}
+				S_p(\vec V_1)&= a\vec V_1+c\vec V_2\\
+				S_p(\vec V_2)&= b\vec V_1+d\vec V_2
+			\end{align*}
+			D'o\`u
+			\begin{align*}
+				S_p(\vec V_1)\cdot\vec V_2&= c\\
+				S_p(\vec V_2)\cdot\vec V_1&= b
+			\end{align*}
+			Comme $S_p$ est sym\'etrique, on a donc que $b=c$.
+		\end{proof}
+
+		Par le th\'eor\`eme spectral, $S_p$ a deux valeurs propres r\'eelles, $k_1(p),k_2(p)$ et une base orthonorm\'ee de vecteurs propres $\vec e_1,\vec e_2$ t.q.
+		\begin{align*}
+			S_p(\vec e_1)&= k_1(p)\vec e_1\\
+			S_p(\vec e_2)&= k_2(p)\vec e_2
+		\end{align*}
+
+		\begin{align*}
+			k_1(p)&= k_1(p) \vec e_1 \cdot \vec e_1\\
+			&= (k_1(p) \vec e_1) \cdot \vec e_1\\
+			&= S_p(\vec e_1)\cdot\vec e_1\\
+			&= \dff_p(\vec e_1,\vec e_1)\\
+			&= \pm \text{ courbure de la tranche normale vers } \vec e_1
+		\end{align*}
+		De m\^eme, $k_2(p)=\pm$ courbure de la tranche normale vers $\vec e_2$.
+	\end{coro}
+
+	\begin{dfn}
+		$k_1(p)$ et $k_2(p)$ sont les \emph{courbures principales} et $\vec e_1,\vec e_2$ les \emph{directions principales}.
+
+		Une \emph{ligne de courbure} est une courbe $\vec\alpha:I\to M$ t.q. $\vec T(s)$ est une direction principale $\forall s$.
+	\end{dfn}
+
+	\begin{prop}[Formule d'Euler]
+		Soit $\vec v\in T_pM$ un vecteur unitaire.
+		\[ \vec v = \cos\theta\vec e_1 + \sin\theta\vec e_2 \]
+		pour un certain $\theta\in[0,2\pi[$.
+
+		$\dff_p(\vec v,\vec v) = k_1\cos^2\theta+k_2\sin^2\theta$.
+		\begin{proof}
+			\begin{align*}
+				\dff_p(\vec v,\vec v)&= S_p(\vec v)\cdot\vec v\\
+				&= S_p(\cos\theta\vec e_1+\sin\theta\vec e_2) \cdot (\cos\theta\vec e_1+\sin\theta\vec e_2)\\
+				&= (\cos\theta k_1\vec e_1+\sin\theta k_2\vec e_2) \cdot (\cos\theta\vec e_1+\sin\theta\vec e_2)\\
+				\shortintertext{comme $\vec e_1,\vec e_2$ forment une base orthonorm\'ee,}
+				&= \cos^2\theta k_1 + \sin^2\theta k_2
+			\end{align*}
+		\end{proof}
+	\end{prop}
+
+	\begin{dfn}
+		Une \emph{direction asymptotique} est un vecteur unitaire $\vec v\in T_pM$ t.q. \[ \dff_p(\vec v,\vec v)=0 \] C'est-\`a-dire, la courbure de la tranche normale vers $\vec v$ est nulle.
+
+		Une \emph{courbe asymptotique} est une courbe $\vec\alpha:I\to M$ t.q. $\vec T(s)$ est une direction asymptotique $\forall s$, c'est-\`a-dire, $\dff_p(\vec T(s),\vec T(s))=0$.
+	\end{dfn}
+
+	\begin{exem}
+		Supposons $\vec\alpha:I\to M$ est une droite dans la surface. Alors, $\vec\alpha$ est une courbe asymptotique.
+
+		Puisque $\vec\alpha$ est une droite, elle est \`a la fois dans le plan g\'en\'er\'e par $\vec T(0)$ et $\vec n(p)$ et la surface $M$. Donc, $\vec\alpha$ est dans la tranche normale au point $p$ vers $\vec T(0)$.
+
+		Alors, la tranche normale est une droite, donc de courbure nulle.
+		\[ \abs{\dff_p(\vec T(0),\vec T(0))} = k(p)=0 \] De m\^eme pour tout point sur la courbe.
+	\end{exem}
+
+	\begin{prop}
+		Il existe une direction asymptotique au point $p$ si, et seulement si, $k_1(p)k_2(p)\lte0$.
+		\begin{proof}
+			\begin{subproof}[$\Rightarrow$:]
+				Soit $\vec v\in T_pM$ une direction asymptotique. $\vec v=\cos\theta\vec e_1+\sin\theta\vec e_2$.
+				\begin{align*}
+					0&= \dff_p(\vec v,\vec v)\\
+					\shortintertext{par la formule d'Euler,}
+					&= k_1(p)\cos^2\theta+k_2(p)\sin^2\theta
+				\end{align*}
+
+				Si $k_2=0$, alors, $k_1k_2=0\lte0$.
+
+				Si $k_2\neq0$, alors $0 = \frac{k_1}{k_2}\cos^2\theta+\sin^2\theta$, donc $\frac{k_1}{k_2}=-\tan^2\theta\lte0$.
+			\end{subproof}
+			\begin{subproof}[$\Leftarrow$:]
+				Supposons que $k_1k_2\lte0$.
+
+				Si $k_1=0$, alors $S_p(\vec e_1)=k_1\vec e_1=0$, donc $\dff_p(\vec e_1,\vec e_1) = S_p(\vec e_1)\cdot\vec e_1=0$. D'o\`u $\vec e_1$ est une direction asymptotique.
+
+				De m\^eme, si $k_2=0$, $\vec e_2$ est une direction asymptotique.
+
+				Si $k_1\neq0$ et $k_2\neq0$, alors $\frac{k_1}{k_2} = \frac{k_1k_2}{k_2^2} < 0$, donc $-\frac{k_1}{k_2}>0$. Soit $\theta$ t.q. $\tan\theta=-\sqrt{\frac{k_1}{k_2}}$. Soit $\vec v=\cos\theta\vec e_1+\sin\theta\vec e_2$.
+				\begin{align*}
+					\dff_p(\vec v,\vec v)&= \cos^2\theta k_1+\sin^2\theta k_2\\
+					&= \cos^2\theta k_1 \left( 1+\frac{k_2}{k_1}\tan^2\theta \right)\\
+					&= \cos^2\theta k_1 \left( 1+\frac{k_2}{k_1} \left( -\frac{k_1}{k_2} \right) \right)\\
+					&= 0
+				\end{align*}
+
+				Alors, $\vec v$ est une direction asymptotique.
+			\end{subproof}
+		\end{proof}
+	\end{prop}
+
+	\begin{rapp}
+		Pour une courbe \emph{planaire}, la courbure \emph{sign\'ee} est d\'efinie par $\kappa=\vec T'\cdot\vec N$, o\`u $\vec N$ est un choix de vecteur orthogonal \`a $\vec T$.
+
+		Pour une tranche normale de la surface vers $\vec v\in T_pM$ et $\vec\alpha:I\to M$ une param\'etrisation de cette tranche normale, on d\'efinit la courbure sign\'ee au point $p$ par $\kappa(p) = \vec T' \cdot \vec n(p)$, car $\vec n(p)$ est dans le plan engendr\'e par $\vec T=\vec v$ et $\vec n(p)$.
+
+		De plus, $\kappa(p) = -(D_{\vec v}\vec n)\cdot\vec v = \dff_p(\vec v,\vec v)$.
+
+		Ainsi, la courbure sign\'ee de la tranche normale vers $\vec v\in T_pM$ est $\dff_p(\vec v,\vec v)$.
+	\end{rapp}
+
+	\begin{prop}
+		$k_1(p)$ et $k_2(p)$ sont les maximum et minimum des courbures sign\'ees de tranches normales au point $p$.
+
+		\begin{proof}
+			Sans perte de g\'en\'eralit\'e, supposons que $k_2\lte k_1$.
+
+			$\forall$ direction $\vec v=\cos\theta\vec e_1+\sin\theta\vec e_2$, la courbure sign\'ee de la tranche normale vers $\vec v$ est
+			\begin{align*}
+				\dff_p(\vec v,\vec v)&= \cos^2\theta k_1+\sin^2\theta k_2\\
+				&= (1-\sin^2\theta)k_1+\sin^2\theta k_2\\
+				&= k_1+(k_2-k_1)\sin^2\theta\\
+				&\lte k_1
+			\end{align*}
+			Donc, $k_1$ est un maximum des courbures sign\'ees de tranches normales.
+
+			\begin{align*}
+				\dff_p(\vec v,\vec v)&= \cos^2\theta k_1+\sin^2\theta k_2\\
+				&= \cos^2\theta k_1+(1-\cos^2\theta)k_2\\
+				&= k_2+(k_1-k_2)\cos^2\theta\\
+				&\gte k_2
+			\end{align*}
+			Donc, $k_2$ est un minimum des courbures sign\'ees de tranches normales.
+		\end{proof}
+
+		Ainsi, $\vec e_1$ et $\vec e_2$ sont les directions selon lesquelles la surface est le plus courb\'ee.
+	\end{prop}
+
+	\begin{dfn}
+		La \emph{courbure de Gauss} au point $p$ est \[ K(p) = k_1(p)k_2(p) = \det S_p \]
+
+		Une surface est \emph{plate} si sa courbure de Gauss est nulle en tout point.
+	\end{dfn}
+
+	\begin{dfn}
+		La \emph{courbure moyenne} au point $p$ est \[ H(p) = \frac{k_1(p)+k_2(p)}{2} = \frac{1}{2} \operatorname{tr}S_p
+		\]
+
+		Une surface est \emph{minimale} si sa courbure moyenne est nulle en tout point.
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item Un plan est plat, $S_p=0 \forall p$.
+			\item Un cylindre est plat. Soit $\vec X(u,v) = (f(u),g(u),v)$, o\`u $(f,g)$ est une courbe planaire.
+			\begin{align*}
+				\begin{split}
+					\vec X_u&= (f'(u),g'(u),0)\\
+					\vec X_v&= (0,0,1)
+				\end{split}
+				&
+				\begin{split}
+					\vec n&= \frac{(g'(u),-f'(u),0)}{\sqrt{f'(u)^2 + g'(u)^2}}
+				\end{split}
+				&
+				\begin{split}
+					S_p(\vec X_v)&= -D_{\vec X_v}\vec n\\
+					&= -\vec n_v\\
+					&= 0
+				\end{split}
+			\end{align*}
+
+			Donc, $0$ est une valeur propre de $S_p$. Alors, $K(p)=k_1(p)k_2(p)=0$.
+		\end{enumerate}
+	\end{exem}
 \end{document}
