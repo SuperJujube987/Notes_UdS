@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  13 OCT 2026 10:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  16 OCT 2026 10:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1095,7 +1095,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[29] (MAT342-theorie_anneaux.aux)
+[29]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[30]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[31] (MAT342-theorie_anneaux.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -1110,10 +1126,10 @@ Package rerunfilecheck Info: File `MAT342-theorie_anneaux.out' has not changed.
 (rerunfilecheck)             Checksum: A4441D1F598D5B9F63CEAF0569BE7950;1236.
  ) 
 Here is how much of TeX's memory you used:
- 28074 strings out of 467441
- 551041 string characters out of 5407591
+ 28335 strings out of 467441
+ 557493 string characters out of 5407591
  982471 words of memory out of 5000000
- 56707 multiletter control sequences out of 15000+600000
+ 56955 multiletter control sequences out of 15000+600000
  643851 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,25n,104p,561b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1153,9 +1169,9 @@ lic/amsfonts/symbols/msbm7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/rsfs/rsfs10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/rsfs/rsfs7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on MAT342-theorie_anneaux.pdf (31 pages, 492603 bytes).
+Output written on MAT342-theorie_anneaux.pdf (33 pages, 503451 bytes).
 PDF statistics:
- 575 PDF objects out of 1000 (max. 8388607)
- 221 named destinations out of 1000 (max. 500000)
+ 598 PDF objects out of 1000 (max. 8388607)
+ 234 named destinations out of 1000 (max. 500000)
  85 words of extra memory for PDF output out of 10000 (max. 10000000)
 

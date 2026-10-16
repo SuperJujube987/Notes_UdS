@@ -1186,7 +1186,7 @@
 		\item peut-on (toujours) obtenir un quotient int\`egre? (corps?)
 	\end{itemize}
 
-	\begin{exer}[p.282, \#9\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'algèbre}. Presses Internationales Polytechnique.}]~
+	\begin{exer}[p.282, \#9]\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'algèbre}. Presses Internationales Polytechnique.}
 
 	\begin{rapp}
 		$R$ est un anneau \emph{bool\'een} si, et seulement si, $x^2=x$, $\forall x\in R$.
@@ -1799,7 +1799,7 @@
 		De plus, $f$ est surjective, d'o\`u $\sfrac{\RR[x]}{\langle x^2+1 \rangle} \simeq \CC$.
 	\end{exer}
 
-	\begin{exer}[p.306, \#9\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'algèbre}. Presses Internationales Polytechnique.}]
+	\begin{exer}[p.306, \#9]\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'algèbre}. Presses Internationales Polytechnique.}
 		Soit $f:A\to B$ un homomorphisme surjectif d'anneaux, o\`u $B$ est un anneau commutatif. Soit $I$ l'id\'eal engendr\'e par les \'el\'ements de la forme $aa'-a'a$, avec $a,a'\in A$.
 		\begin{enumerate}[label=\alph*)]
 			\item \begin{proof}[Montrer que]
@@ -2482,5 +2482,134 @@
 
 	\begin{rmq}
 		$\ZZ[\sqrt{2}] \not\simeq \ZZ[\sqrt{3}]$, puisque ce sont des solutions d'\'equations \`a coefficients dans $\ZZ$.
+	\end{rmq}
+
+	\begin{exer}[p.338, \#9]\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'alg\`ebre}. Presses internationales Polytechnique.}
+		\begin{proof}[m.q.]
+			Pour tout corps $\Bbbk$, on a $\frac{\Bbbk[x]}{\langle x^2+1 \rangle} \simeq \frac{\Bbbk[x]}{\langle x^2+8x+17 \rangle}$.
+
+			On veut transformer $x^2+1$ en $x^2+8x+17$.
+			\begin{align*}
+				x^2+8x+17&= x^2+8x+16+1\\
+				&= (x+4)^2+1
+			\end{align*}
+			\begin{figure}[h]
+				\centering
+				\begin{tikzcd}
+					\Bbbk \ar[r,"j"] \ar[rd,"j"] & \Bbbk[x] \ar[d,dashed,"f"] & x \ar[d,mapsto]\\
+					& B=\Bbbk[x] & x+4
+				\end{tikzcd}
+				\caption{Diagramme repr\'esentant la situation}
+			\end{figure}
+
+			On a alors un morphisme d'anneaux surjectif \begin{tikzcd}
+				\Bbbk[x] \ar[r,"f"] & \Bbbk[x] \ar[r,"\pi"] & \frac{\Bbbk[x]}{\langle x^2+8x+17 \rangle}
+			\end{tikzcd}
+
+			Calculons $\noyau(\pi\circ f)$.
+			\begin{align*}
+				p\in\noyau(\pi\circ f)&\Leftrightarrow (\pi\circ f)(p)=0\\
+				&\Leftrightarrow f(p) \in \langle x^2+8x+17 \rangle
+			\end{align*}
+
+			Clairement, $p=x^2+1$ v\'erifie $f(p) \in \langle x^2+8x+17 \rangle$.
+
+			Supposons que $p$ est t.q. $f(p) \in \langle x^2+8x+17 \rangle$, c'est-\`a-dire, $f(p)=q(x^2+8x+17)$. Or, $f$ est un isomorphisme d'inverse $g:x\mapsto x-4$. En appliquant $g$, on obtient $p=g(q)(x^2+1)$. D'o\`u $p\in\langle x^2+1 \rangle$.
+
+			Ainsi, $\noyau(\pi\circ f)=\langle x^2+1 \rangle$.
+
+			Le premier th\'eor\`eme d'isomorphismes fait le boulot.
+		\end{proof}
+	\end{exer}
+
+	\begin{exer}[p.338, \#19]\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'algèbre}. Presses Internationales Polytechnique.}
+
+		L'id\'ee est de ne pas confondre un polyn\^ome avec la fonction polynomiale qu'il induit.
+		\[ \mathscr{F} = \left\{ f:A\to A \right\} \] avec op\'erations ``point par point'' | $(f+g)(a)=f(a)+g(a)$ et $(fg)(a)=f(a)g(a)$ | est un anneau.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[r,hook,"j"] \ar[rd,hook,"j"'] & A[x] \ar[d,dashed,"\varepsilon_c"] & x \ar[d,mapsto]\\
+				& A & c
+			\end{tikzcd}
+			\caption{Diagramme repr\'esentant la situation}
+		\end{figure}
+
+		On a \[ \begin{array}{rcl}
+			A[x]&\to&\mathscr{F}\\
+			p&\mapsto&\left( \sigma(p):c\mapsto\varepsilon_c(p) \right)
+		\end{array} \]
+
+		Il faut montrer que $\sigma$ est un morphisme d'anneaux.
+		\begin{align*}
+			\begin{split}
+				\sigma(p+q)&= \sigma(p)+\sigma(q)
+			\end{split}
+			&
+			\begin{split}
+				\sigma(pq)&= \sigma(p)\sigma(q)
+			\end{split}
+			&
+			\begin{split}
+				\sigma(\id)&= \id_{\mathscr{F}}
+			\end{split}
+		\end{align*}
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzcd}
+				A \ar[r,hook,"j"] \ar[rd,"\varphi"'] & A[x] \ar[d,dashed,"\widetilde{\varphi}"] & x \ar[d,mapsto]\\
+				& \mathscr{F} & \iden_A
+			\end{tikzcd}
+			\caption{Nouveau diagramme}
+		\end{figure}
+
+		Avec $\varphi : A\to\mathscr{F} : c\mapsto(\varphi(c):a\mapsto c)$. Par la propri\'et\'e universelle, $\widetilde{\varphi}$ est un morphisme d'anneaux. En fait,
+		\begin{align*}
+			\widetilde{\varphi}\underbrace{\left(\sum a_jx^j\right)}_{p}&= \sum_j\varphi(a_j)\iden_A^j\\
+			&= \sum_ja_j\iden_A^j
+		\end{align*}
+
+		\'Evaluons en $c\in A$.
+		\begin{align*}
+			\widetilde{\varphi}(p)(c)&= \left(\sum_ja_j\iden_A^j\right)(c)\\
+			&= \sum_ja_jc^j\\
+			&= \varepsilon_c(p)
+		\end{align*}
+	\end{exer}
+
+	\begin{dfn}~
+
+		\begin{tikzcd}
+			A \ar[r,hook,"j"] \ar[rd,hook,"j"'] & A[x] \ar[d,dashed,"\varepsilon_b"] & x \ar[d,mapsto]\\
+			& B & b &
+		\end{tikzcd} $\varepsilon_b(p) = \sum_{j=0}^{r}a_jb^j$ lorsque $p=\sum_ja_jx^j$.
+
+		Dans ce contexte, on dit
+		\begin{enumerate}
+			\item $b$ est \emph{transcendant} sur $A$ si $\noyau(\varepsilon_b)=0$;
+			\item $b$ est \emph{alg\'ebrique} sur $A$ si $\noyau(\varepsilon_b)\neq0$.
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{rmq}~
+
+		\begin{enumerate}
+			\item On prend $B=\RR$ et $A=\ZZ$. ``Un r\'eel est transcendant'' veut dire ``transcendant sur $\ZZ$''.
+			\item Un r\'eel est alg\'ebrique ou transcendant sur $\ZZ$ si, et seulement si, il est alg\'ebrique ou transcendant sur $\QQ$.
+
+			En multipliant le polyn\^ome de $\QQ[x]$ par le produit des d\'enominateurs des coefficients.
+			\item $\pi\in\RR$ est transcendant sur $\ZZ$.
+
+			$\pi\in\RR$ est alg\'ebrique sur $\RR$.
+			\item Un r\'eel $\alpha$ est \emph{constructible} si, et seulement si, on peut construire un segment de longueur $\alpha$ avec une r\`egle non gradu\'ee et un compas \`a partir d'un segment de longueur $1$.
+
+			$\sqrt{2}$ est constructible.
+
+			$\sqrt{3}$ ne l'est pas.
+		\end{enumerate}
+
+		On peut montrer que si $\alpha$ est constructible, alors $\alpha$ est alg\'ebrique.
 	\end{rmq}
 \end{document}
