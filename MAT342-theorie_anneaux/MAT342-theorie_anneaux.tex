@@ -12,6 +12,7 @@
 \usepackage{stmaryrd}
 \usepackage{wasysym}
 \usepackage[dvipsnames]{xcolor}
+\usepackage[onelanguage,french,ruled,nosemicolon]{algorithm2e}
 
 \hypersetup{
 	colorlinks=false
@@ -2611,5 +2612,219 @@
 		\end{enumerate}
 
 		On peut montrer que si $\alpha$ est constructible, alors $\alpha$ est alg\'ebrique.
+	\end{rmq}
+
+	\section{Division de polyn\^omes}
+	Dans cette section, $A$ est un anneau int\`egre, c'est-\`a-dire, $A$ est commutatif et n'admet aucun diviseurs de z\'ero.
+
+	\begin{dfn}
+		Pour $f,g \in A[x]$, on dit que $f$ ``\emph{divise}'' $g$ s'il existe $q\in A[x]$ t.q. $g=fq$. On \'ecrit $f \mid g$.
+	\end{dfn}
+
+	\begin{rmq}
+		C'est une relation
+		\begin{itemize}
+			\item R\'eflexive: $f=\id f$, d'o\`u $f \mid f$;
+			\item Transitive: Si $f \mid g$ et $g \mid h$, alors $f \mid h$.
+		\end{itemize}
+		\begin{itemize}
+			\item Non antisym\'etrique: $f \mid g$ et $g \mid f$ n'implique pas $f=g$;
+			\item Non sym\'etrique: $f \mid g$ n'implique pas $g \mid f$.
+		\end{itemize}
+	\end{rmq}
+
+	L'objectif est de faire des divisions ``euclidiennes'' avec quotient et reste
+	\[ \begin{array}{l}
+		f\\
+		r
+	\end{array} \quad \begin{array}{l}
+		\multicolumn{1}{|l}{g}\\\hline
+		q
+	\end{array} \]
+
+	\begin{exem}
+		\renewcommand{\arraystretch}{1.2}
+		\[ \begin{array}{lllllllll}
+			x^4&+&x^3&-&2x^2&&&+&2\\
+			-x^4&&&+&x^2\\\hline
+			&&x^3&-&x^2&&&+&2\\
+			&-&x^3&&&+&x\\\hline
+			&&&-&x^2&+&x&+&2
+		\end{array} \quad \begin{array}{l}
+			\multicolumn{1}{|l}{2x^2-2}\\\hline
+			\frac{1}{2}x^2+\frac{1}{2}x-\frac{1}{2}\\
+			~\\~\\~
+		\end{array} \]
+		\renewcommand{\arraystretch}{1}
+		Ainsi, $\underbrace{(x^4+x^3-2x^2+2)}_{f} = \underbrace{(2x^2-2)}_{g} \underbrace{\left( \frac{1}{2}x^2+\frac{1}{2}x-\frac{1}{2} \right)}_{q} + \underbrace{(x+1)}_{r} = \underbrace{(x^2-1)}_{\neq g} \underbrace{(x^2+x-1)}_{\neq q} + \underbrace{(x+1)}_{r}$.
+	\end{exem}
+
+	\begin{thm}
+		Soient $f,g\in A[x]$ t.q. le coefficient directeur de $g$ est une unit\'e de $A$. Alors, $\exists! q,r\in A[x]$ t.q. $f=gq+r$ et $r=0$ ou $\partial r<\partial g$.
+		\begin{proof}~
+
+			\begin{subproof}[Unicit\'e]
+				Supposons au contraire que $f=gq+r=gq'+r'$, o\`u $q,q',r,r'$ tel qu'\'enonc\'e.
+				\begin{align*}
+					g(q-q')&= r'-r
+				\end{align*}
+
+				Or, $\partial r'<\partial g$ et $\partial r<\partial g$, donc $\partial(r'-r)<\partial g$.
+
+				Comme $A$ est int\`egre, $\partial(g(q-q'))=\partial g+\partial(q-q')$.
+
+				Si les degr\'es sont finis, on a une contradiction. Il faut donc que $q-q'=0$, donc $r-r'=0$.
+			\end{subproof}
+			\begin{subproof}[Existence]~
+
+				\begin{itemize}
+					\item Si $\partial g=0$, rien \`a faire. $g$ est inversible. Alors, $q=fg^{-1}$, donc $f=gq+0$.
+					\item Si $\partial g>0$
+					\begin{itemize}
+						\item Si $\partial f<\partial g$, on a $f=g0+f$.
+						\item Supposons que $\partial f \gte \partial g$. On fait une r\'ecurrence sur $\partial f$. On suppose vrai pour les polyn\^omes de degr\'e $\lte\partial f$.
+						\[ f=\sum_{i=0}^{d}a_ix^i \quad,\quad g=\sum_{i=0}^{e}b_ix^i \quad,\quad e \lte d \]
+						$b_e\in\mathcal{U}(A)$. On ``divise'' $a_dx^d$ par $b_ex^e$. On obtient $a_db_e^{-1}x^{d-e}$.
+						\[ f_1=f-\left( a_db_e^{-1}x^{d-e} \right)g \]
+						Le coefficient de $x^d$ dans $f_1$ est $0$, donc $\partial f_1<\partial f$.
+
+						Par l'hypoth\`ese de r\'ecurrence, $\exists q_1,r_1$ t.q. $f_1=q_1g+r_1$ avec $\partial r_1<\partial g$.
+
+						On a
+						\begin{align*}
+							f&= f_1 + \left( a_db_e^{-1}x^{d-e} \right) g\\
+							&= (q_1g+r_1) + \left( a_db_e^{-1}x^{d-e} \right) g\\
+							&= \left( q_1+a_db_e^{-1}x^{d-e} \right) g+r_1
+						\end{align*}
+					\end{itemize}
+				\end{itemize}
+			\end{subproof}
+		\end{proof}
+	\end{thm}
+
+	\begin{exem}
+		Dans $\ZZ_5[x]$. $f=x^3+x^2+x+1$, $g=x^2+3x+2$.
+		\renewcommand{\arraystretch}{1.2}
+		\[ \begin{array}{lllllll}
+			x^3&+&x^2&+&x&+&1\\
+			-x^3&-&3x^2&-&2x\\\hline
+			&&3x^2&+&4x&+&1\\
+			&-&3x^2&-&4x&-&1\\\hline
+			&&&&&&0
+		\end{array} \quad \begin{array}{l}
+			\multicolumn{1}{|l}{x^2+3x+2}\\\hline
+			x+3\\
+			~\\~\\~
+		\end{array} \]
+		\renewcommand{\arraystretch}{1}
+		Dans $\ZZ_5[x]$, $f=(x+3)g$.
+	\end{exem}
+
+	\begin{coro}
+		$\forall c\in A, f\in A[x]$, $\exists! q\in A[x]$ t.q. $f=(x-c)q+\varepsilon_c(f)$.
+		\begin{proof}
+			$f=(x-c)q+r$, avec $\partial r<\partial(x-c)=1$. Donc, $r$ est une constante.
+			\begin{align*}
+				\varepsilon_c(f)&= \varepsilon_c((x-c)q+r)\\
+				&= \varepsilon_c(x-c) \varepsilon_c(q) + \varepsilon_c(r)\\
+				&= 0+\varepsilon_c(r)
+			\end{align*}
+		\end{proof}
+	\end{coro}
+
+	\begin{rmq}
+		Le reste de la division de $f$ par $x-c$ est l'\'evaluation de $f$ en $c$.
+	\end{rmq}
+
+	\begin{dfn}
+		$c\in A$ est une \emph{racine} de $f\in A[x]$ si $\varepsilon_c(f)=0$.
+	\end{dfn}
+
+	\begin{coro}
+		$x-c \mid f$ dans $A[x]$ si, et seulement si, $c$ est une racine de $f$.
+	\end{coro}
+
+	\begin{algorithm}
+		\caption{Algorithme de H\"orner, ``division synth\'etique''}
+		\KwData{$f\in A[x]$ et $c\in A$}
+		\KwResult{Diviser $f$ par $x-c$}
+		$f=a_0+a_1x+\cdots+a_{d-1}x^{d-1}+a_dx^d$\;
+		$q=b_0+b_1x+\cdots+b_{d-1}x^{d-1}$\;
+		S\'eparons les coefficients par degr\'e sachant $f=(x-c)q+r$\;
+		\begin{algomathdisplay}
+			\begin{array}{c|ccc}
+				\text{Puissance de }x&\text{Coefficient dans }f&&\text{Coefficient dans }(x-c)q+r\\\hline
+				x^d&a_d&=&b_{d-1}\\
+				x^{d-1}&a_{d-1}&=&b_{d-2}-cb_{d-1}\\
+				x^{d-2}&a_{d-2}&=&b_{d-3}-cb_{d-2}\\
+				\vdots&\vdots&\vdots&\vdots\\
+				x^1&a_1&=&b_0-cb_1\\
+				x^0&a_0&=&r-cb_0
+			\end{array}
+		\end{algomathdisplay}
+		On peut donc calculer les coefficients de $q$\;
+		\begin{algomathdisplay}
+			\begin{array}{rcll}
+				b_{d-1}&=&a_d\\
+				b_{j-1}&=&cb_j+a_j&\qquad0<j<d\\
+				r&=&cb_0+a_0
+			\end{array}
+		\end{algomathdisplay}
+		On dispose les calculs dans un tableau.\;
+	\end{algorithm}
+
+	\begin{exem}
+		Diviser $f=x^3-2x^2+x-1$ par $x-2$ dans $\ZZ[x]$.
+		\[ \begin{array}{lr|cccc}
+			c=2&&d=3&d=2&d=1&d=0\\
+			\text{Coefficient de }f&a_j&1&-2&1&-1\\\hline
+			&&d=2&d=1&d=0&r\\
+			\text{Coefficient de }q&b_j&1&0&1&1
+		\end{array} \]
+		On lit $q=x^2+1$, $r=1=\varepsilon_2(f)$.
+	\end{exem}
+
+	\begin{rmq}
+		Ceci permet d'obtenir $r$ et donc d'\'evaluer un polyn\^ome ``efficacement''.
+	\end{rmq}
+
+	\begin{coro}
+		Un polyn\^ome non nul de degr\'e $d$ admet au plus $d$ racines.
+		\begin{proof}
+			R\'ecurrence sur $d=\partial f$.
+			\begin{itemize}
+				\item $d\in\{0,1\}$: rien \`a faire.
+				\item Supposons vrai pour les polyn\^omes de degr\'e $d$. Soit $f$ de degr\'e $d+1$.
+
+				Si $f$ n'a pas de racine, \checkmark
+
+				Si $f$ a une racine $c$, alors $f=(x-c)f_1$, avec $\partial f_1=d$.
+
+				Pour toute autre racine $a$ de $f$, on a
+				\begin{align*}
+					0&= \varepsilon_a(f)\\
+					&= \varepsilon_a(x-c) \varepsilon_a(f_1)\\
+					&= (a-c) \varepsilon_a(f_1)
+				\end{align*}
+				Comme $A$ est int\`egre, $\varepsilon_a(f_1)=0$. Donc, $a$ est une racine de $f_1$.
+
+				Par l'hypoth\`ese de r\'ecurrence, il existe au plus $d$ telles racines. Au total, $f$ admet au plus $d+1$ racines.
+			\end{itemize}
+		\end{proof}
+	\end{coro}
+
+	\begin{coro}
+		Si $A$ est infini, alors deux polyn\^omes distincts induisent des fonctions polynomiales distinctes.
+		\begin{proof}
+			Si $f$ et $g$ induisent la m\^eme fonction polynomiale, $f-g$ induit la fonction nulle. Le polyn\^ome $f-g$ a une infinit\'e de racines. Il faut donc que $f-g=0$.
+		\end{proof}
+	\end{coro}
+
+	\begin{dfn}
+		Soient $f\in A[x]$ et $k>0$ un entier. On dit que $c\in A$ est une racine de \emph{multiplicit\'e} $k$ de $f$ si $(x-c)^k \mid f$, mais $(x-c)^{k+1} \nmid f$.
+	\end{dfn}
+
+	\begin{rmq}
+		Dire que $c$ est une racine de multiplicit\'e $k$ de $f$ est \'equivalent \`a dire que $f=(x-c)^kg$ avec $\varepsilon_c(g)\neq0$.
 	\end{rmq}
 \end{document}
