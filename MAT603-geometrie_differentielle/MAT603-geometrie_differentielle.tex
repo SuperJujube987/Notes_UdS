@@ -1902,4 +1902,201 @@
 			Donc, $0$ est une valeur propre de $S_p$. Alors, $K(p)=k_1(p)k_2(p)=0$.
 		\end{enumerate}
 	\end{exem}
+
+	\begin{rapp}
+		$M\subseteq\RR^3$ une surface.
+
+		$\pff_p : T_pM\times T_pM\to\RR : (\vec U,\vec V) \mapsto \vec U\cdot\vec V$.
+
+		$S_p : T_pM\to T_pM : S_p(\vec V) = -D_{\vec V}\vec n(p)$.
+
+		$\dff : T_pM\times T_pM\to\RR : (\vec U,\vec V) \mapsto S_p(\vec U)\cdot\vec V = S_p(\vec V)\cdot\vec U$.
+
+		$S_p$ a deux vecteurs propres: $S_p(\vec e_1)=k_1(p)\vec e_1(p)$, $S_p(\vec e_2)=k_2(p)\vec e_2(p)$. $k_1,k_2$ sont les courbures principales et $\vec e_1,\vec e_2$ sont les directions principales. $k_1$ et $k_2$ sont les extremums des courbures sign\'ees de tranches normales.
+
+		Soit $\vec\alpha:I\to M$ une courbe dans $M$. $\vec\alpha$ est une \emph{ligne de courbure} si $\vec T(t)$ est une direction principale $\forall t$. $\vec\alpha$ est une \emph{courbe asymptotique} si $\dff(\vec T(t), \vec T(t))=0$ $\forall t$.
+
+		La \emph{courbure de Gauss} est $K=k_1k_2$.
+
+		La \emph{courbure moyenne} est $H=\frac{k_1+k_2}{2}$.
+	\end{rapp}
+
+	\begin{exem}
+		$\vec X : \RR^2\to\RR^3 : \vec X(u,v)=(u,v,uv)$.
+		\begin{align*}
+			\begin{split}
+				\vec X_u&= (1,0,v)
+			\end{split}
+			&
+			\begin{split}
+				\vec X_v&= (0,1,u)
+			\end{split}
+			&
+			\begin{split}
+				\vec n&= \frac{\vec X_u\times\vec X_v}{\norme{\vec X_u\times\vec X_v}}\\
+				&= \frac{(-v,-u,1)}{\sqrt{1+u^2+v^2}}
+			\end{split}
+		\end{align*}
+		\begin{align*}
+			\begin{split}
+				\pff&= \begin{bmatrix}
+					E&F\\F&G
+				\end{bmatrix}\\
+				E&= 1+v^2\\
+				F&= uv\\
+				G&= 1+u^2
+			\end{split}
+			&
+			\begin{split}
+				\dff&= \begin{bmatrix}
+					l&m\\m&n
+				\end{bmatrix}\\
+				l&= \vec n\cdot\vec X_{uu}=0\\
+				m&= \vec n\cdot\vec X_{uv}=\frac{1}{\sqrt{1+u^2+v^2}}\\
+				n&= \vec n\cdot\vec X_{vv}=0
+			\end{split}
+		\end{align*}
+		\begin{align*}
+			S_p&= \pff^{-1}\dff\\
+			&= \begin{bmatrix}
+				1+v^2&uv\\
+				uv&1+u^2
+			\end{bmatrix}^{-1} \begin{bmatrix}
+				0&\frac{1}{\sqrt{1+u^2+v^2}}\\
+				\frac{1}{\sqrt{1+u^2+v^2}}&0
+			\end{bmatrix}\\
+			&= \frac{1}{(1+u^2+v^2)^{\sfrac{3}{2}}} \begin{bmatrix}
+				-uv&1+u^2\\
+				1+v^2&-uv
+			\end{bmatrix}
+		\end{align*}
+		Il s'agit de la repr\'esentation matricielle de $S_p:T_pM\to T_pM$ selon la base $\{\vec X_u,\vec X_v\}$.
+
+		Trouvons les valeurs propres. Il faut r\'esoudre $\det(S_p-\lambda I) = 0$.
+
+		On trouve les solutions \[ k_i = \frac{-uv \pm \sqrt{(1+u^2)(1+v^2)}}{(1+u^2+v^2)^{\sfrac{3}{2}}} \] Il s'agit des courbures principales.
+
+		Pour trouver les directions principales, on cherche les vecteurs propres de $S_p$. On doit r\'esoudre $(S_p-k_iI)\vec e_i=0$, $i\in\{1,2\}$.
+
+		On trouve \[ e_i = \begin{pmatrix}
+			\sqrt{1+u^2}\\\pm \sqrt{1+v^2}
+		\end{pmatrix}\in\RR^2 \]
+
+		Donc, les directions principales sont $\sqrt{1+u^2}\vec X_u \pm \sqrt{1+v^2}\vec X_v\in T_pM$.
+
+		\begin{align*}
+			\begin{split}
+				K&= k_1k_2\\
+				&= \frac{-1}{(1+u^2+v^2)^2}
+			\end{split}
+			&
+			\begin{split}
+				H&= \frac{k_1+k_2}{2}\\
+				&= \frac{-uv}{(1+u^2+v^2)^{\sfrac{3}{2}}}
+			\end{split}
+		\end{align*}
+
+		$\vec\alpha:u\mapsto\vec X(u,v_0) = (u,v_0,uv_0)$, $v_0\in\RR$ constant, est une \emph{droite}, donc une courbe asymptotique. $\dff(\vec\alpha',\vec\alpha')=0$.
+
+		De m\^eme, $\vec\beta:v\mapsto\vec X(u_0,v)=(u_0,v,u_0v)$, $u_0\in\RR$ constant, est une droite, donc une courbe asymptotique.
+
+		Trouvons les lignes de courbure.
+
+		Soit $\vec\alpha(t)=\vec X(u(t),v(t))$ une courbe dans la surface.
+
+		On veut que $\vec T(t) = \frac{\vec\alpha'(t)}{\norme{\vec\alpha'(t)}}$ soit proportionnel \`a $\sqrt{1+u^2}\vec X_u \pm \sqrt{1+v^2}\vec X_v$.
+		\begin{align*}
+			\vec\alpha'(t)&= \vec X_uu'(t)+\vec X_vv'(t)\\
+			&\propto \sqrt{1+u^2}\vec X_u \pm \sqrt{1+v^2}\vec X_v
+		\end{align*}
+		\begin{align*}
+			\frac{v'(t)}{u'(t)}&= \pm\frac{\sqrt{1+v^2}}{\sqrt{1+u^2}}\\
+			\frac{dv}{du}&= \pm\frac{\sqrt{1+v^2}}{\sqrt{1+u^2}}\\
+			\int \frac{dv}{\sqrt{1+v^2}}&= \pm\int \frac{du}{\sqrt{1+u^2}}\\
+			\arcsinh(v)&= \pm\arcsinh(u)+c\\
+			v&= \sinh(\pm\arcsinh(u)+c)\\
+			&= \pm u\cosh(c)+\sqrt{1+u^2}\sinh(c)
+		\end{align*}
+
+		En prenant $u=t$, on trouve les lignes de courbure
+		\begin{align*}
+			\vec\alpha(t)&= \vec X(t,v(t))\\
+			&= \vec X(t,\pm t\cosh(c)+\sqrt{1+u^2}\sinh(c))
+		\end{align*}
+	\end{exem}
+
+	\begin{dfn}
+		Un point $p\in M$ est \emph{ombilique} si $k_1(p)=k_2(p)=k$.
+
+		Les propri\'et\'es suivantes sont \'equivalentes:
+		\begin{itemize}
+			\item $p$ est ombilique;
+			\item $S_p=k\iden_{T_pM}$;
+			\item toutes les tranches normales \`a $p$ ont la m\^eme courbure $k$.
+		\end{itemize}
+	\end{dfn}
+
+	\begin{exem}
+		La figure \ref{fig_ombilique} ci-bas repr\'esente une surface contenant des points ombiliques. Les points aux extr\'emit\'es sont ombiliques.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=.5\textwidth]{figs/exemple_ombilique.png}
+			\caption{Exemple de surface contenant des points ombiliques}
+			\label{fig_ombilique}
+		\end{figure}
+	\end{exem}
+
+	\begin{dfn}
+		Un point $p$ est \emph{planaire} si $k_1(p)=k_2(p)=0$.
+
+		Un point $p$ est \emph{parabolique} si $K=k_1k_2=0$, mais $p$ n'est pas planaire.
+
+		Un point $p$ est \emph{elliptique} si $K>0$. $k_1$ et $k_2$ sont de m\^eme signe. Donc, toutes les courbures de tranches normales sont de m\^eme signe.
+
+		Un point $p$ est \emph{hyperbolique} si $K<0$.
+	\end{dfn}
+
+	\begin{exem}
+		Sur la surface d'un tore, on retrouve des points elliptiques, paraboliques et hyperboliques. En effet, les points rouges situ\'es sur le dessus et le dessous du tore sont paraboliques. Les points verts \`a l'int\'erieur sont hyperboliques. Les points bleus \`a l'ext\'erieur sont elliptiques.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}
+				\filldraw[fill=blue!50, draw=black, thick] (0,0) circle (25mm);
+				\filldraw[fill=green!75, draw=red!75, line width=1mm] (0,0) circle (2cm);
+				\filldraw[fill=white, draw=black, thick] (0,0) circle (15mm);
+			\end{tikzpicture}
+			\caption{Vue du dessus d'un tore avec les r\'egions identifi\'ees}
+		\end{figure}
+	\end{exem}
+
+	\begin{dfn}
+		soit $\vec\alpha:I\to M$ une courbe PPLA sur $M$. Soient $p=\vec\alpha(0)$ et $\vec v=\vec\alpha'(0)$.
+
+		Si $\vec\alpha$ est une tranche normale, alors $\vec N(0)=\pm\vec n(p)$, mais en g\'en\'eral, ce n'est pas le cas.
+		\begin{align*}
+			\dff_p(\vec v,\vec v)&= S_p(\vec v)\cdot\vec v\\
+			&= -D_{\vec v}\vec n(p)\cdot\vec v\\
+			&= -\left( \left.\frac{d}{ds}\right|_{s=0} \vec n(\vec\alpha(s)) \right)\cdot\vec T(0)\\
+			\shortintertext{comme $\vec n(\vec\alpha(s))\cdot\vec T(s)=0$,}
+			&= \vec n(\vec\alpha(0)) \cdot \left.\frac{d}{ds}\right|_{s=0}\vec T(0)\\
+			&= \vec n(p)\cdot\kappa(0)\vec N(0)\\
+			&= \kappa(0)\vec N(0)\cdot\vec n(p)
+		\end{align*}
+		Il s'agit de la projection de $\kappa(0)\vec N(0)$ sur $\vec n(p)$.
+
+		La \emph{courbure normale} de $\vec\alpha$ au point $p=\vec\alpha(t)$ est $\kappa_n = \kappa\vec N\cdot\vec n = \dff_p(\vec T,\vec T)$, qui est la courbure de la tranche normale vers $\vec T$.
+	\end{dfn}
+
+	\begin{rmq}
+		\begin{enumerate}
+			\item $\kappa_n$ ne d\'epend que de la direction $\vec T$.
+			\item Si $\vec\alpha$ est une ligne de courbure, alors $\kappa_n=\dff(\vec e_i,\vec e_i)=k_i$ est une courbure principale.
+			\item Si $\vec\alpha$ est une tranche normale, alors $\vec N=\pm\vec n$, donc $\kappa_n$ est \'egal \`a la courbure de $\vec\alpha$ \`a signe pr\`es.
+		\end{enumerate}
+	\end{rmq}
+
+	\begin{prop}[Formule de Meusnier]
+		Soient $\vec\alpha:I\to M$ une courbe PPLA, $p=\vec\alpha(0)$, $\vec v=\vec\alpha'(0)$. Alors, $\dff_p(\vec v,\vec v) = \kappa_n = \kappa\cos\phi$, o\`u $\phi$ est l'angle entre $\vec n$ et $\vec N$.
+	\end{prop}
 \end{document}
