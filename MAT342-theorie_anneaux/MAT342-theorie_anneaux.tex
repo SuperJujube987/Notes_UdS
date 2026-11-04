@@ -104,6 +104,7 @@
 
 \newcommand*{\abs}[1]{\left|#1\right|}
 \newcommand*{\caract}[1]{\operatorname{car}\left(#1\right)}
+\newcommand*{\arst}[1]{\renewcommand{\arraystretch}{#1}}
 
 \begin{document}
 	\maketitle
@@ -2634,28 +2635,25 @@
 	\end{rmq}
 
 	L'objectif est de faire des divisions ``euclidiennes'' avec quotient et reste
-	\[ \begin{array}{l}
-		f\\
-		r
-	\end{array} \quad \begin{array}{l}
-		\multicolumn{1}{|l}{g}\\\hline
-		q
+	\arst{1.2}
+	\[ \begin{array}{rp{1cm}l}
+		f&&\multicolumn{1}{|l}{g}\\
+		\cline{3-3} r&&q
 	\end{array} \]
+	\arst{1}
 
 	\begin{exem}
-		\renewcommand{\arraystretch}{1.2}
-		\[ \begin{array}{lllllllll}
-			x^4&+&x^3&-&2x^2&&&+&2\\
-			-x^4&&&+&x^2\\\hline
-			&&x^3&-&x^2&&&+&2\\
-			&-&x^3&&&+&x\\\hline
-			&&&-&x^2&+&x&+&2
-		\end{array} \quad \begin{array}{l}
-			\multicolumn{1}{|l}{2x^2-2}\\\hline
-			\frac{1}{2}x^2+\frac{1}{2}x-\frac{1}{2}\\
-			~\\~\\~
+		\arst{1.4}
+		\[ \begin{array}{rrrrrrrrrrp{1cm}l}
+			&x^4&+&x^3&-&2x^2&&&+&2&&\multicolumn{1}{|l}{2x^2-2}\\
+			\cline{12-12} -&x^4&&&+&x^2&&&&&&\frac{1}{2}x^2+\frac{1}{2}x-\frac{1}{2}\\
+			\cline{1-6} &&&x^3&-&x^2&&&+&2\\
+			&&-&x^3&&&+&x\\
+			\cline{3-8} &&&&-&x^2&+&x&+&2\\
+			&&&&+&x^2&&&-&1\\
+			\cline{5-10} &&&&&&&x&+&1
 		\end{array} \]
-		\renewcommand{\arraystretch}{1}
+		\arst{1}
 		Ainsi, $\underbrace{(x^4+x^3-2x^2+2)}_{f} = \underbrace{(2x^2-2)}_{g} \underbrace{\left( \frac{1}{2}x^2+\frac{1}{2}x-\frac{1}{2} \right)}_{q} + \underbrace{(x+1)}_{r} = \underbrace{(x^2-1)}_{\neq g} \underbrace{(x^2+x-1)}_{\neq q} + \underbrace{(x+1)}_{r}$.
 	\end{exem}
 
@@ -2704,19 +2702,15 @@
 
 	\begin{exem}
 		Dans $\ZZ_5[x]$. $f=x^3+x^2+x+1$, $g=x^2+3x+2$.
-		\renewcommand{\arraystretch}{1.2}
-		\[ \begin{array}{lllllll}
-			x^3&+&x^2&+&x&+&1\\
-			-x^3&-&3x^2&-&2x\\\hline
-			&&3x^2&+&4x&+&1\\
-			&-&3x^2&-&4x&-&1\\\hline
-			&&&&&&0
-		\end{array} \quad \begin{array}{l}
-			\multicolumn{1}{|l}{x^2+3x+2}\\\hline
-			x+3\\
-			~\\~\\~
+		\arst{1.2}
+		\[ \begin{array}{rrrrrrrrp{1cm}l}
+			&x^3&+&x^2&+&x&+&1&&\multicolumn{1}{|l}{x^2+3x+2}\\
+			\cline{10-10} -&x^3&-&3x^2&-&2x&&&&x+3\\
+			\cline{1-6} &&&3x^2&+&4x&+&1\\
+			&&-&3x^2&-&4x&-&1\\
+			\cline{3-8} &&&&&&&0
 		\end{array} \]
-		\renewcommand{\arraystretch}{1}
+		\arst{1}
 		Dans $\ZZ_5[x]$, $f=(x+3)g$.
 	\end{exem}
 
