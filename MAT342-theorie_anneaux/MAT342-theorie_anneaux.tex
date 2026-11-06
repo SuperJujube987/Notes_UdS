@@ -2821,4 +2821,19 @@
 	\begin{rmq}
 		Dire que $c$ est une racine de multiplicit\'e $k$ de $f$ est \'equivalent \`a dire que $f=(x-c)^kg$ avec $\varepsilon_c(g)\neq0$.
 	\end{rmq}
+
+	\begin{coro}
+		Soit $f\in A[x]$. Soient $c_1,\dots,c_t$ des racines distinctes de $f$ de multiplicit\'es $k_1,\dots,k_t$ respectivement. Alors, $\exists g\in A[x]$ t.q. $f = \left( \prod_{j=1}^{t} (x-c_j)^{k_j} \right)g$, o\`u $\varepsilon_{c_j}g\neq0$ $\forall j\in\{1,\dots,j\}$.
+
+		De plus, $\partial f=\sum_{j=1}^{t}k_j+\partial g$.
+		\begin{subproof}[Id\'ee de la d\'emonstration]
+			Effectuons une r\'ecurrence sur $t$ le nombre de racines.
+
+			Si $t=1$: c'est le d\'efinition de la multiplicit\'e.
+
+			Supposons que l'\'enonc\'e est vrai pour les polyn\^omes ayant $t-1$ racines et $f = \left( \prod_{j=1}^{t-1} (x-c_j)^{k_j} \right) h$. Si $c_t$ est une nouvelle racine de $f$. Alors, $0 = \varepsilon_{c_t}(f) = \prod_{j=1}^{t-1} (c_t-c_j)^{k_j} \varepsilon_{c_t}(h)$. On a donc que $\varepsilon_{c_t}(h)=0$.
+
+			Voyons la multiplicit\'e.
+		\end{subproof}
+	\end{coro}
 \end{document}
