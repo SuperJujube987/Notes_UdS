@@ -102,6 +102,9 @@
 \def\im{\operatorname{Im}}
 \def\noyau{\operatorname{Ker}}
 
+\def\pgcd{\operatorname{pgcd}}
+\def\ppcm{\operatorname{ppcm}}
+
 \newcommand*{\abs}[1]{\left|#1\right|}
 \newcommand*{\caract}[1]{\operatorname{car}\left(#1\right)}
 \newcommand*{\arst}[1]{\renewcommand{\arraystretch}{#1}}
@@ -2834,6 +2837,212 @@
 			Supposons que l'\'enonc\'e est vrai pour les polyn\^omes ayant $t-1$ racines et $f = \left( \prod_{j=1}^{t-1} (x-c_j)^{k_j} \right) h$. Si $c_t$ est une nouvelle racine de $f$. Alors, $0 = \varepsilon_{c_t}(f) = \prod_{j=1}^{t-1} (c_t-c_j)^{k_j} \varepsilon_{c_t}(h)$. On a donc que $\varepsilon_{c_t}(h)=0$.
 
 			Voyons la multiplicit\'e.
+
+			Le reste est laiss\'e \`a lire dans le manuel de r\'ef\'erence pour qui veux conna\^itre les d\'etails.
 		\end{subproof}
 	\end{coro}
+
+	\section{Factorisation dans $\Bbbk[x]$}
+	Soit $\Bbbk$ un corps.
+
+	\begin{dfn}
+		$p\in\Bbbk[x]$ est dit \emph{normalis\'e} si son coefficient directeur est $\id_\Bbbk$.
+
+		On peut toujours normaliser un polyn\^ome.
+	\end{dfn}
+
+	\begin{lem}
+		Dans $\Bbbk[x]$, si $f\mid g$, $g\mid f$ et $f,g$ normalis\'es, alors $f=g$.
+		\begin{proof}
+			Comme $f\mid g$, $g=fq_1$. Puisque $\Bbbk$ est un corps, $\partial f\lte\partial g$. De m\^eme, comme $f=gq_2$, $\partial g\lte\partial f$.
+
+			Alors, $\partial g=\partial f$. Donc, $\partial q_1=\partial q_2=0$.
+
+			Comme $f$ et $g$ sont normalis\'es, $f=g$.
+		\end{proof}
+	\end{lem}
+
+	\begin{rapp}
+		Les id\'eaux de $\ZZ$ sont $m\ZZ=\langle m \rangle$. Or, $\langle m \rangle=\langle -m \rangle$. $\mathcal{U}(\ZZ)=\{\pm1\}$.
+	\end{rapp}
+
+	\begin{thm}
+		Tout id\'eal $I$ de $\Bbbk[x]$ est de la forme $I=\langle p \rangle$. En fait, $\exists!p$ normalis\'e t.q. $I=\langle p \rangle$.
+		\begin{proof}
+			$I\trianglelefteq\Bbbk[x]$.
+			\begin{itemize}
+				\item Si $I=0$, $I=\langle 0 \rangle$. \checkmark
+				\item Supposons que $I\neq0$ et $p\in I$ normalis\'e t.q. $\partial p$ est minimal parmi les degr\'es des polyn\^omes de $I$.
+
+				$p\in I \Longrightarrow \langle p \rangle\subseteq I$. \checkmark
+
+				Soit $f\in I$. Alors, $\exists!q,r$ t.q. $f=pq+r$ avec $\partial r<\partial p$.
+
+				Or, $r=f-pq\in I$. Par minimalit\'e de $\partial p$, on a que $r=0$.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+
+	\begin{dfn}
+		Soient $f,g\in\Bbbk[x]$ donn\'es. Un \'el\'ement $p\in\Bbbk[x]$ est un $\pgcd$ de $f$ et $g$ si
+		\begin{enumerate}
+			\item $p\mid f$ et $p\mid g$;
+			\item si $p'\mid f$ et $p'\mid g$, alors $p'\mid p$.
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{rmq}
+		Un $\pgcd$, s'il existe, est unique \emph{\`a associ\'e pr\`es}.
+
+		$x,y\in A$ sont associ\'es si, et seulement si, $\exists u\in\mathcal{U}(A)$ t.q. $x=uy$.
+	\end{rmq}
+
+	\begin{thm}
+		Soient $f,g\in\Bbbk[x]$. Alors, il existe un $\pgcd$ de $f$ et $g$ dans $\Bbbk[x]$, disons $p$. De plus, $\exists s,t\in\Bbbk[x]$ t.q. $p=fs+gt$.
+		\begin{proof}
+			Consid\'erons l'id\'eal $I=\langle f,g \rangle$. de $\Bbbk[x]$. Alors, $\exists!p$ normalis\'e t.q. $I=\langle p \rangle$.
+
+			Comme $f\in\langle p \rangle$, $p\mid f$. De m\^eme, comme $g\in\langle p \rangle$, $p\mid g$.
+
+			Supposons que $\exists p'$ t.q. $p'\mid f$ et $p'\mid g$. $p'\mid ff'$ $\forall f'$ et $p'\mid gg' \forall g'$. Alors, $p'\mid ff'+gg'$. Donc, $p'\mid q$ $\forall q\in I$.
+
+			En particulier, $p'\mid p$.
+		\end{proof}
+	\end{thm}
+
+	\begin{dfn}
+		$p\in\Bbbk[x]$ non constant est \emph{irr\'eductible} si $p=fg$ $\Longrightarrow$ $\partial f=0$ ou $\partial g=0$.
+
+		Il n'y a pas de ``vraie'' factorisation.
+
+		La notion d'\'el\'ement ``premier'' est diff\'erente.
+	\end{dfn}
+
+	\begin{rmq}
+		Il s'agit d'une notion relative \`a l'anneau ambiant.
+
+		$x^2+1$ est irr\'eductible dans $\RR[x]$, mais pas dans $\CC[x]$. $x^2+1=(x-i)(x+i)$.
+	\end{rmq}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item Tout polyn\^ome de degr\'e $1$ est irr\'eductible dans $\Bbbk[x]$.
+			\item Si $p\in\Bbbk[x]$ est t.q. $\partial p\in\{2,3\}$, alors $p$ est irr\'eductible si, et seulement si, $p$ n'a pas de racine.
+			\begin{proof}[En effet,]
+				\begin{itemize}
+					\item[$\Rightarrow$:] Si $p$ a une racine $c$, on a $x-c\mid p$.
+					\item[$\Leftarrow$:] Si $p=fg$ avec $\partial f,\partial g\neq0$.
+
+					Si $\partial p=2$, $\partial f=\partial g=1$.
+
+					Si $\partial p=3$, $\partial f=1$ et $\partial g=2$, ou $\partial f=2$ et $\partial g=1$. Comme $p$ a un facteur de degr\'e $1$, il a une racine.
+				\end{itemize}
+			\end{proof}
+
+			$x^4+4=(x^2-2x+2)(x^2+2x+2)$ dans $\QQ[x]$. $x^4+4$ est r\'eductible, mais n'a pas de racines dans $\QQ$.
+
+			Ce qui est vrai est: $p$ admet une racine $\Longrightarrow$ $p$ n'est pas irr\'eductible.
+		\end{enumerate}
+	\end{exem}
+
+	\begin{rapp}
+		Dans $A=\ZZ$, les id\'eaux premiers/maximaux sont les $p\ZZ$ o\`u $p$ est premier.
+
+		Un nombre premier est un \'el\'ement irr\'eductible dans $\ZZ$.
+	\end{rapp}
+
+	\begin{thm}
+		Soit $p\in\Bbbk[x]$. Alors les conditions suivantes sont \'equivalentes
+		\begin{enumerate}
+			\item $p$ est irr\'eductible,
+			\item $\langle p \rangle$ est maximal,
+			\item $\langle p \rangle$ est premier,
+			\item si $p\mid fg$, alors $p\mid f$ ou $p\mid g$.
+		\end{enumerate}
+
+		Avant la d\'emonstration, dans $\ZZ$, 4. est une caract\'erisation des nombres premiers (propri\'et\'e de Gauss).
+		\begin{proof}~
+
+			\begin{itemize}
+				\item[1$\Rightarrow$2:] Soit $p$ irr\'eductible et supposons que $I\trianglelefteq\Bbbk[x]$ t.q. $\langle p \rangle \subsetneqq I$.
+
+				$\exists q\in\Bbbk[x]$ t.q. $I=\langle q \rangle$. Donc, $\langle p \rangle \subsetneqq \langle q \rangle \Longrightarrow q\mid p$. D'o\`u $p=qf$. L'irr\'eductibilit\'e de $p$ donne $q$ ou $f$ est une constante non nulle.
+
+				Si $q$ est une constante, $\langle q \rangle=\Bbbk[x]$.
+
+				Si $f$ est une constante, $q=f^{-1}p\in\langle p \rangle$, donc $\langle q \rangle=\langle p \rangle$.
+				\item[2$\Rightarrow$3:] Si $\langle p \rangle$, $\sfrac{\Bbbk[x]}{\langle p \rangle}$ est un corps, donc $\sfrac{\Bbbk[x]}{\langle p \rangle}$ est int\`egre. Alors, $\langle p \rangle$ est premier.
+				\item[3$\Rightarrow$4:] $p\mid fg \Longleftrightarrow fg\in\langle p \rangle$. Comme $\langle p \rangle$ est premier, $f\in\langle p \rangle$ ou $g\in\langle p \rangle$. Alors, $p\mid f$ ou $p\mid g$.
+				\item[4$\Rightarrow$1:] Supposons que $p=fg$ de sorte que $p\mid fg$. D'o\`u $p\mid f$ ou $p\mid g$.
+
+				Si $p\mid f$, on a que $\partial p\lte\partial f$. Or, $\partial f\lte\partial p$. Donc, $\partial p=\partial f$. Alors, $\partial g=0$.
+
+				De m\^eme, si $p\mid g$, $\partial f=0$.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+
+	\begin{rmq}
+		Si $p\in\Bbbk[x]$ irr\'eductible, alors $p\mid f_1f_2\cdots f_n$ $\Longrightarrow$ $p\mid f_i$ pour un certain $i\in\{1,2,\dots,n\}$.
+	\end{rmq}
+
+	\begin{exem}
+		Dans $\ZZ_5[x]$, $p=x^3+3x+2$.
+
+		$\varepsilon_0(p)=2$, $\varepsilon_1(p)=1$, $\varepsilon_2(p)=1$, $\varepsilon_3(p)=3$, $\varepsilon_4(p)=3$.
+
+		$p$ n'admet aucune racine dans $\ZZ_5$, donc, puisque $\partial p=3$, $p$ est irr\'eductible.
+
+		$A=\sfrac{\ZZ_5[x]}{\langle x^3+3x+2 \rangle}$ est un corps.
+
+		$\caract{A}=5$. $\abs{A}=?$. Les \'el\'ements sont les restes des divisions des $f\in\ZZ_5[x]$ par $x^3+3x+2$, c'est-\`a-dire, les polyn\^omes de degr\'es au plus $2$, $ax^2+bx+c$. Il y en a $5^3=125$ possibles.
+	\end{exem}
+
+	\begin{rmq}
+		Soit $n\in\ZZ$ premier. $\sfrac{\ZZ_n[x]}{\langle f \rangle}$, avec $f$ irr\'eductible de degr\'e $d$, est un corps de cardinalit\'e $n^d$.
+
+		Certaines questions se posent.
+		\begin{itemize}
+			\item Peut-on avoir 2 corps non isomorphes de cardinalit\'e $n^d$?
+
+			Non.
+			\item Peut-on trouver des polyn\^omes irr\'eductibles de n'importe quel degr\'e?
+
+			Dans $\ZZ_n[x]$, oui.
+		\end{itemize}
+	\end{rmq}
+
+	\begin{thm}
+		Tout polyn\^ome non constant $f\in\Bbbk[x]$ s'\'ecrit de mani\`ere unique (\`a l'ordre des facteurs pr\`es) sous la forme $f=c\prod_{i=1}^{t}p_i$ avec $p_i$ irr\'eductibles normalis\'es et $c\in\Bbbk$.
+		\begin{proof}
+			Si $f$ est irr\'eductible, \checkmark
+
+			Supposons que $f$ n'est pas irr\'eductible. $f=gh$ avec $0<\partial g,\partial h<\partial f$. Proc\'edons par r\'ecurrence sur $t$ le nombre de facteurs.
+
+			$g=c\prod_{i=1}^{m}p_i$ et $h=d\prod_{j=1}^{r}q_j$ avec $p_i,q_j$ irr\'eductibles et $c,d\in\Bbbk$. Alors, $f=gh=(cd)\prod_{i=1}^{m}p_i\prod_{j=1}^{r}q_j$.
+
+			Voyons l'unicit\'e.
+			\[ fg = c_1f_1\cdots f_m = c_1g_1\cdots g_t \]
+			$f_1\mid g_1\cdots g_t$, donc $f_1$ divise un des $g_i$. On peut supposer que $g_1=g_1'f_1$.
+			\[ c_1f_1f_2\cdots f_m = c_1'g_1'f_1g_2\cdots g_t \]
+			Comme $\Bbbk[x]$ est int\`egre, on a
+			\[ c_1f_2\cdots f_m = c_1'g_1'g_2\cdots g_t \]
+			Par r\'ecurrence, ce nouveau polyn\^ome admet une factorisation unique.
+		\end{proof}
+	\end{thm}
+
+	\begin{prop}
+		$\exists$ une infinit\'e de polyn\^omes irr\'eductibles normalis\'es dans $\Bbbk[x]$.
+		\begin{proof}
+			Supposons au contraire que $p_1,\dots,p_t$ est une liste compl\`ete de polyn\^omes irr\'eductibles normalis\'es.
+
+			Posons $f=1+p_1p_2\cdots p_t$. Soit $p$ un facteur irr\'eductible normalis\'e de $f$. $p$ est un des $p_i$, disons $p_{i_0}$.
+
+			$p_{i_0}\mid 1+p_1\cdots p_t$. Comme $p_{i_0}\mid p_1\cdots p_t$, on a que $p_{i_0}\mid 1$. \lightning
+		\end{proof}
+	\end{prop}
+
+	\begin{rmq}
+		Soit $p$ un nombre premier. $\ZZ_p[x]$ admet des polyn\^omes irr\'eductibles de degr\'e arbitrairement grand.
+	\end{rmq}
 \end{document}
