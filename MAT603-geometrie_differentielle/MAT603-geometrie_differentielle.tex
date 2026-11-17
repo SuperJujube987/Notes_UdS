@@ -2099,4 +2099,299 @@
 	\begin{prop}[Formule de Meusnier]
 		Soient $\vec\alpha:I\to M$ une courbe PPLA, $p=\vec\alpha(0)$, $\vec v=\vec\alpha'(0)$. Alors, $\dff_p(\vec v,\vec v) = \kappa_n = \kappa\cos\phi$, o\`u $\phi$ est l'angle entre $\vec n$ et $\vec N$.
 	\end{prop}
+
+	\begin{exem}[Surface de r\'evolution]
+		Soit une surface de r\'evolution. La courbe de base et toutes ses r\'evolutions sont les \emph{m\'eridiens} et les cercles perpendiculaires \`a l'axe de rotation sont les \emph{parall\`eles}. Ces deux ensembles de courbes sont des lignes de courbure. Leur courbure est donc $\kappa_n=k_i$ la courbure normale.
+
+		Soit $\vec\alpha:I\to\RR$ une courbe PPLA param\'etr\'ee par $\vec\alpha(s)=(f(s),g(s))$. On obtient une surface de r\'evolution param\'etr\'ee par $\vec X(u,v) = (f(u)\cos v,f(u)\sin v,g(u))$.
+		\begin{align*}
+			\begin{split}
+				\vec X_u&= (f'(u)\cos v,f'(u)\sin v,g'(u))
+			\end{split}
+			&
+			\begin{split}
+				\vec X_v&= (-f(u)\sin v,f(u)\cos v,0)
+			\end{split}
+			&
+			\begin{split}
+				\vec n&= \frac{\vec X_u\times\vec X_v}{\norme{\vec X_u\times\vec X_v}}\\
+				&= (-g'(u)\cos v, -g'(u)\sin v, f'(u))
+			\end{split}
+			\\[2ex]
+			\begin{split}
+				\vec X_{uu}&= (f''(u)\cos v, f''(u)\sin v, g''(u))
+			\end{split}
+			&
+			\begin{split}
+				\vec X_{uv}&= (-f'(u)\sin v, f'(u)\cos v, 0)
+			\end{split}
+			&
+			\begin{split}
+				\vec X_{vv}&= (-f(u)\cos v, -f(u)\sin v, 0)
+			\end{split}
+			\\[2ex]
+			\begin{split}
+				E&= \vec X_u\cdot\vec X_v\\
+				&= f'(u)^2+g'(u)^2\\
+				&= 1
+			\end{split}
+			&
+			\begin{split}
+				F&= \vec X_u\cdot\vec X_v\\
+				&= 0
+			\end{split}
+			&
+			\begin{split}
+				G&= \vec X_v\cdot\vec X_v\\
+				&= f(u)^2
+			\end{split}
+			\\[2ex]
+			\begin{split}
+				l&= \vec n\cdot\vec X_{uu}\\
+				&= f'g''-f''g'
+			\end{split}
+			&
+			\begin{split}
+				m&= \vec n\cdot\vec X_{uv}\\
+				&= 0
+			\end{split}
+			&
+			\begin{split}
+				n&= \vec n\cdot\vec X_{vv}\\
+				&= fg'
+			\end{split}
+		\end{align*}
+
+		Calculons l'op\'erateur de forme.
+		\begin{align*}
+			S&= \pff^{-1}\dff\\
+			&= \begin{bmatrix}
+				1&0\\0&f^2
+			\end{bmatrix}^{-1} \begin{bmatrix}
+				f'g''-f''g'&0\\0&fg'
+			\end{bmatrix}\\
+			&= \begin{bmatrix}
+				f'g''-f''g'&0\\0&\sfrac{g'}{f}
+			\end{bmatrix}
+		\end{align*}
+
+		Plus pr\'ecis\'ement, $S_p:T_pM\to T_pM$ et la matrice ci-haut est sa repr\'esentation selon la base $\left\{ \vec X_u, \vec X_v \right\}$.
+
+		Les vecteurs propres de la matrice sont $\begin{psmallmatrix}
+			1\\0
+		\end{psmallmatrix}$ et $\begin{psmallmatrix}
+			0\\1
+		\end{psmallmatrix}$. Donc, les directions principales sont $\vec X_u$ et $\vec X_v$.
+
+		Les courbures principales sont les valeurs propres, $k_1=f'g''-f''g'$ et $k_2=\sfrac{g'}{f}$.
+
+		Donc, les lignes de courbure sont $u\mapsto\vec X(u,v_0)$ pour $v_0\in\RR$ constant et $v\mapsto\vec X(u_0,v)$ pour $u_0\in\RR$ constant. En effet, $\frac{d}{du}\vec X(u,v_0) = \frac{\partial}{\partial u}\vec X(u,v_0) = \vec X_u(u,v_0)$ est une direction principale. De m\^eme, $\frac{d}{dv}\vec X(u_0,v) = \vec X_v(u_0,v)$. Il s'agit des m\'eridiens et des parall\`eles respectivement. $u$ est le param\`etre de la courbe et $v$ est l'angle de rotation. Quand $u$ est constant et $v$ varie, on obtient les cercles. Quand $u$ varie et $v$ est constant, on obtient les courbes de base.
+
+		$k_1=f'g''-f''g'=\kappa_n$ des m\'eridiens.
+
+		$k_2=\sfrac{g'}{f}=\kappa_n$ des parall\`eles.
+
+		\begin{align*}
+			K&= k_1k_2\\
+			&= \frac{f'g''g'-f''(g')^2}{f}\\
+			\shortintertext{comme $f'^2+g'^2=1$, $2f'f''+2g'g''=0$, donc $g'g''=-f'f''$.On obtient alors}
+			&= \frac{-f'^2f''-f''g'^2}{f}\\
+			&= \frac{-f''}{f}\left(f'^2+g'^2\right)\\
+			&= \frac{-f''(u)}{f(u)}
+		\end{align*}
+	\end{exem}
+
+	\begin{exem}[Pseudosph\`ere]
+		Consid\'erons la tractrice $\vec\alpha(t) = (t-\tanh t, \sech t)$.
+
+		Soit $M$ la surface de r\'evolution obtenue par rotation de $\vec\alpha$ autour de l'axe des $x$. $M$ est param\'etr\'ee par $\vec X(u,v) = (u-\tanh u, \sech u\cos v, \sech u\sin v)$.
+
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=1.5]
+				\draw[->] (-.2,0,0) -- (3.2,0,0) node[right] {$x$};
+				\draw[->] (0,-1.2,0) -- (0,1.2,0) node[above] {$y$};
+				\draw[->] (0,0,-1.2) -- (0,0,1.2) node[below left] {$z$};
+				\draw[thick, domain=0:4, samples=25, smooth, variable=\t] plot ({\t-tanh(\t)},{1/cosh(\t)},0);
+				\draw[thick, domain=0:4, samples=25, smooth, variable=\t] plot ({\t-tanh(\t)},{-1/cosh(\t)},0);
+				\draw[thick, domain=0:4, samples=25, smooth, variable=\t] plot ({\t-tanh(\t)},0,{1/cosh(\t)});
+				\draw[domain=0:4, samples=25, smooth, variable=\t, dashed] plot ({\t-tanh(\t)},0,{-1/cosh(\t)});
+				\begin{scope}[canvas is yz plane at x=0]
+					\draw (0,0) circle (1);
+				\end{scope}
+				\begin{scope}[canvas is yz plane at x=3]
+					\draw (0,0) circle (0.0366);
+				\end{scope}
+			\end{tikzpicture}
+			\caption{Surface de r\'evolution obtenue par rotation d'une tractrice autour de l'axe des $x$}
+		\end{figure}
+
+		Sur un m\'eridien, on a $\vec n$ qui pointe vers l'int\'erieur du ``c\^one'' et $\vec N$ qui pointe vers l'ext\'erieur. Alors, $\vec N=-\vec n$, donc $\kappa_n=\kappa\vec N\cdot n=-\kappa$, o\`u $\kappa=\frac{1}{\sinh u}$ est la courbure de la tractrice. On a donc $k_1=-\frac{1}{\sinh u}$.
+
+		Sur un parall\`ele, on a $\kappa_n=\kappa\cos\phi$, o\`u $\phi$ est l'angle entre $\vec n$ et $\vec N$. Ce $\vec N$ pointe vers l'axe des $x$. On peut trouver que $\cos\phi=\tanh u$. $\kappa=\frac{1}{\sech u}$ est la courbure du cercle, car il est de rayon $\sech u$. On obtient donc $k_2 = \kappa_n = \frac{\tanh u}{\sech u} = \sinh u$.
+
+		Ainsi, on obtient $K=k_1k_2=-1$.
+	\end{exem}
+
+	\section{\'Equations de Codazzi et Gauss. Th\'eor\`eme fondamental des surfaces}
+	$\vec X_u, \vec X_v, \vec n$ forment une base de $\RR^3$.
+
+	Comme $l=\vec X_{uu}\cdot\vec n$, $m=\vec X_{uv}\cdot\vec n$ et $n=\vec X_{vv}\cdot\vec n$, on obtient
+	\begin{align*}
+		\vec X_{uu}&= \Gamma_{uu}^u\vec X_u + \Gamma_{uu}^v\vec X_v + l\vec n\tag1\\
+		\vec X_{uv}&= \Gamma_{uv}^u\vec X_u + \Gamma_{uv}^v\vec X_v + m\vec n\tag2\\
+		\vec X_{vv}&= \Gamma_{vv}^u\vec X_u + \Gamma_{vv}^v\vec X_v + n\vec n\tag3
+	\end{align*}
+
+	\begin{dfn}
+		$\Gamma_{**}^*$ sont les \emph{symboles de Christoffel}.
+	\end{dfn}
+
+	\begin{exem}
+		$\vec X(u,v) = (\sin u\cos v, \sin u\sin v, \cos u)$, avec $0<u<\pi$ et $0<v<2\pi$, la param\'etrisation de la sph\`ere en coordonn\'ees sph\'eriques.
+		\begin{align*}
+			\begin{split}
+				\vec X_u&= (\cos u\cos v, \cos u\sin v, -\sin u)
+			\end{split}
+			&
+			\begin{split}
+				\vec X_v&= (-\sin u\sin v, \sin u\cos v, 0)
+			\end{split}
+			&
+			\begin{split}
+				\vec n&= \vec X
+			\end{split}
+			\\[2ex]
+			\begin{split}
+				\vec X_{uu}&= (-\sin u\cos v, -\sin u\sin v, -\cos u)\\
+				&= -\vec X = -\vec n
+			\end{split}
+			&
+			\begin{split}
+				\vec X_{uv}&= (-\cos u\sin v, \cos u\cos v, 0)\\
+				&= \frac{\cos u}{\sin v}\vec X_v
+			\end{split}
+			&
+			\begin{split}
+				\vec X_{vv}&= (-\sin u\cos v, \sin u\sin v, 0)\\
+				&= -\sin u\cos u\vec X_u-\sin^2u\vec n
+			\end{split}
+		\end{align*}
+
+		Donc, $\Gamma_{uu}^u=0$, $\Gamma_{uu}^v=0$, $l=-1$, $\Gamma_{uv}^u=0$, $\Gamma_{uv}^v=\cot u$, $m=0$, $\Gamma_{vv}^u=-\sin u\cos u$, $\Gamma_{vv}^v=0$ et $n=-\sin^2u$.
+	\end{exem}
+
+	\begin{prop}
+		Les symboles de Christoffel sont intrins\`eques.
+		\begin{proof}
+			\[ \begin{array}{rrcl}
+				(1)\cdot\vec X_u&\vec X_{uu}\cdot\vec X_u&=&\Gamma_{uu}^uE+\Gamma_{uu}^vF\\
+				(1)\cdot\vec X_v&\vec X_{uu}\cdot\vec X_v&=&\Gamma_{uu}^uF+\Gamma_{uu}^vG
+			\end{array} \]
+			On a $\vec X_{uu}\cdot\vec X_u = \frac{1}{2}\frac{\partial}{\partial u}(\vec X_u\cdot\vec X_v) = \frac{1}{2}E_u$. De plus,
+			\begin{align*}
+				\vec X_{uu}\cdot\vec X_v&= \vec X_{uu}\cdot\vec X_v + \vec X_u\cdot\vec X_{uv} - \vec X_u\cdot\vec X_{uv}\\
+				&= \frac{\partial}{\partial u}(\vec X_u\cdot\vec X_v) - \frac{1}{2}\frac{\partial}{\partial v}(\vec X_u\cdot\vec X_v)\\
+				&= F_u-\frac{1}{2}E_v
+			\end{align*}
+			Ainsi, $\Gamma_{uu}^uE+\Gamma_{uu}^vF=\frac{1}{2}E_u$ et $\Gamma_{uu}^uF+\Gamma_{uu}^vG=F_u-\frac{1}{2}E_v$. Il s'agit d'un syst\`eme d'\'equations lin\'eaires
+			\begin{align*}
+				\begin{bmatrix}
+					E&F\\F&V
+				\end{bmatrix} \begin{pmatrix}
+					\Gamma_{uu}^u\\\Gamma_{uu}^v
+				\end{pmatrix}&= \begin{pmatrix}
+					\frac{1}{2}E_u\\F_u-\frac{1}{2}E_v
+				\end{pmatrix}\\
+				\shortintertext{on obtient}
+				\begin{pmatrix}
+					\Gamma_{uu}^u\\\Gamma_{uu}^v
+				\end{pmatrix}&= \begin{bmatrix}
+					E&F\\F&G
+				\end{bmatrix}^{-1} \begin{pmatrix}
+					\frac{1}{2}E_u\\F_u-\frac{1}{2}E_v
+				\end{pmatrix}
+			\end{align*}
+
+			De m\^eme, on peut obtenir
+			\begin{align*}
+				\begin{pmatrix}
+					\Gamma_{uv}^u\\\Gamma_{uv}^v
+				\end{pmatrix}&= \begin{bmatrix}
+					E&F\\F&G
+				\end{bmatrix}^{-1} \begin{pmatrix}
+					\frac{1}{2}E_v\\\frac{1}{2}G_u
+				\end{pmatrix}\\
+				\begin{pmatrix}
+					\Gamma_{vv}^u\\\Gamma_{vv}^v
+				\end{pmatrix}&= \begin{bmatrix}
+					E&F\\F&G
+				\end{bmatrix}^{-1} \begin{pmatrix}
+					\frac{1}{2}F_v-\frac{1}{2}G_u\\\frac{1}{2}G_v
+				\end{pmatrix}
+			\end{align*}
+		\end{proof}
+	\end{prop}
+
+	\begin{prop}
+		La courbure de Gauss est intrins\`eque.
+		\begin{proof}
+			\begin{align*}
+				S&= \pff^{-1}\dff\\
+				&= \begin{bmatrix}
+					E&F\\F&G
+				\end{bmatrix}^{-1} \begin{bmatrix}
+					l&m\\m&n
+				\end{bmatrix}\\
+				&= \frac{1}{EG-F^2}\begin{bmatrix}
+					G&-F\\-F&E
+				\end{bmatrix} \begin{bmatrix}
+					l&m\\m&n
+				\end{bmatrix}\\
+				&= \frac{1}{EG-F^2}\begin{bmatrix}
+					lG-mF&mG-nF\\
+					-lF+mE&-mF+nE
+				\end{bmatrix}
+			\end{align*}
+
+			\begin{align*}
+				K&= k_1k_2\\
+				&= \det(S)\\
+				&= \frac{ln-m^2}{EG-F^2}
+			\end{align*}
+
+			Notons $S = \begin{bmatrix}
+				a&c\\b&d
+			\end{bmatrix} = \dfrac{1}{EG-F^2}\begin{bmatrix}
+				lG-mF&mG-nF\\
+				-lF+mE&-mF+nE
+			\end{bmatrix}$.
+
+			\begin{align*}
+				\begin{split}
+					\vec n_u&= D_{\vec X_u}(\vec n)\\
+					&= -S(\vec X_u)\\
+					&= -a\vec X_u-b\vec X_v
+				\end{split}
+				&
+				\begin{split}
+					\vec n_v&= D_{\vec X_v}(\vec n)\\
+					&= -S(\vec X_v)\\
+					&= -c\vec X_u-d\vec X_v
+				\end{split}
+			\end{align*}
+
+			\begin{multline*}
+				\frac{\partial}{\partial v}(1):\vec X_{uuv} = \left(\Gamma_{uu}^u\right)_v\vec X_u+\Gamma_{uu}^u\vec X_{uv} + \left(\Gamma_{uu}^v\right)\vec X_v+\Gamma_{uu}^u\vec X_{vv} + l_v\vec n+l\vec n_v + \left(\Gamma_{uu}^u\right)_v\vec X_u\\
+				+\Gamma_{uu}^u\left(\Gamma_{uv}^u\vec X_u + \Gamma_{uv}^v\vec X_v + m\vec n\right) + \left(\Gamma_{uu}^v\right)_v\vec X_v+\Gamma_{uu}^u\left(\Gamma_{vv}^u\vec X_u + \Gamma_{vv}^v\vec X_v + n\vec n\right) + l_v\vec n+l\left(-c\vec X_u-d\vec X_v\right)
+			\end{multline*}
+			\begin{multline*}
+				\frac{\partial}{\partial u}(2):\vec X_{uvu} = \left(\Gamma_{uv}^u\right)_u\vec X_u+\Gamma_{uv}^u\left(\Gamma_{uu}^u\vec X_u+\Gamma_{uu}^v\vec X_v+l\vec n\right) + \left(\Gamma_{uv}^v\right)_u\vec X_v\\
+				+\Gamma_{uv}^v\left(\Gamma_{uv}^u\vec X_u+\Gamma_{uv}^v\vec X_v+m\vec n\right) + m_u\vec n-m\left(a\vec X_v+b\vec X_v\right)
+			\end{multline*}
+			$\vec X_{uuv} = \vec X_{uvu}$ et $\vec X_u,\vec X_v,\vec n$ sont lin\'eairement ind\'ependants.
+
+			On a donc trois \'equations pour les coefficients de $\vec X_u,\vec X_v,\vec n$.
+		\end{proof}
+	\end{prop}
 \end{document}

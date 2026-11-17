@@ -9,3 +9,4 @@
 \contentsline {chapter}{\numberline {2}Surfaces (th\'eorie locale)}{17}{chapter.2}%
 \contentsline {section}{\numberline { 2.1}Notions de topologie}{17}{section.2.1}%
 \contentsline {section}{\numberline { 2.2}Aire des surfaces}{22}{section.2.2}%
+\contentsline {section}{\numberline { 2.3}\'Equations de Codazzi et Gauss. Th\'eor\`eme fondamental des surfaces}{32}{section.2.3}%
