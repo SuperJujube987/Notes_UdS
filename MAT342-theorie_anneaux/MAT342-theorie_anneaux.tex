@@ -3045,4 +3045,208 @@
 	\begin{rmq}
 		Soit $p$ un nombre premier. $\ZZ_p[x]$ admet des polyn\^omes irr\'eductibles de degr\'e arbitrairement grand.
 	\end{rmq}
+
+	\begin{thm}[Th\'eor\`eme fondamental de l'alg\`ebre]
+		Le corps $\CC$ est \emph{alg\'ebriquement clos}. C'est-\`a-dire, tout polyn\^ome a ses racines. Les seuls polyn\^omes irr\'eductibles sont de la forme $x-c$.
+	\end{thm}
+
+	\begin{prop}
+		Tout corps $\Bbbk$ admet une \emph{cl\^oture alg\'ebrique}. $\overline{\Bbbk}$ est un sur-corps de $\Bbbk$ qui est alg\'ebriquement clos.
+	\end{prop}
+
+	\subsubsection{Cas particuliers}
+	$\Bbbk$ est un des corps suivants: $\QQ$, $\RR$ ou $\CC$.
+	\begin{rmq}
+		Soit un \'el\'ement $f\in\QQ[x]$.
+		\begin{align*}
+			f&= \frac{a_0}{b_0} + \frac{a_1}{b_1}x + \cdots + \frac{a_d}{b_d}x^d&&a_i,b_i\in\ZZ\\
+			&= \frac{1}{\prod_{j=1}^{d}b_j}\underbrace{\left[ a_0'+a_1'x+\cdots+a_d'x^d \right]}_{g}&&a_j'=a_j\prod_{k\neq j}b_k
+		\end{align*}
+
+		$c$ est une racine de $f$ si, et seulement si, $c$ est une racine de $g$.
+
+		Ainsi, si on cherche des racines de polyn\^omes \`a coefficients rationnels, on peut le faire pour des polyn\^omes \`a coefficients entiers.
+	\end{rmq}
+
+	\begin{thm}
+		Soit $f=\sum_{j=0}^{d}a_jx^j\in\ZZ[x]$. \emph{Si} $\frac{s}{t}\in\QQ$ est une racine de $f$, avec $s,t$ copremiers, alors $s\mid a_0$ et $t\mid a_d$.
+
+		\begin{proof}
+			Si $\frac{s}{t}$ est une racine, on a $0 = \varepsilon_{\sfrac{s}{t}}(f) = \sum_{j=0}^{d} a_j \frac{s^j}{t^j}$. En multipliant par $t^d$, on obtient $0 = t^d\varepsilon_{\sfrac{s}{t}}(f) = \sum_{j=0}^{d} a_jt^{d-j}s^j$. D'o\`u $-a_0t^d = \sum_{j=1}^{d} a_jt^{d-j}s^j$, donc $s\mid a_0t^d$. Or, $s\nmid t^d$, donc $s\mid a_0$.
+
+			De m\^eme, $t\mid a_ds^d$, donc $t\mid a_d$.
+		\end{proof}
+	\end{thm}
+
+	\begin{exem}
+		\begin{subproof}[m.q.]
+			$x^2-10$ n'a pas de racine rationnelle.
+
+			Une telle racine serait de la forme $\frac{s}{t}$ avec $s\mid10$ et $t\mid1$, c'est-\`a-dire, $s\in\{\pm1,\pm2,\pm5,\pm10\}$ et $t\in\{\pm1\}$.
+
+			L'\'evaluation des 8 possibilit\'es donne aucune solution.
+
+			Par exemple, $\frac{s}{t}=\frac{2}{1}$, $\varepsilon_2(x^2-10)=4-10\neq0$.
+		\end{subproof}
+	\end{exem}
+
+	\begin{exem}
+		Chercher les racines rationnelles de $f=5x^3-3x^2+2x-6$.
+
+		Les candidats sont $\frac{s}{t}$, avec $s\in\{\pm1,\pm2,\pm3,\pm6\}$ et $t\in\{\pm1,\pm5\}$.
+
+		\`A $c=\frac{3}{5}$, on a une racine. Donc, $x-\frac{3}{5} \mid f$ dans $\QQ[x]$. $f = \left( x-\frac{3}{5} \right) (5x^2+10) = (5x-3) (x^2+2)$. La premi\`ere est une factorisation dans $\QQ[x]$ et la seconde dans $\ZZ[x]$.
+	\end{exem}
+
+	\begin{thm}
+		$f\in\ZZ[x]$ se d\'ecompose (non trivialement) dans $\QQ[x]$ si, et seulement si, $f$ se d\'ecompose (non trivialement) dans $\ZZ[x]$.
+
+		Pour d\'emontrer ceci, on aura besoin du r\'esultat suivant.
+		\begin{lem}
+			Soient $f=gh$ dans $\ZZ[x]$ et $p$ premier dans $\ZZ$ t.q. $p$ divise tous les coefficients de $f$. Alors, $p$ divise tous les coefficients de $g$ ou tous les coefficients de $h$.
+
+			\begin{subproof}
+				Posons $f=\sum a_jx^j$, $g=\sum b_jx^j$, $h=\sum c_jx^j$.
+
+				Supposons que $p\mid a_j$ $\forall j$ et que $p$ ne divise pas les coefficients de $g$ ni ceux de $h$.
+
+				Soit $k$ l'indice minimal t.q. $p\nmid b_k$. Soit $l$ l'indice minimal t.q. $p\nmid c_l$. Alors, le coefficient de $x^{l+k}$ dans $f=gh$ est
+				\begin{align*}
+					a_{k+l}&= \underbrace{b_0c_{k+l} + b_1c_{k+l-1} + \cdots + b_{k-1}c_{l+1}}_{p\mid b_j} + b_kc_l + \underbrace{b_{k+1}c_{l-1} + \cdots + b_{k+l}c_0}_{p\mid c_j}
+				\end{align*}
+
+				Il faut que $p\mid b_kc_l$. \lightning
+			\end{subproof}
+		\end{lem}
+
+		\begin{proof}
+			On montre seulement que la d\'ecomposition dans $\QQ[x]$ donne une d\'ecomposition dans $\ZZ[x]$.
+
+			Supposons que $f=gh$ avec $g,h\in\QQ[x]$. $\partial g<\partial f$ et $\partial h<\partial f$. Alors, $\exists a,b\in\ZZ$ t.q. $ag,bh\in\ZZ[x]$. On a $abf = abgh = agbh$.
+
+			Si $p$ est un facteur premier de $a$, on a que $p$ divise tous les coefficients de $ag$ (ou ceux de $bh$), \`a coefficients entiers, et on simplifie (en restant \`a coefficients entiers).
+		\end{proof}
+	\end{thm}
+
+	\begin{exem}
+		$f=x^4-x^3+2x+1$. Voyons que $f$ est irr\'eductible dans $\QQ[x]$.
+
+		Une factorisation $f=gh$ a les possibilit\'es suivantes:
+		\begin{itemize}
+			\item $\partial g=1$, $\partial h=3$;
+			\item $\partial g=2$, $\partial h=2$;
+			\item $\partial g=3$, $\partial h=1$.
+		\end{itemize}
+
+		Un facteur de derg\'e 1 donne une racine. Les candidats de racines rationnelles sont $\pm1$. $\varepsilon_1(f)=3\neq0$ et $\varepsilon_{-1}(f)=1\neq0$.
+
+		Supposons $f = x^4-x^3+2x+1 = (x^2+ax+b) (x^2+cx+d)$. On obtient ce syst\`eme d'\'equations
+		\begin{equation*}
+			1=bd
+			\tag{1}
+		\end{equation*}
+		\begin{equation*}
+			2=ad+bc
+			\tag{2}
+		\end{equation*}
+		\begin{equation*}
+			0=d+ac+b
+			\tag{3}
+		\end{equation*}
+		\begin{equation*}
+			-1=c+a
+			\tag{4}
+		\end{equation*}
+
+		Comme les coefficients sont entiers, $(1) \Longrightarrow b=d=\pm1$.
+
+		Si $b=d=1$, $(2)$ devient $2=a+c$. \lightning
+
+		Si $b=d=-1$, $(2)$ devient $-2=a+c$. \lightning
+
+		Ainsi, $f$ n'admet pas de d\'ecomposition dans $\QQ[x]$.
+	\end{exem}
+
+	\begin{thm}[Crit\`ere d'Eisenstein]
+		Soit $f=\sum_{j=0}^{d}a_jx^j\in\ZZ[x]$. Soit $p\in\ZZ$ premier t.q. $p\nmid a_d$, $p\mid a_i$ pour $i\in\{0,1,\dots,p-1\}$ et $p^2\nmid a_0$. Alors, $f$ est irr\'eductible dans $\QQ[x]$.
+
+		\begin{proof}
+			Supposons que $f=gh$, avec $\partial g<\partial f$ et $\partial h<\partial f$.
+
+			On peut supposer sans perte de g\'en\'eralit\'e que $g,h\in\ZZ[x]$.
+
+			Soient $g=\sum_{j=0}^{k}b_jx^j$ et $h=\sum_{j=0}^{l}c_jx^j$.
+
+			$a_0=b_0c_0$, $p\mid a_0$, $p^2\nmid a_0$. Alors, $p$ divise (une fois) exactement un parmi $b_0$ et $c_0$. Supposons que $b\mid b_0$.
+
+			On a aussi $a_d=b_kc_l$. Or, $p\nmid a_d$, donc $p\nmid b_k$.
+
+			Soit $m=\min\{n : p\nmid b_n\}$. $a_m = b_0c_m + b_1c_{m-1} + \cdots + b_mc_0$. $p\mid a_m$, $p\mid b_ic_{m-i}$ pour $i\in\{0,1,\dots,m-1\}$, mais $p\nmid b_m$ et $p\nmid c_0$. \lightning
+		\end{proof}
+	\end{thm}
+
+	\begin{rmq}
+		Il existe des variantes.
+
+		Par exemple, $f(x)$ irr\'eductible $\Longleftrightarrow$ $f(x+n)$ irr\'eductible.
+	\end{rmq}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $f=2x^4-25x^3+5x^2-10x+35$, $p=5$ donne $f$ irr\'eductible.
+			\item $f=x^2+2$, $p=2$ donne $f$ irr\'eductible.
+		\end{enumerate}
+	\end{exem}
+
+	\chapter{Anneaux principaux}
+	\begin{rapp}~
+
+		\begin{enumerate}
+			\item Les id\'eaux de $\ZZ$ sont de la forme $n\ZZ=\langle n \rangle$;
+			\item Les id\'eaux de $\Bbbk[x]$ sont de la forme $I=\langle p \rangle$, $\exists!p$ normalis\'e.
+		\end{enumerate}
+		On dit, dans ces deux cas, que les id\'eaux sont \emph{principaux}.
+		\begin{enumerate}[resume]
+			\item Dans $\ZZ$ et $\Bbbk[x]$, on a unicit\'e de d\'ecomposition du produit de facteurs premiers/irr\'eductibles;
+			\item Dans les deux cas, on a un algorithme de la division qui donne $\pgcd$ (et $\ppcm$): Euclide.
+		\end{enumerate}
+	\end{rapp}
+
+	\section{Divisibilit\'e dans un anneau int\`egre}
+	\begin{prop}
+		Dans un anneau int\`egre, $b\mid a$ si, et seulement si, $\langle a \rangle \subseteq \langle b \rangle$. Autrement dit, $Aa \subseteq Ab$.
+	\end{prop}
+
+	\begin{dfn}
+		Si $A$ est un anneau int\`egre, deux \'el\'ements $a$ et $b$ sont \emph{associ\'es} si $a\mid b$ et $b\mid a$.
+	\end{dfn}
+
+	\begin{rmq}~
+
+		\begin{itemize}
+			\item Si $a\mid b$ et $b\mid a$, alors $\langle a \rangle = \langle b \rangle$;
+			\item $a=ub$, $b=va$ donne $a=uva$, d'o\`u $a(1-uv)=0$. Comme $A$ est int\`egre, $1-uv=0$, donc $u,v\in\mathcal{U}(A)$.
+		\end{itemize}
+	\end{rmq}
+
+	\begin{lem}
+		Soit $A$ un anneau int\`egre. Les conditions suivantes sont \'equivalentes:
+		\begin{enumerate}
+			\item $a$ et $b$ sont associ\'es,
+			\item $Aa=Ab$;
+			\item $\exists u\in\mathcal{U}(A)$ t.q. $a=ub$;
+			\item $\exists v\in\mathcal{U}(A)$ t.q. $b=va$.
+		\end{enumerate}
+	\end{lem}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item \'El\'ements associ\'es dans $\Bbbk[x]$.
+
+			$\mathcal{U}(\Bbbk[x])=\Bbbk_*$, d'o\`u $f,g$ associ\'es si, et seulement si, $f=\alpha g$, $\alpha\in\Bbbk_*$.
+			\item \'El\'ements associ\'es dans $\ZZ[i]$.
+
+			$\mathcal{U}(\ZZ[i])=\{\pm1\pm i\}$. Les associ\'es de $z=a+ib$ sont $\{\pm z,\pm iz\}$.
+		\end{enumerate}
+	\end{exem}
 \end{document}

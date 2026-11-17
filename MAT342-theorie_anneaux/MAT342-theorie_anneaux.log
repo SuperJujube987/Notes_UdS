@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  13 NOV 2026 10:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  17 NOV 2026 10:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1203,13 +1203,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [34]
 
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 3057.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.07225pt}.
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[35] (MAT342-theorie_anneaux.aux)
+[35]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[36]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[37]
+Chapitre 5.
+[38
+
+] (MAT342-theorie_anneaux.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -1221,14 +1245,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT342-theorie_anneaux.out' has not changed.
 
-(rerunfilecheck)             Checksum: 66F5FA833B3C0BA8D3A6C626F4AF64DE;1576.
+(rerunfilecheck)             Checksum: 095E3E8A3DDFB90334010613134C6699;2106.
  ) 
 Here is how much of TeX's memory you used:
- 29655 strings out of 467441
- 579737 string characters out of 5407591
+ 29686 strings out of 467441
+ 580052 string characters out of 5407591
  1018164 words of memory out of 5000000
- 58231 multiletter control sequences out of 15000+600000
- 649950 words of font info for 145 fonts, out of 8000000 for 9000
+ 58239 multiletter control sequences out of 15000+600000
+ 650303 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,25n,104p,561b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jujub\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/dpi600\wasy
@@ -1251,26 +1275,27 @@ iKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jujub/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jujub/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/jujub/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/j
-ujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
+ujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C
 :/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
-5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmti8.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/doublestroke/dsrom10.pfb><C:/Users/jujub/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/doublestroke/dsrom8.pfb><C:/Users/jujub/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/juj
-ub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-<C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/symbols/msbm5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/jujub/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/jujub/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/rsfs/rsfs7.pfb><C:/Users/jujub/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on MAT342-theorie_anneaux.pdf (37 pages, 539258 bytes).
+10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/jujub/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/jujub/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom8.pfb><C:/Users/jujub/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/
+Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
+sam7.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/symbols/msbm5.pfb><C:/Users/jujub/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/jujub/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/jujub/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs7.pfb><C:/Users/jujub/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
+Output written on MAT342-theorie_anneaux.pdf (40 pages, 567124 bytes).
 PDF statistics:
- 645 PDF objects out of 1000 (max. 8388607)
- 250 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 698 PDF objects out of 1000 (max. 8388607)
+ 272 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 
