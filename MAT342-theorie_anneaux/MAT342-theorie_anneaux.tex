@@ -3249,4 +3249,89 @@
 			$\mathcal{U}(\ZZ[i])=\{\pm1\pm i\}$. Les associ\'es de $z=a+ib$ sont $\{\pm z,\pm iz\}$.
 		\end{enumerate}
 	\end{exem}
+
+	\begin{exer}[p.398, \#8]\footnote{Assem, I. et Leduc, P.-Y. (2009). \textit{Cours d'algèbre}. Presses Internationales Polytechnique.}
+		Soit $\omega\in\CC$ une racine cubique de l'unit\'e, distincte de $1$.
+
+		Trouver $\mathcal{U}(\ZZ[\omega])$.
+
+		Comme $\omega^3=1$, $0=1-\omega^3=(1-\omega)(1+\omega+\omega^2)$, donc puisque $\CC$ est un corps $1+\omega+\omega^2$. Alors, $\omega^2=-(1+\omega)$.
+
+		Disons que $\omega=e^{\sfrac{2i\pi}{3}}$, d'o\`u $\omega^2=e^{\sfrac{4i\pi}{3}} = e^{\sfrac{-2i\pi}{3}} = \overline{\omega}$.
+
+		$\mathcal{U}(\ZZ[\omega]) = \{1, \omega ,\omega^2 ,-1 ,-\omega ,-\omega^2\}$. Voyons qu'il n'y en a pas d'autres.
+
+		Posons la norme carr\'ee
+		\begin{align*}
+			N(a+b\omega)&\coloneq \abs{a+b\omega}^2\\
+			&= (a+b\omega) (\overline{a+b\omega})\\
+			&= (a+b\omega) (a+b\overline{\omega})\\
+			&= (a+b\omega) (a+b\omega^2)\\
+			&= a^2+ab\omega^2+ab\omega+b^2\omega^3\\
+			&= a^2-ab+b^2
+		\end{align*}
+
+		$N$ pr\'eserve le produit et prend des valeurs dans $\NN$.
+
+		On pr\'etend que $u\in\mathcal{U}(\ZZ[\omega]) \Longleftrightarrow N(u)=1$.
+		\begin{itemize}
+			\item Si $u\in\mathcal{U}(\ZZ[\omega])$, $\exists v$ t.q. $uv=1$, d'o\`u $1 = N(1) N(uv) = N(u)N(v)$ dans $\NN$. Alors, $N(u)=1$.
+			\item Supposons que $N(u)=1$. Ceci donne $1 = N(u) = u \overline{u}$ $\Longrightarrow$ $\overline{u}=u^{-1}$.
+		\end{itemize}
+
+		Trouvons les solutions de $N(u)$ $\Longleftrightarrow$ $a^2-ab+b^2=1$, o\`u $u=a+b\omega$.
+		\begin{align*}
+			4a^2-4ab+4b^2&= 4\\
+			(2a-b)^2-b^2+4b^2&= 4\\
+			(2a-b)^2+3b^2&= 4
+		\end{align*}
+		Donc, $b\in\{-1,0,1\}$.
+		\begin{itemize}
+			\item Si $b=0$, on a $(2a)^2=4$, donc $a\in\{-1,1\}$. Alors, $u=1$ ou $u=-1$.
+			\item Si $b=1$, on a $(2a-1)^2+3=4$, donc $a\in\{0,1\}$. Alors, $u=-\omega^2$ ou $u=\omega$.
+			\item Si $b=-1$, on a $(2a+1)^2+3=4$, donc $a\in\{0,-1\}$. Alors, $u=-\omega$ ou $u=\omega^2$.
+		\end{itemize}
+
+		Les solutions possibles sont $u\in\{-1, -\omega, -\omega^2, 1, \omega, \omega^2\}$.
+	\end{exer}
+
+	\begin{dfn}
+		Soit $A$ un anneau int\`egre.
+		\begin{enumerate}
+			\item $p\in A\setminus\{0\}$ est \emph{irr\'eductible} si $p\notin\mathcal{U}(A)$ et si $p=ab$, $a\in\mathcal{U}(A)$ ou $b\in\mathcal{U}(A)$;
+			\item $p\in A\setminus\{0\}$ est \emph{premier} si $p\notin\mathcal{U}(A)$ et si $p \mid ab$, $p \mid a$ ou $p \mid b$.
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{rmq}
+		Typiquement, dans $\ZZ$, on nomme les nombres respectant la condition 1. ``premiers''.
+
+		On sait que, dans $\ZZ$ et $\Bbbk[x]$, les deux conditions co\"incident, car les id\'eaux premiers sont maximaux.
+	\end{rmq}
+
+	\begin{exem}
+		$3$ n'est pas premier mais est irr\'eductible dans $A=\ZZ[\sqrt{-5}]$.
+		\begin{subproof}[En effet,]~
+
+			\begin{itemize}
+				\item Calculons les unit\'es de $\ZZ[A]$.
+
+				On a $z=a+bi\sqrt{5}\in\mathcal{U}(A)$ $\Longleftrightarrow$ $\exists z' \text{ t.q. } zz'=1$.
+
+				$1=\overline1=\overline{zz'}=\overline{z}\,\overline{z'}$, d'o\`u $1=1 \cdot 1 = (zz') (\overline{z}\,\overline{z'}) = (z\overline{z}) (z'\overline{z'})$. Alors, $1=\abs{z}^2 \abs{z'}^2$. Or, $\abs{z}^2 = z\overline{z} = (a+bi\sqrt{5}) (a-bi\sqrt{5}) = a^2+5b^2\in\NN$.
+
+				$a^2+5b^2=1$ donne $b=0$, donc $a=\pm1$. Alors, $\mathcal{U}(A)=\{\pm1\}$.
+				\item Montrons que $3$ n'est pas premier.
+
+				On a $3 \cdot 3 = 9 = (2+i\sqrt{5}) (2-i\sqrt{5})$. Donc, $3 \mid (2+i\sqrt{5}) (2-i\sqrt{5})$. Voyons que $3$ ne divise pas $2+i\sqrt{5}$ ni $2-i\sqrt{5}$. $\dfrac{2\pm i\sqrt{5}}{3} \notin \ZZ[\sqrt{-5}]$.
+				\item Montrons que $3$ est irr\'eductible.
+
+				Supposons $3=zz'$. On a $9 = (z\overline{z}) (z'\overline{z'}) = \abs{z}^2 \abs{z'}^2$. Donc, $\abs{z}^2 \mid 9$ dans $\ZZ$.
+
+				Si $\abs{z}^2=9$, $\abs{z'}^2=1$, donc $z'\in\mathcal{U}(A)$. Si $\abs{z}^2=1$, $z\in\mathcal{U}(A)$.
+
+				Si $\abs{z}^2=3$, $a^2+5b^2=3$, donc $b=0$. Alors, $a=\sqrt{3}\notin\ZZ$. \lightning
+			\end{itemize}
+		\end{subproof}
+	\end{exem}
 \end{document}
