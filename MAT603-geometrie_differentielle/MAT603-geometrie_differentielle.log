@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  17 NOV 2026 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.15)  24 NOV 2026 16:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -994,6 +994,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [18]
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.07225pt}.
@@ -1017,14 +1020,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [21]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
-
-[22]
 Overfull \hbox (18.94548pt too wide) in paragraph at lines 1528--1531
 []\OT1/cmr/m/n/10 En g^^Sen^^Seral, $[] = (\OML/cmm/m/it/10 v[]; v[]; [] ; v[]\
 OT1/cmr/m/n/10 )$ et $(\OML/cmm/m/it/10 D[]f\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 
@@ -1034,6 +1029,14 @@ mm/m/it/10 f\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A []$\OT1/cmr/m/n/10 , o^^Ru $
 []\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 = []$. 
  []
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[22]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -1082,11 +1085,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [28]
-<figs/exemple_ombilique.png, id=253, 752.0597pt x 477.28313pt>
+<figs/exemple_ombilique.png, id=258, 752.0597pt x 477.28313pt>
 File: figs/exemple_ombilique.png Graphic file (type png)
 <use figs/exemple_ombilique.png>
 Package pdftex.def Info: figs/exemple_ombilique.png  used on input line 2043.
 (pdftex.def)             Requested size: 250.24199pt x 158.80753pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1107,9 +1113,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
 [30 <./figs/exemple_ombilique.png>]
-Overfull \hbox (2.00343pt too wide) detected at line 2163
-[]
- []
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1134,7 +1139,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[33] (MAT603-geometrie_differentielle.aux)
+[33]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[34]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[35]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[36] (MAT603-geometrie_differentielle.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -1146,14 +1175,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 Package rerunfilecheck Info: File `MAT603-geometrie_differentielle.out' has not
  changed.
-(rerunfilecheck)             Checksum: 79778AFB88FCDC7A71032D8714A0777F;1738.
+(rerunfilecheck)             Checksum: F914577EDCB00369354833B71B25F8C5;1938.
  ) 
 Here is how much of TeX's memory you used:
- 26642 strings out of 467441
- 513234 string characters out of 5407591
- 1208219 words of memory out of 5000000
- 55428 multiletter control sequences out of 15000+600000
- 640501 words of font info for 92 fonts, out of 8000000 for 9000
+ 26658 strings out of 467441
+ 513467 string characters out of 5407591
+ 1210220 words of memory out of 5000000
+ 55437 multiletter control sequences out of 15000+600000
+ 640853 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,26n,104p,793b,1039s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
@@ -1175,13 +1204,14 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jujub/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/jujub/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jujub/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jujub
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><
-C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb>
-Output written on MAT603-geometrie_differentielle.pdf (35 pages, 637220 bytes).
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Use
+rs/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam
+10.pfb><C:/Users/jujub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/symbols/msbm10.pfb>
+Output written on MAT603-geometrie_differentielle.pdf (38 pages, 673717 bytes).
 
 PDF statistics:
- 387 PDF objects out of 1000 (max. 8388607)
- 102 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 417 PDF objects out of 1000 (max. 8388607)
+ 108 named destinations out of 1000 (max. 500000)
+ 114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
