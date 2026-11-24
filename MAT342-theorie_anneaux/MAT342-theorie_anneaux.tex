@@ -3334,4 +3334,199 @@
 			\end{itemize}
 		\end{subproof}
 	\end{exem}
+
+	\begin{rapp}
+		Soit $A$ un anneau int\`egre.
+
+		$p$ est \emph{irr\'eductible} si, et seulement si, $p=ab$ entra\^ine $a\in\mathcal{U}(A)$ ou $b\in\mathcal{U}(A)$.
+
+		$p$ est \emph{premier} ei, et seulement si, $p \mid ab$ entra\^ine $p \mid a$ ou $p \mid b$.
+
+		Nous avons vu que, dans $\ZZ[\sqrt{-5}]$, $3$ est irr\'eductible mais pas premier.
+	\end{rapp}
+
+	\begin{lem}
+		Soit $A$ un anneau int\`egre. Si $p$ est premier, alors $p$ est irr\'eductible.
+		\begin{proof}
+			Supposons que $p$ est premier et $p=ab$.
+
+			Clairement, $p \mid ab$. Comme $p$ est premier, $p \mid a$ ou $p \mid b$. Supposons sans perte de g\'en\'eralit\'e que $p \mid a$. Alors, $a=pa'$, donc $p=ab=pa'b$. D'o\`u $p(1-a'b)=0$.
+
+			Comme $A$ est int\`egre, $a'b=1$, donc $b\in\mathcal{U}(A)$.
+		\end{proof}
+	\end{lem}
+
+	\section{Anneaux euclidiens}
+	L'id\'ee de cette section est de consid\'erer l'algorithme de la division un axiome.
+
+	\begin{dfn}
+		$A$ est \emph{euclidien} s'il est int\`egre et il existe un stathme $\varphi:A\setminus\{0\}\to\NN$ t.q.
+		\begin{enumerate}
+			\item $\varphi(a)\lte\varphi(ab)$ $\forall a,b\in A$;
+			\item $\forall a\in A$, $\forall b\in A\setminus\{0\}$, $\exists q,r$ t.q. $a=bq+r$ avec $r=0$ ou $\varphi(r),\varphi(b)$.
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $A=\ZZ$ avec $\varphi:a\mapsto\abs{a}$.
+			\item $A=\Bbbk[x]$ avec $\varphi:p\mapsto\partial p$.
+			\item $A=\Bbbk$ avec $\varphi:a\mapsto1$.
+			\item $A=\ZZ[i]$ avec $\varphi:z\mapsto\abs{z}^2$.
+
+			Si $z=a+bi$, $\varphi(z)=a^2+b^2$.
+			\begin{itemize}
+				\item Si $z'\in\ZZ[i]\setminus\{0\}$, $\abs{z'}^2>0$.
+				\begin{align*}
+					\varphi(zz')&= \abs{zz'}^2\\
+					&= \abs{z}^2 \abs{z'}^2\\
+					&\gte \abs{z}^2\\
+					&= \varphi(z)
+				\end{align*}
+				\item Si $z=a+bi$ et $z'=a'+b'i$.
+				\begin{align*}
+					\frac{z}{z'}&= \frac{a+bi}{a'+b'i} \frac{a'-b'i}{a'-b'i}\\
+					&= \frac{(aa'+bb')+(a'b-ab')i}{a'^2+b'^2}\\\\
+					&= x+yi\in\QQ[i]
+				\end{align*}
+			\end{itemize}
+		\end{enumerate}
+
+		\begin{tikzpicture}
+			\fill (0,0) circle (2pt);
+			\fill (2,0) circle (2pt);
+			\fill (0,2) circle (2pt);
+			\fill (2,2) circle (2pt) node[above right,anchor=south] {$q=c+di\in\ZZ[i]$};
+			\fill[red] (1.1,1.1) circle (2pt) node[below] {$x+yi$};
+		\end{tikzpicture}
+		$\exists c,d\in\ZZ$ t.q. $\abs{x-c}\leq\sfrac{1}{2}$ et $\abs{y-d}\leq\sfrac{1}{2}$.
+
+		On pose $q=c+di$ et $r=z-qz'$.
+
+		$\abs{\frac{z}{z'}-q}^2 = (x-c)^2+(y-d)^2 \lte \sfrac{1}{2} < 1$.
+		\begin{align*}
+			\varphi(r)&= \varphi(z-qz')\\
+			&= \abs{z-qz'}^2\\
+			&= \abs{z'\left(\frac{z}{z'}-q\right)}^2\\
+			&= \abs{z'}^2 \abs{\frac{z}{z'}-q}^2\\
+			&< \abs{z'}^2\\
+			&= \varphi(z')
+		\end{align*}
+	\end{exem}
+
+	\begin{rmq}
+		\begin{enumerate}
+			\item L'unicit\'e de $q$ et $r$ n'est pas requise.
+			\item On pourrait avoir des stathmes diff\'erents ou ``\'esot\'eriques'' pour un anneau donn\'e.
+		\end{enumerate}
+	\end{rmq}
+
+	\begin{prop}
+		Soit $A$ un anneau euclidien de stathme $\varphi$. Alors,
+		\begin{enumerate}
+			\item $\forall a\in A$, $\varphi(a)\gte\varphi(1)$ et l'\'egalit\'e a lieu si, et seulement si, $a\in\mathcal{U}(A)$;
+			\item Si $a,b$ sont associ\'es, $\varphi(a)=\varphi(b)$;
+			\item Si $a,b\in A\setminus\{0\}$ t.q. $a \mid b$ et $\varphi(a)=\varphi(b)$, alors $a$ et $b$ sont associ\'es.
+		\end{enumerate}
+		\begin{proof}
+			\begin{enumerate}
+				\item Pour $a\in A$, $a=a\id_A$, donc $\varphi(a)\gte\varphi(\id_A)$. Si $\varphi(a)=\varphi(1)$, $\exists q,r\in A$ t.q. $\id_A=aq+r$ avec $r=0$ ou $\varphi(r)<\varphi(a)=\varphi(1)$. Donc, $r=0$ et $\id_A=aq$.
+				\item $a=ub$ et $b=u^{-1}a$. $\varphi(a)=\varphi(ub)\gte\varphi(b)$ et $\varphi(b)=\varphi(u^{-1}a)\gte\varphi(a)$. Alors, $\varphi(a)=\varphi(b)$.
+				\item Supposons que $a \mid b$ et $\varphi(a)=\varphi(b)$. $a=bq+r$ avec $r=0$ ou $\varphi(r)<\varphi(b)=\varphi(a)$. $r=a-bq$. Comme $a \mid b$, on a que $a \mid r$, d'o\`u $\exists x\in A$ t.q. $r=ax$. Alors, $\varphi(r)=\varphi(ax)\gte\varphi(a)$. Alors, $r=0$ et $b \mid a$. Ainsi, $a$ et $b$ sont associ\'es.
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+
+	\begin{rapp}
+		Un anneau int\`egre est \emph{principal} si ses id\'eaux sont de la forme $\langle a \rangle$.
+	\end{rapp}
+
+	\begin{prop}
+		Soit $A$ un anneau euclidien de stathme $\varphi$. Alors, $A$ est principal.
+		\begin{proof}
+			Soit $I\trianglelefteq A$ non nul. $\{\varphi(x) \mid x\in I\} \subseteq \NN$ admet un \'el\'ement minimal, $m$. Il existe un $d\in I$ t.q. $\varphi(d)=m$.
+
+			Alors, $\langle d \rangle \subset I$.
+
+			R\'eciproquement, soit $a\in I$, de sorte que $\exists q,r\in A$ t.q. $a=dq+r$ avec $r=0$ ou $\varphi(r)<\varphi(d)$. Si $r\neq0$, $r=a-dq\in I$, ce qui contredit la minimalit\'e de $m=\varphi(d)$.
+		\end{proof}
+	\end{prop}
+
+	\begin{coro}
+		Dans un anneau euclidien, deux \'el\'ements poss\`edent
+		\begin{enumerate}
+			\item un $\pgcd$;
+			\item un $\ppcm$.
+		\end{enumerate}
+		\begin{proof}
+			Soient $a,b\in A$.
+			\begin{enumerate}
+				\item $I=\langle a,b \rangle$ est un id\'eal de $A$, donc de la forme $\langle d \rangle$.
+				\item $I=\langle a \rangle \cap \langle b \rangle$ est un id\'eal de $A$, donc de la forme $\langle m \rangle$.
+			\end{enumerate}
+		\end{proof}
+	\end{coro}
+
+	\begin{dfn}
+		Dans un anneau euclidien, $a$ et $b$ sont \emph{copremiers} si $1$ est un $\pgcd$ de $a$ et $b$.
+	\end{dfn}
+
+	\begin{coro}[B\'ezout]
+		Soit $A$ un anneau euclidien. Soient $a,b\in A$. Alors, $a$ et $b$ sont copremiers si, et seulement si, $\exists s,t\in A$ t.q. $as+bt=1$.
+		\begin{proof}
+			\begin{itemize}
+				\item[$\Rightarrow$:] $\pgcd(a,b)$ est g\'en\'erateur de $\langle a,b \rangle$ qui est $\langle a \rangle+\langle b \rangle$. Si $a$ et $b$ sont copremiers, $1\in\langle a \rangle+\langle b \rangle$, d'o\`u $1=as+bt$ pour certains $s,t\in A$.
+				\item[$\Leftarrow$:] Si $\exists s,t\in A$ t.q. $as+bt=1$, alors $1 \mid a$ et $1 \mid b$. Si $d' \mid a$ et $d'\mid b$, alors $d' \mid as+bt$. Donc, $d' \mid 1$. Ainsi, $1$ est un $\pgcd$ de $a$ et $b$.
+			\end{itemize}
+		\end{proof}
+	\end{coro}
+
+	\begin{rmq}
+		Le $\pgcd$ de deux \'el\'ements d'un anneau euclidien peut \^etre calcul\'e gr\^ace \`a l'algorithme d'Euclide.
+	\end{rmq}
+
+	\begin{exem}
+		Trouver le $\pgcd$ de $a=12+12i$ et $b=12+i$ dans $\ZZ[i]$.
+		\begin{align*}
+			\frac{12+12i}{12+i}&= \frac{12+12i}{12+i} \frac{12-i}{12-i}\\
+			&= \frac{156+132i}{145}\\
+			&= \frac{(145+145i)+(11-13i)}{145}\\
+			&= (1+i)+\frac{11-13i}{145}
+		\end{align*}
+
+		On pose $q_1=1+i$ et $r_1=a-bq_1=1-i$.
+
+		\begin{align*}
+			\frac{12+i}{1-i}&= \frac{12+i}{1-i} \frac{1+i}{1+i}\\
+			&= \frac{11+13i}{2}\\
+			&= \frac{(10+14i)+(1-i)}{2}\\
+			&= (5+7i)+\frac{1-i}{2}
+		\end{align*}
+
+		On pose $q_2=5+7i$ et $r_2=b-q_2r_1=-i$.
+
+		Comme $r_2\in\mathcal{U}(\ZZ[i])$, la division suivante sera exacte ($r_3=0$). Alors, un $\pgcd$ est $-i$. donc $1$ en est un aussi.
+
+		Ainsi, $12+12i$ et $12+i$ sont copremiers.
+
+		On peut ``remonter'' l'algorithme d'Euclide pour obtenir $1=\underbrace{(-12+i)}_{t}\underbrace{(12+i)}_{b} + \underbrace{(5i-7)}_{s}\underbrace{(12+12i)}_{a}$.
+	\end{exem}
+
+	\section{Anneaux principaux}
+	\begin{rapp}
+		Les anneaux principaux sont ceux dont les id\'eaux sont de la forme $\langle a \rangle$.
+	\end{rapp}
+
+	\begin{exem}
+		\begin{enumerate}
+			\item $\ZZ$,
+			\item $\Bbbk[x]$,
+			\item tout anneau euclidien,
+			\item $\RR[x,y]$ n'est pas principal.
+			\begin{subproof}[En effet,]
+				$\langle x,y \rangle$ n'est pas de la forme $\langle p \rangle$. Si c'\'etait le cas, $p \mid x$ et $p \mid y$. $\partial p\lte1$ donne $p=a_0+a_1x+a_2y$ est une contradiction. \lightning
+			\end{subproof}
+			\item $\ZZ[x]$: $\langle 2,x \rangle$ n'est pas de la forme $\langle p \rangle$.
+		\end{enumerate}
+	\end{exem}
 \end{document}

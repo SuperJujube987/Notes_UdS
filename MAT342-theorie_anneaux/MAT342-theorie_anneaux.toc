@@ -13,3 +13,5 @@
 \contentsline {subsubsection}{Cas particuliers}{36}{subsubsection*.4}%
 \contentsline {chapter}{\numberline {5}Anneaux principaux}{38}{chapter.5}%
 \contentsline {section}{\numberline { 5.1}Divisibilit\'e dans un anneau int\`egre}{38}{section.5.1}%
+\contentsline {section}{\numberline { 5.2}Anneaux euclidiens}{39}{section.5.2}%
+\contentsline {section}{\numberline { 5.3}Anneaux principaux}{42}{section.5.3}%
