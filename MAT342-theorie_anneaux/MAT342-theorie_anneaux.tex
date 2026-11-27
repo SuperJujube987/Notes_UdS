@@ -3316,7 +3316,7 @@
 			\begin{itemize}
 				\item Calculons les unit\'es de $A$.
 
-				On a $z=a+bi\sqrt{5}\in\mathcal{U}(A)$ $\Longleftrightarrow$ $\exists z' \text{ t.q. } zz'=1$.
+				On a $z=a+bi\sqrt{5}\in\mathcal{U}(A)$ $\Longleftrightarrow$ $\exists z'$ t.q. $zz'=1$.
 
 				$1=\overline1=\overline{zz'}=\overline{z}\,\overline{z'}$, d'o\`u $1=1 \cdot 1 = (zz') (\overline{z}\,\overline{z'}) = (z\overline{z}) (z'\overline{z'})$. Alors, $1=\abs{z}^2 \abs{z'}^2$. Or, $\abs{z}^2 = z\overline{z} = (a+bi\sqrt{5}) (a-bi\sqrt{5}) = a^2+5b^2\in\NN$.
 
@@ -3529,4 +3529,90 @@
 			\item $\ZZ[x]$: $\langle 2,x \rangle$ n'est pas de la forme $\langle p \rangle$.
 		\end{enumerate}
 	\end{exem}
+
+	\begin{rmq}
+		Si $a,b\in A$, avec $A$ un anneau principal, $\langle a,b \rangle = \langle d \rangle$ avec $d$ un $\pgcd$.
+
+		Alors, les $\pgcd$ existent m\^eme si on ne peut pas le calculer \`a l'aide de l'algorithme d'Euclide.
+	\end{rmq}
+
+	\begin{thm}
+		Soit $A$ un anneau principal. $p\in A$, $p\neq0$. Alors, les conditions suivantes sont \'equivalentes.
+		\begin{enumerate}
+			\item $p$ est premier;
+			\item $p$ est irr\'eductible;
+			\item $\langle p \rangle$ est un id\'eal premier;
+			\item $\langle p \rangle$ est un id\'eal maximal.
+		\end{enumerate}
+		\begin{proof}
+			\begin{itemize}
+				\item[4$\Rightarrow$3] Si $\langle p \rangle$ est maximal, $\sfrac{A}{\langle p \rangle}$. Alors, $\sfrac{A}{\langle p \rangle}$ est int\`egre. Donc, $\langle p \rangle$ est premier.
+				\item[3$\Leftrightarrow$1] Vrai pour $A$ int\`egre.
+				\begin{align*}
+					\langle p \rangle \text{ premier}&\Longleftrightarrow \left( ab\in\langle p \rangle \Longrightarrow a\in\langle p \rangle \text{ ou } b\in\langle p \rangle \right)\\
+					&\Longleftrightarrow \left( ab\in\langle p\rangle \Longrightarrow p \mid a \text{ ou } p \mid b \right)\\
+					&\Longleftrightarrow p \text{ est premier dans} A
+				\end{align*}
+				\item[1$\Rightarrow$2] Supposons que $p$ est premier et $p=ab$. $p\mid p$ donne $p\mid ab$, donc $p\mid a$ ou $p\mid b$.
+
+				Si $p\mid a$, $a=pa'$ donne $p=pa'b$. D'o\`u $p(1-a'b)=0$. Comme $A$ est int\`egre, $b\in\mathcal{U}(A)$.
+				\item[2$\Rightarrow$4] Supposons que $p$ est irr\'eductible dans $A$ et $I\trianglelefteq A$ t.q. $\langle p \rangle\subseteq I\subseteq A$.
+
+				$\exists a\in A$ t.q. $I=\langle a \rangle$. Comme $\langle p \rangle\subseteq\langle a \rangle$, $a\mid p$. Or, puisque $p$ est irr\'eductible,
+				\begin{itemize}[nosep]
+					\item $a\in\mathcal{U}(A)$, donc $I=A$;
+
+					ou
+					\item $a$ est associ\'e \`a $p$, donc $I=\langle p\rangle$.
+				\end{itemize}
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+
+	\begin{rmq}
+		Dans $\ZZ[\sqrt{-5}]$, $3$ est irr\'eductible, mais pas premier.
+
+		Ainsi, $\ZZ[\sqrt{-5}]$ n'est pas principal. En particulier, $\ZZ[\sqrt{-5}]$ n'est pas euclidien pour n'importe quel stathme.
+
+		Dans $\ZZ[\sqrt{-5}]$, l'existence de $\pgcd$ n'est pas garantie. Cela fournit un id\'eal non principal, par exemple $\langle 6, 2+2i\sqrt{5}\rangle$. De m\^eme, $I=\langle 3, 2+i\sqrt{5} \rangle$ n'est pas principal.
+	\end{rmq}
+
+	\section{Factorisation unique}
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			\node () at (0,0) {Anneaux euclidiens};
+			\node () at (0,-.5) {$\ZZ$, $\Bbbk[x]$, $\ZZ[i]$};
+			\draw (0,0) ellipse (2 and 1);
+			\node () at (0,1.5) {Anneaux principaux};
+			\node () at (2.6,1) {$\ZZ\left[ \frac{1+\sqrt{-19}}{2} \right]$};
+			\draw (.7,.5) ellipse (3.5 and 2);
+			\node () at (0,3) {Factorisation unique};
+			\node () at (2.5,2.8) {$\ZZ[x]$};
+			\node () at (3.5,2.3) {$\Bbbk[x,y]$};
+			\draw (1.2,1.1) ellipse (4.5 and 3);
+			\node () at (0,4.5) {Anneaux int\`egres};
+			\node () at (3.6,4.2) {$\ZZ[\sqrt{-5}]$};
+			\draw[rounded corners=2cm] (-3.5,-2) rectangle (6,5);
+		\end{tikzpicture}
+		\caption{Classification de certains types anneaux avec quelques exemples}
+	\end{figure}
+
+	Le but de cette section est d'obtenir que les anneaux principaux sont factoriels. Ensuite, on veut obtenir que les anneaux de polyn\^ome \`a coefficients dans un anneau factoriel sont factoriels.
+
+	\begin{dfn}
+		Un anneau int\`egre ets dit \^etre \emph{factoriel} si $\forall a\in A_*\setminus\mathcal{U}(A)$
+		\begin{enumerate}
+			\item $\exists p_1,\dots,p_m$ irr\'eductibles t.q. $a=\prod_{j=1}^{m}p_j$.
+			\item La factorisation est unique \`a associ\'es et ordre pr\`es.
+			\[ \prod_{i=1}^{n}p_i=\prod_{j=1}^{m}q_j \]
+			avec $p_i$ et $q_j$ irr\'eductibles, alors $n=m$ et $\exists\sigma\in S_n$ t.q. $p_i\sim q_{\sigma(i)}$. Ici, $\sim$ repr\'esente la notion d'associ\'es.
+		\end{enumerate}
+	\end{dfn}
+
+	\begin{rmq}
+		$\ZZ[\sqrt{-5}]$ n'est pas factoriel.
+		\[ 9 = 3\times3 = (2+i\sqrt{5}) (2-i\sqrt{5}) \]
+		$9$ se d\'ecompose comme produit d'irr\'eductibles de deux mani\`ere \emph{essentiellement distinctes}.
+	\end{rmq}
 \end{document}
